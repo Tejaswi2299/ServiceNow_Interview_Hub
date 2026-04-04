@@ -1,0 +1,592 @@
+[
+  {
+    "id": "major-incident-vs-priority-1-governance",
+    "slug": "major-incident-vs-priority-1-governance",
+    "title": "Major Incident vs Priority 1 governance",
+    "question": "Why is a major incident process not the same thing as a Priority 1 value on an incident record?",
+    "summary": "Separates business process governance from a record priority value.",
+    "roleIds": [
+      "major-incident-manager",
+      "itsm-administrator",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "major-incident-management"
+    ],
+    "topicIds": [
+      "major-incident",
+      "incident-table",
+      "priority"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "major incident",
+      "priority 1",
+      "incident"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "A Priority 1 incident describes impact and urgency severity, while a major incident is an operational handling model with elevated governance, communications, bridge ownership, and stakeholder coordination. In mature implementations, major incident is a controlled designation that may be triggered by P1 conditions, service impact, executive attention, or business criticality, but it is not just another label for all P1 records.",
+    "keyPoints": [
+      "Priority indicates severity; major incident defines the response model.",
+      "A major incident usually includes bridge management, communications cadence, and management visibility.",
+      "The strongest interview answer explains that organizations often use additional criteria before promoting a P1 to a major incident."
+    ],
+    "examples": [
+      "A single-user but revenue-critical outage can become a major incident.",
+      "A P1 that is quickly restored without broad impact may remain a normal P1 operationally."
+    ],
+    "comparisonTable": [
+      {
+        "label": "Priority",
+        "value": "Severity and response expectation on the record."
+      },
+      {
+        "label": "Major incident",
+        "value": "Governed operating model with added coordination and communication."
+      }
+    ]
+  },
+  {
+    "id": "problem-candidate-vs-problem-record",
+    "slug": "problem-candidate-vs-problem-record",
+    "title": "Problem Candidate vs Problem Record",
+    "question": "What is the difference between a problem candidate and an actual problem record?",
+    "summary": "Explains the funnel from repeat incidents into governed problem management.",
+    "roleIds": [
+      "problem-manager",
+      "itsm-administrator",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "problem-management",
+      "incident-management"
+    ],
+    "topicIds": [
+      "problem-candidates",
+      "root-cause-analysis",
+      "problem-table"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "problem candidate",
+      "problem",
+      "problem management"
+    ],
+    "relatedTables": [
+      "problem",
+      "incident"
+    ],
+    "exactAnswer": "A problem candidate is an indicator that repeated or related incidents may need structural investigation, while a problem record is the formal tracked object used for root-cause analysis, known error management, and permanent corrective action. Candidates help detect patterns; problem records govern the investigation and remediation lifecycle.",
+    "keyPoints": [
+      "Problem candidates are signals, not always formal investigations.",
+      "Problem records carry RCA, workaround, and permanent fix tracking.",
+      "Interviewers like hearing that thresholds and analyst review usually determine whether a candidate becomes a real problem."
+    ],
+    "examples": [
+      "Five incidents with the same CI and symptom can create a candidate.",
+      "The manager reviews the candidate and then opens a governed problem record."
+    ]
+  },
+  {
+    "id": "change-models-vs-normal-change-templates",
+    "slug": "change-models-vs-normal-change-templates",
+    "title": "Change Models vs Change Templates",
+    "question": "How do you explain the difference between change models and ordinary change templates?",
+    "summary": "Frames governance versus convenience in change design.",
+    "roleIds": [
+      "change-manager",
+      "change-management-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "change-management",
+      "itsm"
+    ],
+    "topicIds": [
+      "change-models",
+      "change-table"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "change models",
+      "change templates",
+      "change management"
+    ],
+    "relatedTables": [
+      "change_request"
+    ],
+    "exactAnswer": "A change template mainly accelerates field population and consistency, while a change model packages governance expectations such as risk pattern, approvals, tasks, or policy-driven handling for a specific change type. In interviews, the best answer is that change models are about controlled process behavior, not only prefilled values.",
+    "keyPoints": [
+      "Templates speed up data entry.",
+      "Models shape execution and governance.",
+      "Use models when the organization wants repeatable policy-based handling for a known change type."
+    ],
+    "examples": [
+      "A standard network patching pattern may use a model with predefined tasks and approvals."
+    ]
+  },
+  {
+    "id": "sla-repair-when-to-use",
+    "slug": "sla-repair-when-to-use",
+    "title": "When to use SLA Repair",
+    "question": "When should you use SLA repair and what should you verify before running it?",
+    "summary": "Covers the right interview framing for retroactive SLA correction.",
+    "roleIds": [
+      "itsm-administrator",
+      "major-incident-manager",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "sla-management"
+    ],
+    "topicIds": [
+      "sla-repair",
+      "task-slas",
+      "slas"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "troubleshooting",
+    "tags": [
+      "sla repair",
+      "task_sla",
+      "retroactive"
+    ],
+    "relatedTables": [
+      "task_sla",
+      "incident"
+    ],
+    "exactAnswer": "Use SLA repair when the task-SLA data is wrong because definition logic changed, start conditions were fixed, or historical records need recalculation. Before using repair, verify which SLA definition should attach, whether old task_sla records should be removed or recalculated, and whether the repair scope is small enough to avoid unnecessary load.",
+    "keyPoints": [
+      "Repair is for correction, not day-to-day attachment logic.",
+      "Always validate the definition, start/stop conditions, and target population before execution.",
+      "The strongest answer mentions testing in a limited set before broad repair."
+    ]
+  },
+  {
+    "id": "cmdb-health-dimensions-explained",
+    "slug": "cmdb-health-dimensions-explained",
+    "title": "CMDB Health Dimensions Explained",
+    "question": "How would you explain CMDB health dimensions in an interview?",
+    "summary": "Gives a concise but practical explanation of completeness, correctness, and compliance-style quality thinking.",
+    "roleIds": [
+      "cmdb-manager",
+      "cmdb-administrator",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "cmdb-governance"
+    ],
+    "topicIds": [
+      "cmdb-health",
+      "cmdb-health-dashboard",
+      "cmdb-governance-topic"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "cmdb health",
+      "governance",
+      "data quality"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "exactAnswer": "CMDB health is the ongoing measurement of whether CI records are complete, correct, current, and governed according to class rules and operational expectations. A strong interview answer explains that health is not just record count; it is whether the data is reliable for impact analysis, change risk, service mapping, and operations decisions.",
+    "keyPoints": [
+      "Completeness asks whether required attributes are populated.",
+      "Correctness asks whether values are accurate and trustworthy.",
+      "Governance asks whether records conform to class policies, ownership, and lifecycle expectations."
+    ]
+  },
+  {
+    "id": "ire-vs-manual-imports",
+    "slug": "ire-vs-manual-imports",
+    "title": "IRE vs Manual Inserts into CMDB",
+    "question": "Why is IRE preferred over manual record updates for many CMDB ingestion patterns?",
+    "summary": "Explains trusted identification and reconciliation behavior.",
+    "roleIds": [
+      "cmdb-manager",
+      "cmdb-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "cmdb-governance",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "ire",
+      "ire-debugging",
+      "identification-rules-advanced",
+      "reconciliation-rules-advanced"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "comparison",
+    "tags": [
+      "ire",
+      "cmdb",
+      "reconciliation"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "exactAnswer": "IRE is preferred because it applies identification and reconciliation logic consistently, reducing duplicate CI creation and protecting authoritative source precedence. Manual inserts or direct updates can bypass that governance, leading to duplicate records, overwritten data, and lower trust in the CMDB.",
+    "keyPoints": [
+      "IRE centralizes trusted identification.",
+      "Reconciliation protects source precedence.",
+      "Direct writes are risky when multiple sources populate the same CI classes."
+    ]
+  },
+  {
+    "id": "discovery-pattern-vs-probe-sensor",
+    "slug": "discovery-pattern-vs-probe-sensor",
+    "title": "Discovery Pattern vs Probe/Sensor",
+    "question": "How do you explain the difference between discovery patterns and older probe/sensor style thinking?",
+    "summary": "Positions modern pattern-based troubleshooting clearly.",
+    "roleIds": [
+      "discovery-administrator",
+      "discovery-developer",
+      "service-mapping-developer"
+    ],
+    "moduleIds": [
+      "discovery",
+      "discovery-patterns"
+    ],
+    "topicIds": [
+      "pattern-designer",
+      "patterns",
+      "probes-sensors"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "patterns",
+      "probe",
+      "sensor",
+      "discovery"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "exactAnswer": "Patterns define a structured sequence of identification and exploration steps that are easier to read, maintain, and troubleshoot for supported technologies, while probes and sensors reflect older lower-level mechanisms around discovery execution and result handling. In interviews, the best answer is that patterns are the modern, maintainable discovery design layer for many use cases.",
+    "keyPoints": [
+      "Patterns improve maintainability and clarity.",
+      "Probe/sensor knowledge still matters for troubleshooting and legacy understanding.",
+      "The strongest answer shows when to use pattern troubleshooting first."
+    ]
+  },
+  {
+    "id": "ecc-queue-what-to-check",
+    "slug": "ecc-queue-what-to-check",
+    "title": "ECC Queue: What to Check First",
+    "question": "What should you check first in ECC Queue when discovery or integrations are failing?",
+    "summary": "Gives an interview-ready triage order.",
+    "roleIds": [
+      "discovery-administrator",
+      "integration-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "discovery",
+      "platform-operations",
+      "rest-integrations"
+    ],
+    "topicIds": [
+      "ecc-queue",
+      "mid-server",
+      "discovery-troubleshooting"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "troubleshooting",
+    "tags": [
+      "ecc queue",
+      "mid server",
+      "integration troubleshooting"
+    ],
+    "relatedTables": [
+      "ecc_queue"
+    ],
+    "exactAnswer": "Start by checking whether there are pending, error, or stalled ECC queue records for the relevant MID Server or integration topic, then verify payload direction, timestamps, agent name, and error details. A strong answer also mentions confirming the MID Server status, credentials, and whether the failure is request-side or response-side.",
+    "keyPoints": [
+      "Use ECC Queue to see transport-level evidence.",
+      "Correlate with MID Server and schedule logs.",
+      "Look for backlog patterns, repeated failures, and topic-specific errors."
+    ]
+  },
+  {
+    "id": "sir-vs-vulnerability-response",
+    "slug": "sir-vs-vulnerability-response",
+    "title": "SIR vs Vulnerability Response",
+    "question": "What is the difference between Security Incident Response and Vulnerability Response?",
+    "summary": "Separates incident investigation from vulnerability remediation work.",
+    "roleIds": [
+      "security-incident-analyst",
+      "vulnerability-analyst",
+      "secops-developer"
+    ],
+    "moduleIds": [
+      "security-incident-response",
+      "vulnerability-response",
+      "secops"
+    ],
+    "topicIds": [
+      "security-incident-response-topic",
+      "vulnerability-response-topic",
+      "security-incident-tasks"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "comparison",
+    "tags": [
+      "sir",
+      "vulnerability response",
+      "secops"
+    ],
+    "relatedTables": [
+      "sn_si_incident",
+      "sn_vul_vulnerability"
+    ],
+    "exactAnswer": "Security Incident Response handles active or suspected security events that require investigation, containment, eradication, and recovery. Vulnerability Response handles identified weaknesses that must be assessed, grouped, assigned, and remediated before exploitation or risk acceptance.",
+    "keyPoints": [
+      "SIR is incident-centric; VR is weakness-remediation centric.",
+      "SIR focuses on response workflow; VR focuses on exposure reduction and remediation governance.",
+      "The best interview answer mentions they often connect but are not the same operational process."
+    ]
+  },
+  {
+    "id": "policy-exception-vs-issue",
+    "slug": "policy-exception-vs-issue",
+    "title": "Policy Exception vs Issue",
+    "question": "How would you explain a policy exception versus an issue in GRC?",
+    "summary": "Clarifies temporary approved deviation versus noncompliant condition.",
+    "roleIds": [
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "grc",
+      "policy-and-compliance",
+      "risk-management"
+    ],
+    "topicIds": [
+      "policy-exceptions",
+      "issue-management"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "policy exception",
+      "issue",
+      "grc"
+    ],
+    "relatedTables": [
+      "sn_compliance_exception",
+      "sn_grc_issue"
+    ],
+    "exactAnswer": "A policy exception is an approved, time-bound deviation from a requirement, usually with justification, risk awareness, and expiration controls. An issue represents a problem, deficiency, or control failure that requires remediation tracking. In interviews, emphasize that exceptions are governed approvals; issues are findings that need action.",
+    "keyPoints": [
+      "Exceptions are controlled deviations.",
+      "Issues are remediation-tracked findings.",
+      "The strongest answer mentions expiry, review cadence, and ownership on exceptions."
+    ]
+  },
+  {
+    "id": "control-attestation-purpose",
+    "slug": "control-attestation-purpose",
+    "title": "Purpose of Control Attestations",
+    "question": "Why do organizations use control attestations in GRC workflows?",
+    "summary": "Explains evidence-backed ownership confirmation.",
+    "roleIds": [
+      "governance-risk-analyst",
+      "audit-developer",
+      "grc-developer"
+    ],
+    "moduleIds": [
+      "grc",
+      "policy-and-compliance",
+      "audit-management"
+    ],
+    "topicIds": [
+      "control-attestations",
+      "audit-management",
+      "policy-and-compliance-topic"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "control attestations",
+      "evidence",
+      "grc"
+    ],
+    "relatedTables": [
+      "sn_audit_control"
+    ],
+    "exactAnswer": "Control attestations let control owners periodically confirm that a control exists, is operating, and is supported by evidence or narrative explanation. They create accountability, support audit readiness, and reveal gaps before external review or compliance deadlines.",
+    "keyPoints": [
+      "They turn control ownership into a measurable workflow.",
+      "They create cadence and evidence expectations.",
+      "They help surface stale documentation or weak operating controls early."
+    ]
+  },
+  {
+    "id": "vulnerability-group-routing-strategy",
+    "slug": "vulnerability-group-routing-strategy",
+    "title": "Vulnerability Group Routing Strategy",
+    "question": "What makes a strong vulnerability-group routing design?",
+    "summary": "Highlights ownership alignment, rules quality, and operational maintainability.",
+    "roleIds": [
+      "vulnerability-analyst",
+      "vulnerability-response-developer",
+      "secops-developer"
+    ],
+    "moduleIds": [
+      "vulnerability-response",
+      "secops"
+    ],
+    "topicIds": [
+      "vulnerability-groups",
+      "assignment-rules"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "best-practice",
+    "tags": [
+      "vulnerability groups",
+      "routing",
+      "assignment"
+    ],
+    "relatedTables": [
+      "sn_vul_vulnerability",
+      "sys_user_group"
+    ],
+    "exactAnswer": "A strong routing design aligns vulnerability groups to accountable remediation teams, uses clear assignment logic based on CI ownership or service ownership, and avoids over-fragmentation that creates orphaned queues. The best interview answer mentions fallback ownership, stale-assignment monitoring, and exceptions for shared infrastructure.",
+    "keyPoints": [
+      "Route by accountable ownership, not only by technical category.",
+      "Provide fallback groups for missing ownership data.",
+      "Measure unassigned age and rebalance rules over time."
+    ]
+  },
+  {
+    "id": "ham-stockroom-governance",
+    "slug": "ham-stockroom-governance",
+    "title": "HAM Stockroom Governance",
+    "question": "What should you cover when explaining stockroom governance in HAM?",
+    "summary": "Explains the operational controls behind hardware movement and accountability.",
+    "roleIds": [
+      "asset-manager",
+      "ham-analyst",
+      "ham-developer"
+    ],
+    "moduleIds": [
+      "ham",
+      "asset-management",
+      "itam"
+    ],
+    "topicIds": [
+      "asset-stockrooms",
+      "asset-transfers",
+      "hardware-assets"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "stockroom",
+      "ham",
+      "asset transfer"
+    ],
+    "relatedTables": [
+      "alm_asset",
+      "alm_stockroom"
+    ],
+    "exactAnswer": "Stockroom governance is about controlling where assets are received, stored, transferred, and issued, while preserving accountability and inventory accuracy. A strong answer mentions stockroom ownership, transfer approval or validation, custody changes, and reconciliation between physical movement and system records.",
+    "keyPoints": [
+      "Stockrooms create operational ownership boundaries.",
+      "Transfers should be auditable and timely.",
+      "Inventory accuracy depends on disciplined receiving, issuing, and retirement updates."
+    ]
+  },
+  {
+    "id": "sam-normalization-vs-entitlement",
+    "slug": "sam-normalization-vs-entitlement",
+    "title": "Normalization vs Entitlement in SAM",
+    "question": "How do you explain normalization versus entitlement in Software Asset Management?",
+    "summary": "Separates software identity cleanup from license rights.",
+    "roleIds": [
+      "software-asset-manager",
+      "sam-analyst",
+      "sam-developer"
+    ],
+    "moduleIds": [
+      "sam",
+      "software-compliance"
+    ],
+    "topicIds": [
+      "software-normalization",
+      "software-entitlements",
+      "effective-license-position"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "normalization",
+      "entitlement",
+      "sam"
+    ],
+    "relatedTables": [
+      "cmdb_sam_sw_install",
+      "alm_license"
+    ],
+    "exactAnswer": "Normalization is the process of converting raw discovery evidence into trusted software product identities and versions, while entitlement is the license right the organization owns or has contractually obtained. In interviews, explain that normalization cleans the install data and entitlement defines what usage is allowed; both are required to calculate compliance.",
+    "keyPoints": [
+      "Normalization improves software data quality.",
+      "Entitlements represent owned or contracted rights.",
+      "Effective license position depends on both being trustworthy."
+    ]
+  },
+  {
+    "id": "elp-interview-answer",
+    "slug": "elp-interview-answer",
+    "title": "Effective License Position Interview Answer",
+    "question": "How would you explain effective license position in an interview?",
+    "summary": "Provides a concise compliance-oriented definition.",
+    "roleIds": [
+      "software-asset-manager",
+      "license-compliance-analyst",
+      "sam-developer"
+    ],
+    "moduleIds": [
+      "sam",
+      "software-compliance"
+    ],
+    "topicIds": [
+      "effective-license-position",
+      "license-metrics",
+      "software-entitlements"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "theory",
+    "tags": [
+      "elp",
+      "effective license position",
+      "compliance"
+    ],
+    "relatedTables": [
+      "alm_license"
+    ],
+    "exactAnswer": "Effective license position is the calculated view of whether software usage is under-licensed, balanced, or over-licensed after considering normalized installs, entitlements, metric rules, bundles, and other licensing logic. A good interview answer highlights that ELP is not a raw install count; it is a governed compliance calculation.",
+    "keyPoints": [
+      "ELP depends on trusted software identity and rights data.",
+      "Metric interpretation matters as much as install quantity.",
+      "Organizations use ELP to prioritize remediation, harvesting, or procurement."
+    ]
+  }
+]

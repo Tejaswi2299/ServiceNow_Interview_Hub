@@ -1,0 +1,712 @@
+[
+  {
+    "id": "p1-incident-escalation",
+    "slug": "p1-incident-escalation",
+    "title": "Implement P1 incident escalation",
+    "question": "How do you implement escalation and notification flow for P1 incidents?",
+    "summary": "Step-by-step P1 escalation design covering assignment, notifications, and SLA tracking.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-administrator",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "sla-management",
+      "notifications-email"
+    ],
+    "topicIds": [
+      "incident-table",
+      "notifications",
+      "events",
+      "slas",
+      "assignment-rules"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "P1",
+      "incident",
+      "escalation"
+    ],
+    "relatedTables": [
+      "incident",
+      "sysevent_email_action",
+      "contract_sla",
+      "task_sla"
+    ],
+    "scenario": "The client wants every Priority 1 incident to be routed immediately, notify leadership, and attach the correct response and resolution SLAs.",
+    "exactAnswer": "Implement the solution by defining the P1 criteria, automating assignment logic, firing a named event or notification, attaching the correct SLAs, and validating both insert and update scenarios where an existing incident becomes P1 after creation.",
+    "navigationPath": [
+      "All > Incident > Administration > Assignment Rules",
+      "All > System Notification > Email > Notifications",
+      "All > Service Level Management > SLA Definitions",
+      "All > System Policy > Events > Registry",
+      "All > System Definition > Business Rules or Flow Designer"
+    ],
+    "steps": [
+      "Confirm how Priority 1 is determined in the client process, including any dependency on impact and urgency.",
+      "Create or update the assignment rule or flow logic that routes P1 incidents to the correct major incident support group.",
+      "Create a named event such as incident.p1.triggered if you want event-driven notifications.",
+      "Create or update notifications for support leads, major incident managers, and any required stakeholder list.",
+      "Create SLA definitions for first response and resolution targets that apply to P1 incidents.",
+      "Add logic for the update case where a non-P1 incident is later changed to P1.",
+      "Test create, update, reassignment, and closure scenarios end to end."
+    ],
+    "involvedArtifacts": [
+      "Assignment Rule",
+      "Notification",
+      "Event",
+      "SLA Definition",
+      "Business Rule or Flow"
+    ],
+    "codeSnippets": [
+      {
+        "title": "Optional event trigger snippet",
+        "language": "javascript",
+        "script": "if (current.priority == 1 && previous.priority != 1) {\n  gs.eventQueue('incident.p1.triggered', current, current.number, current.assignment_group);\n}"
+      }
+    ],
+    "validationChecklist": [
+      "A new P1 routes to the correct group.",
+      "Notifications fire once, not multiple times.",
+      "The response and resolution SLAs attach correctly.",
+      "Changing an existing incident to P1 also triggers the required actions."
+    ],
+    "commonMistakes": [
+      "Triggering duplicate notifications from both a business rule and a notification condition.",
+      "Handling only insert and forgetting the priority-change update case."
+    ]
+  },
+  {
+    "id": "auto-close-resolved-incidents",
+    "slug": "auto-close-resolved-incidents",
+    "title": "Auto-close resolved incidents after 7 days",
+    "question": "How do you implement auto-closure for resolved incidents after 7 days?",
+    "summary": "Combines scheduled automation with validation of state and close notes.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "platform-core"
+    ],
+    "topicIds": [
+      "scheduled-jobs",
+      "incident-lifecycle"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "auto close",
+      "incident",
+      "scheduled job"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "scenario": "The service desk wants resolved incidents to close automatically after 7 days unless they are reopened first.",
+    "exactAnswer": "Implement a Scheduled Script Execution that queries incidents in Resolved state with resolved_at older than 7 days, sets the state to Closed, writes a closure note if required, and excludes any records that have been reopened or no longer qualify.",
+    "navigationPath": [
+      "All > System Definition > Scheduled Jobs",
+      "All > Incident > Open"
+    ],
+    "steps": [
+      "Confirm the exact close timing and whether business hours or calendar days apply.",
+      "Create a Scheduled Script Execution with the approved run frequency, such as daily overnight.",
+      "Query only incidents in the Resolved state and older than 7 days from resolved_at.",
+      "Set the state to Closed and populate close notes if required by the process.",
+      "Test records that are exactly on the threshold, below the threshold, and reopened before the job runs."
+    ],
+    "involvedArtifacts": [
+      "Scheduled Script Execution"
+    ],
+    "validationChecklist": [
+      "Resolved incidents older than 7 days close successfully.",
+      "Recently resolved incidents remain untouched.",
+      "Reopened incidents are not closed again incorrectly."
+    ],
+    "commonMistakes": [
+      "Using sys_updated_on instead of resolved_at for the aging calculation.",
+      "Ignoring state values used by the client's instance."
+    ]
+  },
+  {
+    "id": "import-users-via-transform-map",
+    "slug": "import-users-via-transform-map",
+    "title": "Import users through an import set and transform map",
+    "question": "How do you load a user file and create/update sys_user records safely?",
+    "summary": "Classic data import use case with staging, coalesce, and transform scripts.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "servicenow-administrator"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "import-sets",
+      "transform-maps",
+      "coalesce",
+      "sys-user"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "import",
+      "sys_user",
+      "transform map"
+    ],
+    "relatedTables": [
+      "sys_user",
+      "sys_import_set_row"
+    ],
+    "scenario": "HR sends a CSV file of employees and wants the platform to create new users and update existing ones without creating duplicates.",
+    "exactAnswer": "Implement the solution by loading the file into an import set table, creating a transform map to sys_user, choosing a stable coalesce field such as user_name or employee_number, and adding transform scripts for data normalization where required.",
+    "navigationPath": [
+      "All > System Import Sets > Load Data",
+      "All > System Import Sets > Administration > Transform Maps",
+      "All > User Administration > Users"
+    ],
+    "steps": [
+      "Load the inbound file into a staging/import set table.",
+      "Create a transform map from the staging table to sys_user.",
+      "Choose the correct coalesce strategy to decide create versus update behavior.",
+      "Map the required fields and add any transform scripts for normalization.",
+      "Test the transform with duplicate, new, and changed user rows.",
+      "Validate active status, manager lookups, and department mappings after the load."
+    ],
+    "involvedArtifacts": [
+      "Import Set Table",
+      "Transform Map",
+      "Transform Scripts"
+    ],
+    "validationChecklist": [
+      "Existing users update instead of duplicating.",
+      "New users insert correctly.",
+      "Unexpected source values are normalized or rejected as designed."
+    ],
+    "commonMistakes": [
+      "Choosing a weak coalesce field such as first name.",
+      "Skipping tests for manager or department reference resolution."
+    ]
+  },
+  {
+    "id": "incident-auto-assignment-by-category",
+    "slug": "incident-auto-assignment-by-category",
+    "title": "Auto-assign incidents by category",
+    "question": "How do you route incidents to different support groups by category and subcategory?",
+    "summary": "Implementation scenario using assignment rules or flow-based logic.",
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "topicIds": [
+      "assignment-rules",
+      "incident-table"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "use-case",
+    "tags": [
+      "assignment",
+      "incident",
+      "category"
+    ],
+    "relatedTables": [
+      "incident",
+      "sys_user_group"
+    ],
+    "scenario": "The service desk wants incidents to route automatically based on category and subcategory instead of manual assignment.",
+    "exactAnswer": "Implement category-based routing using assignment rules when the mapping is straightforward, or use a flow/business rule when more complex logic or external lookup is required. Keep the mapping configurable and test fallback behavior.",
+    "navigationPath": [
+      "All > Incident > Administration > Assignment Rules",
+      "All > Incident > Open"
+    ],
+    "steps": [
+      "List the category and subcategory combinations with the target groups.",
+      "Create assignment rules in the correct order, or use a decision-table/flow pattern if the logic is extensive.",
+      "Define fallback routing when no specific match is found.",
+      "Test each mapping combination and verify the final assignment group value."
+    ],
+    "involvedArtifacts": [
+      "Assignment Rules",
+      "Optional Decision Table or Flow"
+    ],
+    "validationChecklist": [
+      "Each category routes to the intended support group.",
+      "Fallback behavior handles unmapped categories.",
+      "Assignment does not change unexpectedly on unrelated updates."
+    ],
+    "commonMistakes": [
+      "Creating overlapping rules with no clear priority.",
+      "Hardcoding all logic in script when rules or decision tables would be easier to maintain."
+    ]
+  },
+  {
+    "id": "outbound-rest-incident-sync",
+    "slug": "outbound-rest-incident-sync",
+    "title": "Send incident data to an external system through REST",
+    "question": "How do you integrate incident creation or updates with an external ticketing tool?",
+    "summary": "Outbound integration scenario with payload mapping, authentication, and retries.",
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "rest-integrations",
+      "itsm",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "restmessagev2",
+      "events",
+      "notifications"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "rest",
+      "integration",
+      "incident"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "scenario": "When a major incident is created or updated, the organization wants to create or update a corresponding ticket in an external platform.",
+    "exactAnswer": "Implement the solution by deciding the trigger point, mapping outbound payload fields, storing endpoint and auth configuration securely, sending the request through RESTMessageV2 or an IntegrationHub action, and logging response details for retry and supportability.",
+    "navigationPath": [
+      "All > System Web Services > Outbound > REST Message",
+      "All > System Definition > Business Rules or Flow Designer",
+      "All > Connections & Credentials"
+    ],
+    "steps": [
+      "Define whether the integration runs on insert, update, or specific state transitions.",
+      "Create the outbound REST definition or IntegrationHub action with endpoint, authentication, and payload schema.",
+      "Map ServiceNow fields to the external system fields.",
+      "Add logging or integration status fields so support teams can diagnose failures.",
+      "Test success, failure, timeout, and duplicate-trigger scenarios."
+    ],
+    "involvedArtifacts": [
+      "REST Message or IntegrationHub Action",
+      "Business Rule or Flow",
+      "Credentials"
+    ],
+    "validationChecklist": [
+      "The external ticket is created or updated once per intended event.",
+      "Authentication is stored securely.",
+      "Failures are logged with enough context for support."
+    ],
+    "commonMistakes": [
+      "Calling the endpoint synchronously on every trivial update without trigger control.",
+      "Hardcoding credentials in script."
+    ]
+  },
+  {
+    "id": "notification-on-change-approval",
+    "slug": "notification-on-change-approval",
+    "title": "Notify stakeholders when a change is approved",
+    "question": "How do you send notifications when a normal change receives final approval?",
+    "summary": "Change management scenario using approvals, events, or notification conditions.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-administrator"
+    ],
+    "moduleIds": [
+      "change-management",
+      "notifications-email"
+    ],
+    "topicIds": [
+      "change-approvals",
+      "notifications",
+      "events"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "change",
+      "approval",
+      "notification"
+    ],
+    "relatedTables": [
+      "change_request",
+      "sysapproval_approver"
+    ],
+    "scenario": "The CAB wants a notification to go to the implementation team when a normal change receives its final approval.",
+    "exactAnswer": "Implement the trigger at the point where the change approval state becomes approved, preferably using event-driven logic or a tightly scoped notification condition, and include only the required recipients and fields.",
+    "navigationPath": [
+      "All > Change > All",
+      "All > System Notification > Email > Notifications",
+      "All > System Policy > Events > Registry"
+    ],
+    "steps": [
+      "Confirm whether the trigger should be the final approval state or each individual approver action.",
+      "Choose an event-driven or direct-notification design based on maintainability.",
+      "Create the notification and target the correct recipients.",
+      "Test with approved, rejected, and partial-approval scenarios."
+    ],
+    "involvedArtifacts": [
+      "Notification",
+      "Optional Event"
+    ],
+    "validationChecklist": [
+      "Only fully approved changes trigger the message.",
+      "Rejected changes do not send the same notification.",
+      "Recipients receive the correct change details."
+    ],
+    "commonMistakes": [
+      "Sending on any approver update instead of final approval.",
+      "Targeting the wrong approval table or state."
+    ]
+  },
+  {
+    "id": "sla-not-attaching",
+    "slug": "sla-not-attaching",
+    "title": "Troubleshoot an SLA that is not attaching",
+    "question": "Walk through how you would fix an SLA that does not attach to incidents.",
+    "summary": "Detailed troubleshooting scenario for SLA definitions.",
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "sla-management",
+      "incident-management"
+    ],
+    "topicIds": [
+      "slas",
+      "task-sla",
+      "incident-table",
+      "debugging"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "sla",
+      "troubleshooting"
+    ],
+    "relatedTables": [
+      "contract_sla",
+      "task_sla",
+      "incident"
+    ],
+    "scenario": "A customer reports that a P2 response SLA never attaches to new incidents even though the definition exists.",
+    "exactAnswer": "Fix the issue by checking the SLA target table, start conditions, record values at insert time, any after-insert updates that occur too late, and whether repair is needed for already affected records after the logic is corrected.",
+    "navigationPath": [
+      "All > Service Level Management > SLA Definitions",
+      "All > Task SLAs",
+      "All > Incident > Open"
+    ],
+    "steps": [
+      "Open the SLA definition and confirm the target table and conditions.",
+      "Create or identify a sample record that should match the SLA.",
+      "Compare the actual field values at insert time to the SLA conditions.",
+      "Check whether required values such as assignment group or priority are set only after insert.",
+      "Fix the design, then use the relevant repair option if older records need the SLA attached retroactively."
+    ],
+    "involvedArtifacts": [
+      "SLA Definition",
+      "Task SLA records"
+    ],
+    "validationChecklist": [
+      "New incidents attach the SLA after the fix.",
+      "Older records can be repaired if the process requires it.",
+      "The SLA calculation uses the correct schedule and start condition."
+    ],
+    "commonMistakes": [
+      "Testing only the current form values and ignoring what values existed at insert time.",
+      "Forgetting that later business rules may change values after the initial insert."
+    ]
+  },
+  {
+    "id": "service-portal-widget-debugging",
+    "slug": "service-portal-widget-debugging",
+    "title": "Debug a Service Portal widget that is not showing updated data",
+    "question": "How would you troubleshoot a portal widget that shows stale or incorrect data?",
+    "summary": "Portal troubleshooting use case with client/server separation.",
+    "roleIds": [
+      "service-portal-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "service-portal",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "portal-widgets",
+      "portal-server-script",
+      "portal-client-controller",
+      "debugging"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "service portal",
+      "widget",
+      "debugging"
+    ],
+    "relatedTables": [],
+    "scenario": "A custom portal widget should show the caller's open incidents, but the list is stale and sometimes empty.",
+    "exactAnswer": "Troubleshoot the issue by separating client and server concerns: verify the server script query, inspect data binding to the client controller/template, check whether a refresh call is required, and review browser console plus node logs for errors.",
+    "navigationPath": [
+      "All > Service Portal > Widgets",
+      "Browser Developer Tools",
+      "All > System Logs > All"
+    ],
+    "steps": [
+      "Open the widget and inspect the server script query and the data object being returned.",
+      "Confirm the client controller reads the correct properties from the data object.",
+      "Check for caching or refresh timing issues if the widget depends on interactive updates.",
+      "Use browser console and network inspection for client-side errors.",
+      "Review node logs or server logs for exceptions."
+    ],
+    "involvedArtifacts": [
+      "Widget Server Script",
+      "Widget Client Controller",
+      "Template"
+    ],
+    "validationChecklist": [
+      "The server returns the expected records.",
+      "The client binds to the correct data structure.",
+      "Widget refresh behavior is understood and corrected if needed."
+    ],
+    "commonMistakes": [
+      "Debugging only the client when the server script is the real issue.",
+      "Assuming portal widgets behave exactly like form client scripts."
+    ]
+  },
+  {
+    "id": "event-management-alert-routing",
+    "slug": "event-management-alert-routing",
+    "title": "Create incidents from critical alerts in Event Management",
+    "question": "How do you design incident creation for critical alerts without flooding the service desk?",
+    "summary": "ITOM operational use case focused on noise reduction and routing.",
+    "roleIds": [
+      "event-management-developer",
+      "itom-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "event-management",
+      "itom-health",
+      "incident-management"
+    ],
+    "topicIds": [
+      "event-rules",
+      "alert-correlation",
+      "alert-to-incident"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "event management",
+      "alert",
+      "incident"
+    ],
+    "relatedTables": [
+      "em_alert",
+      "incident"
+    ],
+    "scenario": "The operations team wants critical alerts to create incidents, but duplicate event noise has caused too many duplicate tickets.",
+    "exactAnswer": "Implement the solution by defining event normalization and correlation rules first, then create incident logic only for actionable alerts that meet severity and ownership criteria. Validate deduplication before enabling broad automatic incident creation.",
+    "navigationPath": [
+      "All > Event Management > Rules",
+      "All > Event Management > Alerts",
+      "All > Incident > Open"
+    ],
+    "steps": [
+      "Normalize incoming events so equivalent event noise maps consistently.",
+      "Configure correlation or deduplication rules where possible.",
+      "Define which alert states and severities qualify for incident creation.",
+      "Map the incident assignment based on CI, service, or ownership data.",
+      "Run controlled testing with repeated events to confirm one incident is created as intended."
+    ],
+    "involvedArtifacts": [
+      "Event Rules",
+      "Alert Management Rules",
+      "Incident Creation Logic"
+    ],
+    "validationChecklist": [
+      "Repeated noise does not create multiple incidents.",
+      "Only actionable critical alerts open incidents.",
+      "Incidents route to the correct group."
+    ],
+    "commonMistakes": [
+      "Enabling incident creation before tuning event normalization.",
+      "Routing every alert directly to incident creation with no correlation strategy."
+    ]
+  },
+  {
+    "id": "clone-readiness-checklist",
+    "slug": "clone-readiness-checklist",
+    "title": "Prepare an instance for cloning",
+    "question": "How do you plan and validate a clone safely?",
+    "summary": "Platform operations use case covering communication and post-clone tasks.",
+    "roleIds": [
+      "release-upgrade-specialist",
+      "servicenow-administrator",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-operations"
+    ],
+    "topicIds": [
+      "cloning",
+      "release-readiness",
+      "notifications"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "clone",
+      "instance",
+      "operations"
+    ],
+    "relatedTables": [],
+    "scenario": "The team needs to clone production to test while protecting integration behavior and preserving the post-clone environment configuration.",
+    "exactAnswer": "Prepare the clone by documenting the source and target, freeze windows if needed, integration safeguards, notification controls, user communication, and post-clone tasks such as reapplying sub-production settings and validating key jobs or credentials.",
+    "navigationPath": [
+      "All > System Clone > Clone History",
+      "Client change calendar / release process documentation"
+    ],
+    "steps": [
+      "Confirm source, target, timing, approvals, and user communication.",
+      "Identify integrations, email behavior, and scheduled jobs that must be disabled or adjusted after clone.",
+      "Document post-clone tasks such as restoring test users, properties, and endpoints.",
+      "Validate access, critical applications, and integrations after the clone completes."
+    ],
+    "involvedArtifacts": [
+      "Clone Plan",
+      "Post-Clone Checklist"
+    ],
+    "validationChecklist": [
+      "The target behaves as a safe non-production environment after clone.",
+      "Email and integrations do not fire unexpectedly.",
+      "The team has a documented post-clone checklist."
+    ],
+    "commonMistakes": [
+      "Treating clone as a technical action only with no communication plan.",
+      "Forgetting to disable notifications or integration endpoints after clone."
+    ]
+  },
+  {
+    "id": "update-set-deployment-plan",
+    "slug": "update-set-deployment-plan",
+    "title": "Plan a safe update set deployment",
+    "question": "How do you move a scoped feature change from dev to test to prod safely?",
+    "summary": "Deployment use case focused on collisions, manual steps, and validation.",
+    "roleIds": [
+      "servicenow-developer",
+      "release-upgrade-specialist",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "source-control",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "update-sets",
+      "source-control",
+      "release-readiness"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "update set",
+      "deployment"
+    ],
+    "relatedTables": [],
+    "scenario": "A new enhancement includes forms, business rules, notifications, and properties. The team wants a safe deployment path.",
+    "exactAnswer": "Plan the deployment by isolating the change into a clean update set or app version, documenting manual steps and dependent records, previewing collisions in the target, validating in test first, and preparing a rollback or mitigation plan.",
+    "navigationPath": [
+      "All > System Update Sets > Local Update Sets",
+      "All > Retrieved Update Sets"
+    ],
+    "steps": [
+      "Ensure the change set contains only the intended feature records.",
+      "Document dependencies, manual data setup, and system properties not captured automatically.",
+      "Move the update set to test and preview it before commit.",
+      "Validate the feature end to end in test.",
+      "Schedule production deployment with an implementation and fallback plan."
+    ],
+    "involvedArtifacts": [
+      "Update Set",
+      "Deployment Checklist"
+    ],
+    "validationChecklist": [
+      "Preview shows manageable or resolved collisions.",
+      "Manual steps are documented.",
+      "The feature is validated in test before production promotion."
+    ],
+    "commonMistakes": [
+      "Mixing unrelated work in the same update set.",
+      "Assuming update sets capture every required data/configuration artifact."
+    ]
+  },
+  {
+    "id": "ui-builder-workspace-page",
+    "slug": "ui-builder-workspace-page",
+    "title": "Create a workspace page in UI Builder",
+    "question": "How do you build a custom workspace page for agents?",
+    "summary": "Modern UX use case for UI Builder and workspaces.",
+    "roleIds": [
+      "ui-builder-developer",
+      "workspace-developer",
+      "csm-developer"
+    ],
+    "moduleIds": [
+      "ui-builder",
+      "workspaces",
+      "csm"
+    ],
+    "topicIds": [
+      "ui-builder-components",
+      "workspace-record-pages"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "ui builder",
+      "workspace"
+    ],
+    "relatedTables": [],
+    "scenario": "Agents need a custom workspace page that shows a case record, related tasks, and quick actions in one place.",
+    "exactAnswer": "Implement the experience in UI Builder by creating or editing the workspace page, binding data resources to the target record and related lists, adding components for the required sections, and validating role-based visibility and performance.",
+    "navigationPath": [
+      "All > UI Builder",
+      "All > Workspaces"
+    ],
+    "steps": [
+      "Identify the user persona and workspace where the page will live.",
+      "Create or edit the target page in UI Builder.",
+      "Add the necessary components and bind them to record data resources.",
+      "Configure actions, tabs, and conditional visibility as required.",
+      "Test navigation, permissions, and page load behavior."
+    ],
+    "involvedArtifacts": [
+      "UI Builder Page",
+      "Data Resources",
+      "Workspace Configuration"
+    ],
+    "validationChecklist": [
+      "Agents can access the page in the target workspace.",
+      "Data components show the correct case context.",
+      "Unauthorized users cannot see the page or restricted sections."
+    ],
+    "commonMistakes": [
+      "Designing only for layout and ignoring data bindings or role access.",
+      "Adding too many expensive components without checking performance."
+    ]
+  }
+]
