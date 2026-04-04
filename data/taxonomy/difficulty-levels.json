@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Beginner",
+    "name": "Beginner"
+  },
+  {
+    "id": "Intermediate",
+    "name": "Intermediate"
+  },
+  {
+    "id": "Advanced",
+    "name": "Advanced"
+  }
+]

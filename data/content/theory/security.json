@@ -1,0 +1,124 @@
+[
+  {
+    "id": "ui-policy-vs-data-policy",
+    "slug": "ui-policy-vs-data-policy",
+    "title": "UI Policy vs Data Policy",
+    "question": "How is a data policy different from a UI policy?",
+    "summary": "Explains front-end versus platform-level enforcement.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "hrsd-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "ui-policies",
+      "data-policies"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "comparison",
+    "tags": [
+      "ui policy",
+      "data policy"
+    ],
+    "relatedTables": [
+      "sys_data_policy",
+      "sys_ui_policy"
+    ],
+    "exactAnswer": "A UI policy affects form behavior in the user interface, while a data policy enforces data consistency at the platform level and can also affect data imported through integrations or import sets when configured accordingly. Data policies are better when the rule must be enforced beyond the interactive form.",
+    "keyPoints": [
+      "UI policy = user interface behavior.",
+      "Data policy = platform-level validation and consistency.",
+      "Choose data policy when records may be created outside the form."
+    ],
+    "examples": [
+      "Use a UI policy to hide an optional field on the form.",
+      "Use a data policy to require a field whether the record comes from the form or integration."
+    ]
+  },
+  {
+    "id": "gliderecord-vs-gliderecordsecure",
+    "slug": "gliderecord-vs-gliderecordsecure",
+    "title": "GlideRecord vs GlideRecordSecure",
+    "question": "What is the difference between GlideRecord and GlideRecordSecure?",
+    "summary": "Explains server-side querying with and without automatic ACL enforcement.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "gliderecordsecure",
+      "acls"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "gliderecord",
+      "gliderecordsecure",
+      "acl"
+    ],
+    "relatedTables": [
+      "sys_security_acl"
+    ],
+    "exactAnswer": "GlideRecord queries data without automatically enforcing row and field ACL checks in the same way a user-facing session would expect, so it is commonly used in trusted server-side code. GlideRecordSecure automatically enforces ACLs for queried records and fields and is safer when you must honor the current user's security context in server-side logic.",
+    "keyPoints": [
+      "GlideRecord is common in backend logic running with trusted privileges.",
+      "GlideRecordSecure is useful when the current user's access must be respected.",
+      "Interview trap: do not assume GlideRecord is appropriate for every user-context script."
+    ],
+    "examples": [
+      "Use GlideRecord in a scheduled job running as a trusted backend process.",
+      "Use GlideRecordSecure in a server-side script servicing a user-facing request where data visibility matters."
+    ]
+  },
+  {
+    "id": "acl-evaluation-basics",
+    "slug": "acl-evaluation-basics",
+    "title": "ACL Evaluation Basics",
+    "question": "How are ACLs evaluated in ServiceNow?",
+    "summary": "Summarizes record and field access control evaluation in interview-ready language.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "hrsd-developer"
+    ],
+    "moduleIds": [
+      "security-access",
+      "platform-core"
+    ],
+    "topicIds": [
+      "acls",
+      "security-rules",
+      "roles-groups"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "acl",
+      "security",
+      "roles"
+    ],
+    "relatedTables": [
+      "sys_security_acl"
+    ],
+    "exactAnswer": "ACLs determine whether a user can create, read, write, delete, or execute a resource. ServiceNow evaluates matching ACL rules for the requested operation and requires the user to satisfy the applicable checks such as roles, conditions, and scripts. Field ACLs can further restrict access even when table-level access exists.",
+    "keyPoints": [
+      "Table access does not automatically guarantee field access.",
+      "ACLs can combine role checks, conditions, and scripts.",
+      "Always test security with impersonation and realistic user roles."
+    ],
+    "examples": [
+      "A user may read the incident record but still be blocked from a sensitive custom field.",
+      "A write ACL on a field can prevent editing even when the form opens successfully."
+    ]
+  }
+]

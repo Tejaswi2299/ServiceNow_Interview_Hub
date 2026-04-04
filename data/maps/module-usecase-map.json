@@ -1,0 +1,115 @@
+{
+  "itsm": [
+    "p1-incident-escalation",
+    "auto-close-resolved-incidents",
+    "incident-auto-assignment-by-category",
+    "outbound-rest-incident-sync"
+  ],
+  "incident-management": [
+    "p1-incident-escalation",
+    "auto-close-resolved-incidents",
+    "incident-auto-assignment-by-category",
+    "sla-not-attaching",
+    "event-management-alert-routing"
+  ],
+  "sla-management": [
+    "p1-incident-escalation",
+    "sla-not-attaching"
+  ],
+  "notifications-email": [
+    "p1-incident-escalation",
+    "notification-on-change-approval"
+  ],
+  "platform-core": [
+    "auto-close-resolved-incidents",
+    "import-users-via-transform-map"
+  ],
+  "service-catalog": [
+    "catalog-item-manager-approval",
+    "flow-designer-create-tasks",
+    "atf-catalog-test"
+  ],
+  "request-management": [
+    "catalog-item-manager-approval",
+    "flow-designer-create-tasks"
+  ],
+  "flow-designer": [
+    "catalog-item-manager-approval",
+    "flow-designer-create-tasks",
+    "app-engine-custom-app"
+  ],
+  "hrsd": [
+    "secure-hr-cases"
+  ],
+  "security-access": [
+    "secure-hr-cases",
+    "app-engine-custom-app"
+  ],
+  "discovery": [
+    "discovery-onboarding-mid-server",
+    "prevent-duplicate-cis-with-ire"
+  ],
+  "cmdb": [
+    "discovery-onboarding-mid-server",
+    "prevent-duplicate-cis-with-ire",
+    "secops-vulnerability-routing"
+  ],
+  "rest-integrations": [
+    "outbound-rest-incident-sync"
+  ],
+  "integrationhub": [
+    "outbound-rest-incident-sync"
+  ],
+  "vulnerability-response": [
+    "prevent-duplicate-cis-with-ire",
+    "secops-vulnerability-routing"
+  ],
+  "change-management": [
+    "notification-on-change-approval"
+  ],
+  "service-portal": [
+    "service-portal-widget-debugging"
+  ],
+  "platform-operations": [
+    "service-portal-widget-debugging",
+    "clone-readiness-checklist",
+    "update-set-deployment-plan"
+  ],
+  "event-management": [
+    "event-management-alert-routing"
+  ],
+  "itom-health": [
+    "event-management-alert-routing"
+  ],
+  "atf": [
+    "atf-catalog-test"
+  ],
+  "secops": [
+    "secops-vulnerability-routing"
+  ],
+  "ham": [
+    "ham-stockroom-transfer"
+  ],
+  "itam": [
+    "ham-stockroom-transfer",
+    "sam-normalization-review"
+  ],
+  "sam": [
+    "sam-normalization-review"
+  ],
+  "source-control": [
+    "update-set-deployment-plan"
+  ],
+  "ui-builder": [
+    "ui-builder-workspace-page"
+  ],
+  "workspaces": [
+    "ui-builder-workspace-page"
+  ],
+  "csm": [
+    "ui-builder-workspace-page"
+  ],
+  "app-engine": [
+    "app-engine-custom-app"
+  ]
+}

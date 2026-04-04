@@ -1,0 +1,6733 @@
+[
+  {
+    "id": "business-rules-before-vs-after",
+    "slug": "business-rules-before-vs-after",
+    "title": "Before vs After Business Rules",
+    "question": "What is the difference between before and after business rules in ServiceNow?",
+    "summary": "Compares the execution timing and safe usage patterns of before and after business rules.",
+    "contentType": "comparison",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "business-rules",
+      "before-business-rules",
+      "after-business-rules"
+    ],
+    "tags": [
+      "business rules",
+      "before",
+      "after"
+    ],
+    "relatedTables": [
+      "sys_script"
+    ]
+  },
+  {
+    "id": "business-rules-async-vs-display",
+    "slug": "business-rules-async-vs-display",
+    "title": "Async vs Display Business Rules",
+    "question": "When should you use async and display business rules?",
+    "summary": "Explains async and display business rules and their common interview use cases.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "async-business-rules",
+      "display-business-rules",
+      "business-rules"
+    ],
+    "tags": [
+      "async",
+      "display",
+      "business rules"
+    ],
+    "relatedTables": [
+      "sys_script"
+    ]
+  },
+  {
+    "id": "client-script-vs-ui-policy",
+    "slug": "client-script-vs-ui-policy",
+    "title": "Client Script vs UI Policy",
+    "question": "What is the difference between a client script and a UI policy?",
+    "summary": "Shows when to use declarative UI logic versus script-based client logic.",
+    "contentType": "comparison",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "service-catalog-developer"
+    ],
+    "topicIds": [
+      "client-scripts",
+      "ui-policies",
+      "gform"
+    ],
+    "tags": [
+      "client script",
+      "ui policy"
+    ],
+    "relatedTables": [
+      "sys_ui_policy",
+      "sys_script_client"
+    ]
+  },
+  {
+    "id": "ui-policy-vs-data-policy",
+    "slug": "ui-policy-vs-data-policy",
+    "title": "UI Policy vs Data Policy",
+    "question": "How is a data policy different from a UI policy?",
+    "summary": "Explains front-end versus platform-level enforcement.",
+    "contentType": "comparison",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "hrsd-developer"
+    ],
+    "topicIds": [
+      "ui-policies",
+      "data-policies"
+    ],
+    "tags": [
+      "ui policy",
+      "data policy"
+    ],
+    "relatedTables": [
+      "sys_data_policy",
+      "sys_ui_policy"
+    ]
+  },
+  {
+    "id": "gliderecord-vs-gliderecordsecure",
+    "slug": "gliderecord-vs-gliderecordsecure",
+    "title": "GlideRecord vs GlideRecordSecure",
+    "question": "What is the difference between GlideRecord and GlideRecordSecure?",
+    "summary": "Explains server-side querying with and without automatic ACL enforcement.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "security-incident-response-developer"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "gliderecordsecure",
+      "acls"
+    ],
+    "tags": [
+      "gliderecord",
+      "gliderecordsecure",
+      "acl"
+    ],
+    "relatedTables": [
+      "sys_security_acl"
+    ]
+  },
+  {
+    "id": "glidequery-vs-gliderecord",
+    "slug": "glidequery-vs-gliderecord",
+    "title": "GlideQuery vs GlideRecord",
+    "question": "What is the difference between GlideQuery and GlideRecord?",
+    "summary": "Explains legacy and modern querying styles in ServiceNow server-side scripts.",
+    "contentType": "comparison",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "glidequery",
+      "gliderecord"
+    ],
+    "tags": [
+      "glidequery",
+      "gliderecord"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "script-include-client-callable",
+    "slug": "script-include-client-callable",
+    "title": "Client Callable Script Includes",
+    "question": "How do client-callable Script Includes work?",
+    "summary": "Explains how Script Includes can be exposed to client scripts through GlideAjax.",
+    "contentType": "theory",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "service-portal-developer"
+    ],
+    "topicIds": [
+      "script-includes",
+      "client-callable",
+      "glideajax"
+    ],
+    "tags": [
+      "script include",
+      "glideajax",
+      "client callable"
+    ],
+    "relatedTables": [
+      "sys_script_include"
+    ]
+  },
+  {
+    "id": "acl-evaluation-basics",
+    "slug": "acl-evaluation-basics",
+    "title": "ACL Evaluation Basics",
+    "question": "How are ACLs evaluated in ServiceNow?",
+    "summary": "Summarizes record and field access control evaluation in interview-ready language.",
+    "contentType": "theory",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "security-access",
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "hrsd-developer"
+    ],
+    "topicIds": [
+      "acls",
+      "security-rules",
+      "roles-groups"
+    ],
+    "tags": [
+      "acl",
+      "security",
+      "roles"
+    ],
+    "relatedTables": [
+      "sys_security_acl"
+    ]
+  },
+  {
+    "id": "task-table-inheritance",
+    "slug": "task-table-inheritance",
+    "title": "Task Table Inheritance",
+    "question": "How does the task table hierarchy work?",
+    "summary": "Explains inherited fields and behavior across task-derived tables.",
+    "contentType": "table-schema",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "platform-core",
+      "itsm"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "task-table-hierarchy",
+      "incident-table",
+      "problem-table",
+      "change-table",
+      "request-tables"
+    ],
+    "tags": [
+      "task table",
+      "inheritance",
+      "incident"
+    ],
+    "relatedTables": [
+      "task",
+      "incident",
+      "problem",
+      "change_request",
+      "sc_request",
+      "sc_task"
+    ]
+  },
+  {
+    "id": "dictionary-vs-dictionary-override",
+    "slug": "dictionary-vs-dictionary-override",
+    "title": "Dictionary Entry vs Dictionary Override",
+    "question": "What is the difference between a dictionary entry and a dictionary override?",
+    "summary": "Explains baseline field definition versus table-specific override behavior.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "cmdb"
+    ],
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "cmdb-developer"
+    ],
+    "topicIds": [
+      "tables-dictionary",
+      "dictionary-overrides"
+    ],
+    "tags": [
+      "dictionary",
+      "dictionary override"
+    ],
+    "relatedTables": [
+      "sys_dictionary"
+    ]
+  },
+  {
+    "id": "reference-qualifier-basics",
+    "slug": "reference-qualifier-basics",
+    "title": "Reference Qualifier Basics",
+    "question": "What is a reference qualifier used for?",
+    "summary": "Explains dynamic filtering of reference field choices.",
+    "contentType": "theory",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "itsm-administrator"
+    ],
+    "topicIds": [
+      "reference-fields",
+      "reference-qualifiers"
+    ],
+    "tags": [
+      "reference qualifier",
+      "reference field"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "system-properties-usage",
+    "slug": "system-properties-usage",
+    "title": "System Properties Usage",
+    "question": "When should you use a system property?",
+    "summary": "Explains configuration-driven design using system properties.",
+    "contentType": "best-practice",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "platform-operations"
+    ],
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "system-properties"
+    ],
+    "tags": [
+      "system properties",
+      "configuration"
+    ],
+    "relatedTables": [
+      "sys_properties"
+    ]
+  },
+  {
+    "id": "flow-designer-vs-workflow",
+    "slug": "flow-designer-vs-workflow",
+    "title": "Flow Designer vs Legacy Workflow",
+    "question": "How do you explain Flow Designer versus the legacy Workflow engine in an interview?",
+    "summary": "Provides an interview-safe comparison between Flow Designer and legacy workflows.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "flow-designer",
+      "service-catalog"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "flow-triggers",
+      "subflows-actions"
+    ],
+    "tags": [
+      "flow designer",
+      "workflow"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "import-set-vs-transform-map",
+    "slug": "import-set-vs-transform-map",
+    "title": "Import Set vs Transform Map",
+    "question": "What is the difference between an import set and a transform map?",
+    "summary": "Explains staging versus mapping during data ingestion.",
+    "contentType": "comparison",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "platform-core",
+      "cmdb"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "cmdb-developer"
+    ],
+    "topicIds": [
+      "import-sets",
+      "transform-maps",
+      "field-maps"
+    ],
+    "tags": [
+      "import set",
+      "transform map"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "coalesce-explained",
+    "slug": "coalesce-explained",
+    "title": "Coalesce in Transform Maps",
+    "question": "What does coalesce do in a transform map?",
+    "summary": "Explains record matching during imports.",
+    "contentType": "theory",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "cmdb"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "cmdb-developer"
+    ],
+    "topicIds": [
+      "coalesce",
+      "transform-maps"
+    ],
+    "tags": [
+      "coalesce",
+      "transform map"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cmdb-relationship-vs-reference",
+    "slug": "cmdb-relationship-vs-reference",
+    "title": "CI Relationship vs Reference Field",
+    "question": "What is the difference between a CMDB relationship and a simple reference field?",
+    "summary": "Clarifies modeling dependencies in CMDB design.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "cmdb",
+      "service-mapping"
+    ],
+    "roleIds": [
+      "cmdb-developer",
+      "itom-developer",
+      "vulnerability-response-developer"
+    ],
+    "topicIds": [
+      "ci-relationships",
+      "reference-fields"
+    ],
+    "tags": [
+      "cmdb",
+      "relationship",
+      "reference"
+    ],
+    "relatedTables": [
+      "cmdb_ci",
+      "cmdb_rel_ci"
+    ]
+  },
+  {
+    "id": "ire-purpose",
+    "slug": "ire-purpose",
+    "title": "Purpose of the Identification and Reconciliation Engine",
+    "question": "What does IRE do in CMDB?",
+    "summary": "Explains duplicate prevention and source governance in CMDB data ingestion.",
+    "contentType": "theory",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "vulnerability-response"
+    ],
+    "roleIds": [
+      "cmdb-developer",
+      "discovery-developer",
+      "vulnerability-response-developer"
+    ],
+    "topicIds": [
+      "ire",
+      "identification-rules",
+      "reconciliation-rules"
+    ],
+    "tags": [
+      "ire",
+      "cmdb",
+      "reconciliation"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ]
+  },
+  {
+    "id": "mid-server-basics",
+    "slug": "mid-server-basics",
+    "title": "MID Server Basics",
+    "question": "What is a MID Server and when is it required?",
+    "summary": "Explains the role of the MID Server in discovery and integrations.",
+    "contentType": "theory",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "discovery",
+      "rest-integrations",
+      "service-mapping"
+    ],
+    "roleIds": [
+      "discovery-developer",
+      "integration-developer",
+      "itom-developer"
+    ],
+    "topicIds": [
+      "mid-server",
+      "discovery-schedules",
+      "credentials"
+    ],
+    "tags": [
+      "mid server",
+      "discovery",
+      "integration"
+    ],
+    "relatedTables": [
+      "ecc_queue"
+    ]
+  },
+  {
+    "id": "integrationhub-vs-restmessage",
+    "slug": "integrationhub-vs-restmessage",
+    "title": "IntegrationHub vs RESTMessageV2",
+    "question": "When would you use IntegrationHub instead of RESTMessageV2?",
+    "summary": "Explains low-code and scripted integration choices.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "integrationhub",
+      "rest-integrations",
+      "flow-designer"
+    ],
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "spokes",
+      "restmessagev2",
+      "data-stream-actions"
+    ],
+    "tags": [
+      "integrationhub",
+      "restmessagev2"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "catalog-item-vs-record-producer-vs-order-guide",
+    "slug": "catalog-item-vs-record-producer-vs-order-guide",
+    "title": "Catalog Item vs Record Producer vs Order Guide",
+    "question": "How do you explain catalog items, record producers, and order guides?",
+    "summary": "Provides a common interview comparison for service catalog design.",
+    "contentType": "comparison",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "service-catalog",
+      "request-management"
+    ],
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "business-analyst"
+    ],
+    "topicIds": [
+      "catalog-items",
+      "record-producers",
+      "order-guides"
+    ],
+    "tags": [
+      "catalog item",
+      "record producer",
+      "order guide"
+    ],
+    "relatedTables": [
+      "sc_request",
+      "sc_req_item",
+      "sc_task"
+    ]
+  },
+  {
+    "id": "notifications-vs-events",
+    "slug": "notifications-vs-events",
+    "title": "Notifications vs Events",
+    "question": "What is the relationship between events and notifications?",
+    "summary": "Explains event-driven email design in ServiceNow.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "notifications-email"
+    ],
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "topicIds": [
+      "events",
+      "notifications",
+      "email-scripts",
+      "gs-eventqueue"
+    ],
+    "tags": [
+      "notification",
+      "event",
+      "email"
+    ],
+    "relatedTables": [
+      "sysevent",
+      "sysevent_email_action"
+    ]
+  },
+  {
+    "id": "sla-attachment-troubleshooting",
+    "slug": "sla-attachment-troubleshooting",
+    "title": "SLA Attachment Troubleshooting",
+    "question": "An SLA is not attaching to a task. Where do you look first?",
+    "summary": "A troubleshooting answer for one of the most common ITSM interview scenarios.",
+    "contentType": "troubleshooting",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "sla-management",
+      "itsm"
+    ],
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "slas",
+      "task-sla",
+      "business-calendars"
+    ],
+    "tags": [
+      "sla",
+      "task_sla",
+      "troubleshooting"
+    ],
+    "relatedTables": [
+      "contract_sla",
+      "task_sla"
+    ]
+  },
+  {
+    "id": "update-set-best-practices",
+    "slug": "update-set-best-practices",
+    "title": "Update Set Best Practices",
+    "question": "What are the most important update set best practices?",
+    "summary": "Summarizes interview-ready practices for moving configuration safely.",
+    "contentType": "best-practice",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "source-control",
+      "platform-operations"
+    ],
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "release-upgrade-specialist"
+    ],
+    "topicIds": [
+      "update-sets",
+      "source-control"
+    ],
+    "tags": [
+      "update sets",
+      "deployment"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "scoped-vs-global-applications",
+    "slug": "scoped-vs-global-applications",
+    "title": "Scoped vs Global Applications",
+    "question": "How do scoped applications differ from global development?",
+    "summary": "Explains design and governance differences between global and scoped applications.",
+    "contentType": "comparison",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "app-engine",
+      "platform-core",
+      "source-control"
+    ],
+    "roleIds": [
+      "app-engine-developer",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "scoped-applications"
+    ],
+    "tags": [
+      "scoped app",
+      "global"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "event-management-alert-to-incident",
+    "slug": "event-management-alert-to-incident",
+    "title": "Alert to Incident Design",
+    "question": "How does Event Management typically create incidents from alerts?",
+    "summary": "Summarizes common alert-to-incident patterns in ITOM interviews.",
+    "contentType": "theory",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "event-management",
+      "incident-management"
+    ],
+    "roleIds": [
+      "event-management-developer",
+      "itom-developer",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "event-rules",
+      "alert-to-incident",
+      "incident-lifecycle"
+    ],
+    "tags": [
+      "event management",
+      "alert",
+      "incident"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "portal-vs-workspace-vs-ui-builder",
+    "slug": "portal-vs-workspace-vs-ui-builder",
+    "title": "Service Portal vs Workspace vs UI Builder",
+    "question": "How do you compare Service Portal, Workspaces, and UI Builder?",
+    "summary": "Provides a modern experience-layer comparison for interview discussions.",
+    "contentType": "comparison",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "service-portal",
+      "workspaces",
+      "ui-builder",
+      "employee-center"
+    ],
+    "roleIds": [
+      "service-portal-developer",
+      "workspace-developer",
+      "ui-builder-developer"
+    ],
+    "topicIds": [
+      "portal-widgets",
+      "workspace-record-pages",
+      "ui-builder-components"
+    ],
+    "tags": [
+      "service portal",
+      "workspace",
+      "ui builder"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "query-active-incidents",
+    "slug": "query-active-incidents",
+    "title": "Query active incidents using GlideRecord",
+    "question": "Write a background script to query active incidents and print the incident number and short description.",
+    "summary": "Queries active incidents with GlideRecord from Scripts - Background.",
+    "contentType": "coding",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "background-scripts",
+      "incident-table"
+    ],
+    "tags": [
+      "gliderecord",
+      "incident",
+      "background script"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "query-p1-incidents-last-24-hours",
+    "slug": "query-p1-incidents-last-24-hours",
+    "title": "Query P1 incidents created in the last 24 hours",
+    "question": "Write a background script to print active P1 incidents created in the last 24 hours.",
+    "summary": "Uses encoded query conditions for a common ITSM interview script.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "encoded-queries",
+      "incident-table"
+    ],
+    "tags": [
+      "priority 1",
+      "encoded query",
+      "incident"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "count-open-incidents-by-assignment-group",
+    "slug": "count-open-incidents-by-assignment-group",
+    "title": "Count open incidents by assignment group with GlideAggregate",
+    "question": "Write a script to show the number of active incidents for each assignment group.",
+    "summary": "Uses GlideAggregate for grouped counts instead of looping every record.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "itsm",
+      "reports-dashboards"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "pa-developer"
+    ],
+    "topicIds": [
+      "glideaggregate",
+      "incident-table"
+    ],
+    "tags": [
+      "glideaggregate",
+      "count",
+      "assignment group"
+    ],
+    "relatedTables": [
+      "incident",
+      "sys_user_group"
+    ]
+  },
+  {
+    "id": "client-script-mandatory-assignment-group-p1",
+    "slug": "client-script-mandatory-assignment-group-p1",
+    "title": "onChange client script to make Assignment Group mandatory for P1 incidents",
+    "question": "Write an onChange client script that makes Assignment Group mandatory when Priority becomes 1 and optional otherwise.",
+    "summary": "Client-side form control using g_form in an onChange script.",
+    "contentType": "coding",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "topicIds": [
+      "client-scripts",
+      "onchange-clientscript",
+      "gform"
+    ],
+    "tags": [
+      "client script",
+      "g_form",
+      "priority"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "before-br-default-assignment-group",
+    "slug": "before-br-default-assignment-group",
+    "title": "Before business rule to default Assignment Group based on Category",
+    "question": "Write a before insert/update business rule that sets Assignment Group to Service Desk when Category is inquiry and no group is already selected.",
+    "summary": "Shows safe before-rule logic to set current record values before save.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "itsm",
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "topicIds": [
+      "before-business-rules",
+      "business-rules",
+      "incident-table"
+    ],
+    "tags": [
+      "business rule",
+      "assignment group",
+      "current"
+    ],
+    "relatedTables": [
+      "incident",
+      "sys_user_group"
+    ]
+  },
+  {
+    "id": "script-include-return-user-department",
+    "slug": "script-include-return-user-department",
+    "title": "Client-callable Script Include to return a user's department",
+    "question": "Write a client-callable Script Include and GlideAjax client call that returns a user's department.",
+    "summary": "Classic GlideAjax round-trip example for interviews.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "service-portal-developer"
+    ],
+    "topicIds": [
+      "script-includes",
+      "client-callable",
+      "glideajax"
+    ],
+    "tags": [
+      "script include",
+      "glideajax",
+      "department"
+    ],
+    "relatedTables": [
+      "sys_user",
+      "cmn_department"
+    ]
+  },
+  {
+    "id": "scheduled-job-auto-close-incidents",
+    "slug": "scheduled-job-auto-close-incidents",
+    "title": "Scheduled job to auto-close resolved incidents after 7 days",
+    "question": "Write a scheduled script execution that closes incidents in Resolved state when they have been resolved for more than 7 days.",
+    "summary": "Common support automation scenario using GlideRecord and date filtering.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "itsm",
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "scheduled-jobs",
+      "incident-lifecycle",
+      "gliderecord"
+    ],
+    "tags": [
+      "scheduled job",
+      "incident",
+      "resolved"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "restmessagev2-create-external-ticket",
+    "slug": "restmessagev2-create-external-ticket",
+    "title": "RESTMessageV2 example to create an external incident",
+    "question": "Write a script that posts incident data to an external API using RESTMessageV2.",
+    "summary": "Outbound REST scripting example with request body construction and response logging.",
+    "contentType": "coding",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "rest-integrations",
+      "itsm"
+    ],
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer"
+    ],
+    "topicIds": [
+      "restmessagev2",
+      "rest-api-authentication"
+    ],
+    "tags": [
+      "restmessagev2",
+      "outbound rest",
+      "integration"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "parse-json-and-print-values",
+    "slug": "parse-json-and-print-values",
+    "title": "Parse a JSON payload and print selected values",
+    "question": "Write a background script that parses a JSON string containing incidents and prints the number and short description.",
+    "summary": "Simple JSON parsing example often used in integration-oriented interviews.",
+    "contentType": "coding",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "platform-core",
+      "rest-integrations"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer"
+    ],
+    "topicIds": [
+      "background-scripts",
+      "restmessagev2"
+    ],
+    "tags": [
+      "json",
+      "parse",
+      "background script"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "queue-event-for-p1-incident",
+    "slug": "queue-event-for-p1-incident",
+    "title": "Queue an event for a P1 incident",
+    "question": "Write a script snippet that queues an event when an incident becomes Priority 1.",
+    "summary": "Shows how to decouple business logic from notifications using gs.eventQueue.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "notifications-email",
+      "itsm"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "topicIds": [
+      "events",
+      "notifications",
+      "gs-eventqueue"
+    ],
+    "tags": [
+      "event queue",
+      "notification",
+      "p1"
+    ],
+    "relatedTables": [
+      "incident",
+      "sysevent"
+    ]
+  },
+  {
+    "id": "acl-script-sensitive-incidents",
+    "slug": "acl-script-sensitive-incidents",
+    "title": "ACL script to restrict sensitive incidents",
+    "question": "Write a read ACL script that only allows users with a specific role or members of the assignment group to read sensitive incidents.",
+    "summary": "Server-side ACL script example with role and group logic.",
+    "contentType": "coding",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "security-access",
+      "itsm"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "hrsd-developer"
+    ],
+    "topicIds": [
+      "acls",
+      "roles-groups",
+      "incident-table"
+    ],
+    "tags": [
+      "acl",
+      "incident",
+      "security"
+    ],
+    "relatedTables": [
+      "incident",
+      "sys_user_grmember",
+      "sys_security_acl"
+    ]
+  },
+  {
+    "id": "transform-map-normalize-state",
+    "slug": "transform-map-normalize-state",
+    "title": "Transform map onBefore script to normalize state values",
+    "question": "Write an onBefore transform script that maps source values Open and Closed to incident state integers.",
+    "summary": "Data import example that cleans source values before target insert/update.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "incident-management"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer"
+    ],
+    "topicIds": [
+      "transform-maps",
+      "transform-scripts",
+      "coalesce"
+    ],
+    "tags": [
+      "transform map",
+      "normalize",
+      "state"
+    ],
+    "relatedTables": [
+      "incident",
+      "sys_import_set_row"
+    ]
+  },
+  {
+    "id": "ui-action-reopen-incident",
+    "slug": "ui-action-reopen-incident",
+    "title": "UI Action to reopen a closed incident",
+    "question": "Write a server-side UI Action that reopens a closed incident and resets work notes.",
+    "summary": "Practical UI Action scripting example.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "topicIds": [
+      "ui-actions",
+      "incident-table"
+    ],
+    "tags": [
+      "ui action",
+      "incident",
+      "server-side"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "prevent-duplicate-ci-business-rule",
+    "slug": "prevent-duplicate-ci-business-rule",
+    "title": "Prevent duplicate CI creation with a before insert business rule",
+    "question": "Write a before insert business rule that aborts creation when a server CI with the same serial number already exists.",
+    "summary": "CMDB duplicate prevention example using current.setAbortAction.",
+    "contentType": "coding",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "cmdb",
+      "platform-core"
+    ],
+    "roleIds": [
+      "cmdb-developer",
+      "servicenow-developer"
+    ],
+    "topicIds": [
+      "business-rules",
+      "setabortaction",
+      "cmdb-tables"
+    ],
+    "tags": [
+      "cmdb",
+      "duplicate",
+      "serial number"
+    ],
+    "relatedTables": [
+      "cmdb_ci_server"
+    ]
+  },
+  {
+    "id": "fix-script-deactivate-stale-users",
+    "slug": "fix-script-deactivate-stale-users",
+    "title": "Fix script to deactivate inactive users based on a custom flag",
+    "question": "Write a fix script that deactivates sys_user records where u_disable_account is true and the user is still active.",
+    "summary": "Example of controlled data correction using a fix script.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "servicenow-administrator"
+    ],
+    "topicIds": [
+      "fix-scripts",
+      "sys-user",
+      "gliderecord"
+    ],
+    "tags": [
+      "fix script",
+      "sys_user"
+    ],
+    "relatedTables": [
+      "sys_user"
+    ]
+  },
+  {
+    "id": "glidequery-active-problems",
+    "slug": "glidequery-active-problems",
+    "title": "GlideQuery example for active problems",
+    "question": "Write a GlideQuery example that selects active problem records and returns number and short_description.",
+    "summary": "Readable chainable query example for modern server-side discussions.",
+    "contentType": "coding",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "platform-core",
+      "problem-management"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "glidequery",
+      "problem-table"
+    ],
+    "tags": [
+      "glidequery",
+      "problem"
+    ],
+    "relatedTables": [
+      "problem"
+    ]
+  },
+  {
+    "id": "query-ci-relationships",
+    "slug": "query-ci-relationships",
+    "title": "Query CMDB relationships for a CI",
+    "question": "Write a background script to print all parent and child relationships for a CI.",
+    "summary": "CMDB relationship traversal example.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "cmdb",
+      "service-mapping"
+    ],
+    "roleIds": [
+      "cmdb-developer",
+      "itom-developer"
+    ],
+    "topicIds": [
+      "ci-relationships",
+      "cmdb-tables",
+      "background-scripts"
+    ],
+    "tags": [
+      "cmdb relationship",
+      "cmdb_rel_ci"
+    ],
+    "relatedTables": [
+      "cmdb_rel_ci",
+      "cmdb_ci"
+    ]
+  },
+  {
+    "id": "scripted-rest-api-parse-body",
+    "slug": "scripted-rest-api-parse-body",
+    "title": "Scripted REST API example to parse a JSON request body",
+    "question": "Write a Scripted REST resource script that reads number and short_description from the request body and returns a simple response.",
+    "summary": "Inbound API example for integration interviews.",
+    "contentType": "coding",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "rest-integrations",
+      "app-engine"
+    ],
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer"
+    ],
+    "topicIds": [
+      "scripted-rest-api",
+      "rest-api-authentication"
+    ],
+    "tags": [
+      "scripted rest api",
+      "request body"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "reference-qualifier-script-assignment-group",
+    "slug": "reference-qualifier-script-assignment-group",
+    "title": "Advanced reference qualifier for Assignment Group",
+    "question": "Write a script-based reference qualifier that shows only active assignment groups.",
+    "summary": "Simple advanced reference qualifier example.",
+    "contentType": "coding",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core",
+      "itsm"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-administrator"
+    ],
+    "topicIds": [
+      "reference-qualifiers",
+      "sys-user-group"
+    ],
+    "tags": [
+      "reference qualifier",
+      "assignment group"
+    ],
+    "relatedTables": [
+      "sys_user_group"
+    ]
+  },
+  {
+    "id": "catalog-client-script-toggle-field",
+    "slug": "catalog-client-script-toggle-field",
+    "title": "Catalog client script to show a field based on request type",
+    "question": "Write a catalog client script that shows manager_approval_reason only when request_type is Access.",
+    "summary": "Catalog item variable behavior example.",
+    "contentType": "coding",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "service-catalog",
+      "employee-center"
+    ],
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer"
+    ],
+    "topicIds": [
+      "catalog-variables",
+      "client-scripts",
+      "gform"
+    ],
+    "tags": [
+      "catalog client script",
+      "variables"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "query-business-rule-example",
+    "slug": "query-business-rule-example",
+    "title": "Query business rule to enforce default sort",
+    "question": "What is a query business rule example you can explain in code?",
+    "summary": "Shows a rare but common interview discussion item: query business rules.",
+    "contentType": "coding",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "query-business-rules",
+      "business-rules"
+    ],
+    "tags": [
+      "query business rule",
+      "orderBy"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "setworkflow-false-bulk-update",
+    "slug": "setworkflow-false-bulk-update",
+    "title": "Bulk update without triggering business rules using setWorkflow(false)",
+    "question": "Write a script that updates a flag on old incidents while suppressing business rules and engines.",
+    "summary": "Useful maintenance-script example with caution.",
+    "contentType": "coding",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "platform-operations",
+      "itsm"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "setworkflow",
+      "gliderecord",
+      "incident-table"
+    ],
+    "tags": [
+      "setworkflow",
+      "bulk update"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "p1-incident-escalation",
+    "slug": "p1-incident-escalation",
+    "title": "Implement P1 incident escalation",
+    "question": "How do you implement escalation and notification flow for P1 incidents?",
+    "summary": "Step-by-step P1 escalation design covering assignment, notifications, and SLA tracking.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "sla-management",
+      "notifications-email"
+    ],
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-administrator",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "incident-table",
+      "notifications",
+      "events",
+      "slas",
+      "assignment-rules"
+    ],
+    "tags": [
+      "P1",
+      "incident",
+      "escalation"
+    ],
+    "relatedTables": [
+      "incident",
+      "sysevent_email_action",
+      "contract_sla",
+      "task_sla"
+    ]
+  },
+  {
+    "id": "auto-close-resolved-incidents",
+    "slug": "auto-close-resolved-incidents",
+    "title": "Auto-close resolved incidents after 7 days",
+    "question": "How do you implement auto-closure for resolved incidents after 7 days?",
+    "summary": "Combines scheduled automation with validation of state and close notes.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "platform-core"
+    ],
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-developer",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "scheduled-jobs",
+      "incident-lifecycle"
+    ],
+    "tags": [
+      "auto close",
+      "incident",
+      "scheduled job"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "catalog-item-manager-approval",
+    "slug": "catalog-item-manager-approval",
+    "title": "Build a catalog item with manager approval",
+    "question": "How do you implement a catalog item that routes for manager approval before fulfillment?",
+    "summary": "Service Catalog implementation scenario with approvals and tasks.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "service-catalog",
+      "request-management",
+      "flow-designer"
+    ],
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "business-analyst"
+    ],
+    "topicIds": [
+      "catalog-items",
+      "catalog-variables",
+      "approvals",
+      "requested-item-flow"
+    ],
+    "tags": [
+      "catalog",
+      "approval",
+      "manager"
+    ],
+    "relatedTables": [
+      "sc_req_item",
+      "sc_task",
+      "sysapproval_approver"
+    ]
+  },
+  {
+    "id": "import-users-via-transform-map",
+    "slug": "import-users-via-transform-map",
+    "title": "Import users through an import set and transform map",
+    "question": "How do you load a user file and create/update sys_user records safely?",
+    "summary": "Classic data import use case with staging, coalesce, and transform scripts.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-core"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "servicenow-administrator"
+    ],
+    "topicIds": [
+      "import-sets",
+      "transform-maps",
+      "coalesce",
+      "sys-user"
+    ],
+    "tags": [
+      "import",
+      "sys_user",
+      "transform map"
+    ],
+    "relatedTables": [
+      "sys_user",
+      "sys_import_set_row"
+    ]
+  },
+  {
+    "id": "secure-hr-cases",
+    "slug": "secure-hr-cases",
+    "title": "Secure HR cases with targeted ACL design",
+    "question": "How do you secure HR cases so only HR agents and appropriate fulfillers can access them?",
+    "summary": "HRSD security scenario with table and field access considerations.",
+    "contentType": "use-case",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "hrsd",
+      "security-access"
+    ],
+    "roleIds": [
+      "hrsd-developer",
+      "servicenow-administrator",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "acls",
+      "hr-case-security",
+      "roles-groups"
+    ],
+    "tags": [
+      "hr",
+      "acl",
+      "security"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "discovery-onboarding-mid-server",
+    "slug": "discovery-onboarding-mid-server",
+    "title": "Onboard Discovery with a MID Server",
+    "question": "How do you set up Discovery for a new network segment?",
+    "summary": "Discovery implementation scenario covering MID Server, credentials, and schedules.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "discovery",
+      "cmdb"
+    ],
+    "roleIds": [
+      "discovery-developer",
+      "itom-developer",
+      "cmdb-developer"
+    ],
+    "topicIds": [
+      "mid-server",
+      "discovery-schedules",
+      "credentials",
+      "patterns"
+    ],
+    "tags": [
+      "discovery",
+      "mid server",
+      "credentials"
+    ],
+    "relatedTables": [
+      "ecc_queue",
+      "cmdb_ci"
+    ]
+  },
+  {
+    "id": "incident-auto-assignment-by-category",
+    "slug": "incident-auto-assignment-by-category",
+    "title": "Auto-assign incidents by category",
+    "question": "How do you route incidents to different support groups by category and subcategory?",
+    "summary": "Implementation scenario using assignment rules or flow-based logic.",
+    "contentType": "use-case",
+    "difficulty": "Beginner",
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "assignment-rules",
+      "incident-table"
+    ],
+    "tags": [
+      "assignment",
+      "incident",
+      "category"
+    ],
+    "relatedTables": [
+      "incident",
+      "sys_user_group"
+    ]
+  },
+  {
+    "id": "outbound-rest-incident-sync",
+    "slug": "outbound-rest-incident-sync",
+    "title": "Send incident data to an external system through REST",
+    "question": "How do you integrate incident creation or updates with an external ticketing tool?",
+    "summary": "Outbound integration scenario with payload mapping, authentication, and retries.",
+    "contentType": "use-case",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "rest-integrations",
+      "itsm",
+      "integrationhub"
+    ],
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "restmessagev2",
+      "events",
+      "notifications"
+    ],
+    "tags": [
+      "rest",
+      "integration",
+      "incident"
+    ],
+    "relatedTables": [
+      "incident"
+    ]
+  },
+  {
+    "id": "prevent-duplicate-cis-with-ire",
+    "slug": "prevent-duplicate-cis-with-ire",
+    "title": "Prevent duplicate CI creation using IRE-aware design",
+    "question": "How do you avoid duplicate CIs when multiple sources feed the CMDB?",
+    "summary": "CMDB governance scenario with IRE and source strategy.",
+    "contentType": "use-case",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "vulnerability-response"
+    ],
+    "roleIds": [
+      "cmdb-developer",
+      "itom-developer",
+      "vulnerability-response-developer"
+    ],
+    "topicIds": [
+      "ire",
+      "identification-rules",
+      "reconciliation-rules",
+      "cmdb-tables"
+    ],
+    "tags": [
+      "cmdb",
+      "duplicate",
+      "ire"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ]
+  },
+  {
+    "id": "notification-on-change-approval",
+    "slug": "notification-on-change-approval",
+    "title": "Notify stakeholders when a change is approved",
+    "question": "How do you send notifications when a normal change receives final approval?",
+    "summary": "Change management scenario using approvals, events, or notification conditions.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "change-management",
+      "notifications-email"
+    ],
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-administrator"
+    ],
+    "topicIds": [
+      "change-approvals",
+      "notifications",
+      "events"
+    ],
+    "tags": [
+      "change",
+      "approval",
+      "notification"
+    ],
+    "relatedTables": [
+      "change_request",
+      "sysapproval_approver"
+    ]
+  },
+  {
+    "id": "sla-not-attaching",
+    "slug": "sla-not-attaching",
+    "title": "Troubleshoot an SLA that is not attaching",
+    "question": "Walk through how you would fix an SLA that does not attach to incidents.",
+    "summary": "Detailed troubleshooting scenario for SLA definitions.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "sla-management",
+      "incident-management"
+    ],
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "slas",
+      "task-sla",
+      "incident-table",
+      "debugging"
+    ],
+    "tags": [
+      "sla",
+      "troubleshooting"
+    ],
+    "relatedTables": [
+      "contract_sla",
+      "task_sla",
+      "incident"
+    ]
+  },
+  {
+    "id": "flow-designer-create-tasks",
+    "slug": "flow-designer-create-tasks",
+    "title": "Use Flow Designer to create fulfillment tasks from a request",
+    "question": "How do you create catalog tasks automatically after a requested item is approved?",
+    "summary": "Flow Designer fulfillment scenario for catalog automation.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "flow-designer",
+      "service-catalog",
+      "request-management"
+    ],
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "app-engine-developer"
+    ],
+    "topicIds": [
+      "flow-triggers",
+      "subflows-actions",
+      "requested-item-flow",
+      "approvals"
+    ],
+    "tags": [
+      "flow designer",
+      "catalog task"
+    ],
+    "relatedTables": [
+      "sc_req_item",
+      "sc_task"
+    ]
+  },
+  {
+    "id": "service-portal-widget-debugging",
+    "slug": "service-portal-widget-debugging",
+    "title": "Debug a Service Portal widget that is not showing updated data",
+    "question": "How would you troubleshoot a portal widget that shows stale or incorrect data?",
+    "summary": "Portal troubleshooting use case with client/server separation.",
+    "contentType": "use-case",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "service-portal",
+      "platform-operations"
+    ],
+    "roleIds": [
+      "service-portal-developer",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "portal-widgets",
+      "portal-server-script",
+      "portal-client-controller",
+      "debugging"
+    ],
+    "tags": [
+      "service portal",
+      "widget",
+      "debugging"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "event-management-alert-routing",
+    "slug": "event-management-alert-routing",
+    "title": "Create incidents from critical alerts in Event Management",
+    "question": "How do you design incident creation for critical alerts without flooding the service desk?",
+    "summary": "ITOM operational use case focused on noise reduction and routing.",
+    "contentType": "use-case",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "event-management",
+      "itom-health",
+      "incident-management"
+    ],
+    "roleIds": [
+      "event-management-developer",
+      "itom-developer",
+      "production-support-engineer"
+    ],
+    "topicIds": [
+      "event-rules",
+      "alert-correlation",
+      "alert-to-incident"
+    ],
+    "tags": [
+      "event management",
+      "alert",
+      "incident"
+    ],
+    "relatedTables": [
+      "em_alert",
+      "incident"
+    ]
+  },
+  {
+    "id": "atf-catalog-test",
+    "slug": "atf-catalog-test",
+    "title": "Build an ATF test for a catalog item",
+    "question": "How do you automate regression testing for a critical catalog item?",
+    "summary": "ATF scenario for submission and basic fulfillment validation.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "atf",
+      "service-catalog"
+    ],
+    "roleIds": [
+      "atf-engineer",
+      "service-catalog-developer",
+      "release-upgrade-specialist"
+    ],
+    "topicIds": [
+      "atf-tests",
+      "test-steps",
+      "catalog-items"
+    ],
+    "tags": [
+      "atf",
+      "catalog item",
+      "testing"
+    ],
+    "relatedTables": [
+      "sc_req_item",
+      "sys_atf_test"
+    ]
+  },
+  {
+    "id": "secops-vulnerability-routing",
+    "slug": "secops-vulnerability-routing",
+    "title": "Route vulnerabilities to remediation teams",
+    "question": "How do you assign vulnerabilities to the correct team based on CI ownership?",
+    "summary": "Vulnerability Response implementation use case tied to CMDB data quality.",
+    "contentType": "use-case",
+    "difficulty": "Advanced",
+    "moduleIds": [
+      "vulnerability-response",
+      "secops",
+      "cmdb"
+    ],
+    "roleIds": [
+      "vulnerability-response-developer",
+      "secops-developer",
+      "cmdb-developer"
+    ],
+    "topicIds": [
+      "vulnerability-lifecycle",
+      "cmdb-tables",
+      "ci-relationships"
+    ],
+    "tags": [
+      "vulnerability response",
+      "assignment",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ham-stockroom-transfer",
+    "slug": "ham-stockroom-transfer",
+    "title": "Implement a hardware asset stockroom transfer process",
+    "question": "How do you design a process to transfer hardware assets between stockrooms?",
+    "summary": "HAM lifecycle scenario focused on state, location, and auditability.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "ham",
+      "itam"
+    ],
+    "roleIds": [
+      "ham-developer",
+      "itam-developer",
+      "business-analyst"
+    ],
+    "topicIds": [
+      "hardware-assets",
+      "stockrooms",
+      "transfers-disposals"
+    ],
+    "tags": [
+      "ham",
+      "stockroom",
+      "transfer"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sam-normalization-review",
+    "slug": "sam-normalization-review",
+    "title": "Review software normalization issues in SAM",
+    "question": "How do you handle software installation data that is not normalizing correctly?",
+    "summary": "SAM troubleshooting and process design scenario.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "sam",
+      "itam"
+    ],
+    "roleIds": [
+      "sam-developer",
+      "itam-developer",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "normalization",
+      "publisher-packs",
+      "software-entitlements"
+    ],
+    "tags": [
+      "sam",
+      "normalization",
+      "software"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "clone-readiness-checklist",
+    "slug": "clone-readiness-checklist",
+    "title": "Prepare an instance for cloning",
+    "question": "How do you plan and validate a clone safely?",
+    "summary": "Platform operations use case covering communication and post-clone tasks.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "platform-operations"
+    ],
+    "roleIds": [
+      "release-upgrade-specialist",
+      "servicenow-administrator",
+      "platform-architect"
+    ],
+    "topicIds": [
+      "cloning",
+      "release-readiness",
+      "notifications"
+    ],
+    "tags": [
+      "clone",
+      "instance",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "update-set-deployment-plan",
+    "slug": "update-set-deployment-plan",
+    "title": "Plan a safe update set deployment",
+    "question": "How do you move a scoped feature change from dev to test to prod safely?",
+    "summary": "Deployment use case focused on collisions, manual steps, and validation.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "source-control",
+      "platform-operations"
+    ],
+    "roleIds": [
+      "servicenow-developer",
+      "release-upgrade-specialist",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "update-sets",
+      "source-control",
+      "release-readiness"
+    ],
+    "tags": [
+      "update set",
+      "deployment"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ui-builder-workspace-page",
+    "slug": "ui-builder-workspace-page",
+    "title": "Create a workspace page in UI Builder",
+    "question": "How do you build a custom workspace page for agents?",
+    "summary": "Modern UX use case for UI Builder and workspaces.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "ui-builder",
+      "workspaces",
+      "csm"
+    ],
+    "roleIds": [
+      "ui-builder-developer",
+      "workspace-developer",
+      "csm-developer"
+    ],
+    "topicIds": [
+      "ui-builder-components",
+      "workspace-record-pages"
+    ],
+    "tags": [
+      "ui builder",
+      "workspace"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "app-engine-custom-app",
+    "slug": "app-engine-custom-app",
+    "title": "Build a custom App Engine intake application",
+    "question": "How do you design a simple custom intake app on ServiceNow?",
+    "summary": "App Engine use case covering tables, forms, flow, and access.",
+    "contentType": "use-case",
+    "difficulty": "Intermediate",
+    "moduleIds": [
+      "app-engine",
+      "flow-designer",
+      "security-access"
+    ],
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "technical-consultant"
+    ],
+    "topicIds": [
+      "custom-app-tables",
+      "app-engine-studio",
+      "acls",
+      "flow-triggers"
+    ],
+    "tags": [
+      "app engine",
+      "custom app"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "servicenow-administrator",
+    "slug": "servicenow-administrator",
+    "title": "ServiceNow Administrator",
+    "question": "",
+    "summary": "Owns platform administration, security, updates, forms, notifications, and baseline configuration.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "platform-core",
+      "security-access",
+      "notifications-email",
+      "source-control",
+      "platform-operations"
+    ],
+    "roleIds": [
+      "servicenow-administrator"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "servicenow-developer",
+    "slug": "servicenow-developer",
+    "title": "ServiceNow Developer",
+    "question": "",
+    "summary": "Builds platform customizations, scripts, integrations, and application logic.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "platform-core",
+      "flow-designer",
+      "rest-integrations",
+      "service-catalog",
+      "security-access",
+      "source-control"
+    ],
+    "roleIds": [
+      "servicenow-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "itsm-developer",
+    "slug": "itsm-developer",
+    "title": "ITSM Developer",
+    "question": "",
+    "summary": "Implements and supports Incident, Problem, Change, Request, SLA, and service operations flows.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "problem-management",
+      "change-management",
+      "request-management",
+      "sla-management",
+      "notifications-email"
+    ],
+    "roleIds": [
+      "itsm-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "itsm-administrator",
+    "slug": "itsm-administrator",
+    "title": "ITSM Administrator",
+    "question": "",
+    "summary": "Administers ITSM process configuration, notifications, assignments, and reporting.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "problem-management",
+      "change-management",
+      "request-management",
+      "sla-management",
+      "reports-dashboards"
+    ],
+    "roleIds": [
+      "itsm-administrator"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cmdb-developer",
+    "slug": "cmdb-developer",
+    "title": "CMDB Developer",
+    "question": "",
+    "summary": "Designs CMDB data models, CI classes, identification, relationships, and data hygiene.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "service-mapping",
+      "event-management"
+    ],
+    "roleIds": [
+      "cmdb-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cmdb-analyst",
+    "slug": "cmdb-analyst",
+    "title": "CMDB Analyst",
+    "question": "",
+    "summary": "Maintains CMDB data quality, reconciliation, class structure, and CI governance.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "cmdb",
+      "discovery"
+    ],
+    "roleIds": [
+      "cmdb-analyst"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "discovery-developer",
+    "slug": "discovery-developer",
+    "title": "Discovery Developer",
+    "question": "",
+    "summary": "Implements MID Servers, schedules, credentials, patterns, probes, and discovery troubleshooting.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "discovery",
+      "cmdb",
+      "service-mapping"
+    ],
+    "roleIds": [
+      "discovery-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "itom-developer",
+    "slug": "itom-developer",
+    "title": "ITOM Developer",
+    "question": "",
+    "summary": "Builds ITOM capabilities across Discovery, Event Management, Service Mapping, and orchestration.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "itom-health",
+      "event-management",
+      "cmdb",
+      "discovery",
+      "service-mapping"
+    ],
+    "roleIds": [
+      "itom-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "event-management-developer",
+    "slug": "event-management-developer",
+    "title": "Event Management Developer",
+    "question": "",
+    "summary": "Configures connectors, alert rules, event rules, and incident creation logic.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "event-management",
+      "itom-health",
+      "incident-management"
+    ],
+    "roleIds": [
+      "event-management-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "service-mapping-developer",
+    "slug": "service-mapping-developer",
+    "title": "Service Mapping Developer",
+    "question": "",
+    "summary": "Builds application service maps, entry points, patterns, and dependency views.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "service-mapping",
+      "discovery",
+      "cmdb"
+    ],
+    "roleIds": [
+      "service-mapping-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "integration-developer",
+    "slug": "integration-developer",
+    "title": "Integration Developer",
+    "question": "",
+    "summary": "Builds outbound and inbound integrations using REST, SOAP, IntegrationHub, and scripted APIs.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "rest-integrations",
+      "soap-integrations",
+      "integrationhub",
+      "flow-designer"
+    ],
+    "roleIds": [
+      "integration-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "grc-developer",
+    "slug": "grc-developer",
+    "title": "GRC Developer",
+    "question": "",
+    "summary": "Implements policy, compliance, risk, and audit workflows on the platform.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "grc",
+      "risk-management",
+      "policy-and-compliance",
+      "audit-management"
+    ],
+    "roleIds": [
+      "grc-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "risk-developer",
+    "slug": "risk-developer",
+    "title": "Risk Developer",
+    "question": "",
+    "summary": "Configures risk statements, risk scoring, risk responses, and control relationships.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "risk-management",
+      "grc",
+      "policy-and-compliance"
+    ],
+    "roleIds": [
+      "risk-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "audit-developer",
+    "slug": "audit-developer",
+    "title": "Audit Developer",
+    "question": "",
+    "summary": "Builds audit planning, evidence, issue tracking, and audit task automation.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "audit-management",
+      "grc",
+      "policy-and-compliance"
+    ],
+    "roleIds": [
+      "audit-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "secops-developer",
+    "slug": "secops-developer",
+    "title": "SecOps Developer",
+    "question": "",
+    "summary": "Implements Security Operations applications and security response automation.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "secops",
+      "vulnerability-response",
+      "security-incident-response",
+      "threat-intelligence",
+      "cmdb"
+    ],
+    "roleIds": [
+      "secops-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "vulnerability-response-developer",
+    "slug": "vulnerability-response-developer",
+    "title": "Vulnerability Response Developer",
+    "question": "",
+    "summary": "Builds vulnerability ingestion, CI matching, remediation workflows, and reporting.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "vulnerability-response",
+      "secops",
+      "cmdb"
+    ],
+    "roleIds": [
+      "vulnerability-response-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sir-developer",
+    "slug": "sir-developer",
+    "title": "Security Incident Response Developer",
+    "question": "",
+    "summary": "Configures security incident intake, triage, playbooks, and escalations.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "security-incident-response",
+      "secops"
+    ],
+    "roleIds": [
+      "sir-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "threat-intelligence-developer",
+    "slug": "threat-intelligence-developer",
+    "title": "Threat Intelligence Developer",
+    "question": "",
+    "summary": "Supports threat feed intake, indicators, and threat investigation flows.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "threat-intelligence",
+      "secops"
+    ],
+    "roleIds": [
+      "threat-intelligence-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ham-developer",
+    "slug": "ham-developer",
+    "title": "Hardware Asset Management Developer",
+    "question": "",
+    "summary": "Implements hardware asset lifecycle, stockrooms, transfers, models, and audits.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "ham",
+      "itam",
+      "cmdb"
+    ],
+    "roleIds": [
+      "ham-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sam-developer",
+    "slug": "sam-developer",
+    "title": "Software Asset Management Developer",
+    "question": "",
+    "summary": "Implements normalization, reconciliation, entitlements, subscriptions, and reclamation.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "sam",
+      "itam",
+      "cmdb"
+    ],
+    "roleIds": [
+      "sam-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "itam-developer",
+    "slug": "itam-developer",
+    "title": "IT Asset Management Developer",
+    "question": "",
+    "summary": "Builds integrated hardware and software asset management processes.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "itam",
+      "ham",
+      "sam",
+      "cmdb"
+    ],
+    "roleIds": [
+      "itam-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "service-catalog-developer",
+    "slug": "service-catalog-developer",
+    "title": "Service Catalog Developer",
+    "question": "",
+    "summary": "Builds catalog items, record producers, flows, variables, tasks, and approvals.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "service-catalog",
+      "request-management",
+      "flow-designer",
+      "notifications-email"
+    ],
+    "roleIds": [
+      "service-catalog-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "knowledge-developer",
+    "slug": "knowledge-developer",
+    "title": "Knowledge Management Developer",
+    "question": "",
+    "summary": "Supports knowledge bases, workflows, approvals, and article lifecycle.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "knowledge-management",
+      "employee-center"
+    ],
+    "roleIds": [
+      "knowledge-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "employee-center-developer",
+    "slug": "employee-center-developer",
+    "title": "Employee Center Developer",
+    "question": "",
+    "summary": "Configures Employee Center navigation, pages, content, and catalog experiences.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "employee-center",
+      "service-catalog",
+      "knowledge-management"
+    ],
+    "roleIds": [
+      "employee-center-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "service-portal-developer",
+    "slug": "service-portal-developer",
+    "title": "Service Portal Developer",
+    "question": "",
+    "summary": "Builds widgets, pages, themes, client/server scripts, and portal experiences.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "service-portal",
+      "service-catalog",
+      "itsm"
+    ],
+    "roleIds": [
+      "service-portal-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ui-builder-developer",
+    "slug": "ui-builder-developer",
+    "title": "UI Builder Developer",
+    "question": "",
+    "summary": "Builds configurable workspace experiences, pages, and components using UI Builder.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "ui-builder",
+      "workspaces",
+      "employee-center"
+    ],
+    "roleIds": [
+      "ui-builder-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "workspace-developer",
+    "slug": "workspace-developer",
+    "title": "Workspace Developer",
+    "question": "",
+    "summary": "Configures agent and process workspaces, forms, lists, and actions.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "workspaces",
+      "ui-builder",
+      "itsm"
+    ],
+    "roleIds": [
+      "workspace-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "pa-developer",
+    "slug": "pa-developer",
+    "title": "Performance Analytics Developer",
+    "question": "",
+    "summary": "Builds indicators, breakdowns, widgets, dashboards, and analytics jobs.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "performance-analytics",
+      "reports-dashboards",
+      "itsm"
+    ],
+    "roleIds": [
+      "pa-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "atf-engineer",
+    "slug": "atf-engineer",
+    "title": "ATF Engineer",
+    "question": "",
+    "summary": "Automates regression coverage using the Automated Test Framework.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "atf",
+      "service-catalog",
+      "itsm"
+    ],
+    "roleIds": [
+      "atf-engineer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "platform-architect",
+    "slug": "platform-architect",
+    "title": "Platform Architect",
+    "question": "",
+    "summary": "Designs scalable platform architecture, guardrails, integrations, and governance.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "platform-core",
+      "security-access",
+      "source-control",
+      "platform-operations",
+      "rest-integrations"
+    ],
+    "roleIds": [
+      "platform-architect"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "technical-consultant",
+    "slug": "technical-consultant",
+    "title": "Technical Consultant",
+    "question": "",
+    "summary": "Translates requirements to platform design and implementation patterns.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "platform-core",
+      "itsm",
+      "service-catalog",
+      "flow-designer",
+      "rest-integrations"
+    ],
+    "roleIds": [
+      "technical-consultant"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "business-analyst",
+    "slug": "business-analyst",
+    "title": "Business Analyst",
+    "question": "",
+    "summary": "Elicits requirements, maps processes, and validates ServiceNow solutions.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "itsm",
+      "service-catalog",
+      "reports-dashboards",
+      "flow-designer"
+    ],
+    "roleIds": [
+      "business-analyst"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "production-support-engineer",
+    "slug": "production-support-engineer",
+    "title": "Production Support Engineer",
+    "question": "",
+    "summary": "Handles incidents, troubleshooting, debugging, and support for live ServiceNow applications.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "platform-operations",
+      "itsm",
+      "security-access",
+      "notifications-email"
+    ],
+    "roleIds": [
+      "production-support-engineer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "release-upgrade-specialist",
+    "slug": "release-upgrade-specialist",
+    "title": "Release and Upgrade Specialist",
+    "question": "",
+    "summary": "Plans upgrades, clones, regression validation, and release readiness.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "source-control",
+      "platform-operations",
+      "atf"
+    ],
+    "roleIds": [
+      "release-upgrade-specialist"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "csm-developer",
+    "slug": "csm-developer",
+    "title": "CSM Developer",
+    "question": "",
+    "summary": "Implements Customer Service Management cases, portals, and service operations.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "csm",
+      "service-catalog",
+      "workspaces",
+      "ui-builder"
+    ],
+    "roleIds": [
+      "csm-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "hrsd-developer",
+    "slug": "hrsd-developer",
+    "title": "HRSD Developer",
+    "question": "",
+    "summary": "Implements HR case management, services, employee workflows, and security controls.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "hrsd",
+      "employee-center",
+      "security-access",
+      "service-catalog"
+    ],
+    "roleIds": [
+      "hrsd-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "mobile-developer",
+    "slug": "mobile-developer",
+    "title": "Mobile Developer",
+    "question": "",
+    "summary": "Configures mobile experiences, record pages, actions, and role-based access.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "mobile",
+      "employee-center",
+      "workspaces"
+    ],
+    "roleIds": [
+      "mobile-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "app-engine-developer",
+    "slug": "app-engine-developer",
+    "title": "App Engine Developer",
+    "question": "",
+    "summary": "Builds custom scoped applications, tables, flows, and experiences.",
+    "contentType": "role",
+    "difficulty": "",
+    "moduleIds": [
+      "app-engine",
+      "platform-core",
+      "flow-designer",
+      "ui-builder"
+    ],
+    "roleIds": [
+      "app-engine-developer"
+    ],
+    "topicIds": [],
+    "tags": [
+      "role"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "platform-core",
+    "slug": "platform-core",
+    "title": "Platform Core",
+    "question": "",
+    "summary": "Core platform objects, tables, scripting, and administration.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "platform-core"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "itsm",
+    "slug": "itsm",
+    "title": "ITSM",
+    "question": "",
+    "summary": "Incident, Problem, Change, Request, SLA, and service operations.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "itsm"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "incident-management",
+    "slug": "incident-management",
+    "title": "Incident Management",
+    "question": "",
+    "summary": "End-to-end incident processes, forms, lifecycle, and automation.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "incident-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "problem-management",
+    "slug": "problem-management",
+    "title": "Problem Management",
+    "question": "",
+    "summary": "Problem records, RCA, known errors, and issue prevention.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "problem-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "change-management",
+    "slug": "change-management",
+    "title": "Change Management",
+    "question": "",
+    "summary": "Change lifecycle, approvals, risk, blackout windows, and CAB support.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "change-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "request-management",
+    "slug": "request-management",
+    "title": "Request Management",
+    "question": "",
+    "summary": "Requests, requested items, tasks, approvals, and fulfillment.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "request-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "service-catalog",
+    "slug": "service-catalog",
+    "title": "Service Catalog",
+    "question": "",
+    "summary": "Catalog items, record producers, order guides, and variables.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "service-catalog"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "knowledge-management",
+    "slug": "knowledge-management",
+    "title": "Knowledge Management",
+    "question": "",
+    "summary": "Knowledge base structure, article lifecycle, approvals, and publishing.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "knowledge-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sla-management",
+    "slug": "sla-management",
+    "title": "SLA Management",
+    "question": "",
+    "summary": "SLA definitions, start/stop conditions, task_sla records, and calendars.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "sla-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "flow-designer",
+    "slug": "flow-designer",
+    "title": "Flow Designer",
+    "question": "",
+    "summary": "Flows, subflows, actions, spokes, and no-code automation.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "flow-designer"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "integrationhub",
+    "slug": "integrationhub",
+    "title": "IntegrationHub",
+    "question": "",
+    "summary": "Spokes, actions, data streams, and external system automation.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "integrationhub"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "rest-integrations",
+    "slug": "rest-integrations",
+    "title": "REST Integrations",
+    "question": "",
+    "summary": "Outbound REST, inbound APIs, and scripted endpoints.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "rest-integrations"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "soap-integrations",
+    "slug": "soap-integrations",
+    "title": "SOAP Integrations",
+    "question": "",
+    "summary": "SOAP messages, WSDL imports, and SOAP-based integrations.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "soap-integrations"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cmdb",
+    "slug": "cmdb",
+    "title": "CMDB",
+    "question": "",
+    "summary": "Classes, CI modeling, identification, reconciliation, and governance.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "cmdb"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "discovery",
+    "slug": "discovery",
+    "title": "Discovery",
+    "question": "",
+    "summary": "MID Servers, credentials, schedules, probes, sensors, and patterns.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "discovery"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "service-mapping",
+    "slug": "service-mapping",
+    "title": "Service Mapping",
+    "question": "",
+    "summary": "Application service maps, dependencies, entry points, and patterns.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "service-mapping"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "event-management",
+    "slug": "event-management",
+    "title": "Event Management",
+    "question": "",
+    "summary": "Event rules, alert management, deduplication, and correlation.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "event-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "itom-health",
+    "slug": "itom-health",
+    "title": "ITOM Health",
+    "question": "",
+    "summary": "Operational health insights, alerts, and service visibility.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "itom-health"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ham",
+    "slug": "ham",
+    "title": "Hardware Asset Management",
+    "question": "",
+    "summary": "Hardware models, stockrooms, lifecycle, transfer, and audits.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "ham"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sam",
+    "slug": "sam",
+    "title": "Software Asset Management",
+    "question": "",
+    "summary": "Entitlements, normalization, subscriptions, and reclamation.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "sam"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "itam",
+    "slug": "itam",
+    "title": "IT Asset Management",
+    "question": "",
+    "summary": "Combined asset lifecycle management across hardware and software.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "itam"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "grc",
+    "slug": "grc",
+    "title": "GRC",
+    "question": "",
+    "summary": "Governance, policy, compliance, risk, and audit capabilities.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "grc"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "risk-management",
+    "slug": "risk-management",
+    "title": "Risk Management",
+    "question": "",
+    "summary": "Risk lifecycle, statements, scoring, responses, and controls.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "risk-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "policy-and-compliance",
+    "slug": "policy-and-compliance",
+    "title": "Policy and Compliance",
+    "question": "",
+    "summary": "Policy lifecycle, controls, compliance testing, and exceptions.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "policy-and-compliance"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "audit-management",
+    "slug": "audit-management",
+    "title": "Audit Management",
+    "question": "",
+    "summary": "Audit planning, evidence, issues, and remediation tracking.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "audit-management"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "secops",
+    "slug": "secops",
+    "title": "Security Operations",
+    "question": "",
+    "summary": "Security operations suite and coordinated security workflows.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "secops"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "vulnerability-response",
+    "slug": "vulnerability-response",
+    "title": "Vulnerability Response",
+    "question": "",
+    "summary": "Vulnerability ingestion, prioritization, remediation, and CI matching.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "vulnerability-response"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "security-incident-response",
+    "slug": "security-incident-response",
+    "title": "Security Incident Response",
+    "question": "",
+    "summary": "Security incident intake, investigation, tasks, and playbooks.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "security-incident-response"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "threat-intelligence",
+    "slug": "threat-intelligence",
+    "title": "Threat Intelligence",
+    "question": "",
+    "summary": "Threat indicators, intel feeds, and enriched investigations.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "threat-intelligence"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "service-portal",
+    "slug": "service-portal",
+    "title": "Service Portal",
+    "question": "",
+    "summary": "Widgets, themes, pages, and portal scripting.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "service-portal"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "employee-center",
+    "slug": "employee-center",
+    "title": "Employee Center",
+    "question": "",
+    "summary": "Unified employee experience across content and services.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "employee-center"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ui-builder",
+    "slug": "ui-builder",
+    "title": "UI Builder",
+    "question": "",
+    "summary": "Declarative page building for workspaces and experiences.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "ui-builder"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "workspaces",
+    "slug": "workspaces",
+    "title": "Workspaces",
+    "question": "",
+    "summary": "Next Experience workspaces, record pages, and agent tooling.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "workspaces"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "virtual-agent",
+    "slug": "virtual-agent",
+    "title": "Virtual Agent",
+    "question": "",
+    "summary": "Conversational topics, integrations, and handoffs.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "virtual-agent"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "performance-analytics",
+    "slug": "performance-analytics",
+    "title": "Performance Analytics",
+    "question": "",
+    "summary": "Indicators, data collection, breakdowns, widgets, and dashboards.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "performance-analytics"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "reports-dashboards",
+    "slug": "reports-dashboards",
+    "title": "Reports and Dashboards",
+    "question": "",
+    "summary": "Report design, performance analytics widgets, and visualizations.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "reports-dashboards"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "atf",
+    "slug": "atf",
+    "title": "Automated Test Framework",
+    "question": "",
+    "summary": "Automated test suites, steps, and regression validation.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "atf"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "hrsd",
+    "slug": "hrsd",
+    "title": "HR Service Delivery",
+    "question": "",
+    "summary": "HR cases, services, lifecycle events, and employee workflows.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "hrsd"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "csm",
+    "slug": "csm",
+    "title": "Customer Service Management",
+    "question": "",
+    "summary": "Customer cases, entitlements, accounts, and channels.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "csm"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "mobile",
+    "slug": "mobile",
+    "title": "Mobile",
+    "question": "",
+    "summary": "Mobile applets, experiences, actions, and role-specific pages.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "mobile"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "app-engine",
+    "slug": "app-engine",
+    "title": "App Engine",
+    "question": "",
+    "summary": "Custom applications, data models, experiences, and automation.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "app-engine"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "notifications-email",
+    "slug": "notifications-email",
+    "title": "Notifications and Email",
+    "question": "",
+    "summary": "Events, notifications, templates, and outbound communication.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "notifications-email"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "security-access",
+    "slug": "security-access",
+    "title": "Security and Access",
+    "question": "",
+    "summary": "ACLs, roles, groups, domain separation, and security controls.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "security-access"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "source-control",
+    "slug": "source-control",
+    "title": "Source Control and Update Sets",
+    "question": "",
+    "summary": "Update sets, source control, deployments, and release management.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "source-control"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "platform-operations",
+    "slug": "platform-operations",
+    "title": "Platform Operations",
+    "question": "",
+    "summary": "Cloning, upgrades, performance, logs, and system health.",
+    "contentType": "module",
+    "difficulty": "",
+    "moduleIds": [
+      "platform-operations"
+    ],
+    "roleIds": [],
+    "topicIds": [],
+    "tags": [
+      "module"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "business-rules",
+    "slug": "business-rules",
+    "title": "Business Rules",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "business-rules"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "before-business-rules",
+    "slug": "before-business-rules",
+    "title": "Before Business Rules",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "before-business-rules"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "after-business-rules",
+    "slug": "after-business-rules",
+    "title": "After Business Rules",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "after-business-rules"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "async-business-rules",
+    "slug": "async-business-rules",
+    "title": "Async Business Rules",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "async-business-rules"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "display-business-rules",
+    "slug": "display-business-rules",
+    "title": "Display Business Rules",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "display-business-rules"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "client-scripts",
+    "slug": "client-scripts",
+    "title": "Client Scripts",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "client-scripts"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "onload-clientscript",
+    "slug": "onload-clientscript",
+    "title": "onLoad Client Scripts",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "onload-clientscript"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "onchange-clientscript",
+    "slug": "onchange-clientscript",
+    "title": "onChange Client Scripts",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "onchange-clientscript"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "onsubmit-clientscript",
+    "slug": "onsubmit-clientscript",
+    "title": "onSubmit Client Scripts",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "onsubmit-clientscript"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ui-policies",
+    "slug": "ui-policies",
+    "title": "UI Policies",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "ui-policies"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "data-policies",
+    "slug": "data-policies",
+    "title": "Data Policies",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "data-policies"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "script-includes",
+    "slug": "script-includes",
+    "title": "Script Includes",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "script-includes"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "gliderecord",
+    "slug": "gliderecord",
+    "title": "GlideRecord",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "gliderecord"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "gliderecordsecure",
+    "slug": "gliderecordsecure",
+    "title": "GlideRecordSecure",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "gliderecordsecure"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "glidequery",
+    "slug": "glidequery",
+    "title": "GlideQuery",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "glidequery"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "glideaggregate",
+    "slug": "glideaggregate",
+    "title": "GlideAggregate",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "glideaggregate"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "glideajax",
+    "slug": "glideajax",
+    "title": "GlideAjax",
+    "question": "",
+    "summary": "Client/Server",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "glideajax"
+    ],
+    "tags": [
+      "topic",
+      "client/server"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "gform",
+    "slug": "gform",
+    "title": "g_form API",
+    "question": "",
+    "summary": "Client-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "gform"
+    ],
+    "tags": [
+      "topic",
+      "client-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "gs-api",
+    "slug": "gs-api",
+    "title": "gs API",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "gs-api"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "background-scripts",
+    "slug": "background-scripts",
+    "title": "Background Scripts",
+    "question": "",
+    "summary": "Administration",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "background-scripts"
+    ],
+    "tags": [
+      "topic",
+      "administration"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "fix-scripts",
+    "slug": "fix-scripts",
+    "title": "Fix Scripts",
+    "question": "",
+    "summary": "Administration",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "fix-scripts"
+    ],
+    "tags": [
+      "topic",
+      "administration"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "scheduled-jobs",
+    "slug": "scheduled-jobs",
+    "title": "Scheduled Jobs",
+    "question": "",
+    "summary": "Automation",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "scheduled-jobs"
+    ],
+    "tags": [
+      "topic",
+      "automation"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "events",
+    "slug": "events",
+    "title": "Events",
+    "question": "",
+    "summary": "Automation",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "events"
+    ],
+    "tags": [
+      "topic",
+      "automation"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "notifications",
+    "slug": "notifications",
+    "title": "Notifications",
+    "question": "",
+    "summary": "Automation",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "notifications"
+    ],
+    "tags": [
+      "topic",
+      "automation"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "email-scripts",
+    "slug": "email-scripts",
+    "title": "Email Scripts",
+    "question": "",
+    "summary": "Automation",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "email-scripts"
+    ],
+    "tags": [
+      "topic",
+      "automation"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "script-actions",
+    "slug": "script-actions",
+    "title": "Script Actions",
+    "question": "",
+    "summary": "Automation",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "script-actions"
+    ],
+    "tags": [
+      "topic",
+      "automation"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "restmessagev2",
+    "slug": "restmessagev2",
+    "title": "RESTMessageV2",
+    "question": "",
+    "summary": "Integrations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "restmessagev2"
+    ],
+    "tags": [
+      "topic",
+      "integrations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "scripted-rest-api",
+    "slug": "scripted-rest-api",
+    "title": "Scripted REST APIs",
+    "question": "",
+    "summary": "Integrations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "scripted-rest-api"
+    ],
+    "tags": [
+      "topic",
+      "integrations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "rest-api-authentication",
+    "slug": "rest-api-authentication",
+    "title": "REST API Authentication",
+    "question": "",
+    "summary": "Integrations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "rest-api-authentication"
+    ],
+    "tags": [
+      "topic",
+      "integrations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "soap-messages",
+    "slug": "soap-messages",
+    "title": "SOAP Messages",
+    "question": "",
+    "summary": "Integrations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "soap-messages"
+    ],
+    "tags": [
+      "topic",
+      "integrations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "import-sets",
+    "slug": "import-sets",
+    "title": "Import Sets",
+    "question": "",
+    "summary": "Data Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "import-sets"
+    ],
+    "tags": [
+      "topic",
+      "data management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "transform-maps",
+    "slug": "transform-maps",
+    "title": "Transform Maps",
+    "question": "",
+    "summary": "Data Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "transform-maps"
+    ],
+    "tags": [
+      "topic",
+      "data management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "coalesce",
+    "slug": "coalesce",
+    "title": "Coalesce",
+    "question": "",
+    "summary": "Data Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "coalesce"
+    ],
+    "tags": [
+      "topic",
+      "data management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "field-maps",
+    "slug": "field-maps",
+    "title": "Field Maps",
+    "question": "",
+    "summary": "Data Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "field-maps"
+    ],
+    "tags": [
+      "topic",
+      "data management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "transform-scripts",
+    "slug": "transform-scripts",
+    "title": "Transform Scripts",
+    "question": "",
+    "summary": "Data Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "transform-scripts"
+    ],
+    "tags": [
+      "topic",
+      "data management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "acls",
+    "slug": "acls",
+    "title": "ACLs",
+    "question": "",
+    "summary": "Security",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "acls"
+    ],
+    "tags": [
+      "topic",
+      "security"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "roles-groups",
+    "slug": "roles-groups",
+    "title": "Roles and Groups",
+    "question": "",
+    "summary": "Security",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "roles-groups"
+    ],
+    "tags": [
+      "topic",
+      "security"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "security-rules",
+    "slug": "security-rules",
+    "title": "Security Rules",
+    "question": "",
+    "summary": "Security",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "security-rules"
+    ],
+    "tags": [
+      "topic",
+      "security"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "domain-separation",
+    "slug": "domain-separation",
+    "title": "Domain Separation",
+    "question": "",
+    "summary": "Security",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "domain-separation"
+    ],
+    "tags": [
+      "topic",
+      "security"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "impersonation",
+    "slug": "impersonation",
+    "title": "Impersonation",
+    "question": "",
+    "summary": "Security",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "impersonation"
+    ],
+    "tags": [
+      "topic",
+      "security"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "update-sets",
+    "slug": "update-sets",
+    "title": "Update Sets",
+    "question": "",
+    "summary": "Deployment",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "update-sets"
+    ],
+    "tags": [
+      "topic",
+      "deployment"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "source-control",
+    "slug": "source-control",
+    "title": "Source Control",
+    "question": "",
+    "summary": "Deployment",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "source-control"
+    ],
+    "tags": [
+      "topic",
+      "deployment"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "scoped-applications",
+    "slug": "scoped-applications",
+    "title": "Scoped Applications",
+    "question": "",
+    "summary": "Development",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "scoped-applications"
+    ],
+    "tags": [
+      "topic",
+      "development"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "application-menu-modules",
+    "slug": "application-menu-modules",
+    "title": "Application Menus and Modules",
+    "question": "",
+    "summary": "Development",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "application-menu-modules"
+    ],
+    "tags": [
+      "topic",
+      "development"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "system-properties",
+    "slug": "system-properties",
+    "title": "System Properties",
+    "question": "",
+    "summary": "Administration",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "system-properties"
+    ],
+    "tags": [
+      "topic",
+      "administration"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "system-definition",
+    "slug": "system-definition",
+    "title": "System Definition",
+    "question": "",
+    "summary": "Administration",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "system-definition"
+    ],
+    "tags": [
+      "topic",
+      "administration"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "tables-dictionary",
+    "slug": "tables-dictionary",
+    "title": "Tables and Dictionary",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "tables-dictionary"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "dictionary-overrides",
+    "slug": "dictionary-overrides",
+    "title": "Dictionary Overrides",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "dictionary-overrides"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "reference-fields",
+    "slug": "reference-fields",
+    "title": "Reference Fields",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "reference-fields"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "reference-qualifiers",
+    "slug": "reference-qualifiers",
+    "title": "Reference Qualifiers",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "reference-qualifiers"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "choice-lists",
+    "slug": "choice-lists",
+    "title": "Choice Lists",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "choice-lists"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "task-table-hierarchy",
+    "slug": "task-table-hierarchy",
+    "title": "Task Table Hierarchy",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "task-table-hierarchy"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "incident-table",
+    "slug": "incident-table",
+    "title": "Incident Table",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "incident-table"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "problem-table",
+    "slug": "problem-table",
+    "title": "Problem Table",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "problem-table"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "change-table",
+    "slug": "change-table",
+    "title": "Change Table",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "change-table"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "request-tables",
+    "slug": "request-tables",
+    "title": "Request Tables",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "request-tables"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sys-user",
+    "slug": "sys-user",
+    "title": "sys_user",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "sys-user"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sys-user-group",
+    "slug": "sys-user-group",
+    "title": "sys_user_group",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "sys-user-group"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "sys-user-has-role",
+    "slug": "sys-user-has-role",
+    "title": "sys_user_has_role",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "sys-user-has-role"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cmdb-tables",
+    "slug": "cmdb-tables",
+    "title": "CMDB Tables",
+    "question": "",
+    "summary": "CMDB",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "cmdb-tables"
+    ],
+    "tags": [
+      "topic",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ci-relationships",
+    "slug": "ci-relationships",
+    "title": "CI Relationships",
+    "question": "",
+    "summary": "CMDB",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "ci-relationships"
+    ],
+    "tags": [
+      "topic",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ire",
+    "slug": "ire",
+    "title": "Identification and Reconciliation Engine",
+    "question": "",
+    "summary": "CMDB",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "ire"
+    ],
+    "tags": [
+      "topic",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "identification-rules",
+    "slug": "identification-rules",
+    "title": "Identification Rules",
+    "question": "",
+    "summary": "CMDB",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "identification-rules"
+    ],
+    "tags": [
+      "topic",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "reconciliation-rules",
+    "slug": "reconciliation-rules",
+    "title": "Reconciliation Rules",
+    "question": "",
+    "summary": "CMDB",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "reconciliation-rules"
+    ],
+    "tags": [
+      "topic",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cmdb-health",
+    "slug": "cmdb-health",
+    "title": "CMDB Health",
+    "question": "",
+    "summary": "CMDB",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "cmdb-health"
+    ],
+    "tags": [
+      "topic",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cmdb-class-manager",
+    "slug": "cmdb-class-manager",
+    "title": "Class Manager",
+    "question": "",
+    "summary": "CMDB",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "cmdb-class-manager"
+    ],
+    "tags": [
+      "topic",
+      "cmdb"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "mid-server",
+    "slug": "mid-server",
+    "title": "MID Server",
+    "question": "",
+    "summary": "Discovery",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "mid-server"
+    ],
+    "tags": [
+      "topic",
+      "discovery"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "discovery-schedules",
+    "slug": "discovery-schedules",
+    "title": "Discovery Schedules",
+    "question": "",
+    "summary": "Discovery",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "discovery-schedules"
+    ],
+    "tags": [
+      "topic",
+      "discovery"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "credentials",
+    "slug": "credentials",
+    "title": "Credentials",
+    "question": "",
+    "summary": "Discovery",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "credentials"
+    ],
+    "tags": [
+      "topic",
+      "discovery"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "patterns",
+    "slug": "patterns",
+    "title": "Patterns",
+    "question": "",
+    "summary": "Discovery",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "patterns"
+    ],
+    "tags": [
+      "topic",
+      "discovery"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "probes-sensors",
+    "slug": "probes-sensors",
+    "title": "Probes and Sensors",
+    "question": "",
+    "summary": "Discovery",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "probes-sensors"
+    ],
+    "tags": [
+      "topic",
+      "discovery"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "service-maps",
+    "slug": "service-maps",
+    "title": "Service Maps",
+    "question": "",
+    "summary": "Service Mapping",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "service-maps"
+    ],
+    "tags": [
+      "topic",
+      "service mapping"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "entry-points",
+    "slug": "entry-points",
+    "title": "Entry Points",
+    "question": "",
+    "summary": "Service Mapping",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "entry-points"
+    ],
+    "tags": [
+      "topic",
+      "service mapping"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "event-rules",
+    "slug": "event-rules",
+    "title": "Event Rules",
+    "question": "",
+    "summary": "Event Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "event-rules"
+    ],
+    "tags": [
+      "topic",
+      "event management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "alert-correlation",
+    "slug": "alert-correlation",
+    "title": "Alert Correlation",
+    "question": "",
+    "summary": "Event Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "alert-correlation"
+    ],
+    "tags": [
+      "topic",
+      "event management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "alert-to-incident",
+    "slug": "alert-to-incident",
+    "title": "Alert to Incident",
+    "question": "",
+    "summary": "Event Management",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "alert-to-incident"
+    ],
+    "tags": [
+      "topic",
+      "event management"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "flow-triggers",
+    "slug": "flow-triggers",
+    "title": "Flow Triggers",
+    "question": "",
+    "summary": "Flow Designer",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "flow-triggers"
+    ],
+    "tags": [
+      "topic",
+      "flow designer"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "subflows-actions",
+    "slug": "subflows-actions",
+    "title": "Subflows and Actions",
+    "question": "",
+    "summary": "Flow Designer",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "subflows-actions"
+    ],
+    "tags": [
+      "topic",
+      "flow designer"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "data-pills",
+    "slug": "data-pills",
+    "title": "Data Pills",
+    "question": "",
+    "summary": "Flow Designer",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "data-pills"
+    ],
+    "tags": [
+      "topic",
+      "flow designer"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "spokes",
+    "slug": "spokes",
+    "title": "Spokes",
+    "question": "",
+    "summary": "IntegrationHub",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "spokes"
+    ],
+    "tags": [
+      "topic",
+      "integrationhub"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "catalog-items",
+    "slug": "catalog-items",
+    "title": "Catalog Items",
+    "question": "",
+    "summary": "Catalog",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "catalog-items"
+    ],
+    "tags": [
+      "topic",
+      "catalog"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "record-producers",
+    "slug": "record-producers",
+    "title": "Record Producers",
+    "question": "",
+    "summary": "Catalog",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "record-producers"
+    ],
+    "tags": [
+      "topic",
+      "catalog"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "order-guides",
+    "slug": "order-guides",
+    "title": "Order Guides",
+    "question": "",
+    "summary": "Catalog",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "order-guides"
+    ],
+    "tags": [
+      "topic",
+      "catalog"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "catalog-variables",
+    "slug": "catalog-variables",
+    "title": "Catalog Variables",
+    "question": "",
+    "summary": "Catalog",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "catalog-variables"
+    ],
+    "tags": [
+      "topic",
+      "catalog"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "variable-sets",
+    "slug": "variable-sets",
+    "title": "Variable Sets",
+    "question": "",
+    "summary": "Catalog",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "variable-sets"
+    ],
+    "tags": [
+      "topic",
+      "catalog"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "requested-item-flow",
+    "slug": "requested-item-flow",
+    "title": "Requested Item Flow",
+    "question": "",
+    "summary": "Catalog",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "requested-item-flow"
+    ],
+    "tags": [
+      "topic",
+      "catalog"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "approvals",
+    "slug": "approvals",
+    "title": "Approvals",
+    "question": "",
+    "summary": "Platform",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "approvals"
+    ],
+    "tags": [
+      "topic",
+      "platform"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "assignment-rules",
+    "slug": "assignment-rules",
+    "title": "Assignment Rules",
+    "question": "",
+    "summary": "Platform",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "assignment-rules"
+    ],
+    "tags": [
+      "topic",
+      "platform"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "data-lookup-rules",
+    "slug": "data-lookup-rules",
+    "title": "Data Lookup Rules",
+    "question": "",
+    "summary": "Platform",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "data-lookup-rules"
+    ],
+    "tags": [
+      "topic",
+      "platform"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ui-actions",
+    "slug": "ui-actions",
+    "title": "UI Actions",
+    "question": "",
+    "summary": "Platform",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "ui-actions"
+    ],
+    "tags": [
+      "topic",
+      "platform"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ui-pages",
+    "slug": "ui-pages",
+    "title": "UI Pages",
+    "question": "",
+    "summary": "Legacy UI",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "ui-pages"
+    ],
+    "tags": [
+      "topic",
+      "legacy ui"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "jelly",
+    "slug": "jelly",
+    "title": "Jelly",
+    "question": "",
+    "summary": "Legacy UI",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "jelly"
+    ],
+    "tags": [
+      "topic",
+      "legacy ui"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "portal-widgets",
+    "slug": "portal-widgets",
+    "title": "Service Portal Widgets",
+    "question": "",
+    "summary": "Portal",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "portal-widgets"
+    ],
+    "tags": [
+      "topic",
+      "portal"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "portal-server-script",
+    "slug": "portal-server-script",
+    "title": "Portal Server Script",
+    "question": "",
+    "summary": "Portal",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "portal-server-script"
+    ],
+    "tags": [
+      "topic",
+      "portal"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "portal-client-controller",
+    "slug": "portal-client-controller",
+    "title": "Portal Client Controller",
+    "question": "",
+    "summary": "Portal",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "portal-client-controller"
+    ],
+    "tags": [
+      "topic",
+      "portal"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "ui-builder-components",
+    "slug": "ui-builder-components",
+    "title": "UI Builder Components",
+    "question": "",
+    "summary": "Workspace",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "ui-builder-components"
+    ],
+    "tags": [
+      "topic",
+      "workspace"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "workspace-record-pages",
+    "slug": "workspace-record-pages",
+    "title": "Workspace Record Pages",
+    "question": "",
+    "summary": "Workspace",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "workspace-record-pages"
+    ],
+    "tags": [
+      "topic",
+      "workspace"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "virtual-agent-topics",
+    "slug": "virtual-agent-topics",
+    "title": "Virtual Agent Topics",
+    "question": "",
+    "summary": "Virtual Agent",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "virtual-agent-topics"
+    ],
+    "tags": [
+      "topic",
+      "virtual agent"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "slas",
+    "slug": "slas",
+    "title": "SLAs",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "slas"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "task-sla",
+    "slug": "task-sla",
+    "title": "task_sla",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "task-sla"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "business-calendars",
+    "slug": "business-calendars",
+    "title": "Business Calendars",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "business-calendars"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "incident-lifecycle",
+    "slug": "incident-lifecycle",
+    "title": "Incident Lifecycle",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "incident-lifecycle"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "major-incident",
+    "slug": "major-incident",
+    "title": "Major Incident",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "major-incident"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "problem-investigation",
+    "slug": "problem-investigation",
+    "title": "Problem Investigation",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "problem-investigation"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "change-approvals",
+    "slug": "change-approvals",
+    "title": "Change Approvals",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "change-approvals"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "blackout-maintenance-schedules",
+    "slug": "blackout-maintenance-schedules",
+    "title": "Blackout and Maintenance Schedules",
+    "question": "",
+    "summary": "ITSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "blackout-maintenance-schedules"
+    ],
+    "tags": [
+      "topic",
+      "itsm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "reports",
+    "slug": "reports",
+    "title": "Reports",
+    "question": "",
+    "summary": "Analytics",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "reports"
+    ],
+    "tags": [
+      "topic",
+      "analytics"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "dashboards",
+    "slug": "dashboards",
+    "title": "Dashboards",
+    "question": "",
+    "summary": "Analytics",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "dashboards"
+    ],
+    "tags": [
+      "topic",
+      "analytics"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "pa-indicators",
+    "slug": "pa-indicators",
+    "title": "PA Indicators",
+    "question": "",
+    "summary": "Analytics",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "pa-indicators"
+    ],
+    "tags": [
+      "topic",
+      "analytics"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "pa-breakdowns",
+    "slug": "pa-breakdowns",
+    "title": "PA Breakdowns",
+    "question": "",
+    "summary": "Analytics",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "pa-breakdowns"
+    ],
+    "tags": [
+      "topic",
+      "analytics"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "atf-tests",
+    "slug": "atf-tests",
+    "title": "ATF Tests",
+    "question": "",
+    "summary": "Quality",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "atf-tests"
+    ],
+    "tags": [
+      "topic",
+      "quality"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "test-steps",
+    "slug": "test-steps",
+    "title": "Test Steps",
+    "question": "",
+    "summary": "Quality",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "test-steps"
+    ],
+    "tags": [
+      "topic",
+      "quality"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "performance-tuning",
+    "slug": "performance-tuning",
+    "title": "Performance Tuning",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "performance-tuning"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "debugging",
+    "slug": "debugging",
+    "title": "Debugging",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "debugging"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "logs",
+    "slug": "logs",
+    "title": "Logs",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "logs"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "node-log",
+    "slug": "node-log",
+    "title": "Node Log",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "node-log"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "slow-transactions",
+    "slug": "slow-transactions",
+    "title": "Slow Transactions",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "slow-transactions"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "cloning",
+    "slug": "cloning",
+    "title": "Cloning",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "cloning"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "upgrades",
+    "slug": "upgrades",
+    "title": "Upgrades",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "upgrades"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "release-readiness",
+    "slug": "release-readiness",
+    "title": "Release Readiness",
+    "question": "",
+    "summary": "Operations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "release-readiness"
+    ],
+    "tags": [
+      "topic",
+      "operations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "hr-case-security",
+    "slug": "hr-case-security",
+    "title": "HR Case Security",
+    "question": "",
+    "summary": "HRSD",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "hr-case-security"
+    ],
+    "tags": [
+      "topic",
+      "hrsd"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "hr-services",
+    "slug": "hr-services",
+    "title": "HR Services",
+    "question": "",
+    "summary": "HRSD",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "hr-services"
+    ],
+    "tags": [
+      "topic",
+      "hrsd"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "csm-case-management",
+    "slug": "csm-case-management",
+    "title": "CSM Case Management",
+    "question": "",
+    "summary": "CSM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "csm-case-management"
+    ],
+    "tags": [
+      "topic",
+      "csm"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "vulnerability-lifecycle",
+    "slug": "vulnerability-lifecycle",
+    "title": "Vulnerability Lifecycle",
+    "question": "",
+    "summary": "SecOps",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "vulnerability-lifecycle"
+    ],
+    "tags": [
+      "topic",
+      "secops"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "security-incident-lifecycle",
+    "slug": "security-incident-lifecycle",
+    "title": "Security Incident Lifecycle",
+    "question": "",
+    "summary": "SecOps",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "security-incident-lifecycle"
+    ],
+    "tags": [
+      "topic",
+      "secops"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "threat-intel-indicators",
+    "slug": "threat-intel-indicators",
+    "title": "Threat Indicators",
+    "question": "",
+    "summary": "SecOps",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "threat-intel-indicators"
+    ],
+    "tags": [
+      "topic",
+      "secops"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "risk-statements",
+    "slug": "risk-statements",
+    "title": "Risk Statements",
+    "question": "",
+    "summary": "GRC",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "risk-statements"
+    ],
+    "tags": [
+      "topic",
+      "grc"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "risk-scoring",
+    "slug": "risk-scoring",
+    "title": "Risk Scoring",
+    "question": "",
+    "summary": "GRC",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "risk-scoring"
+    ],
+    "tags": [
+      "topic",
+      "grc"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "controls-and-control-objectives",
+    "slug": "controls-and-control-objectives",
+    "title": "Controls and Control Objectives",
+    "question": "",
+    "summary": "GRC",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "controls-and-control-objectives"
+    ],
+    "tags": [
+      "topic",
+      "grc"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "policy-lifecycle",
+    "slug": "policy-lifecycle",
+    "title": "Policy Lifecycle",
+    "question": "",
+    "summary": "GRC",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "policy-lifecycle"
+    ],
+    "tags": [
+      "topic",
+      "grc"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "audit-plans",
+    "slug": "audit-plans",
+    "title": "Audit Plans",
+    "question": "",
+    "summary": "GRC",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "audit-plans"
+    ],
+    "tags": [
+      "topic",
+      "grc"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "hardware-assets",
+    "slug": "hardware-assets",
+    "title": "Hardware Assets",
+    "question": "",
+    "summary": "HAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "hardware-assets"
+    ],
+    "tags": [
+      "topic",
+      "ham"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "stockrooms",
+    "slug": "stockrooms",
+    "title": "Stockrooms",
+    "question": "",
+    "summary": "HAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "stockrooms"
+    ],
+    "tags": [
+      "topic",
+      "ham"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "asset-models",
+    "slug": "asset-models",
+    "title": "Asset Models",
+    "question": "",
+    "summary": "HAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "asset-models"
+    ],
+    "tags": [
+      "topic",
+      "ham"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "transfers-disposals",
+    "slug": "transfers-disposals",
+    "title": "Transfers and Disposals",
+    "question": "",
+    "summary": "HAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "transfers-disposals"
+    ],
+    "tags": [
+      "topic",
+      "ham"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "software-entitlements",
+    "slug": "software-entitlements",
+    "title": "Software Entitlements",
+    "question": "",
+    "summary": "SAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "software-entitlements"
+    ],
+    "tags": [
+      "topic",
+      "sam"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "normalization",
+    "slug": "normalization",
+    "title": "Normalization",
+    "question": "",
+    "summary": "SAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "normalization"
+    ],
+    "tags": [
+      "topic",
+      "sam"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "reclamation",
+    "slug": "reclamation",
+    "title": "Reclamation",
+    "question": "",
+    "summary": "SAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "reclamation"
+    ],
+    "tags": [
+      "topic",
+      "sam"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "publisher-packs",
+    "slug": "publisher-packs",
+    "title": "Publisher Packs",
+    "question": "",
+    "summary": "SAM",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "publisher-packs"
+    ],
+    "tags": [
+      "topic",
+      "sam"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "mobile-experiences",
+    "slug": "mobile-experiences",
+    "title": "Mobile Experiences",
+    "question": "",
+    "summary": "Mobile",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "mobile-experiences"
+    ],
+    "tags": [
+      "topic",
+      "mobile"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "mobile-actions",
+    "slug": "mobile-actions",
+    "title": "Mobile Actions",
+    "question": "",
+    "summary": "Mobile",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "mobile-actions"
+    ],
+    "tags": [
+      "topic",
+      "mobile"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "custom-app-tables",
+    "slug": "custom-app-tables",
+    "title": "Custom App Tables",
+    "question": "",
+    "summary": "App Engine",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "custom-app-tables"
+    ],
+    "tags": [
+      "topic",
+      "app engine"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "app-engine-studio",
+    "slug": "app-engine-studio",
+    "title": "App Engine Studio",
+    "question": "",
+    "summary": "App Engine",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "app-engine-studio"
+    ],
+    "tags": [
+      "topic",
+      "app engine"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "decision-tables",
+    "slug": "decision-tables",
+    "title": "Decision Tables",
+    "question": "",
+    "summary": "Automation",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "decision-tables"
+    ],
+    "tags": [
+      "topic",
+      "automation"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "data-stream-actions",
+    "slug": "data-stream-actions",
+    "title": "Data Stream Actions",
+    "question": "",
+    "summary": "IntegrationHub",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "data-stream-actions"
+    ],
+    "tags": [
+      "topic",
+      "integrationhub"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "graphql-or-rest",
+    "slug": "graphql-or-rest",
+    "title": "GraphQL vs REST Discussion",
+    "question": "",
+    "summary": "Integrations",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "graphql-or-rest"
+    ],
+    "tags": [
+      "topic",
+      "integrations"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "query-business-rules",
+    "slug": "query-business-rules",
+    "title": "Query Business Rules",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "query-business-rules"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "display-values",
+    "slug": "display-values",
+    "title": "Display Values",
+    "question": "",
+    "summary": "Data Model",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "display-values"
+    ],
+    "tags": [
+      "topic",
+      "data model"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "encoded-queries",
+    "slug": "encoded-queries",
+    "title": "Encoded Queries",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "encoded-queries"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "query-conditions",
+    "slug": "query-conditions",
+    "title": "Query Conditions",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "query-conditions"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "gs-eventqueue",
+    "slug": "gs-eventqueue",
+    "title": "gs.eventQueue",
+    "question": "",
+    "summary": "Automation",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "gs-eventqueue"
+    ],
+    "tags": [
+      "topic",
+      "automation"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "setworkflow",
+    "slug": "setworkflow",
+    "title": "setWorkflow",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "setworkflow"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "setabortaction",
+    "slug": "setabortaction",
+    "title": "setAbortAction",
+    "question": "",
+    "summary": "Server-side APIs",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "setabortaction"
+    ],
+    "tags": [
+      "topic",
+      "server-side apis"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "current-previous",
+    "slug": "current-previous",
+    "title": "current and previous objects",
+    "question": "",
+    "summary": "Scripting",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "current-previous"
+    ],
+    "tags": [
+      "topic",
+      "scripting"
+    ],
+    "relatedTables": []
+  },
+  {
+    "id": "client-callable",
+    "slug": "client-callable",
+    "title": "Client Callable Script Includes",
+    "question": "",
+    "summary": "Client/Server",
+    "contentType": "topic",
+    "difficulty": "",
+    "moduleIds": [],
+    "roleIds": [],
+    "topicIds": [
+      "client-callable"
+    ],
+    "tags": [
+      "topic",
+      "client/server"
+    ],
+    "relatedTables": []
+  }
+]

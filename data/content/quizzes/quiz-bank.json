@@ -1,0 +1,2499 @@
+[
+  {
+    "id": "quiz-business-rules-before-vs-after",
+    "question": "What is the difference between before and after business rules in ServiceNow?",
+    "choices": [
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "A before business rule runs before the current record is written to the database and is primarily used to set or validate values on the current record. An after business rule runs only after the database write succeeds and is better for related-record updates, notifications, events, and downstream processing.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It should always replace every other platform option because it is the newest feature."
+    ],
+    "answerIndex": 1,
+    "explanation": "Compares the execution timing and safe usage patterns of before and after business rules.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "business-rules",
+      "before-business-rules",
+      "after-business-rules"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "business rules",
+      "before",
+      "after"
+    ]
+  },
+  {
+    "id": "quiz-business-rules-async-vs-display",
+    "question": "When should you use async and display business rules?",
+    "choices": [
+      "It is designed primarily to bypass security and speed up development.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "An async business rule runs asynchronously after the record operation completes and should be used for non-blocking server work such as event generation or integrations that do not need to delay the user transaction. A display business rule runs when a form is loaded and is typically used to push server-side data to g_scratchpad for client-side use."
+    ],
+    "answerIndex": 3,
+    "explanation": "Explains async and display business rules and their common interview use cases.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "async-business-rules",
+      "display-business-rules",
+      "business-rules"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "async",
+      "display",
+      "business rules"
+    ]
+  },
+  {
+    "id": "quiz-client-script-vs-ui-policy",
+    "question": "What is the difference between a client script and a UI policy?",
+    "choices": [
+      "It should always replace every other platform option because it is the newest feature.",
+      "A UI policy is the preferred choice for simple field behavior such as making a field mandatory, read-only, or visible based on conditions. A client script is used when you need procedural logic, calculations, field messaging, asynchronous calls, or logic that cannot be expressed with a UI policy condition and actions alone.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It is only relevant for reporting and has no effect on data or automation design."
+    ],
+    "answerIndex": 1,
+    "explanation": "Shows when to use declarative UI logic versus script-based client logic.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "service-catalog-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "client-scripts",
+      "ui-policies",
+      "gform"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "client script",
+      "ui policy"
+    ]
+  },
+  {
+    "id": "quiz-ui-policy-vs-data-policy",
+    "question": "How is a data policy different from a UI policy?",
+    "choices": [
+      "It should always replace every other platform option because it is the newest feature.",
+      "A UI policy affects form behavior in the user interface, while a data policy enforces data consistency at the platform level and can also affect data imported through integrations or import sets when configured accordingly. Data policies are better when the rule must be enforced beyond the interactive form.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It is mainly used only for client-side rendering and does not affect server logic."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains front-end versus platform-level enforcement.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "hrsd-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "ui-policies",
+      "data-policies"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "ui policy",
+      "data policy"
+    ]
+  },
+  {
+    "id": "quiz-gliderecord-vs-gliderecordsecure",
+    "question": "What is the difference between GlideRecord and GlideRecordSecure?",
+    "choices": [
+      "GlideRecord queries data without automatically enforcing row and field ACL checks in the same way a user-facing session would expect, so it is commonly used in trusted server-side code. GlideRecordSecure automatically enforces ACLs for queried records and fields and is safer when you must honor the current user's security context in server-side logic.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It is designed primarily to bypass security and speed up development."
+    ],
+    "answerIndex": 0,
+    "explanation": "Explains server-side querying with and without automatic ACL enforcement.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "gliderecordsecure",
+      "acls"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "gliderecord",
+      "gliderecordsecure",
+      "acl"
+    ]
+  },
+  {
+    "id": "quiz-glidequery-vs-gliderecord",
+    "question": "What is the difference between GlideQuery and GlideRecord?",
+    "choices": [
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It is designed primarily to bypass security and speed up development.",
+      "GlideRecord is the traditional record API and is deeply used across the platform for CRUD operations and row iteration. GlideQuery offers a more modern, chainable querying style that can improve readability for some use cases, but GlideRecord remains the most common and widely expected API in interview answers and production maintenance work."
+    ],
+    "answerIndex": 3,
+    "explanation": "Explains legacy and modern querying styles in ServiceNow server-side scripts.",
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "glidequery",
+      "gliderecord"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "glidequery",
+      "gliderecord"
+    ]
+  },
+  {
+    "id": "quiz-script-include-client-callable",
+    "question": "How do client-callable Script Includes work?",
+    "choices": [
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "A client-callable Script Include extends AbstractAjaxProcessor and exposes methods that can be called from GlideAjax on the client side. The client sends parameters, the server method runs, and the response is returned to the browser without a full page refresh.",
+      "It is mainly used only for client-side rendering and does not affect server logic."
+    ],
+    "answerIndex": 2,
+    "explanation": "Explains how Script Includes can be exposed to client scripts through GlideAjax.",
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "service-portal-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "script-includes",
+      "client-callable",
+      "glideajax"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "script include",
+      "glideajax",
+      "client callable"
+    ]
+  },
+  {
+    "id": "quiz-acl-evaluation-basics",
+    "question": "How are ACLs evaluated in ServiceNow?",
+    "choices": [
+      "ACLs determine whether a user can create, read, write, delete, or execute a resource. ServiceNow evaluates matching ACL rules for the requested operation and requires the user to satisfy the applicable checks such as roles, conditions, and scripts. Field ACLs can further restrict access even when table-level access exists.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It is mainly used only for client-side rendering and does not affect server logic."
+    ],
+    "answerIndex": 0,
+    "explanation": "Summarizes record and field access control evaluation in interview-ready language.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "hrsd-developer"
+    ],
+    "moduleIds": [
+      "security-access",
+      "platform-core"
+    ],
+    "topicIds": [
+      "acls",
+      "security-rules",
+      "roles-groups"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "acl",
+      "security",
+      "roles"
+    ]
+  },
+  {
+    "id": "quiz-task-table-inheritance",
+    "question": "How does the task table hierarchy work?",
+    "choices": [
+      "The task table is the parent table for many work-oriented records such as incident, problem, change_request, sc_request, and sc_task. Child tables inherit common task fields and behavior, while each child table adds its own table-specific fields and logic.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It is only relevant for reporting and has no effect on data or automation design."
+    ],
+    "answerIndex": 0,
+    "explanation": "Explains inherited fields and behavior across task-derived tables.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "itsm"
+    ],
+    "topicIds": [
+      "task-table-hierarchy",
+      "incident-table",
+      "problem-table",
+      "change-table",
+      "request-tables"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "task table",
+      "inheritance",
+      "incident"
+    ]
+  },
+  {
+    "id": "quiz-dictionary-vs-dictionary-override",
+    "question": "What is the difference between a dictionary entry and a dictionary override?",
+    "choices": [
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It is designed primarily to bypass security and speed up development.",
+      "A dictionary entry defines the base metadata for a field. A dictionary override lets a child table override specific field properties inherited from a parent table without redefining the entire field on the child table."
+    ],
+    "answerIndex": 3,
+    "explanation": "Explains baseline field definition versus table-specific override behavior.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "cmdb"
+    ],
+    "topicIds": [
+      "tables-dictionary",
+      "dictionary-overrides"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "dictionary",
+      "dictionary override"
+    ]
+  },
+  {
+    "id": "quiz-reference-qualifier-basics",
+    "question": "What is a reference qualifier used for?",
+    "choices": [
+      "A reference qualifier filters the records displayed in a reference field lookup so users see only relevant choices. It can be static, dynamic, or script-based depending on the complexity of the filtering requirement.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It should always replace every other platform option because it is the newest feature."
+    ],
+    "answerIndex": 0,
+    "explanation": "Explains dynamic filtering of reference field choices.",
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "itsm-administrator"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "reference-fields",
+      "reference-qualifiers"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "reference qualifier",
+      "reference field"
+    ]
+  },
+  {
+    "id": "quiz-system-properties-usage",
+    "question": "When should you use a system property?",
+    "choices": [
+      "A system property should be used when a value needs to be configurable without changing code, such as email recipients, toggle flags, default groups, endpoints, or timing values. Properties help reduce hardcoding and make production changes safer and faster.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It is designed primarily to bypass security and speed up development."
+    ],
+    "answerIndex": 0,
+    "explanation": "Explains configuration-driven design using system properties.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "system-properties"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "system properties",
+      "configuration"
+    ]
+  },
+  {
+    "id": "quiz-flow-designer-vs-workflow",
+    "question": "How do you explain Flow Designer versus the legacy Workflow engine in an interview?",
+    "choices": [
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "Flow Designer is the strategic automation framework for modern ServiceNow implementations and supports declarative flow logic, reusable subflows, actions, and spokes. Legacy Workflow exists in older implementations, especially around classic catalog workflows, but new designs are generally expected to prefer Flow Designer unless a constraint requires legacy behavior.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is designed primarily to bypass security and speed up development."
+    ],
+    "answerIndex": 1,
+    "explanation": "Provides an interview-safe comparison between Flow Designer and legacy workflows.",
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "flow-triggers",
+      "subflows-actions"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "flow designer",
+      "workflow"
+    ]
+  },
+  {
+    "id": "quiz-import-set-vs-transform-map",
+    "question": "What is the difference between an import set and a transform map?",
+    "choices": [
+      "It is designed primarily to bypass security and speed up development.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "An import set is the staging table where inbound data is first loaded. A transform map defines how the data in that staging table is mapped, transformed, coalesced, and written into the target table."
+    ],
+    "answerIndex": 3,
+    "explanation": "Explains staging versus mapping during data ingestion.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "cmdb"
+    ],
+    "topicIds": [
+      "import-sets",
+      "transform-maps",
+      "field-maps"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "import set",
+      "transform map"
+    ]
+  },
+  {
+    "id": "quiz-coalesce-explained",
+    "question": "What does coalesce do in a transform map?",
+    "choices": [
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "Coalesce identifies whether an incoming row should update an existing target record or create a new one by matching one or more fields marked for coalescing. Choosing the right coalesce field is critical for preventing duplicates.",
+      "It is only relevant for reporting and has no effect on data or automation design."
+    ],
+    "answerIndex": 2,
+    "explanation": "Explains record matching during imports.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "cmdb"
+    ],
+    "topicIds": [
+      "coalesce",
+      "transform-maps"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "coalesce",
+      "transform map"
+    ]
+  },
+  {
+    "id": "quiz-cmdb-relationship-vs-reference",
+    "question": "What is the difference between a CMDB relationship and a simple reference field?",
+    "choices": [
+      "A reference field points from one record to another for a direct field-level association, while a CMDB relationship models a typed dependency between CIs using relationship records. CMDB relationships are used for service impact analysis, topology, and dependency mapping, not just simple lookup convenience.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It should always replace every other platform option because it is the newest feature."
+    ],
+    "answerIndex": 0,
+    "explanation": "Clarifies modeling dependencies in CMDB design.",
+    "roleIds": [
+      "cmdb-developer",
+      "itom-developer",
+      "vulnerability-response-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "service-mapping"
+    ],
+    "topicIds": [
+      "ci-relationships",
+      "reference-fields"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "cmdb",
+      "relationship",
+      "reference"
+    ]
+  },
+  {
+    "id": "quiz-ire-purpose",
+    "question": "What does IRE do in CMDB?",
+    "choices": [
+      "IRE identifies whether an incoming CI payload matches an existing CI and then applies reconciliation rules to determine whether the source is allowed to update specific attributes. It is central to reducing duplicates and preserving source-of-truth governance in the CMDB.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is only relevant for reporting and has no effect on data or automation design."
+    ],
+    "answerIndex": 0,
+    "explanation": "Explains duplicate prevention and source governance in CMDB data ingestion.",
+    "roleIds": [
+      "cmdb-developer",
+      "discovery-developer",
+      "vulnerability-response-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "vulnerability-response"
+    ],
+    "topicIds": [
+      "ire",
+      "identification-rules",
+      "reconciliation-rules"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "ire",
+      "cmdb",
+      "reconciliation"
+    ]
+  },
+  {
+    "id": "quiz-mid-server-basics",
+    "question": "What is a MID Server and when is it required?",
+    "choices": [
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "A MID Server is a Java-based agent installed within the customer network that enables secure communication between the ServiceNow instance and resources that are not directly reachable from the cloud instance. It is commonly required for Discovery, Service Mapping, and some integration patterns involving internal systems.",
+      "It is designed primarily to bypass security and speed up development."
+    ],
+    "answerIndex": 2,
+    "explanation": "Explains the role of the MID Server in discovery and integrations.",
+    "roleIds": [
+      "discovery-developer",
+      "integration-developer",
+      "itom-developer"
+    ],
+    "moduleIds": [
+      "discovery",
+      "rest-integrations",
+      "service-mapping"
+    ],
+    "topicIds": [
+      "mid-server",
+      "discovery-schedules",
+      "credentials"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "mid server",
+      "discovery",
+      "integration"
+    ]
+  },
+  {
+    "id": "quiz-integrationhub-vs-restmessage",
+    "question": "When would you use IntegrationHub instead of RESTMessageV2?",
+    "choices": [
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "IntegrationHub is preferred when you want reusable, low-code actions and spoke-based integrations that business or platform teams can orchestrate in Flow Designer. RESTMessageV2 is better when you need scripted control, dynamic request composition, custom authentication handling, or server-side integration logic outside a flow context."
+    ],
+    "answerIndex": 3,
+    "explanation": "Explains low-code and scripted integration choices.",
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "integrationhub",
+      "rest-integrations",
+      "flow-designer"
+    ],
+    "topicIds": [
+      "spokes",
+      "restmessagev2",
+      "data-stream-actions"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "integrationhub",
+      "restmessagev2"
+    ]
+  },
+  {
+    "id": "quiz-catalog-item-vs-record-producer-vs-order-guide",
+    "question": "How do you explain catalog items, record producers, and order guides?",
+    "choices": [
+      "It should always replace every other platform option because it is the newest feature.",
+      "A catalog item is typically used to request a product or service and usually creates request-related records such as request, requested item, and catalog tasks. A record producer is used to create a target record directly, such as an incident or HR case, from a catalog-style form. An order guide is a wrapper that helps the user request multiple related catalog items in one guided experience.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It is mainly used only for client-side rendering and does not affect server logic."
+    ],
+    "answerIndex": 1,
+    "explanation": "Provides a common interview comparison for service catalog design.",
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "business-analyst"
+    ],
+    "moduleIds": [
+      "service-catalog",
+      "request-management"
+    ],
+    "topicIds": [
+      "catalog-items",
+      "record-producers",
+      "order-guides"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "catalog item",
+      "record producer",
+      "order guide"
+    ]
+  },
+  {
+    "id": "quiz-notifications-vs-events",
+    "question": "What is the relationship between events and notifications?",
+    "choices": [
+      "A notification defines who should be notified and under what conditions, while an event is a named signal that can be queued from scripts and then consumed by notifications or script actions. Using events helps decouple business logic from email logic and often makes solutions easier to maintain.",
+      "It is designed primarily to bypass security and speed up development.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It should always replace every other platform option because it is the newest feature."
+    ],
+    "answerIndex": 0,
+    "explanation": "Explains event-driven email design in ServiceNow.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "notifications-email"
+    ],
+    "topicIds": [
+      "events",
+      "notifications",
+      "email-scripts",
+      "gs-eventqueue"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "notification",
+      "event",
+      "email"
+    ]
+  },
+  {
+    "id": "quiz-sla-attachment-troubleshooting",
+    "question": "An SLA is not attaching to a task. Where do you look first?",
+    "choices": [
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "Start by verifying the SLA definition conditions, start conditions, target table, and whether the record actually meets the criteria at the correct time. Then inspect task_sla records, logs, and any scripts or flows that may alter the values used by the SLA conditions.",
+      "It is designed primarily to bypass security and speed up development."
+    ],
+    "answerIndex": 2,
+    "explanation": "A troubleshooting answer for one of the most common ITSM interview scenarios.",
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "sla-management",
+      "itsm"
+    ],
+    "topicIds": [
+      "slas",
+      "task-sla",
+      "business-calendars"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "sla",
+      "task_sla",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "quiz-update-set-best-practices",
+    "question": "What are the most important update set best practices?",
+    "choices": [
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "Use update sets in a disciplined way: keep them scoped to a single purpose, preview before commit, resolve collisions carefully, avoid moving data that should be promoted another way, and document manual steps. For modern app development, combine this with source control where appropriate instead of treating update sets as the only lifecycle tool.",
+      "It is mainly used only for client-side rendering and does not affect server logic."
+    ],
+    "answerIndex": 2,
+    "explanation": "Summarizes interview-ready practices for moving configuration safely.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "release-upgrade-specialist"
+    ],
+    "moduleIds": [
+      "source-control",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "update-sets",
+      "source-control"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "update sets",
+      "deployment"
+    ]
+  },
+  {
+    "id": "quiz-scoped-vs-global-applications",
+    "question": "How do scoped applications differ from global development?",
+    "choices": [
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "A scoped application provides namespace isolation, stronger boundaries, app-level packaging, and better long-term governance for custom development. Global development has broader reach and is common in legacy implementations, but it increases the risk of coupling and naming collisions if not controlled carefully.",
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is designed primarily to bypass security and speed up development."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains design and governance differences between global and scoped applications.",
+    "roleIds": [
+      "app-engine-developer",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "app-engine",
+      "platform-core",
+      "source-control"
+    ],
+    "topicIds": [
+      "scoped-applications"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "scoped app",
+      "global"
+    ]
+  },
+  {
+    "id": "quiz-event-management-alert-to-incident",
+    "question": "How does Event Management typically create incidents from alerts?",
+    "choices": [
+      "It should always replace every other platform option because it is the newest feature.",
+      "It is designed primarily to bypass security and speed up development.",
+      "Event Management ingests events, applies event rules and correlation logic to produce alerts, and then uses alert management rules or related automation to create incidents when thresholds or policies are met. The design should control deduplication carefully so repeated noise does not create duplicate incidents.",
+      "It is only relevant for reporting and has no effect on data or automation design."
+    ],
+    "answerIndex": 2,
+    "explanation": "Summarizes common alert-to-incident patterns in ITOM interviews.",
+    "roleIds": [
+      "event-management-developer",
+      "itom-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "event-management",
+      "incident-management"
+    ],
+    "topicIds": [
+      "event-rules",
+      "alert-to-incident",
+      "incident-lifecycle"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "event management",
+      "alert",
+      "incident"
+    ]
+  },
+  {
+    "id": "quiz-portal-vs-workspace-vs-ui-builder",
+    "question": "How do you compare Service Portal, Workspaces, and UI Builder?",
+    "choices": [
+      "It is mainly used only for client-side rendering and does not affect server logic.",
+      "Service Portal is the classic portal framework based on pages, widgets, AngularJS patterns, and portal-specific client/server scripting. Workspaces are modern agent experiences in Next Experience, while UI Builder is the declarative page-building framework commonly used to compose those modern experiences. In interview answers, explain what you currently support, what is strategic going forward, and why the choice depends on the user persona and platform direction.",
+      "It is only relevant for reporting and has no effect on data or automation design.",
+      "It is designed primarily to bypass security and speed up development."
+    ],
+    "answerIndex": 1,
+    "explanation": "Provides a modern experience-layer comparison for interview discussions.",
+    "roleIds": [
+      "service-portal-developer",
+      "workspace-developer",
+      "ui-builder-developer"
+    ],
+    "moduleIds": [
+      "service-portal",
+      "workspaces",
+      "ui-builder",
+      "employee-center"
+    ],
+    "topicIds": [
+      "portal-widgets",
+      "workspace-record-pages",
+      "ui-builder-components"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "service portal",
+      "workspace",
+      "ui builder"
+    ]
+  },
+  {
+    "id": "quiz-query-active-incidents",
+    "question": "Which API is the primary answer expected for this coding prompt: Query active incidents using GlideRecord?",
+    "choices": [
+      "GlideRecord",
+      "g_form",
+      "sn_fd.FlowAPI",
+      "GlideModal"
+    ],
+    "answerIndex": 0,
+    "explanation": "Queries active incidents with GlideRecord from Scripts - Background.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "background-scripts",
+      "incident-table"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "gliderecord",
+      "incident",
+      "background script"
+    ]
+  },
+  {
+    "id": "quiz-query-p1-incidents-last-24-hours",
+    "question": "Which API is the primary answer expected for this coding prompt: Query P1 incidents created in the last 24 hours?",
+    "choices": [
+      "g_form",
+      "GlideModal",
+      "sn_fd.FlowAPI",
+      "GlideRecord"
+    ],
+    "answerIndex": 3,
+    "explanation": "Uses encoded query conditions for a common ITSM interview script.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "encoded-queries",
+      "incident-table"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "priority 1",
+      "encoded query",
+      "incident"
+    ]
+  },
+  {
+    "id": "quiz-count-open-incidents-by-assignment-group",
+    "question": "Which API is the best fit for grouped counts in: Count open incidents by assignment group with GlideAggregate?",
+    "choices": [
+      "GlideSPScriptable",
+      "GlideAggregate",
+      "GlideRecord",
+      "GlideAjax"
+    ],
+    "answerIndex": 1,
+    "explanation": "Uses GlideAggregate for grouped counts instead of looping every record.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "pa-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "reports-dashboards"
+    ],
+    "topicIds": [
+      "glideaggregate",
+      "incident-table"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "glideaggregate",
+      "count",
+      "assignment group"
+    ]
+  },
+  {
+    "id": "quiz-client-script-mandatory-assignment-group-p1",
+    "question": "According to the solution steps, what is the first action for: onChange client script to make Assignment Group mandatory for P1 incidents?",
+    "choices": [
+      "Open All > Reports > Administration",
+      "Open the incident form client scripts.",
+      "Open All > Knowledge > Articles",
+      "Open All > Mobile > Navigation"
+    ],
+    "answerIndex": 1,
+    "explanation": "Client-side form control using g_form in an onChange script.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "topicIds": [
+      "client-scripts",
+      "onchange-clientscript",
+      "gform"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "client script",
+      "g_form",
+      "priority"
+    ]
+  },
+  {
+    "id": "quiz-before-br-default-assignment-group",
+    "question": "According to the solution steps, what is the first action for: Before business rule to default Assignment Group based on Category?",
+    "choices": [
+      "Open All > Mobile > Navigation",
+      "Open All > Knowledge > Articles",
+      "Open All > Reports > Administration",
+      "Open System Definition > Business Rules."
+    ],
+    "answerIndex": 3,
+    "explanation": "Shows safe before-rule logic to set current record values before save.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "platform-core"
+    ],
+    "topicIds": [
+      "before-business-rules",
+      "business-rules",
+      "incident-table"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "business rule",
+      "assignment group",
+      "current"
+    ]
+  },
+  {
+    "id": "quiz-script-include-return-user-department",
+    "question": "What is the correct client/server pattern in: Client-callable Script Include to return a user's department?",
+    "choices": [
+      "GlideAjax calling a client-callable Script Include",
+      "UI Policy Action",
+      "Import Set API",
+      "Background Script"
+    ],
+    "answerIndex": 0,
+    "explanation": "Classic GlideAjax round-trip example for interviews.",
+    "roleIds": [
+      "servicenow-developer",
+      "service-catalog-developer",
+      "service-portal-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "script-includes",
+      "client-callable",
+      "glideajax"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "script include",
+      "glideajax",
+      "department"
+    ]
+  },
+  {
+    "id": "quiz-scheduled-job-auto-close-incidents",
+    "question": "Which API is the primary answer expected for this coding prompt: Scheduled job to auto-close resolved incidents after 7 days?",
+    "choices": [
+      "GlideModal",
+      "GlideRecord",
+      "sn_fd.FlowAPI",
+      "g_form"
+    ],
+    "answerIndex": 1,
+    "explanation": "Common support automation scenario using GlideRecord and date filtering.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "platform-core"
+    ],
+    "topicIds": [
+      "scheduled-jobs",
+      "incident-lifecycle",
+      "gliderecord"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "scheduled job",
+      "incident",
+      "resolved"
+    ]
+  },
+  {
+    "id": "quiz-restmessagev2-create-external-ticket",
+    "question": "Which API is the best fit for: RESTMessageV2 example to create an external incident?",
+    "choices": [
+      "GlideRecord",
+      "RESTMessageV2",
+      "GlideSchedule",
+      "g_form"
+    ],
+    "answerIndex": 1,
+    "explanation": "Outbound REST scripting example with request body construction and response logging.",
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "rest-integrations",
+      "itsm"
+    ],
+    "topicIds": [
+      "restmessagev2",
+      "rest-api-authentication"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "restmessagev2",
+      "outbound rest",
+      "integration"
+    ]
+  },
+  {
+    "id": "quiz-parse-json-and-print-values",
+    "question": "Which API is the best fit for: Parse a JSON payload and print selected values?",
+    "choices": [
+      "GlideSchedule",
+      "GlideRecord",
+      "RESTMessageV2",
+      "g_form"
+    ],
+    "answerIndex": 2,
+    "explanation": "Simple JSON parsing example often used in integration-oriented interviews.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "rest-integrations"
+    ],
+    "topicIds": [
+      "background-scripts",
+      "restmessagev2"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "json",
+      "parse",
+      "background script"
+    ]
+  },
+  {
+    "id": "quiz-queue-event-for-p1-incident",
+    "question": "According to the solution steps, what is the first action for: Queue an event for a P1 incident?",
+    "choices": [
+      "Open All > Reports > Administration",
+      "Open All > Knowledge > Articles",
+      "Create or confirm the named event record if your design requires it.",
+      "Open All > Mobile > Navigation"
+    ],
+    "answerIndex": 2,
+    "explanation": "Shows how to decouple business logic from notifications using gs.eventQueue.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "notifications-email",
+      "itsm"
+    ],
+    "topicIds": [
+      "events",
+      "notifications",
+      "gs-eventqueue"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "event queue",
+      "notification",
+      "p1"
+    ]
+  },
+  {
+    "id": "quiz-acl-script-sensitive-incidents",
+    "question": "What is the right implementation location for: ACL script to restrict sensitive incidents?",
+    "choices": [
+      "A client script",
+      "A dashboard interactive filter",
+      "A formatter",
+      "A server-side ACL script"
+    ],
+    "answerIndex": 3,
+    "explanation": "Server-side ACL script example with role and group logic.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "hrsd-developer"
+    ],
+    "moduleIds": [
+      "security-access",
+      "itsm"
+    ],
+    "topicIds": [
+      "acls",
+      "roles-groups",
+      "incident-table"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "acl",
+      "incident",
+      "security"
+    ]
+  },
+  {
+    "id": "quiz-transform-map-normalize-state",
+    "question": "What is the best implementation point for: Transform map onBefore script to normalize state values?",
+    "choices": [
+      "A UI policy action",
+      "An onBefore transform script",
+      "A display business rule",
+      "A reference qualifier"
+    ],
+    "answerIndex": 1,
+    "explanation": "Data import example that cleans source values before target insert/update.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "incident-management"
+    ],
+    "topicIds": [
+      "transform-maps",
+      "transform-scripts",
+      "coalesce"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "transform map",
+      "normalize",
+      "state"
+    ]
+  },
+  {
+    "id": "quiz-ui-action-reopen-incident",
+    "question": "Which artifact best fits this requirement: UI Action to reopen a closed incident?",
+    "choices": [
+      "A form UI Action",
+      "A data policy",
+      "A list collector",
+      "A transform map"
+    ],
+    "answerIndex": 0,
+    "explanation": "Practical UI Action scripting example.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "topicIds": [
+      "ui-actions",
+      "incident-table"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "ui action",
+      "incident",
+      "server-side"
+    ]
+  },
+  {
+    "id": "quiz-prevent-duplicate-ci-business-rule",
+    "question": "According to the solution steps, what is the first action for: Prevent duplicate CI creation with a before insert business rule?",
+    "choices": [
+      "Open All > Reports > Administration",
+      "Create a before insert business rule on the CI class.",
+      "Open All > Mobile > Navigation",
+      "Open All > Knowledge > Articles"
+    ],
+    "answerIndex": 1,
+    "explanation": "CMDB duplicate prevention example using current.setAbortAction.",
+    "roleIds": [
+      "cmdb-developer",
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "platform-core"
+    ],
+    "topicIds": [
+      "business-rules",
+      "setabortaction",
+      "cmdb-tables"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "cmdb",
+      "duplicate",
+      "serial number"
+    ]
+  },
+  {
+    "id": "quiz-fix-script-deactivate-stale-users",
+    "question": "Which API is the primary answer expected for this coding prompt: Fix script to deactivate inactive users based on a custom flag?",
+    "choices": [
+      "sn_fd.FlowAPI",
+      "GlideRecord",
+      "g_form",
+      "GlideModal"
+    ],
+    "answerIndex": 1,
+    "explanation": "Example of controlled data correction using a fix script.",
+    "roleIds": [
+      "servicenow-developer",
+      "servicenow-administrator"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "fix-scripts",
+      "sys-user",
+      "gliderecord"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "fix script",
+      "sys_user"
+    ]
+  },
+  {
+    "id": "quiz-glidequery-active-problems",
+    "question": "According to the solution steps, what is the first action for: GlideQuery example for active problems?",
+    "choices": [
+      "Open All > Mobile > Navigation",
+      "Open All > Reports > Administration",
+      "Open All > Knowledge > Articles",
+      "Open Scripts - Background."
+    ],
+    "answerIndex": 3,
+    "explanation": "Readable chainable query example for modern server-side discussions.",
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "problem-management"
+    ],
+    "topicIds": [
+      "glidequery",
+      "problem-table"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "glidequery",
+      "problem"
+    ]
+  },
+  {
+    "id": "quiz-query-ci-relationships",
+    "question": "According to the solution steps, what is the first action for: Query CMDB relationships for a CI?",
+    "choices": [
+      "Open All > Mobile > Navigation",
+      "Open All > Knowledge > Articles",
+      "Open All > Reports > Administration",
+      "Find the target CI sys_id."
+    ],
+    "answerIndex": 3,
+    "explanation": "CMDB relationship traversal example.",
+    "roleIds": [
+      "cmdb-developer",
+      "itom-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "service-mapping"
+    ],
+    "topicIds": [
+      "ci-relationships",
+      "cmdb-tables",
+      "background-scripts"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "cmdb relationship",
+      "cmdb_rel_ci"
+    ]
+  },
+  {
+    "id": "quiz-scripted-rest-api-parse-body",
+    "question": "Which artifact should contain the logic for: Scripted REST API example to parse a JSON request body?",
+    "choices": [
+      "A catalog client script",
+      "A Scripted REST resource script",
+      "An email script",
+      "A report source"
+    ],
+    "answerIndex": 1,
+    "explanation": "Inbound API example for integration interviews.",
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "rest-integrations",
+      "app-engine"
+    ],
+    "topicIds": [
+      "scripted-rest-api",
+      "rest-api-authentication"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "scripted rest api",
+      "request body"
+    ]
+  },
+  {
+    "id": "quiz-reference-qualifier-script-assignment-group",
+    "question": "According to the solution steps, what is the first action for: Advanced reference qualifier for Assignment Group?",
+    "choices": [
+      "Open the reference field dictionary or variable configuration.",
+      "Open All > Knowledge > Articles",
+      "Open All > Reports > Administration",
+      "Open All > Mobile > Navigation"
+    ],
+    "answerIndex": 0,
+    "explanation": "Simple advanced reference qualifier example.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-administrator"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "itsm"
+    ],
+    "topicIds": [
+      "reference-qualifiers",
+      "sys-user-group"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "reference qualifier",
+      "assignment group"
+    ]
+  },
+  {
+    "id": "quiz-catalog-client-script-toggle-field",
+    "question": "According to the solution steps, what is the first action for: Catalog client script to show a field based on request type?",
+    "choices": [
+      "Open All > Mobile > Navigation",
+      "Open All > Knowledge > Articles",
+      "Open All > Reports > Administration",
+      "Open the catalog item."
+    ],
+    "answerIndex": 3,
+    "explanation": "Catalog item variable behavior example.",
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer"
+    ],
+    "moduleIds": [
+      "service-catalog",
+      "employee-center"
+    ],
+    "topicIds": [
+      "catalog-variables",
+      "client-scripts",
+      "gform"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "catalog client script",
+      "variables"
+    ]
+  },
+  {
+    "id": "quiz-query-business-rule-example",
+    "question": "According to the solution steps, what is the first action for: Query business rule to enforce default sort?",
+    "choices": [
+      "Open All > Knowledge > Articles",
+      "Open All > Reports > Administration",
+      "Create a business rule with When = before and Query = true.",
+      "Open All > Mobile > Navigation"
+    ],
+    "answerIndex": 2,
+    "explanation": "Shows a rare but common interview discussion item: query business rules.",
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "query-business-rules",
+      "business-rules"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "query business rule",
+      "orderBy"
+    ]
+  },
+  {
+    "id": "quiz-setworkflow-false-bulk-update",
+    "question": "Which API is the primary answer expected for this coding prompt: Bulk update without triggering business rules using setWorkflow(false)?",
+    "choices": [
+      "GlideModal",
+      "g_form",
+      "GlideRecord",
+      "sn_fd.FlowAPI"
+    ],
+    "answerIndex": 2,
+    "explanation": "Useful maintenance-script example with caution.",
+    "roleIds": [
+      "servicenow-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "platform-operations",
+      "itsm"
+    ],
+    "topicIds": [
+      "setworkflow",
+      "gliderecord",
+      "incident-table"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "setworkflow",
+      "bulk update"
+    ]
+  },
+  {
+    "id": "quiz-p1-incident-escalation",
+    "question": "What is the first recommended step in 'Implement P1 incident escalation'?",
+    "choices": [
+      "Start with a dashboard widget",
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Confirm how Priority 1 is determined in the client process, including any dependency on impact and urgency."
+    ],
+    "answerIndex": 3,
+    "explanation": "Step-by-step P1 escalation design covering assignment, notifications, and SLA tracking.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-administrator",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "sla-management",
+      "notifications-email"
+    ],
+    "topicIds": [
+      "incident-table",
+      "notifications",
+      "events",
+      "slas",
+      "assignment-rules"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "P1",
+      "incident",
+      "escalation"
+    ]
+  },
+  {
+    "id": "quiz-auto-close-resolved-incidents",
+    "question": "What is the first recommended step in 'Auto-close resolved incidents after 7 days'?",
+    "choices": [
+      "Confirm the exact close timing and whether business hours or calendar days apply.",
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Start with a dashboard widget"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combines scheduled automation with validation of state and close notes.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "platform-core"
+    ],
+    "topicIds": [
+      "scheduled-jobs",
+      "incident-lifecycle"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "auto close",
+      "incident",
+      "scheduled job"
+    ]
+  },
+  {
+    "id": "quiz-catalog-item-manager-approval",
+    "question": "What is the key design principle in 'Build a catalog item with manager approval'?",
+    "choices": [
+      "Use a report instead of workflow or flow logic",
+      "Use approval-aware automation and create downstream tasks only after approval when required",
+      "Avoid using variables because they complicate catalog items",
+      "Create all fulfillment work at submission time regardless of approval"
+    ],
+    "answerIndex": 1,
+    "explanation": "Service Catalog implementation scenario with approvals and tasks.",
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "business-analyst"
+    ],
+    "moduleIds": [
+      "service-catalog",
+      "request-management",
+      "flow-designer"
+    ],
+    "topicIds": [
+      "catalog-items",
+      "catalog-variables",
+      "approvals",
+      "requested-item-flow"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "catalog",
+      "approval",
+      "manager"
+    ]
+  },
+  {
+    "id": "quiz-import-users-via-transform-map",
+    "question": "What is the first recommended step in 'Import users through an import set and transform map'?",
+    "choices": [
+      "Start with a dashboard widget",
+      "Delete historical records first",
+      "Load the inbound file into a staging/import set table.",
+      "Deactivate all ACLs to speed up testing"
+    ],
+    "answerIndex": 2,
+    "explanation": "Classic data import use case with staging, coalesce, and transform scripts.",
+    "roleIds": [
+      "servicenow-developer",
+      "integration-developer",
+      "servicenow-administrator"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "import-sets",
+      "transform-maps",
+      "coalesce",
+      "sys-user"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "import",
+      "sys_user",
+      "transform map"
+    ]
+  },
+  {
+    "id": "quiz-secure-hr-cases",
+    "question": "What is the first recommended step in 'Secure HR cases with targeted ACL design'?",
+    "choices": [
+      "Define the target HR roles and which personas need read versus write access.",
+      "Deactivate all ACLs to speed up testing",
+      "Start with a dashboard widget",
+      "Delete historical records first"
+    ],
+    "answerIndex": 0,
+    "explanation": "HRSD security scenario with table and field access considerations.",
+    "roleIds": [
+      "hrsd-developer",
+      "servicenow-administrator",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "hrsd",
+      "security-access"
+    ],
+    "topicIds": [
+      "acls",
+      "hr-case-security",
+      "roles-groups"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "hr",
+      "acl",
+      "security"
+    ]
+  },
+  {
+    "id": "quiz-discovery-onboarding-mid-server",
+    "question": "What is the most important design principle in 'Onboard Discovery with a MID Server'?",
+    "choices": [
+      "Confirm identifiers, source quality, and matching behavior before changing automation blindly",
+      "Use UI policies to solve CMDB duplicate issues",
+      "Treat every source as equal with no reconciliation model",
+      "Disable all integrations and manually create every CI record"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discovery implementation scenario covering MID Server, credentials, and schedules.",
+    "roleIds": [
+      "discovery-developer",
+      "itom-developer",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery",
+      "cmdb"
+    ],
+    "topicIds": [
+      "mid-server",
+      "discovery-schedules",
+      "credentials",
+      "patterns"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "discovery",
+      "mid server",
+      "credentials"
+    ]
+  },
+  {
+    "id": "quiz-incident-auto-assignment-by-category",
+    "question": "What is the first recommended step in 'Auto-assign incidents by category'?",
+    "choices": [
+      "Delete historical records first",
+      "Deactivate all ACLs to speed up testing",
+      "Start with a dashboard widget",
+      "List the category and subcategory combinations with the target groups."
+    ],
+    "answerIndex": 3,
+    "explanation": "Implementation scenario using assignment rules or flow-based logic.",
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management"
+    ],
+    "topicIds": [
+      "assignment-rules",
+      "incident-table"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "assignment",
+      "incident",
+      "category"
+    ]
+  },
+  {
+    "id": "quiz-outbound-rest-incident-sync",
+    "question": "What is the first recommended step in 'Send incident data to an external system through REST'?",
+    "choices": [
+      "Start with a dashboard widget",
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Define whether the integration runs on insert, update, or specific state transitions."
+    ],
+    "answerIndex": 3,
+    "explanation": "Outbound integration scenario with payload mapping, authentication, and retries.",
+    "roleIds": [
+      "integration-developer",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "rest-integrations",
+      "itsm",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "restmessagev2",
+      "events",
+      "notifications"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "rest",
+      "integration",
+      "incident"
+    ]
+  },
+  {
+    "id": "quiz-prevent-duplicate-cis-with-ire",
+    "question": "What is the most important design principle in 'Prevent duplicate CI creation using IRE-aware design'?",
+    "choices": [
+      "Use UI policies to solve CMDB duplicate issues",
+      "Treat every source as equal with no reconciliation model",
+      "Disable all integrations and manually create every CI record",
+      "Confirm identifiers, source quality, and matching behavior before changing automation blindly"
+    ],
+    "answerIndex": 3,
+    "explanation": "CMDB governance scenario with IRE and source strategy.",
+    "roleIds": [
+      "cmdb-developer",
+      "itom-developer",
+      "vulnerability-response-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "vulnerability-response"
+    ],
+    "topicIds": [
+      "ire",
+      "identification-rules",
+      "reconciliation-rules",
+      "cmdb-tables"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "cmdb",
+      "duplicate",
+      "ire"
+    ]
+  },
+  {
+    "id": "quiz-notification-on-change-approval",
+    "question": "What is the first recommended step in 'Notify stakeholders when a change is approved'?",
+    "choices": [
+      "Start with a dashboard widget",
+      "Deactivate all ACLs to speed up testing",
+      "Confirm whether the trigger should be the final approval state or each individual approver action.",
+      "Delete historical records first"
+    ],
+    "answerIndex": 2,
+    "explanation": "Change management scenario using approvals, events, or notification conditions.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-administrator"
+    ],
+    "moduleIds": [
+      "change-management",
+      "notifications-email"
+    ],
+    "topicIds": [
+      "change-approvals",
+      "notifications",
+      "events"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "change",
+      "approval",
+      "notification"
+    ]
+  },
+  {
+    "id": "quiz-sla-not-attaching",
+    "question": "In the use case 'Troubleshoot an SLA that is not attaching', what is the first troubleshooting mindset?",
+    "choices": [
+      "Change the incident number format because SLA logic depends on numbering",
+      "Move the requirement to a client script because SLAs are UI-only",
+      "Validate SLA conditions against real record values and attach timing first",
+      "Delete all SLA definitions and recreate them immediately in production"
+    ],
+    "answerIndex": 2,
+    "explanation": "Detailed troubleshooting scenario for SLA definitions.",
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "sla-management",
+      "incident-management"
+    ],
+    "topicIds": [
+      "slas",
+      "task-sla",
+      "incident-table",
+      "debugging"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "sla",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "quiz-flow-designer-create-tasks",
+    "question": "What is the key design principle in 'Use Flow Designer to create fulfillment tasks from a request'?",
+    "choices": [
+      "Use a report instead of workflow or flow logic",
+      "Use approval-aware automation and create downstream tasks only after approval when required",
+      "Create all fulfillment work at submission time regardless of approval",
+      "Avoid using variables because they complicate catalog items"
+    ],
+    "answerIndex": 1,
+    "explanation": "Flow Designer fulfillment scenario for catalog automation.",
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "app-engine-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "service-catalog",
+      "request-management"
+    ],
+    "topicIds": [
+      "flow-triggers",
+      "subflows-actions",
+      "requested-item-flow",
+      "approvals"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "flow designer",
+      "catalog task"
+    ]
+  },
+  {
+    "id": "quiz-service-portal-widget-debugging",
+    "question": "What is the first recommended step in 'Debug a Service Portal widget that is not showing updated data'?",
+    "choices": [
+      "Delete historical records first",
+      "Deactivate all ACLs to speed up testing",
+      "Open the widget and inspect the server script query and the data object being returned.",
+      "Start with a dashboard widget"
+    ],
+    "answerIndex": 2,
+    "explanation": "Portal troubleshooting use case with client/server separation.",
+    "roleIds": [
+      "service-portal-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "service-portal",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "portal-widgets",
+      "portal-server-script",
+      "portal-client-controller",
+      "debugging"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "service portal",
+      "widget",
+      "debugging"
+    ]
+  },
+  {
+    "id": "quiz-event-management-alert-routing",
+    "question": "What is the first recommended step in 'Create incidents from critical alerts in Event Management'?",
+    "choices": [
+      "Start with a dashboard widget",
+      "Deactivate all ACLs to speed up testing",
+      "Normalize incoming events so equivalent event noise maps consistently.",
+      "Delete historical records first"
+    ],
+    "answerIndex": 2,
+    "explanation": "ITOM operational use case focused on noise reduction and routing.",
+    "roleIds": [
+      "event-management-developer",
+      "itom-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "event-management",
+      "itom-health",
+      "incident-management"
+    ],
+    "topicIds": [
+      "event-rules",
+      "alert-correlation",
+      "alert-to-incident"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "event management",
+      "alert",
+      "incident"
+    ]
+  },
+  {
+    "id": "quiz-atf-catalog-test",
+    "question": "What is the key design principle in 'Build an ATF test for a catalog item'?",
+    "choices": [
+      "Use approval-aware automation and create downstream tasks only after approval when required",
+      "Avoid using variables because they complicate catalog items",
+      "Create all fulfillment work at submission time regardless of approval",
+      "Use a report instead of workflow or flow logic"
+    ],
+    "answerIndex": 0,
+    "explanation": "ATF scenario for submission and basic fulfillment validation.",
+    "roleIds": [
+      "atf-engineer",
+      "service-catalog-developer",
+      "release-upgrade-specialist"
+    ],
+    "moduleIds": [
+      "atf",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "atf-tests",
+      "test-steps",
+      "catalog-items"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "atf",
+      "catalog item",
+      "testing"
+    ]
+  },
+  {
+    "id": "quiz-secops-vulnerability-routing",
+    "question": "What is the first recommended step in 'Route vulnerabilities to remediation teams'?",
+    "choices": [
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Confirm vulnerability records are matching to the correct CIs consistently.",
+      "Start with a dashboard widget"
+    ],
+    "answerIndex": 2,
+    "explanation": "Vulnerability Response implementation use case tied to CMDB data quality.",
+    "roleIds": [
+      "vulnerability-response-developer",
+      "secops-developer",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "vulnerability-response",
+      "secops",
+      "cmdb"
+    ],
+    "topicIds": [
+      "vulnerability-lifecycle",
+      "cmdb-tables",
+      "ci-relationships"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "vulnerability response",
+      "assignment",
+      "cmdb"
+    ]
+  },
+  {
+    "id": "quiz-ham-stockroom-transfer",
+    "question": "What is the first recommended step in 'Implement a hardware asset stockroom transfer process'?",
+    "choices": [
+      "Confirm the required approvals and control points for a transfer.",
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Start with a dashboard widget"
+    ],
+    "answerIndex": 0,
+    "explanation": "HAM lifecycle scenario focused on state, location, and auditability.",
+    "roleIds": [
+      "ham-developer",
+      "itam-developer",
+      "business-analyst"
+    ],
+    "moduleIds": [
+      "ham",
+      "itam"
+    ],
+    "topicIds": [
+      "hardware-assets",
+      "stockrooms",
+      "transfers-disposals"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "ham",
+      "stockroom",
+      "transfer"
+    ]
+  },
+  {
+    "id": "quiz-sam-normalization-review",
+    "question": "What is the first recommended step in 'Review software normalization issues in SAM'?",
+    "choices": [
+      "Start with a dashboard widget",
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Identify the raw installations that remain unnormalized."
+    ],
+    "answerIndex": 3,
+    "explanation": "SAM troubleshooting and process design scenario.",
+    "roleIds": [
+      "sam-developer",
+      "itam-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "sam",
+      "itam"
+    ],
+    "topicIds": [
+      "normalization",
+      "publisher-packs",
+      "software-entitlements"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "sam",
+      "normalization",
+      "software"
+    ]
+  },
+  {
+    "id": "quiz-clone-readiness-checklist",
+    "question": "What is the first recommended step in 'Prepare an instance for cloning'?",
+    "choices": [
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Start with a dashboard widget",
+      "Confirm source, target, timing, approvals, and user communication."
+    ],
+    "answerIndex": 3,
+    "explanation": "Platform operations use case covering communication and post-clone tasks.",
+    "roleIds": [
+      "release-upgrade-specialist",
+      "servicenow-administrator",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-operations"
+    ],
+    "topicIds": [
+      "cloning",
+      "release-readiness",
+      "notifications"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "clone",
+      "instance",
+      "operations"
+    ]
+  },
+  {
+    "id": "quiz-update-set-deployment-plan",
+    "question": "What is the first recommended step in 'Plan a safe update set deployment'?",
+    "choices": [
+      "Delete historical records first",
+      "Ensure the change set contains only the intended feature records.",
+      "Deactivate all ACLs to speed up testing",
+      "Start with a dashboard widget"
+    ],
+    "answerIndex": 1,
+    "explanation": "Deployment use case focused on collisions, manual steps, and validation.",
+    "roleIds": [
+      "servicenow-developer",
+      "release-upgrade-specialist",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "source-control",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "update-sets",
+      "source-control",
+      "release-readiness"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "update set",
+      "deployment"
+    ]
+  },
+  {
+    "id": "quiz-ui-builder-workspace-page",
+    "question": "What is the first recommended step in 'Create a workspace page in UI Builder'?",
+    "choices": [
+      "Delete historical records first",
+      "Deactivate all ACLs to speed up testing",
+      "Start with a dashboard widget",
+      "Identify the user persona and workspace where the page will live."
+    ],
+    "answerIndex": 3,
+    "explanation": "Modern UX use case for UI Builder and workspaces.",
+    "roleIds": [
+      "ui-builder-developer",
+      "workspace-developer",
+      "csm-developer"
+    ],
+    "moduleIds": [
+      "ui-builder",
+      "workspaces",
+      "csm"
+    ],
+    "topicIds": [
+      "ui-builder-components",
+      "workspace-record-pages"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "ui builder",
+      "workspace"
+    ]
+  },
+  {
+    "id": "quiz-app-engine-custom-app",
+    "question": "What is the first recommended step in 'Build a custom App Engine intake application'?",
+    "choices": [
+      "Start with a dashboard widget",
+      "Deactivate all ACLs to speed up testing",
+      "Delete historical records first",
+      "Gather the intake fields, states, and fulfillment roles."
+    ],
+    "answerIndex": 3,
+    "explanation": "App Engine use case covering tables, forms, flow, and access.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "app-engine",
+      "flow-designer",
+      "security-access"
+    ],
+    "topicIds": [
+      "custom-app-tables",
+      "app-engine-studio",
+      "acls",
+      "flow-triggers"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "app engine",
+      "custom app"
+    ]
+  },
+  {
+    "id": "tricky-gr-vs-grs",
+    "question": "When security context must be honored in a server-side read, which API is safer?",
+    "choices": [
+      "GlideRecord",
+      "GlideRecordSecure",
+      "g_form",
+      "GlideModal"
+    ],
+    "answerIndex": 1,
+    "explanation": "GlideRecordSecure enforces ACL-aware access in server-side querying contexts.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Intermediate",
+    "tags": [
+      "tricky"
+    ]
+  },
+  {
+    "id": "tricky-gq-vs-gr",
+    "question": "In an interview, which query API must you know deeply even if you also mention GlideQuery?",
+    "choices": [
+      "GlideAjax",
+      "GlideRecord",
+      "GlideElement",
+      "GlideDateTime"
+    ],
+    "answerIndex": 1,
+    "explanation": "GlideRecord is still the baseline API most interviewers expect you to explain in depth.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Intermediate",
+    "tags": [
+      "tricky"
+    ]
+  },
+  {
+    "id": "tricky-ui-vs-data",
+    "question": "Which option enforces a requirement even when records arrive from imports or integrations?",
+    "choices": [
+      "UI Policy",
+      "Data Policy",
+      "Formatter",
+      "Related List"
+    ],
+    "answerIndex": 1,
+    "explanation": "Data policies can enforce consistency beyond the interactive form.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Intermediate",
+    "tags": [
+      "tricky"
+    ]
+  },
+  {
+    "id": "tricky-flow-vs-workflow",
+    "question": "What is the modern default automation answer for new implementations?",
+    "choices": [
+      "Workflow Editor",
+      "Flow Designer",
+      "Business Calendar",
+      "MID Server"
+    ],
+    "answerIndex": 1,
+    "explanation": "Flow Designer is the strategic modern automation framework in ServiceNow.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Intermediate",
+    "tags": [
+      "tricky"
+    ]
+  },
+  {
+    "id": "tricky-task-inheritance",
+    "question": "Which table is the parent for incident, problem, and change_request?",
+    "choices": [
+      "sys_metadata",
+      "task",
+      "cmdb_ci",
+      "sys_documentation"
+    ],
+    "answerIndex": 1,
+    "explanation": "Many work record tables inherit from task.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Intermediate",
+    "tags": [
+      "tricky"
+    ]
+  },
+  {
+    "id": "tricky-ire",
+    "question": "Which engine is specifically designed to identify and reconcile inbound CI data?",
+    "choices": [
+      "Transform Engine",
+      "Import Coalesce Engine",
+      "Identification and Reconciliation Engine (IRE)",
+      "Relationship Evaluator"
+    ],
+    "answerIndex": 2,
+    "explanation": "IRE governs CMDB matching and source update control.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Intermediate",
+    "tags": [
+      "tricky"
+    ]
+  },
+  {
+    "id": "module-cmdb",
+    "question": "Which module is centered on CI classes, identification, reconciliation, and relationships?",
+    "choices": [
+      "CMDB",
+      "Service Catalog",
+      "Knowledge",
+      "Virtual Agent"
+    ],
+    "answerIndex": 0,
+    "explanation": "CMDB is the governed data foundation for configuration items.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-discovery",
+    "question": "Which product area relies heavily on MID Server, credentials, probes, sensors, and patterns?",
+    "choices": [
+      "Discovery",
+      "Change Management",
+      "ATF",
+      "Performance Analytics"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discovery populates infrastructure data through MID Server-based exploration.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-em",
+    "question": "Which product area focuses on events, alerts, deduplication, and alert-to-incident flows?",
+    "choices": [
+      "Event Management",
+      "Knowledge Management",
+      "Risk Management",
+      "Employee Center"
+    ],
+    "answerIndex": 0,
+    "explanation": "Event Management turns operational signals into actionable alerts.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-sam",
+    "question": "Which module covers normalization, entitlements, subscriptions, and reclamation?",
+    "choices": [
+      "SAM",
+      "HAM",
+      "CSM",
+      "HRSD"
+    ],
+    "answerIndex": 0,
+    "explanation": "Software Asset Management handles software license and installation governance.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-ham",
+    "question": "Which module covers stockrooms, hardware models, transfers, and disposals?",
+    "choices": [
+      "GRC",
+      "HAM",
+      "Virtual Agent",
+      "Service Mapping"
+    ],
+    "answerIndex": 1,
+    "explanation": "Hardware Asset Management covers physical asset lifecycle control.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-vr",
+    "question": "Which module handles vulnerability intake, prioritization, remediation, and CI matching?",
+    "choices": [
+      "Vulnerability Response",
+      "Incident Management",
+      "UI Builder",
+      "Knowledge"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vulnerability Response coordinates remediation for vulnerabilities.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-sir",
+    "question": "Which module focuses on security incident intake, triage, tasks, and playbooks?",
+    "choices": [
+      "Security Incident Response",
+      "Risk Management",
+      "Flow Designer",
+      "ATF"
+    ],
+    "answerIndex": 0,
+    "explanation": "SIR manages security incident response processes.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-grc",
+    "question": "Which broad suite includes policy, compliance, risk, and audit capabilities?",
+    "choices": [
+      "GRC",
+      "Service Mapping",
+      "Service Portal",
+      "Mobile"
+    ],
+    "answerIndex": 0,
+    "explanation": "GRC covers governance, risk, compliance, and related controls.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-ui-builder",
+    "question": "Which framework is used to build modern workspace pages and other declarative experiences?",
+    "choices": [
+      "UI Builder",
+      "Jelly",
+      "Import Set",
+      "MID Server"
+    ],
+    "answerIndex": 0,
+    "explanation": "UI Builder is the declarative experience layer for many modern pages.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  },
+  {
+    "id": "module-atf",
+    "question": "Which framework is used for automated regression tests on the platform?",
+    "choices": [
+      "Automated Test Framework",
+      "Performance Analytics",
+      "Flow Designer",
+      "Event Management"
+    ],
+    "answerIndex": 0,
+    "explanation": "ATF supports automated platform regression tests.",
+    "roleIds": [],
+    "moduleIds": [],
+    "topicIds": [],
+    "difficulty": "Beginner",
+    "tags": [
+      "module"
+    ]
+  }
+]
