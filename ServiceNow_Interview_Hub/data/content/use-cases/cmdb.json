@@ -1,0 +1,185 @@
+[
+  {
+    "id": "discovery-onboarding-mid-server",
+    "slug": "discovery-onboarding-mid-server",
+    "title": "Onboard Discovery with a MID Server",
+    "question": "How do you set up Discovery for a new network segment?",
+    "summary": "Discovery implementation scenario covering MID Server, credentials, and schedules.",
+    "roleIds": [
+      "discovery-developer",
+      "itom-developer",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery",
+      "cmdb"
+    ],
+    "topicIds": [
+      "mid-server",
+      "discovery-schedules",
+      "credentials",
+      "patterns"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "discovery",
+      "mid server",
+      "credentials"
+    ],
+    "relatedTables": [
+      "ecc_queue",
+      "cmdb_ci"
+    ],
+    "scenario": "A new data center segment must be discovered and populated into the CMDB with the right server classes and relationships.",
+    "exactAnswer": "Implement the solution by validating MID Server connectivity, setting up credentials, configuring a Discovery schedule or IP ranges, confirming necessary capabilities and patterns, and validating the created CI records and related metadata in the CMDB.",
+    "navigationPath": [
+      "All > MID Server > Servers",
+      "All > Discovery > Schedules",
+      "All > Discovery > Credentials",
+      "All > CMDB > CI Class Manager"
+    ],
+    "steps": [
+      "Install and validate the MID Server and ensure it is Up and validated.",
+      "Create or confirm the necessary discovery credentials for the target devices.",
+      "Create a Discovery schedule with the correct IP ranges, behavior, and MID Server selection.",
+      "Run a controlled test discovery against a subset of devices first.",
+      "Validate the discovered CIs, class placement, identification behavior, and relationships.",
+      "Review logs, ECC Queue entries, and any credential failures if results are incomplete."
+    ],
+    "involvedArtifacts": [
+      "MID Server",
+      "Credentials",
+      "Discovery Schedule",
+      "Patterns"
+    ],
+    "validationChecklist": [
+      "The MID Server is validated and used by the schedule.",
+      "Devices are discovered into the expected CI classes.",
+      "Credential failures are visible and actionable.",
+      "Duplicate CIs are not created unexpectedly."
+    ],
+    "commonMistakes": [
+      "Running full discovery before validating credentials on a small scope.",
+      "Ignoring IRE and identification effects when checking CMDB results."
+    ]
+  },
+  {
+    "id": "prevent-duplicate-cis-with-ire",
+    "slug": "prevent-duplicate-cis-with-ire",
+    "title": "Prevent duplicate CI creation using IRE-aware design",
+    "question": "How do you avoid duplicate CIs when multiple sources feed the CMDB?",
+    "summary": "CMDB governance scenario with IRE and source strategy.",
+    "roleIds": [
+      "cmdb-developer",
+      "itom-developer",
+      "vulnerability-response-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "vulnerability-response"
+    ],
+    "topicIds": [
+      "ire",
+      "identification-rules",
+      "reconciliation-rules",
+      "cmdb-tables"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "cmdb",
+      "duplicate",
+      "ire"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "scenario": "Discovery, a Service Graph connector, and vulnerability tools all send data about the same devices. The customer wants one trusted CI per device.",
+    "exactAnswer": "Implement the solution by defining the target classes, confirming identification rules, aligning source payloads with those identifiers, reviewing reconciliation priorities, and validating whether each source is allowed to update the governed attributes it sends.",
+    "navigationPath": [
+      "All > CMDB > Identification/Reconciliation",
+      "All > CMDB > CI Class Manager",
+      "All > Discovery"
+    ],
+    "steps": [
+      "Define the CI classes and the sources that will populate them.",
+      "Review or update the identification rules so the incoming payloads match on stable identifiers.",
+      "Set or confirm reconciliation priorities so trusted sources control the governed attributes.",
+      "Test sample payloads from each source and inspect whether they match the same CI.",
+      "Review duplicates and adjust source data quality if identifiers are inconsistent."
+    ],
+    "involvedArtifacts": [
+      "Identification Rules",
+      "Reconciliation Rules",
+      "Source Integrations"
+    ],
+    "validationChecklist": [
+      "Payloads from multiple sources match the same CI.",
+      "Lower-priority sources do not overwrite governed attributes.",
+      "Duplicate creation drops significantly after the design change."
+    ],
+    "commonMistakes": [
+      "Treating CMDB duplicate prevention as a simple transform map problem.",
+      "Ignoring source payload quality when identification fields are missing or inconsistent."
+    ]
+  },
+  {
+    "id": "secops-vulnerability-routing",
+    "slug": "secops-vulnerability-routing",
+    "title": "Route vulnerabilities to remediation teams",
+    "question": "How do you assign vulnerabilities to the correct team based on CI ownership?",
+    "summary": "Vulnerability Response implementation use case tied to CMDB data quality.",
+    "roleIds": [
+      "vulnerability-response-developer",
+      "secops-developer",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "vulnerability-response",
+      "secops",
+      "cmdb"
+    ],
+    "topicIds": [
+      "vulnerability-lifecycle",
+      "cmdb-tables",
+      "ci-relationships"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "vulnerability response",
+      "assignment",
+      "cmdb"
+    ],
+    "relatedTables": [],
+    "scenario": "The security team wants discovered vulnerabilities routed automatically to the correct remediation team based on the affected CI and service ownership.",
+    "exactAnswer": "Implement the routing logic by validating CI matching first, then deriving the assignment from CI ownership, support group, or service context. Without reliable CMDB ownership data, routing quality will remain inconsistent.",
+    "navigationPath": [
+      "All > Vulnerability Response",
+      "All > CMDB > CI Classes",
+      "All > User Administration > Groups"
+    ],
+    "steps": [
+      "Confirm vulnerability records are matching to the correct CIs consistently.",
+      "Identify the ownership fields or relationships that will drive remediation assignment.",
+      "Implement the routing logic in the appropriate workflow, rule, or platform configuration.",
+      "Test vulnerabilities on representative CI classes and verify the assignment group outcome.",
+      "Improve CMDB ownership data if routing results are inconsistent."
+    ],
+    "involvedArtifacts": [
+      "Vulnerability Rules/Workflow",
+      "CMDB Ownership Data"
+    ],
+    "validationChecklist": [
+      "Matched vulnerabilities route to the intended teams.",
+      "Unmatched or poorly matched items are handled through a fallback path.",
+      "Ownership data quality issues are visible and actionable."
+    ],
+    "commonMistakes": [
+      "Trying to automate routing before CI matching quality is stable.",
+      "Assuming every CI already has a correct support group or owner."
+    ]
+  }
+]

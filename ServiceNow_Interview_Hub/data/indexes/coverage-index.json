@@ -1,0 +1,54 @@
+{
+  "targetVision": {
+    "totalItemsGoal": 5000,
+    "notes": "The architecture and taxonomy are designed to scale well beyond the seeded starter content."
+  },
+  "currentCounts": {
+    "roles": 38,
+    "modules": 45,
+    "topics": 155,
+    "theoryItems": 26,
+    "codingItems": 22,
+    "useCaseItems": 22,
+    "quizItems": 86,
+    "totalSeededStudyItems": 70
+  },
+  "status": [
+    {
+      "area": "Platform Core",
+      "status": "Seeded"
+    },
+    {
+      "area": "ITSM",
+      "status": "Seeded"
+    },
+    {
+      "area": "CMDB / Discovery",
+      "status": "Seeded"
+    },
+    {
+      "area": "Integrations",
+      "status": "Seeded"
+    },
+    {
+      "area": "Security / ACLs",
+      "status": "Seeded"
+    },
+    {
+      "area": "Service Catalog",
+      "status": "Seeded"
+    },
+    {
+      "area": "Flow Designer",
+      "status": "Seeded"
+    },
+    {
+      "area": "GRC / SecOps / HAM / SAM",
+      "status": "Seeded"
+    },
+    {
+      "area": "Deep edge cases across all products",
+      "status": "Expansion ready"
+    }
+  ]
+}
