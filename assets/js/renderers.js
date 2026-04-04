@@ -11,7 +11,21 @@ function linkForItem(item) {
   }
   return '#/home';
 }
-
+function backButton(fallback = '#/home', label = '← Back') {
+  return `
+    <div class="page-back-wrap">
+      <button
+        type="button"
+        class="page-back-button"
+        data-back-button
+        data-fallback="${fallback}"
+        aria-label="Go back"
+      >
+        ${label}
+      </button>
+    </div>
+  `;
+}
 function linkForSearchResult(item) {
   if (item.contentType === 'role') return `#/roles/${item.slug}`;
   if (item.contentType === 'module') return `#/modules/${item.slug}`;
