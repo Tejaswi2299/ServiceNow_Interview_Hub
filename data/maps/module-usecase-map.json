@@ -1,0 +1,252 @@
+{
+  "app-engine": [
+    "app-engine-custom-app"
+  ],
+  "asset-management": [
+    "ham-stockroom-transfer-process",
+    "implement-stockroom-transfer-process"
+  ],
+  "audit-management": [
+    "grc-control-attestation-reminders"
+  ],
+  "atf": [
+    "atf-catalog-test"
+  ],
+  "change-management": [
+    "implement-change-blackout-enforcement",
+    "notification-on-change-approval",
+    "standard-change-automation-path"
+  ],
+  "cloud-discovery": [
+    "cloud-discovery-onboarding-governance",
+    "cmdb-duplicate-source-remediation",
+    "prevent-duplicate-cis-with-ire-ruleset"
+  ],
+  "cmdb": [
+    "asset-to-ci-sync-model",
+    "cloud-discovery-onboarding-governance",
+    "cmdb-duplicate-source-remediation",
+    "design-cmdb-health-dashboard-process",
+    "design-discovery-pattern-troubleshooting-flow",
+    "discovery-onboarding-design",
+    "discovery-onboarding-mid-server",
+    "prevent-duplicate-cis-on-import",
+    "prevent-duplicate-cis-with-ire",
+    "prevent-duplicate-cis-with-ire-ruleset",
+    "resolve-cmdb-duplicates-with-ire",
+    "retire-stale-cis-safely",
+    "route-vulnerabilities-by-ownership",
+    "secops-vulnerability-routing"
+  ],
+  "cmdb-governance": [
+    "cmdb-duplicate-source-remediation",
+    "design-cmdb-health-dashboard-process",
+    "resolve-cmdb-duplicates-with-ire"
+  ],
+  "csm": [
+    "ui-builder-workspace-page"
+  ],
+  "discovery": [
+    "cloud-discovery-onboarding-governance",
+    "cmdb-duplicate-source-remediation",
+    "design-discovery-pattern-troubleshooting-flow",
+    "discovery-credential-troubleshooting",
+    "discovery-onboarding-design",
+    "discovery-onboarding-mid-server",
+    "discovery-pattern-ecc-triage",
+    "mid-server-not-validated-troubleshoot",
+    "prevent-duplicate-cis-on-import",
+    "prevent-duplicate-cis-with-ire",
+    "prevent-duplicate-cis-with-ire-ruleset"
+  ],
+  "discovery-patterns": [
+    "design-discovery-pattern-troubleshooting-flow",
+    "discovery-pattern-ecc-triage",
+    "mid-server-not-validated-troubleshoot"
+  ],
+  "event-management": [
+    "event-management-alert-routing"
+  ],
+  "flow-designer": [
+    "app-engine-custom-app",
+    "catalog-item-manager-approval",
+    "flow-designer-create-tasks",
+    "standard-change-automation-path"
+  ],
+  "grc": [
+    "grc-control-attestation-reminders",
+    "implement-policy-exception-lifecycle",
+    "policy-exception-approval-model",
+    "risk-assessment-workflow-design",
+    "unauthorized-software-exception-process"
+  ],
+  "ham": [
+    "asset-to-ci-sync-model",
+    "ham-stockroom-reconciliation-process",
+    "ham-stockroom-transfer",
+    "ham-stockroom-transfer-process",
+    "hardware-lifecycle-from-stock-to-disposal",
+    "implement-stockroom-transfer-process"
+  ],
+  "hrsd": [
+    "secure-hr-cases"
+  ],
+  "incident-management": [
+    "auto-close-resolved-incidents",
+    "event-management-alert-routing",
+    "implement-problem-candidate-pipeline",
+    "incident-auto-assignment-by-category",
+    "major-incident-war-room-design",
+    "p1-incident-escalation",
+    "repair-sla-after-priority-change",
+    "sla-not-attaching"
+  ],
+  "integrationhub": [
+    "outbound-rest-incident-sync",
+    "resolve-cmdb-duplicates-with-ire"
+  ],
+  "itam": [
+    "ham-stockroom-reconciliation-process",
+    "ham-stockroom-transfer",
+    "implement-stockroom-transfer-process",
+    "sam-normalization-governance-review",
+    "sam-normalization-review"
+  ],
+  "itom-health": [
+    "discovery-pattern-ecc-triage",
+    "event-management-alert-routing"
+  ],
+  "itsm": [
+    "auto-close-resolved-incidents",
+    "design-major-incident-governance",
+    "implement-change-blackout-enforcement",
+    "implement-problem-candidate-pipeline",
+    "incident-auto-assignment-by-category",
+    "major-incident-war-room-design",
+    "major-incident-war-room-process",
+    "outbound-rest-incident-sync",
+    "p1-incident-escalation",
+    "prevent-sla-duplication-on-reopen",
+    "repair-sla-after-priority-change",
+    "service-operations-workspace-major-incident-view"
+  ],
+  "major-incident-management": [
+    "design-major-incident-governance",
+    "major-incident-war-room-process"
+  ],
+  "notifications-email": [
+    "major-incident-war-room-design",
+    "notification-on-change-approval",
+    "p1-incident-escalation"
+  ],
+  "performance-analytics": [
+    "design-cmdb-health-dashboard-process"
+  ],
+  "platform-core": [
+    "auto-close-resolved-incidents",
+    "import-users-via-transform-map"
+  ],
+  "platform-operations": [
+    "clone-readiness-checklist",
+    "mid-server-not-validated-troubleshoot",
+    "service-portal-widget-debugging",
+    "update-set-deployment-plan"
+  ],
+  "policy-and-compliance": [
+    "grc-control-attestation-reminders",
+    "implement-policy-exception-lifecycle"
+  ],
+  "problem-management": [
+    "implement-problem-candidate-pipeline"
+  ],
+  "reports-dashboards": [
+    "design-cmdb-health-dashboard-process",
+    "design-software-reclamation-flow"
+  ],
+  "request-management": [
+    "catalog-item-manager-approval",
+    "flow-designer-create-tasks"
+  ],
+  "rest-integrations": [
+    "ingest-external-security-alerts-into-sir",
+    "outbound-rest-incident-sync"
+  ],
+  "risk-management": [
+    "implement-policy-exception-lifecycle",
+    "risk-assessment-workflow-design"
+  ],
+  "security-access": [
+    "app-engine-custom-app",
+    "secure-hr-cases"
+  ],
+  "security-incident-response": [
+    "ingest-external-security-alerts-into-sir",
+    "security-incident-triage-flow"
+  ],
+  "secops": [
+    "ingest-external-security-alerts-into-sir",
+    "route-vulnerabilities-by-ownership",
+    "secops-vulnerability-exception-approval",
+    "secops-vulnerability-routing",
+    "security-incident-triage-flow",
+    "vulnerability-response-assignment-model"
+  ],
+  "service-catalog": [
+    "atf-catalog-test",
+    "catalog-item-manager-approval",
+    "flow-designer-create-tasks"
+  ],
+  "service-operations-workspace": [
+    "design-major-incident-governance",
+    "service-operations-workspace-major-incident-view"
+  ],
+  "service-portal": [
+    "service-portal-widget-debugging"
+  ],
+  "sla-management": [
+    "implement-change-blackout-enforcement",
+    "p1-incident-escalation",
+    "prevent-sla-duplication-on-reopen",
+    "repair-sla-after-priority-change",
+    "sla-not-attaching"
+  ],
+  "sam": [
+    "design-software-reclamation-flow",
+    "sam-normalization-governance-review",
+    "sam-normalization-review",
+    "sam-reclamation-campaign-design",
+    "software-reclamation-campaign",
+    "unauthorized-software-exception-process"
+  ],
+  "software-compliance": [
+    "design-software-reclamation-flow",
+    "sam-reclamation-campaign-design",
+    "unauthorized-software-exception-process"
+  ],
+  "source-control": [
+    "update-set-deployment-plan"
+  ],
+  "ui-builder": [
+    "ui-builder-workspace-page"
+  ],
+  "vulnerability-response": [
+    "prevent-duplicate-cis-with-ire",
+    "route-vulnerabilities-by-ownership",
+    "secops-vulnerability-exception-approval",
+    "secops-vulnerability-routing",
+    "vulnerability-response-assignment-model"
+  ],
+  "workspaces": [
+    "service-operations-workspace-major-incident-view",
+    "ui-builder-workspace-page"
+  ],
+  "devops": [],
+  "employee-center": [],
+  "knowledge-management": [],
+  "mobile": [],
+  "service-mapping": [],
+  "soap-integrations": [],
+  "threat-intelligence": [],
+  "vendor-risk-management": [],
+  "virtual-agent": []
+}

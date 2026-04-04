@@ -1,0 +1,730 @@
+[
+  {
+    "id": "query-major-incidents-last-day",
+    "slug": "query-major-incidents-last-day",
+    "title": "Query major incidents opened in the last 24 hours",
+    "question": "Write a background script that lists major incidents opened in the last 24 hours and prints the number, business service, and state.",
+    "summary": "Useful interview script for major-incident review and reporting.",
+    "roleIds": [
+      "major-incident-manager",
+      "itsm-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "incident-management",
+      "major-incident-management"
+    ],
+    "topicIds": [
+      "major-incident",
+      "background-scripts",
+      "gliderecord"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "major incident",
+      "gliderecord",
+      "background script"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Use GlideRecord on incident, filter the major incident flag and sys_created_on for the last 24 hours, then print the relevant fields.",
+    "steps": [
+      "Open System Definition > Scripts - Background.",
+      "Paste the script.",
+      "Run it in a non-production-safe context.",
+      "Review output for the major incident list."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var gr = new GlideRecord('incident');\ngr.addQuery('major_incident_state', '!=', '');\ngr.addQuery('sys_created_on', '>=', gs.hoursAgoStart(24));\ngr.orderByDesc('sys_created_on');\ngr.query();\nwhile (gr.next()) {\n  gs.print(gr.number + ' | ' + gr.getDisplayValue('business_service') + ' | ' + gr.getDisplayValue('state'));\n}"
+    },
+    "expectedOutput": [
+      "INC0012345 | Payroll Service | In Progress"
+    ],
+    "commonMistakes": [
+      "Filtering only on priority = 1 instead of the actual major incident field/process indicator.",
+      "Using hoursAgoStart incorrectly in client-side code."
+    ],
+    "explanation": [
+      "This script gives operational visibility into recent major incidents without building a report first."
+    ]
+  },
+  {
+    "id": "create-problem-candidate-threshold-check",
+    "slug": "create-problem-candidate-threshold-check",
+    "title": "Flag repeat incidents for problem candidate review",
+    "question": "Write a script include method that counts incidents with the same configuration item in the last 7 days and returns true when the threshold is met.",
+    "summary": "Shows a common pattern for incident trend to problem-candidate logic.",
+    "roleIds": [
+      "problem-manager",
+      "itsm-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "itsm",
+      "problem-management",
+      "incident-management"
+    ],
+    "topicIds": [
+      "problem-candidates",
+      "script-includes",
+      "glideaggregate"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "problem candidate",
+      "glideaggregate",
+      "script include"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Use GlideAggregate on incident, constrain by CI and opened date, and compare the count to the threshold.",
+    "steps": [
+      "Create a new Script Include.",
+      "Paste the method.",
+      "Call it from a business rule or flow action wrapper as needed."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var ProblemCandidateUtil = Class.create();\nProblemCandidateUtil.prototype = {\n  hasThreshold: function(ciSysId, threshold) {\n    var agg = new GlideAggregate('incident');\n    agg.addQuery('cmdb_ci', ciSysId);\n    agg.addQuery('opened_at', '>=', gs.daysAgoStart(7));\n    agg.addAggregate('COUNT');\n    agg.query();\n    if (agg.next()) {\n      return parseInt(agg.getAggregate('COUNT'), 10) >= parseInt(threshold, 10);\n    }\n    return false;\n  },\n  type: 'ProblemCandidateUtil'\n};"
+    },
+    "expectedOutput": [
+      "Returns true when incident volume for the CI meets or exceeds the threshold."
+    ],
+    "commonMistakes": [
+      "Using GlideRecord and counting manually when GlideAggregate is cleaner.",
+      "Not validating threshold as an integer."
+    ]
+  },
+  {
+    "id": "prevent-conflicting-change-window",
+    "slug": "prevent-conflicting-change-window",
+    "title": "Prevent conflicting change windows",
+    "question": "Write a before insert/update business rule snippet that blocks a normal change if another overlapping scheduled change exists for the same CI.",
+    "summary": "Classic change-governance interview script.",
+    "roleIds": [
+      "change-manager",
+      "change-management-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "change-management",
+      "itsm"
+    ],
+    "topicIds": [
+      "change-conflict-detection",
+      "business-rules",
+      "change-table"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "change conflict",
+      "business rule",
+      "change request"
+    ],
+    "relatedTables": [
+      "change_request"
+    ],
+    "exactAnswer": "Query change_request for overlapping planned windows on the same CI and abort the action when a qualifying conflicting change is found.",
+    "steps": [
+      "Create a before business rule on change_request.",
+      "Run only for relevant change types and states.",
+      "Abort with a clear message when overlap is detected."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var conflict = new GlideRecord('change_request');\nconflict.addQuery('cmdb_ci', current.cmdb_ci);\nconflict.addQuery('sys_id', '!=', current.sys_id);\nconflict.addQuery('state', 'NOT IN', '3,4,7');\nconflict.addQuery('start_date', '<', current.end_date);\nconflict.addQuery('end_date', '>', current.start_date);\nconflict.query();\nif (conflict.next()) {\n  gs.addErrorMessage('A conflicting change already exists for this CI in the selected window.');\n  current.setAbortAction(true);\n}"
+    },
+    "expectedOutput": [
+      "Insert or update is blocked when an overlapping active change exists."
+    ],
+    "commonMistakes": [
+      "Checking only exact same start time instead of overlap logic.",
+      "Forgetting to exclude the current record on update."
+    ]
+  },
+  {
+    "id": "repair-owned-by-on-business-apps",
+    "slug": "repair-owned-by-on-business-apps",
+    "title": "Backfill owned_by on business applications",
+    "question": "Write a fix script that sets owned_by from the support group manager when owned_by is empty on business applications.",
+    "summary": "CMDB governance-style backfill example.",
+    "roleIds": [
+      "cmdb-manager",
+      "cmdb-administrator",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "cmdb-governance"
+    ],
+    "topicIds": [
+      "cmdb-governance-topic",
+      "fix-scripts",
+      "cmdb-tables"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "fix script",
+      "owned_by",
+      "cmdb"
+    ],
+    "relatedTables": [
+      "cmdb_ci_business_app",
+      "sys_user_group"
+    ],
+    "exactAnswer": "Use GlideRecord on cmdb_ci_business_app, check for blank owned_by, derive the support_group manager, and update carefully.",
+    "steps": [
+      "Open System Definition > Fix Scripts.",
+      "Paste the script and validate in a lower environment first.",
+      "Run only after confirming the support_group relationship is populated consistently."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var app = new GlideRecord('cmdb_ci_business_app');\napp.addNullQuery('owned_by');\napp.addNotNullQuery('support_group');\napp.query();\nwhile (app.next()) {\n  var grp = new GlideRecord('sys_user_group');\n  if (grp.get(app.support_group) && grp.manager) {\n    app.owned_by = grp.manager;\n    app.update();\n  }\n}"
+    },
+    "expectedOutput": [
+      "Business application records without owned_by are backfilled from the support group manager."
+    ],
+    "commonMistakes": [
+      "Running mass update without verifying support group quality.",
+      "Not considering update business rules that may fire."
+    ]
+  },
+  {
+    "id": "list-duplicate-ci-names-by-class",
+    "slug": "list-duplicate-ci-names-by-class",
+    "title": "List duplicate CI names by class",
+    "question": "Write a background script that prints duplicate CI names within the same class.",
+    "summary": "Useful for CMDB cleanup interviews.",
+    "roleIds": [
+      "cmdb-manager",
+      "cmdb-administrator",
+      "discovery-administrator"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "cmdb-governance"
+    ],
+    "topicIds": [
+      "duplicate-cis",
+      "glideaggregate",
+      "cmdb-tables"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "duplicate ci",
+      "glideaggregate",
+      "cmdb"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "exactAnswer": "Use GlideAggregate grouped by sys_class_name and name, aggregate count, and print only groups with a count above one.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Paste the GlideAggregate script.",
+      "Review the results before deciding a cleanup action."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var agg = new GlideAggregate('cmdb_ci');\nagg.addNotNullQuery('name');\nagg.groupBy('sys_class_name');\nagg.groupBy('name');\nagg.addAggregate('COUNT');\nagg.query();\nwhile (agg.next()) {\n  var count = parseInt(agg.getAggregate('COUNT'), 10);\n  if (count > 1) {\n    gs.print(agg.getValue('sys_class_name') + ' | ' + agg.getValue('name') + ' | duplicates=' + count);\n  }\n}"
+    },
+    "expectedOutput": [
+      "cmdb_ci_server | APP-SRV-01 | duplicates=2"
+    ],
+    "commonMistakes": [
+      "Treating same-name records across different classes as duplicates automatically.",
+      "Cleaning duplicates without checking identification rules and source precedence."
+    ]
+  },
+  {
+    "id": "find-mid-server-ecc-errors",
+    "slug": "find-mid-server-ecc-errors",
+    "title": "Find recent MID Server ECC errors",
+    "question": "Write a background script that lists ECC Queue error records for a specific MID Server from the last 2 days.",
+    "summary": "Helpful for discovery troubleshooting.",
+    "roleIds": [
+      "discovery-administrator",
+      "discovery-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "discovery",
+      "platform-operations",
+      "discovery-patterns"
+    ],
+    "topicIds": [
+      "ecc-queue",
+      "mid-server-capabilities",
+      "mid-server"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "ecc queue",
+      "mid server",
+      "troubleshooting"
+    ],
+    "relatedTables": [
+      "ecc_queue"
+    ],
+    "exactAnswer": "Filter ecc_queue by agent, recent sys_created_on, and error state or error-like response patterns, then print the payload summary.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Replace the MID Server name in the script.",
+      "Run and inspect recent error rows."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var midName = 'mid.server.your_name';\nvar ecc = new GlideRecord('ecc_queue');\necc.addQuery('agent', midName);\necc.addQuery('sys_created_on', '>=', gs.daysAgoStart(2));\necc.addQuery('state', 'error');\necc.orderByDesc('sys_created_on');\necc.query();\nwhile (ecc.next()) {\n  gs.print(ecc.sys_created_on + ' | ' + ecc.topic + ' | ' + ecc.name);\n}"
+    },
+    "expectedOutput": [
+      "2026-04-03 09:15:10 | DiscoveryProbe | Linux Server"
+    ],
+    "commonMistakes": [
+      "Not filtering by MID Server agent.",
+      "Assuming every failed discovery creates state=error without checking queue patterns."
+    ]
+  },
+  {
+    "id": "route-vulnerabilities-to-group",
+    "slug": "route-vulnerabilities-to-group",
+    "title": "Route vulnerabilities to a remediation group",
+    "question": "Write a business rule snippet that assigns a vulnerability group based on the CI support group when the vulnerability item is created.",
+    "summary": "Maps ownership from CI to vulnerability handling.",
+    "roleIds": [
+      "vulnerability-analyst",
+      "vulnerability-response-developer",
+      "secops-developer"
+    ],
+    "moduleIds": [
+      "vulnerability-response",
+      "secops"
+    ],
+    "topicIds": [
+      "vulnerability-groups",
+      "business-rules",
+      "cmdb-relationships"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "vulnerability group",
+      "assignment",
+      "business rule"
+    ],
+    "relatedTables": [
+      "sn_vul_vulnerable_item",
+      "cmdb_ci"
+    ],
+    "exactAnswer": "Look up the vulnerable item CI, read its support group, and populate the vulnerability assignment field or group field in a before business rule.",
+    "steps": [
+      "Create a before insert business rule on the vulnerable item table.",
+      "Resolve the related CI.",
+      "Set the vulnerability group field from the CI ownership model."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "if (current.cmdb_ci) {\n  var ci = new GlideRecord('cmdb_ci');\n  if (ci.get(current.cmdb_ci) && ci.support_group) {\n    current.assignment_group = ci.support_group;\n  }\n}"
+    },
+    "expectedOutput": [
+      "New vulnerable items inherit the support group from the CI when available."
+    ],
+    "commonMistakes": [
+      "Ignoring cases where CI ownership is missing.",
+      "Hardcoding assignment groups instead of using ownership data."
+    ]
+  },
+  {
+    "id": "count-open-security-incidents-by-state",
+    "slug": "count-open-security-incidents-by-state",
+    "title": "Count open security incidents by state",
+    "question": "Write a background script that prints the count of open security incidents by state.",
+    "summary": "Simple SIR operational reporting example.",
+    "roleIds": [
+      "security-incident-analyst",
+      "sir-developer",
+      "secops-developer"
+    ],
+    "moduleIds": [
+      "security-incident-response",
+      "secops"
+    ],
+    "topicIds": [
+      "security-incident-tasks",
+      "glideaggregate"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "sir",
+      "glideaggregate",
+      "security incident"
+    ],
+    "relatedTables": [
+      "sn_si_incident"
+    ],
+    "exactAnswer": "Use GlideAggregate on the security incident table, group by state, and print the state and count.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Use the security incident table in your instance.",
+      "Run and review grouped counts."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var agg = new GlideAggregate('sn_si_incident');\nagg.addQuery('active', true);\nagg.groupBy('state');\nagg.addAggregate('COUNT');\nagg.query();\nwhile (agg.next()) {\n  gs.print(agg.getDisplayValue('state') + ' | ' + agg.getAggregate('COUNT'));\n}"
+    },
+    "expectedOutput": [
+      "Analysis | 6"
+    ],
+    "commonMistakes": [
+      "Using the wrong table name for the installed SecOps app version.",
+      "Forgetting that display values may differ from numeric states."
+    ]
+  },
+  {
+    "id": "transfer-asset-between-stockrooms",
+    "slug": "transfer-asset-between-stockrooms",
+    "title": "Transfer an asset between stockrooms in script logic",
+    "question": "Write a server-side script snippet that updates an asset stockroom and location while recording a work note.",
+    "summary": "Demonstrates HAM operational scripting.",
+    "roleIds": [
+      "asset-manager",
+      "ham-developer",
+      "ham-analyst"
+    ],
+    "moduleIds": [
+      "ham",
+      "asset-management",
+      "itam"
+    ],
+    "topicIds": [
+      "asset-stockrooms",
+      "asset-transfers",
+      "hardware-assets"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "ham",
+      "stockroom",
+      "asset transfer"
+    ],
+    "relatedTables": [
+      "alm_asset"
+    ],
+    "exactAnswer": "Retrieve the asset, update stockroom and location fields, add work notes, and save the record with appropriate governance.",
+    "steps": [
+      "Use the script in a fix script, background script, or controlled server logic.",
+      "Validate that the destination stockroom and location are correct."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var asset = new GlideRecord('alm_asset');\nif (asset.get('PUT_ASSET_SYS_ID_HERE')) {\n  asset.stockroom = 'PUT_STOCKROOM_SYS_ID_HERE';\n  asset.location = 'PUT_LOCATION_SYS_ID_HERE';\n  asset.work_notes = 'Asset transferred as part of approved stockroom move.';\n  asset.update();\n}"
+    },
+    "expectedOutput": [
+      "Selected asset record reflects the new stockroom and location."
+    ],
+    "commonMistakes": [
+      "Updating stockroom without updating operational location where required.",
+      "Moving assets without an approval or inventory process context."
+    ]
+  },
+  {
+    "id": "list-unnormalized-software-models",
+    "slug": "list-unnormalized-software-models",
+    "title": "List software install records that still need normalization review",
+    "question": "Write a script that prints software install evidence with missing or weak normalized product mapping.",
+    "summary": "Targets SAM cleanup and compliance readiness.",
+    "roleIds": [
+      "software-asset-manager",
+      "sam-developer",
+      "license-compliance-analyst"
+    ],
+    "moduleIds": [
+      "sam",
+      "software-compliance"
+    ],
+    "topicIds": [
+      "software-normalization",
+      "software-models",
+      "gliderecord"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "sam",
+      "normalization",
+      "software model"
+    ],
+    "relatedTables": [
+      "cmdb_sam_sw_install"
+    ],
+    "exactAnswer": "Query software install evidence that lacks the expected normalized product or version references and print the raw publisher/product details for review.",
+    "steps": [
+      "Confirm the install evidence table name in the target environment.",
+      "Run the script in a safe environment.",
+      "Use the output to drive normalization worklist review."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var inst = new GlideRecord('cmdb_sam_sw_install');\ninst.addNullQuery('display_name');\ninst.orderByDesc('sys_created_on');\ninst.query();\nwhile (inst.next()) {\n  gs.print(inst.discovery_model + ' | ' + inst.publisher + ' | ' + inst.version);\n}"
+    },
+    "expectedOutput": [
+      "Unknown package | Example Publisher | 14.2"
+    ],
+    "commonMistakes": [
+      "Assuming field names are identical in every SAM setup.",
+      "Treating every unmapped install as a licensing issue before normalization review."
+    ]
+  },
+  {
+    "id": "calculate-aging-vulnerabilities",
+    "slug": "calculate-aging-vulnerabilities",
+    "title": "Calculate aging vulnerabilities older than 30 days",
+    "question": "Write a script that prints open vulnerable items older than 30 days with assignment group and CI.",
+    "summary": "Common operational aging-review script.",
+    "roleIds": [
+      "vulnerability-analyst",
+      "license-compliance-analyst",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "vulnerability-response",
+      "secops"
+    ],
+    "topicIds": [
+      "vulnerability-groups",
+      "glidedatetime",
+      "vulnerability-response-topic"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "vulnerability aging",
+      "glidedatetime",
+      "secops"
+    ],
+    "relatedTables": [
+      "sn_vul_vulnerable_item"
+    ],
+    "exactAnswer": "Use GlideRecord on vulnerable items, filter active/open records with opened date older than 30 days, and print ownership context for remediation review.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Run the query and export results if needed."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var gr = new GlideRecord('sn_vul_vulnerable_item');\ngr.addActiveQuery();\ngr.addQuery('opened_at', '<=', gs.daysAgoStart(30));\ngr.query();\nwhile (gr.next()) {\n  gs.print(gr.number + ' | ' + gr.getDisplayValue('assignment_group') + ' | ' + gr.getDisplayValue('cmdb_ci'));\n}"
+    },
+    "expectedOutput": [
+      "VITM0001234 | Windows Server Team | APP-SRV-01"
+    ],
+    "commonMistakes": [
+      "Using created date when the process expects opened date or first-seen date."
+    ]
+  },
+  {
+    "id": "grs-vs-gr-secure-demo",
+    "slug": "grs-vs-gr-secure-demo",
+    "title": "Demonstrate GlideRecordSecure for user-respecting queries",
+    "question": "Write a script include method that returns incident numbers using GlideRecordSecure so ACLs are respected for the current user context.",
+    "summary": "Shows secure query design for interview discussion.",
+    "roleIds": [
+      "security-developer",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access",
+      "itsm"
+    ],
+    "topicIds": [
+      "gliderecordsecure",
+      "gliderecord",
+      "acls"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "gliderecordsecure",
+      "acl",
+      "script include"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Use GlideRecordSecure instead of GlideRecord when the returned records must respect the current user ACL access.",
+    "steps": [
+      "Create a Script Include intended for server-side or Ajax-backed use.",
+      "Return only necessary data."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var SecureIncidentReader = Class.create();\nSecureIncidentReader.prototype = {\n  getActiveIncidentNumbers: function() {\n    var out = [];\n    var gr = new GlideRecordSecure('incident');\n    gr.addActiveQuery();\n    gr.setLimit(20);\n    gr.query();\n    while (gr.next()) {\n      out.push(gr.getValue('number'));\n    }\n    return out.join(',');\n  },\n  type: 'SecureIncidentReader'\n};"
+    },
+    "expectedOutput": [
+      "Returns only incident numbers visible to the current user context."
+    ],
+    "commonMistakes": [
+      "Using GlideRecord when user-respecting data retrieval is required.",
+      "Returning more fields than necessary."
+    ]
+  },
+  {
+    "id": "build-encoded-query-for-stale-cis",
+    "slug": "build-encoded-query-for-stale-cis",
+    "title": "Build an encoded query for stale CIs",
+    "question": "Write a background script that finds servers not updated in 90 days using an encoded query and prints name and last discovered date.",
+    "summary": "Tests encoded query fluency with CMDB hygiene.",
+    "roleIds": [
+      "cmdb-manager",
+      "discovery-administrator",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "discovery"
+    ],
+    "topicIds": [
+      "encoded-queries",
+      "stale-cis",
+      "cmdb-tables"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "encoded query",
+      "stale ci",
+      "cmdb"
+    ],
+    "relatedTables": [
+      "cmdb_ci_server"
+    ],
+    "exactAnswer": "Use addEncodedQuery with a stale last_discovered condition, then print the records for review.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Paste the script and verify field names."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var gr = new GlideRecord('cmdb_ci_server');\ngr.addEncodedQuery('last_discoveredRELATIVELE@dayofweek@ago@90^install_status!=7');\ngr.query();\nwhile (gr.next()) {\n  gs.print(gr.name + ' | ' + gr.getDisplayValue('last_discovered'));\n}"
+    },
+    "expectedOutput": [
+      "APP-SRV-22 | 2025-12-30 10:11:00"
+    ],
+    "commonMistakes": [
+      "Using an encoded query against the wrong class table.",
+      "Assuming install_status values without checking the instance choices."
+    ]
+  },
+  {
+    "id": "vendor-risk-high-score-summary",
+    "slug": "vendor-risk-high-score-summary",
+    "title": "Summarize high-risk vendors",
+    "question": "Write a background script that prints vendor risk records above a defined score threshold with owner and status.",
+    "summary": "Adds GRC reporting-style scripting coverage.",
+    "roleIds": [
+      "governance-risk-analyst",
+      "risk-developer",
+      "grc-developer"
+    ],
+    "moduleIds": [
+      "vendor-risk-management",
+      "grc",
+      "risk-management"
+    ],
+    "topicIds": [
+      "vendor-risk",
+      "gliderecord",
+      "reports-dashboards"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "vendor risk",
+      "grc",
+      "reporting"
+    ],
+    "relatedTables": [
+      "sn_vdr_risk_assessment"
+    ],
+    "exactAnswer": "Use GlideRecord on the vendor-risk assessment table used in the environment, filter score above threshold, and print ownership context.",
+    "steps": [
+      "Confirm the target table in the environment.",
+      "Set the threshold value.",
+      "Run and validate output."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var threshold = 80;\nvar gr = new GlideRecord('sn_vdr_risk_assessment');\ngr.addQuery('score', '>=', threshold);\ngr.query();\nwhile (gr.next()) {\n  gs.print(gr.getDisplayValue() + ' | ' + gr.getDisplayValue('owner') + ' | ' + gr.getDisplayValue('state'));\n}"
+    },
+    "expectedOutput": [
+      "Acme Hosting Assessment | Priya Patel | In Review"
+    ],
+    "commonMistakes": [
+      "Using assumed table names without confirming the implementation.",
+      "Treating score fields as universal across every GRC setup."
+    ]
+  },
+  {
+    "id": "create-known-error-from-problem",
+    "slug": "create-known-error-from-problem",
+    "title": "Create a known-error style note from a problem record",
+    "question": "Write a server-side script snippet that copies workaround information from a problem record into a knowledge draft or related note trigger point.",
+    "summary": "Illustrates RCA-to-workaround operationalization.",
+    "roleIds": [
+      "problem-manager",
+      "knowledge-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "problem-management",
+      "knowledge-management",
+      "itsm"
+    ],
+    "topicIds": [
+      "known-errors",
+      "root-cause-analysis",
+      "script-includes"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "known error",
+      "problem",
+      "knowledge"
+    ],
+    "relatedTables": [
+      "problem",
+      "kb_knowledge"
+    ],
+    "exactAnswer": "Query the problem record, validate that a workaround exists, and create a knowledge draft or downstream action with the relevant text.",
+    "steps": [
+      "Retrieve the problem record.",
+      "Validate workaround text.",
+      "Insert a knowledge draft or call a dedicated utility."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var prb = new GlideRecord('problem');\nif (prb.get('PUT_PROBLEM_SYS_ID_HERE') && prb.workaround) {\n  var kb = new GlideRecord('kb_knowledge');\n  kb.initialize();\n  kb.short_description = 'Known error workaround for ' + prb.number;\n  kb.text = prb.workaround;\n  kb.workflow_state = 'draft';\n  kb.insert();\n}"
+    },
+    "expectedOutput": [
+      "A draft knowledge article is created with the workaround content."
+    ],
+    "commonMistakes": [
+      "Publishing automatically without review governance.",
+      "Not validating knowledge base and ownership requirements."
+    ]
+  }
+]

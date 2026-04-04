@@ -1,0 +1,258 @@
+[
+  {
+    "id": "abort-closed-change-request-update",
+    "slug": "abort-closed-change-request-update",
+    "title": "Block updates to closed changes in a query-safe way",
+    "question": "Write a business rule script that prevents updates to a closed change request unless the user has an override role.",
+    "summary": "Shows a common governance script pattern with clear control logic.",
+    "roleIds": [
+      "servicenow-developer",
+      "change-management-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "itsm",
+      "change-management"
+    ],
+    "topicIds": [
+      "business-rules",
+      "query-business-rules",
+      "change-table"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "business rule",
+      "change request",
+      "abort action"
+    ],
+    "relatedTables": [
+      "change_request"
+    ],
+    "exactAnswer": "Use a before update business rule on change_request. Check whether the record is already closed and whether the current user lacks the override role. If both are true, add an error message and abort the action.",
+    "steps": [
+      "Open System Definition > Business Rules.",
+      "Create a before update business rule on change_request.",
+      "Paste the script and adjust the override role name if needed.",
+      "Test with and without the override role."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "if (current.state.changes() || current.short_description.changes() || current.description.changes()) {\n  var closedStates = ['3','4','7']; // example closed/cancelled values\n  if (closedStates.indexOf(String(current.state)) > -1 && !gs.hasRole('change_override')) {\n    gs.addErrorMessage('Closed changes cannot be updated without the change_override role.');\n    current.setAbortAction(true);\n  }\n}"
+    },
+    "expectedOutput": [
+      "User without change_override sees an error and the update is blocked."
+    ],
+    "commonMistakes": [
+      "Using after update instead of before update.",
+      "Forgetting setAbortAction(true).",
+      "Hardcoding state values without verifying the instance values."
+    ],
+    "explanation": [
+      "Before update is required because the write must be stopped before commit.",
+      "Role-based bypass is cleaner than one-off user exceptions."
+    ]
+  },
+  {
+    "id": "glidedatetime-open-incidents-age",
+    "slug": "glidedatetime-open-incidents-age",
+    "title": "Calculate incident age with GlideDateTime",
+    "question": "Write a background script that prints open incidents older than 7 days using GlideDateTime.",
+    "summary": "Uses GlideDateTime correctly for age-based interview questions.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "platform-core"
+    ],
+    "topicIds": [
+      "glide-date-time",
+      "gliderecord",
+      "incident-table"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "glidedatetime",
+      "incident",
+      "age"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Create a GlideDateTime for now, subtract seven days, query active incidents created on or before that timestamp, and print the number with the opened date.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Paste the script.",
+      "Run it and review the printed incident numbers."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var threshold = new GlideDateTime();\nthreshold.addDaysUTC(-7);\nvar gr = new GlideRecord('incident');\ngr.addQuery('active', true);\ngr.addQuery('opened_at', '<=', threshold);\ngr.query();\nwhile (gr.next()) {\n  gs.print(gr.number + ' opened on ' + gr.getDisplayValue('opened_at'));\n}"
+    },
+    "expectedOutput": [
+      "INC0012345 opened on 2026-03-20 09:15:00"
+    ],
+    "commonMistakes": [
+      "Comparing dates as plain strings without GlideDateTime.",
+      "Using local-time assumptions without checking date handling."
+    ],
+    "explanation": [
+      "GlideDateTime is the right API for time arithmetic in platform scripts."
+    ]
+  },
+  {
+    "id": "encoded-query-p1-last-7-days",
+    "slug": "encoded-query-p1-last-7-days",
+    "title": "Use an encoded query for recent P1 incidents",
+    "question": "Write a background script that uses an encoded query to list active P1 incidents opened in the last 7 days.",
+    "summary": "Demonstrates encoded-query usage with a practical incident filter.",
+    "roleIds": [
+      "itsm-developer",
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "itsm",
+      "platform-core"
+    ],
+    "topicIds": [
+      "encoded-queries",
+      "gliderecord",
+      "incident-table"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "encoded query",
+      "incident",
+      "p1"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Use GlideRecord and pass an encoded query string that filters active P1 incidents opened within the last seven days, then print the number and short description.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Paste the script with the encoded query.",
+      "Run it and validate the returned incidents."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var gr = new GlideRecord('incident');\ngr.addEncodedQuery('active=true^priority=1^opened_atRELATIVEGE@dayofweek@ago@7');\ngr.query();\nwhile (gr.next()) {\n  gs.print(gr.number + ' - ' + gr.short_description);\n}"
+    },
+    "expectedOutput": [
+      "INC0011200 - Email outage for finance users"
+    ],
+    "commonMistakes": [
+      "Using an encoded query without validating it first in a list filter.",
+      "Confusing priority and urgency."
+    ],
+    "explanation": [
+      "Encoded queries are useful when you want to replicate a tested list filter quickly."
+    ]
+  },
+  {
+    "id": "count-cloud-cis-by-account",
+    "slug": "count-cloud-cis-by-account",
+    "title": "Count cloud CIs by account",
+    "question": "Write a script to count cloud-discovered CIs by cloud account or source identifier.",
+    "summary": "Adds a cloud-discovery-flavored aggregate example for infrastructure interviews.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-developer",
+      "discovery-developer"
+    ],
+    "moduleIds": [
+      "cloud-discovery",
+      "cmdb",
+      "discovery"
+    ],
+    "topicIds": [
+      "cloud-discovery-topic",
+      "glideaggregate",
+      "cmdb-tables"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "cloud discovery",
+      "glideaggregate",
+      "cmdb"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "exactAnswer": "Use GlideAggregate on the relevant CI table or CMDB base class, limit to the cloud discovery source pattern used in the environment, group by account-related field, and print the counts.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Adjust the table and grouping field to match the instance cloud model.",
+      "Run the script and review grouped counts."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var ga = new GlideAggregate('cmdb_ci');\nga.addQuery('discovery_source', 'CONTAINS', 'Cloud');\nga.addAggregate('COUNT');\nga.groupBy('discovery_source');\nga.query();\nwhile (ga.next()) {\n  gs.print(ga.getDisplayValue('discovery_source') + ' -> ' + ga.getAggregate('COUNT'));\n}"
+    },
+    "expectedOutput": [
+      "Cloud Discovery -> 248"
+    ],
+    "commonMistakes": [
+      "Using the wrong CMDB class.",
+      "Assuming a cloud account field name without checking the table dictionary first."
+    ],
+    "explanation": [
+      "Cloud discovery interviews often test whether you validate the data model before scripting."
+    ]
+  },
+  {
+    "id": "find-unnormalized-software-installs",
+    "slug": "find-unnormalized-software-installs",
+    "title": "Find software installs that still need normalization review",
+    "question": "Write a script to find software installation records with missing normalized product references.",
+    "summary": "Useful for SAM interviews that ask how you would identify normalization gaps.",
+    "roleIds": [
+      "sam-developer",
+      "itam-developer"
+    ],
+    "moduleIds": [
+      "sam",
+      "itam"
+    ],
+    "topicIds": [
+      "software-normalization",
+      "gliderecord"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "sam",
+      "normalization",
+      "software installs"
+    ],
+    "relatedTables": [
+      "cmdb_sam_sw_install"
+    ],
+    "exactAnswer": "Query the software installation table for rows where the normalized product reference is empty and print the installation name and device so the team can review normalization gaps.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Validate the normalized-product field in your data model if it differs by deployment.",
+      "Run the script and review the returned installations."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var gr = new GlideRecord('cmdb_sam_sw_install');\ngr.addNullQuery('software_model');\ngr.query();\nwhile (gr.next()) {\n  gs.print((gr.display_name || gr.getDisplayValue()) + ' | Device: ' + gr.getDisplayValue('cmdb_ci'));\n}"
+    },
+    "expectedOutput": [
+      "Microsoft Visio Professional | Device: LAPTOP-00421"
+    ],
+    "commonMistakes": [
+      "Assuming one field name for all SAM data models without checking the table dictionary.",
+      "Treating every missing normalized reference as a platform defect instead of first validating the incoming discovery data."
+    ],
+    "explanation": [
+      "The exact field can vary by model, so the interview-ready answer includes validating the table dictionary first."
+    ]
+  }
+]

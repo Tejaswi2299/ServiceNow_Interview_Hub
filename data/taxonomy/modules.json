@@ -1,0 +1,326 @@
+[
+  {
+    "id": "app-engine",
+    "slug": "app-engine",
+    "name": "App Engine",
+    "summary": "Custom applications, data models, experiences, and automation."
+  },
+  {
+    "id": "asset-management",
+    "slug": "asset-management",
+    "name": "Asset Management",
+    "summary": "Receiving, stockrooms, transfers, lifecycle controls, and operational asset governance."
+  },
+  {
+    "id": "audit-management",
+    "slug": "audit-management",
+    "name": "Audit Management",
+    "summary": "Audit planning, evidence, issues, and remediation tracking."
+  },
+  {
+    "id": "atf",
+    "slug": "atf",
+    "name": "Automated Test Framework",
+    "summary": "Automated test suites, steps, and regression validation."
+  },
+  {
+    "id": "change-management",
+    "slug": "change-management",
+    "name": "Change Management",
+    "summary": "Change lifecycle, approvals, risk, blackout windows, and CAB support."
+  },
+  {
+    "id": "cloud-discovery",
+    "slug": "cloud-discovery",
+    "name": "Cloud Discovery",
+    "summary": "Discovery of cloud resources, accounts, patterns, and CI population for cloud services."
+  },
+  {
+    "id": "cmdb",
+    "slug": "cmdb",
+    "name": "CMDB",
+    "summary": "Classes, CI modeling, identification, reconciliation, and governance."
+  },
+  {
+    "id": "cmdb-governance",
+    "slug": "cmdb-governance",
+    "name": "CMDB Governance",
+    "summary": "Health, ownership, policy, duplicate prevention, and data quality management for CMDB."
+  },
+  {
+    "id": "csm",
+    "slug": "csm",
+    "name": "Customer Service Management",
+    "summary": "Customer cases, entitlements, accounts, and channels."
+  },
+  {
+    "id": "devops",
+    "slug": "devops",
+    "name": "DevOps",
+    "summary": "Change automation, pipeline visibility, deployment governance, and release coordination."
+  },
+  {
+    "id": "discovery",
+    "slug": "discovery",
+    "name": "Discovery",
+    "summary": "MID Servers, credentials, schedules, probes, sensors, and patterns."
+  },
+  {
+    "id": "discovery-patterns",
+    "slug": "discovery-patterns",
+    "name": "Discovery Patterns",
+    "summary": "Pattern-based discovery design, troubleshooting, and capability alignment."
+  },
+  {
+    "id": "employee-center",
+    "slug": "employee-center",
+    "name": "Employee Center",
+    "summary": "Unified employee experience across content and services."
+  },
+  {
+    "id": "event-management",
+    "slug": "event-management",
+    "name": "Event Management",
+    "summary": "Event rules, alert management, deduplication, and correlation."
+  },
+  {
+    "id": "flow-designer",
+    "slug": "flow-designer",
+    "name": "Flow Designer",
+    "summary": "Flows, subflows, actions, spokes, and no-code automation."
+  },
+  {
+    "id": "grc",
+    "slug": "grc",
+    "name": "GRC",
+    "summary": "Governance, policy, compliance, risk, and audit capabilities."
+  },
+  {
+    "id": "ham",
+    "slug": "ham",
+    "name": "Hardware Asset Management",
+    "summary": "Hardware models, stockrooms, lifecycle, transfer, and audits."
+  },
+  {
+    "id": "hrsd",
+    "slug": "hrsd",
+    "name": "HR Service Delivery",
+    "summary": "HR cases, services, lifecycle events, and employee workflows."
+  },
+  {
+    "id": "incident-management",
+    "slug": "incident-management",
+    "name": "Incident Management",
+    "summary": "End-to-end incident processes, forms, lifecycle, and automation."
+  },
+  {
+    "id": "integrationhub",
+    "slug": "integrationhub",
+    "name": "IntegrationHub",
+    "summary": "Spokes, actions, data streams, and external system automation."
+  },
+  {
+    "id": "itam",
+    "slug": "itam",
+    "name": "IT Asset Management",
+    "summary": "Combined asset lifecycle management across hardware and software."
+  },
+  {
+    "id": "itom-health",
+    "slug": "itom-health",
+    "name": "ITOM Health",
+    "summary": "Operational health insights, alerts, and service visibility."
+  },
+  {
+    "id": "itsm",
+    "slug": "itsm",
+    "name": "ITSM",
+    "summary": "Incident, Problem, Change, Request, SLA, and service operations."
+  },
+  {
+    "id": "knowledge-management",
+    "slug": "knowledge-management",
+    "name": "Knowledge Management",
+    "summary": "Knowledge base structure, article lifecycle, approvals, and publishing."
+  },
+  {
+    "id": "major-incident-management",
+    "slug": "major-incident-management",
+    "name": "Major Incident Management",
+    "summary": "High-impact incident governance, bridge operations, communications, and restoration tracking."
+  },
+  {
+    "id": "mobile",
+    "slug": "mobile",
+    "name": "Mobile",
+    "summary": "Mobile applets, experiences, actions, and role-specific pages."
+  },
+  {
+    "id": "notifications-email",
+    "slug": "notifications-email",
+    "name": "Notifications and Email",
+    "summary": "Events, notifications, templates, and outbound communication."
+  },
+  {
+    "id": "performance-analytics",
+    "slug": "performance-analytics",
+    "name": "Performance Analytics",
+    "summary": "Indicators, data collection, breakdowns, widgets, and dashboards."
+  },
+  {
+    "id": "platform-core",
+    "slug": "platform-core",
+    "name": "Platform Core",
+    "summary": "Core platform objects, tables, scripting, and administration."
+  },
+  {
+    "id": "platform-operations",
+    "slug": "platform-operations",
+    "name": "Platform Operations",
+    "summary": "Cloning, upgrades, performance, logs, and system health."
+  },
+  {
+    "id": "policy-and-compliance",
+    "slug": "policy-and-compliance",
+    "name": "Policy and Compliance",
+    "summary": "Policy lifecycle, controls, compliance testing, and exceptions."
+  },
+  {
+    "id": "problem-management",
+    "slug": "problem-management",
+    "name": "Problem Management",
+    "summary": "Problem records, RCA, known errors, and issue prevention."
+  },
+  {
+    "id": "reports-dashboards",
+    "slug": "reports-dashboards",
+    "name": "Reports and Dashboards",
+    "summary": "Report design, performance analytics widgets, and visualizations."
+  },
+  {
+    "id": "request-management",
+    "slug": "request-management",
+    "name": "Request Management",
+    "summary": "Requests, requested items, tasks, approvals, and fulfillment."
+  },
+  {
+    "id": "rest-integrations",
+    "slug": "rest-integrations",
+    "name": "REST Integrations",
+    "summary": "Outbound REST, inbound APIs, and scripted endpoints."
+  },
+  {
+    "id": "risk-management",
+    "slug": "risk-management",
+    "name": "Risk Management",
+    "summary": "Risk lifecycle, statements, scoring, responses, and controls."
+  },
+  {
+    "id": "security-access",
+    "slug": "security-access",
+    "name": "Security and Access",
+    "summary": "ACLs, roles, groups, domain separation, and security controls."
+  },
+  {
+    "id": "security-incident-response",
+    "slug": "security-incident-response",
+    "name": "Security Incident Response",
+    "summary": "Security incident intake, investigation, tasks, and playbooks."
+  },
+  {
+    "id": "secops",
+    "slug": "secops",
+    "name": "Security Operations",
+    "summary": "Security operations suite and coordinated security workflows."
+  },
+  {
+    "id": "service-catalog",
+    "slug": "service-catalog",
+    "name": "Service Catalog",
+    "summary": "Catalog items, record producers, order guides, and variables."
+  },
+  {
+    "id": "service-mapping",
+    "slug": "service-mapping",
+    "name": "Service Mapping",
+    "summary": "Application service maps, dependencies, entry points, and patterns."
+  },
+  {
+    "id": "service-operations-workspace",
+    "slug": "service-operations-workspace",
+    "name": "Service Operations Workspace",
+    "summary": "Analyst workspace experiences, major incident workbench patterns, record pages, and operational productivity."
+  },
+  {
+    "id": "service-portal",
+    "slug": "service-portal",
+    "name": "Service Portal",
+    "summary": "Widgets, themes, pages, and portal scripting."
+  },
+  {
+    "id": "sla-management",
+    "slug": "sla-management",
+    "name": "SLA Management",
+    "summary": "SLA definitions, start/stop conditions, task_sla records, and calendars."
+  },
+  {
+    "id": "soap-integrations",
+    "slug": "soap-integrations",
+    "name": "SOAP Integrations",
+    "summary": "SOAP messages, WSDL imports, and SOAP-based integrations."
+  },
+  {
+    "id": "sam",
+    "slug": "sam",
+    "name": "Software Asset Management",
+    "summary": "Entitlements, normalization, subscriptions, and reclamation."
+  },
+  {
+    "id": "software-compliance",
+    "slug": "software-compliance",
+    "name": "Software Compliance",
+    "summary": "Entitlements, effective license position, normalization, reclamation, and compliance governance."
+  },
+  {
+    "id": "source-control",
+    "slug": "source-control",
+    "name": "Source Control and Update Sets",
+    "summary": "Update sets, source control, deployments, and release management."
+  },
+  {
+    "id": "threat-intelligence",
+    "slug": "threat-intelligence",
+    "name": "Threat Intelligence",
+    "summary": "Threat indicators, intel feeds, and enriched investigations."
+  },
+  {
+    "id": "ui-builder",
+    "slug": "ui-builder",
+    "name": "UI Builder",
+    "summary": "Declarative page building for workspaces and experiences."
+  },
+  {
+    "id": "vendor-risk-management",
+    "slug": "vendor-risk-management",
+    "name": "Vendor Risk Management",
+    "summary": "Third-party risk onboarding, assessments, exceptions, and remediation tracking."
+  },
+  {
+    "id": "virtual-agent",
+    "slug": "virtual-agent",
+    "name": "Virtual Agent",
+    "summary": "Conversational topics, integrations, and handoffs."
+  },
+  {
+    "id": "vulnerability-response",
+    "slug": "vulnerability-response",
+    "name": "Vulnerability Response",
+    "summary": "Vulnerability ingestion, prioritization, remediation, and CI matching."
+  },
+  {
+    "id": "workspaces",
+    "slug": "workspaces",
+    "name": "Workspaces",
+    "summary": "Next Experience workspaces, record pages, and agent tooling."
+  }
+]
