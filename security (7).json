@@ -1,0 +1,228 @@
+[
+  {
+    "id": "gliderecordsecure-vs-gliderecord",
+    "slug": "gliderecordsecure-vs-gliderecord",
+    "title": "GlideRecordSecure vs GlideRecord",
+    "question": "What is the difference between GlideRecordSecure and GlideRecord in ServiceNow?",
+    "summary": "Explains the security behavior difference and when interviewers expect each API to be used.",
+    "roleIds": [
+      "servicenow-developer",
+      "security-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "gliderecord",
+      "gliderecordsecure",
+      "acls"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "gliderecordsecure",
+      "gliderecord",
+      "acl",
+      "security"
+    ],
+    "relatedTables": [
+      "task",
+      "incident",
+      "sys_user"
+    ],
+    "exactAnswer": "GlideRecord does not automatically enforce ACL evaluation in the same way user-facing access checks do, so it is often used in trusted server-side logic where you intentionally control access. GlideRecordSecure evaluates security rules while retrieving records and is safer when the script must honor the current user's table and field access. In interviews, the best answer is that GlideRecordSecure is the secure-by-default option when you need server-side retrieval that respects ACLs for the current user.",
+    "keyPoints": [
+      "Use GlideRecord when the script runs in trusted logic and you intentionally control data access.",
+      "Use GlideRecordSecure when the script must respect the current user's ACL access while querying records.",
+      "Choosing GlideRecordSecure does not replace good role design or ACL design; it complements them."
+    ],
+    "examples": [
+      "A background cleanup script usually uses GlideRecord.",
+      "A server-side utility returning user-visible records can use GlideRecordSecure if it must honor ACLs."
+    ],
+    "comparisonTable": [
+      {
+        "label": "Default intent",
+        "value": "GlideRecord = trusted server logic; GlideRecordSecure = ACL-aware retrieval"
+      },
+      {
+        "label": "Security behavior",
+        "value": "GlideRecordSecure evaluates record access during retrieval"
+      },
+      {
+        "label": "Interview trap",
+        "value": "Do not claim GlideRecord is always wrong; the right choice depends on the use case"
+      }
+    ]
+  },
+  {
+    "id": "glidequery-vs-gliderecord-chainability",
+    "slug": "glidequery-vs-gliderecord-chainability",
+    "title": "GlideQuery vs GlideRecord for readable query chaining",
+    "question": "When would you choose GlideQuery over GlideRecord for readability and fluent query building?",
+    "summary": "Focuses on readability, chaining, and where GlideRecord still remains the practical default.",
+    "roleIds": [
+      "servicenow-developer",
+      "app-engine-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "app-engine"
+    ],
+    "topicIds": [
+      "glide-query",
+      "gliderecord"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "glidequery",
+      "gliderecord",
+      "scripting"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Choose GlideQuery when you want a fluent, readable chaining style for straightforward query operations and your team is comfortable with it. Choose GlideRecord when you need the broadest platform compatibility, established team familiarity, or lower-level record operations that are already well understood across older implementations.",
+    "keyPoints": [
+      "GlideRecord is still the most commonly expected interview API.",
+      "GlideQuery can improve readability for some query patterns.",
+      "A strong answer explains tradeoffs instead of treating one API as universally superior."
+    ],
+    "examples": [
+      "Most admin and developer interviews still ask you to code with GlideRecord.",
+      "GlideQuery is useful when you want a fluent chain and a more functional style."
+    ]
+  },
+  {
+    "id": "encoded-queries-when-to-use",
+    "slug": "encoded-queries-when-to-use",
+    "title": "When to use encoded queries",
+    "question": "When should you use an encoded query in ServiceNow?",
+    "summary": "Covers why encoded queries are useful, where they come from, and the maintenance cautions interviewers like to hear.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "rest-integrations"
+    ],
+    "topicIds": [
+      "encoded-queries",
+      "gliderecord"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "best-practice",
+    "tags": [
+      "encoded query",
+      "list filter",
+      "gliderecord"
+    ],
+    "relatedTables": [
+      "incident",
+      "change_request"
+    ],
+    "exactAnswer": "Use an encoded query when you need to reproduce a complex filter condition exactly as it is defined in a list filter or when building dynamic filtering quickly in server-side logic. The best interview answer also notes that encoded queries are convenient but can become harder to read than explicit addQuery calls, so they should be used carefully when long-term maintainability matters.",
+    "keyPoints": [
+      "Encoded queries are useful for reproducing complex list filters quickly.",
+      "They are often copied from the filter breadcrumb or list condition builder.",
+      "They can be harder to read than explicit addQuery statements, so readability matters."
+    ],
+    "examples": [
+      "Copy a list filter for active P1 incidents and reuse it in a background script.",
+      "Store a carefully reviewed encoded query in a system property for reusable filtering."
+    ]
+  },
+  {
+    "id": "identification-vs-reconciliation",
+    "slug": "identification-vs-reconciliation",
+    "title": "Identification rules vs reconciliation definitions",
+    "question": "What is the difference between identification rules and reconciliation definitions in CMDB?",
+    "summary": "Explains the two controls interviewers often combine in CMDB data-governance questions.",
+    "roleIds": [
+      "cmdb-developer",
+      "cmdb-administrator",
+      "platform-architect",
+      "discovery-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "cloud-discovery"
+    ],
+    "topicIds": [
+      "identification-rules",
+      "reconciliation-definitions",
+      "ire"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "comparison",
+    "tags": [
+      "cmdb",
+      "identification",
+      "reconciliation",
+      "ire"
+    ],
+    "relatedTables": [
+      "cmdb_ci",
+      "cmdb_identification_rule"
+    ],
+    "exactAnswer": "Identification rules determine whether incoming data matches an existing CI or creates a new one. Reconciliation definitions control which data source is allowed to update specific CI fields when multiple sources send values. The strongest interview answer is that identification prevents duplicates, while reconciliation protects data authority and update precedence.",
+    "keyPoints": [
+      "Identification answers: is this the same CI or a new CI?",
+      "Reconciliation answers: which source is allowed to update this CI field?",
+      "Both are needed for stable enterprise CMDB governance."
+    ],
+    "examples": [
+      "A serial number might identify a hardware CI.",
+      "Discovery might own operational fields while another source owns financial attributes."
+    ]
+  },
+  {
+    "id": "software-normalization-why-it-matters",
+    "slug": "software-normalization-why-it-matters",
+    "title": "Why software normalization matters in SAM",
+    "question": "Why is software normalization important in ServiceNow SAM?",
+    "summary": "Explains normalization value in licensing, compliance, and trustworthy reporting.",
+    "roleIds": [
+      "sam-developer",
+      "itam-developer",
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "sam",
+      "itam"
+    ],
+    "topicIds": [
+      "software-normalization",
+      "software-models"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "sam",
+      "normalization",
+      "licensing"
+    ],
+    "relatedTables": [
+      "cmdb_sam_sw_install",
+      "sam_sw_product",
+      "cmdb_model"
+    ],
+    "exactAnswer": "Software normalization converts inconsistent raw software discovery data into standardized publishers, products, versions, and editions so licensing, reclamation, and compliance decisions are based on trustworthy records. In interviews, the best answer is that normalization is what turns noisy discovery data into actionable SAM data.",
+    "keyPoints": [
+      "Raw installation strings are usually inconsistent across devices and sources.",
+      "Normalization improves license calculations, reclaim workflows, and reporting quality.",
+      "Without normalization, entitlement and compliance decisions become unreliable."
+    ],
+    "examples": [
+      "Different Microsoft Office install names can normalize to one standardized product family.",
+      "Normalization makes unused software reclaim analysis more trustworthy."
+    ]
+  }
+]

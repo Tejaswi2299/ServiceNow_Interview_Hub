@@ -1,0 +1,47 @@
+[
+  {
+    "id": "glidequery-active-problems",
+    "slug": "glidequery-active-problems",
+    "title": "GlideQuery example for active problems",
+    "question": "Write a GlideQuery example that selects active problem records and returns number and short_description.",
+    "summary": "Readable chainable query example for modern server-side discussions.",
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "problem-management"
+    ],
+    "topicIds": [
+      "glidequery",
+      "problem-table"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "coding",
+    "tags": [
+      "glidequery",
+      "problem"
+    ],
+    "relatedTables": [
+      "problem"
+    ],
+    "exactAnswer": "Use GlideQuery with where('active', true) and select the required columns. Then iterate the returned rows and print number and short_description.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Paste the GlideQuery example.",
+      "Run it and inspect the output."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "new global.GlideQuery('problem')\n  .where('active', true)\n  .select('number', 'short_description')\n  .forEach(function(row) {\n    gs.print(row.number + ' - ' + row.short_description);\n  });"
+    },
+    "commonMistakes": [
+      "Using GlideQuery without confirming the instance supports the API in that context.",
+      "Presenting GlideQuery as a replacement for every GlideRecord scenario."
+    ],
+    "explanation": [
+      "This is a concise read-oriented example. In interviews, still demonstrate strong GlideRecord fundamentals first."
+    ]
+  }
+]
