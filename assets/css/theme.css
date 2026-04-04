@@ -1,0 +1,11 @@
+
+::selection{background:rgba(56,189,248,.28);color:#fff}
+a:hover{opacity:.98}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#09101d}
+::-webkit-scrollbar-thumb{background:#23324f;border-radius:999px}
+.muted{color:var(--muted)}
+.accent{color:#abf5c2}
+.surface{background:var(--surface)}
+.align-right{text-align:right}
+.hidden{display:none !important}

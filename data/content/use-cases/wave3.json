@@ -1,0 +1,319 @@
+[
+  {
+    "id": "service-operations-workspace-major-incident-view",
+    "slug": "service-operations-workspace-major-incident-view",
+    "title": "Design a Service Operations Workspace view for major incidents",
+    "question": "How would you design a Service Operations Workspace experience for major-incident analysts?",
+    "summary": "Focuses on analyst productivity, visibility, and action placement inside workspace.",
+    "roleIds": [
+      "service-operations-workspace-developer",
+      "itsm-developer",
+      "itsm-administrator"
+    ],
+    "moduleIds": [
+      "service-operations-workspace",
+      "itsm",
+      "workspaces"
+    ],
+    "topicIds": [
+      "service-operations-workspace-topic",
+      "workspace-record-pages",
+      "major-incident"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "workspace",
+      "major incident",
+      "analyst experience"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "scenario": "The operations team wants a dedicated analyst workspace for major incidents with a clear timeline, ownership visibility, affected services, and next actions.",
+    "exactAnswer": "Design the workspace around the analyst's operating flow: incident context first, impact and service context second, collaboration and status actions third. The strongest answer covers page layout, component placement, role-based visibility, and validation with real analyst workflows.",
+    "navigationPath": [
+      "All > Now Experience Framework > UI Builder",
+      "Open the Service Operations Workspace experience",
+      "Open the major incident or incident record page configuration"
+    ],
+    "steps": [
+      "Identify the minimum data analysts need in the first screenful: state, priority, bridge status, owner, service, and timeline.",
+      "Place high-frequency actions such as update status, reassign owner, and launch communications in the primary action area.",
+      "Expose related lists or tabs for child incidents, impacted services, tasks, and stakeholder communications.",
+      "Use role-based visibility so advanced controls are limited to the correct support groups.",
+      "Test the layout with actual major-incident analysts and measure whether update paths are shorter."
+    ],
+    "involvedArtifacts": [
+      "UI Builder record page",
+      "Workspace components",
+      "Related lists or tabs",
+      "Action configuration"
+    ],
+    "validationChecklist": [
+      "Critical incident context is visible without extra clicks.",
+      "Analysts can update ownership and state quickly.",
+      "Impacted services and linked tasks are easy to reach.",
+      "The experience remains readable during high-pressure incident handling."
+    ],
+    "commonMistakes": [
+      "Filling the first screen with too many low-value widgets.",
+      "Hiding the most common analyst actions behind extra navigation.",
+      "Not testing with real incident coordinators."
+    ]
+  },
+  {
+    "id": "cloud-discovery-onboarding-governance",
+    "slug": "cloud-discovery-onboarding-governance",
+    "title": "Onboard cloud discovery with CI governance",
+    "question": "How would you implement cloud discovery in a way that protects CMDB data quality?",
+    "summary": "Covers account onboarding, credential design, identification, reconciliation, and validation.",
+    "roleIds": [
+      "cmdb-administrator",
+      "discovery-developer",
+      "cloud-engineer"
+    ],
+    "moduleIds": [
+      "cloud-discovery",
+      "discovery",
+      "cmdb"
+    ],
+    "topicIds": [
+      "cloud-discovery-topic",
+      "identification-rules",
+      "reconciliation-definitions",
+      "mid-server"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "cloud discovery",
+      "cmdb",
+      "governance"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "scenario": "The organization wants AWS and Azure resources in the CMDB, but the CMDB team is concerned about duplicate CIs and uncontrolled field updates.",
+    "exactAnswer": "Onboard cloud discovery only after agreeing on account scope, credentials, CI classes, identification behavior, reconciliation ownership, and validation criteria. The best answer proves you can balance discovery speed with CMDB governance.",
+    "navigationPath": [
+      "All > Discovery > Schedules / cloud onboarding areas",
+      "All > CMDB > Identification Rules",
+      "All > CMDB > Reconciliation Definitions",
+      "All > MID Server > Servers"
+    ],
+    "steps": [
+      "Confirm which cloud accounts and subscriptions are in scope for the first release.",
+      "Design credential and MID Server placement with network and security teams.",
+      "Validate CI classes, identification rules, and reconciliation ownership before discovery runs.",
+      "Run discovery in a controlled scope and review duplicates, missing attributes, and source tagging.",
+      "Move to broader schedules only after the pilot passes data-quality checks."
+    ],
+    "involvedArtifacts": [
+      "Cloud credentials",
+      "MID Servers",
+      "Identification Rules",
+      "Reconciliation Definitions",
+      "Discovery schedules"
+    ],
+    "validationChecklist": [
+      "Cloud resources land in the correct CI classes.",
+      "Duplicate rates stay within agreed tolerance.",
+      "Field authority is enforced through reconciliation.",
+      "Source tagging supports troubleshooting later."
+    ],
+    "commonMistakes": [
+      "Running large discovery before validating identification behavior.",
+      "Ignoring field-authority conflicts with existing sources.",
+      "Treating cloud onboarding as only a credential exercise."
+    ]
+  },
+  {
+    "id": "prevent-duplicate-cis-with-ire-ruleset",
+    "slug": "prevent-duplicate-cis-with-ire-ruleset",
+    "title": "Prevent duplicate CIs with IRE ruleset design",
+    "question": "How do you prevent duplicate CIs by tightening IRE, identification, and reconciliation design?",
+    "summary": "Walkthrough for hardening duplicate-prevention using IRE rules and trusted sources.",
+    "roleIds": [
+      "cmdb-administrator",
+      "cmdb-developer",
+      "discovery-developer"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "discovery",
+      "cloud-discovery"
+    ],
+    "topicIds": [
+      "ire",
+      "identification-rules",
+      "reconciliation-definitions",
+      "cmdb-relationships"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "cmdb",
+      "duplicates",
+      "ire",
+      "identification"
+    ],
+    "relatedTables": [
+      "cmdb_ci"
+    ],
+    "scenario": "Duplicate server CIs appear after multiple sources begin populating the CMDB.",
+    "exactAnswer": "Start by proving which sources are creating the duplicates and which identifiers are inconsistent. Then review identification rules, source payload quality, reconciliation ownership, and any direct-insert integrations that bypass correct CMDB handling.",
+    "navigationPath": [
+      "All > CMDB > CI Class Manager",
+      "All > CMDB > Identification Rules",
+      "All > CMDB > Reconciliation Definitions",
+      "All > System Logs or integration diagnostics"
+    ],
+    "steps": [
+      "Collect a duplicate sample and compare identifiers such as serial number, hostname, and cloud ID.",
+      "Review whether the incoming source is using IRE-compatible patterns or bypassing them.",
+      "Confirm identification rules are appropriate for the affected CI class.",
+      "Review reconciliation so unauthorized sources are not overwriting key identifiers.",
+      "Correct the source payload or identification design, then validate with controlled reprocessing."
+    ],
+    "involvedArtifacts": [
+      "Identification Rules",
+      "Reconciliation Definitions",
+      "Source payload review",
+      "Discovery or integration logs"
+    ],
+    "validationChecklist": [
+      "New payloads match the correct existing CI.",
+      "Duplicate creation rate drops after the fix.",
+      "Authorized fields still update from the right sources.",
+      "Historic duplicate cleanup has an approved approach."
+    ],
+    "commonMistakes": [
+      "Deleting duplicates without fixing the source behavior.",
+      "Changing reconciliation when the real issue is poor identifiers.",
+      "Ignoring direct integrations that do not follow the intended CMDB ingestion path."
+    ]
+  },
+  {
+    "id": "sam-normalization-governance-review",
+    "slug": "sam-normalization-governance-review",
+    "title": "Run a SAM normalization governance review",
+    "question": "How would you implement a governance review for software normalization issues in SAM?",
+    "summary": "Gives a practical process answer for normalization backlog and accountability questions.",
+    "roleIds": [
+      "sam-developer",
+      "itam-developer",
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "sam",
+      "itam"
+    ],
+    "topicIds": [
+      "software-normalization",
+      "software-models",
+      "reports"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "sam",
+      "normalization",
+      "governance"
+    ],
+    "relatedTables": [
+      "cmdb_sam_sw_install",
+      "sam_sw_product"
+    ],
+    "scenario": "The SAM manager says too many software installs remain unnormalized and license reports are losing credibility.",
+    "exactAnswer": "Create a repeatable review cycle that measures normalization backlog, separates data-quality causes from mapping causes, assigns owners, and validates improved coverage after remediation. The best answer sounds like an operational governance process, not only a one-time cleanup.",
+    "navigationPath": [
+      "All > Software Asset Management work areas",
+      "All > Reports / Dashboards",
+      "All > Scheduled Reports or review tasks"
+    ],
+    "steps": [
+      "Define the backlog metric, such as installs missing normalized product or software model references.",
+      "Separate issues caused by poor discovery data from issues caused by missing normalization coverage.",
+      "Assign ownership between discovery, SAM operations, and platform teams.",
+      "Review the backlog on a regular cadence and validate that remediation improves license reporting quality.",
+      "Document exceptions so repeated false positives are not rediscovered every cycle."
+    ],
+    "involvedArtifacts": [
+      "Normalization review dashboard",
+      "Operational review cadence",
+      "Owner tracking",
+      "Remediation backlog"
+    ],
+    "validationChecklist": [
+      "The backlog metric is stable and repeatable.",
+      "Owners understand whether the fix is discovery-side or normalization-side.",
+      "License reporting quality improves after remediation."
+    ],
+    "commonMistakes": [
+      "Treating every gap as a normalization defect without checking source data.",
+      "Running one-off cleanup without a recurring governance cadence."
+    ]
+  },
+  {
+    "id": "ham-stockroom-reconciliation-process",
+    "slug": "ham-stockroom-reconciliation-process",
+    "title": "Design a stockroom reconciliation process for hardware assets",
+    "question": "How would you design a stockroom reconciliation process for HAM?",
+    "summary": "Adds a practical HAM operational scenario around ownership, location, and physical accountability.",
+    "roleIds": [
+      "ham-developer",
+      "itam-developer",
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "ham",
+      "itam"
+    ],
+    "topicIds": [
+      "asset-stockrooms",
+      "hardware-assets",
+      "reports"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "ham",
+      "stockroom",
+      "reconciliation"
+    ],
+    "relatedTables": [
+      "alm_hardware",
+      "stockroom"
+    ],
+    "scenario": "A customer says hardware assets in stockrooms do not match physical inventory and analysts do not trust the numbers.",
+    "exactAnswer": "Define a reconciliation process that compares system records to physical inventory, separates data-entry issues from process gaps, assigns ownership by stockroom, and records adjustments with approval or audit visibility.",
+    "navigationPath": [
+      "All > Asset > Portfolios > Hardware Assets",
+      "All > Stockrooms",
+      "All > Reports / Dashboards"
+    ],
+    "steps": [
+      "Define the stockroom-level inventory view and the fields used to confirm physical accountability.",
+      "Schedule reconciliation reviews by stockroom owner.",
+      "Document discrepancy categories such as location errors, ownership errors, and retirement timing issues.",
+      "Create an adjustment process with traceability and approval where required.",
+      "Measure whether discrepancy volume drops over time."
+    ],
+    "involvedArtifacts": [
+      "Hardware asset views",
+      "Stockroom ownership",
+      "Reconciliation report",
+      "Adjustment process"
+    ],
+    "validationChecklist": [
+      "Each stockroom has an accountable owner.",
+      "Discrepancies are categorized instead of treated as one generic issue.",
+      "Adjustments remain traceable for audit review."
+    ],
+    "commonMistakes": [
+      "Fixing data without fixing the receiving, transfer, or retirement process.",
+      "Not assigning clear stockroom ownership."
+    ]
+  }
+]

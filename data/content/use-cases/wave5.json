@@ -1,0 +1,452 @@
+[
+  {
+    "id": "major-incident-war-room-process",
+    "slug": "major-incident-war-room-process",
+    "title": "Implement a major incident war-room process",
+    "question": "How would you implement a major incident process that is separate from simple P1 prioritization?",
+    "summary": "Builds governance, communication, and command-flow around a major incident model.",
+    "roleIds": [
+      "major-incident-manager",
+      "itsm-developer",
+      "change-manager"
+    ],
+    "moduleIds": [
+      "major-incident-management",
+      "itsm"
+    ],
+    "topicIds": [
+      "major-incident",
+      "incident-table",
+      "notifications",
+      "assignment-rules"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "major incident",
+      "war room",
+      "communications"
+    ],
+    "relatedTables": [
+      "incident",
+      "sys_user_group",
+      "sysevent_email_action"
+    ],
+    "scenario": "The client wants major incidents to trigger an incident commander workflow, stakeholder communications, and a war-room operating model that does not automatically apply to every P1.",
+    "exactAnswer": "Implement a major incident flag or dedicated process state, route command ownership to an incident manager or commander group, trigger a dedicated communication pack, and separate the escalation logic from simple priority values so governance can distinguish severity from operational record priority.",
+    "navigationPath": [
+      "All > Incident > Administration",
+      "All > System Notification > Email > Notifications",
+      "All > Flow Designer or System Definition > Business Rules",
+      "All > Major Incident / Incident task-related administration views"
+    ],
+    "steps": [
+      "Define what qualifies as a major incident and whether it is driven by a flag, state, or dedicated process criteria.",
+      "Route command ownership to the major incident team or incident commander group.",
+      "Create notification templates for internal responders, leadership, and stakeholder updates.",
+      "Create supporting tasks or action items for bridge setup, communications, and timeline tracking.",
+      "Ensure the process can be invoked for selected cases and is not forced on every P1 incident.",
+      "Test create, downgrade, close, and post-incident review scenarios."
+    ],
+    "involvedArtifacts": [
+      "Assignment Rule",
+      "Notification",
+      "Flow or Business Rule",
+      "Incident Task / Command workflow"
+    ],
+    "codeSnippets": [
+      {
+        "title": "Major incident event trigger",
+        "language": "javascript",
+        "script": "if (current.u_major_incident == true && previous.u_major_incident != true) {\n  gs.eventQueue('incident.major.triggered', current, current.assignment_group, current.assigned_to);\n}"
+      }
+    ],
+    "validationChecklist": [
+      "Major incident workflow triggers only for qualifying incidents.",
+      "War-room tasks and notifications are created once.",
+      "Downgrading or closure transitions are handled cleanly.",
+      "Timeline and communications remain auditable."
+    ],
+    "commonMistakes": [
+      "Treating every P1 as a major incident.",
+      "Hardcoding leadership recipients instead of using maintainable groups or configs.",
+      "Forgetting downgrade and resolution transitions."
+    ]
+  },
+  {
+    "id": "cmdb-duplicate-source-remediation",
+    "slug": "cmdb-duplicate-source-remediation",
+    "title": "Remediate duplicate CI creation from multiple sources",
+    "question": "How do you handle a case where Discovery, cloud imports, and manual integrations all create similar CIs?",
+    "summary": "Structured response for reducing duplicates across overlapping source systems.",
+    "roleIds": [
+      "cmdb-manager",
+      "cmdb-developer",
+      "discovery-administrator"
+    ],
+    "moduleIds": [
+      "cmdb",
+      "cmdb-governance",
+      "discovery",
+      "cloud-discovery"
+    ],
+    "topicIds": [
+      "duplicate-cis",
+      "ire-debugging",
+      "identification-rules-advanced",
+      "reconciliation-rules-advanced"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "CMDB",
+      "IRE",
+      "duplicate CIs"
+    ],
+    "relatedTables": [
+      "cmdb_ci",
+      "cmdb_identification_rule"
+    ],
+    "scenario": "The customer sees duplicate server CIs because multiple source systems populate the same infrastructure with inconsistent identifiers.",
+    "exactAnswer": "Stabilize the inbound identifier strategy, align sources to the correct CI classes, review and refine IRE identification rules, and set trusted-source reconciliation rules so secondary sources update rather than create when authoritative identifiers already exist.",
+    "navigationPath": [
+      "All > CMDB > Identification / Reconciliation administration",
+      "All > Discovery administration",
+      "All > Import/Integration configuration for source payload review"
+    ],
+    "steps": [
+      "Inventory every source system writing to the affected CI classes.",
+      "Compare the identifiers each source sends and normalize them where possible.",
+      "Confirm each source targets the correct CI class hierarchy.",
+      "Review identification rules for the class and adjust matching precedence where needed.",
+      "Define trusted-source reconciliation so lower-trust inputs update only permitted fields.",
+      "Run controlled tests from each source and compare IRE outcomes before broad rollout."
+    ],
+    "involvedArtifacts": [
+      "Identification Rules",
+      "Reconciliation Rules",
+      "Discovery source config",
+      "Integration mappings"
+    ],
+    "validationChecklist": [
+      "New source loads update existing CIs instead of creating duplicates.",
+      "Authoritative fields remain protected.",
+      "Class targeting is consistent across sources.",
+      "Duplicate growth trend stops after remediation."
+    ],
+    "commonMistakes": [
+      "Changing reconciliation before fixing source identifiers.",
+      "Allowing multiple sources to create in different CI classes for the same device.",
+      "Testing only one source path and assuming the issue is resolved."
+    ]
+  },
+  {
+    "id": "discovery-pattern-ecc-triage",
+    "slug": "discovery-pattern-ecc-triage",
+    "title": "Triage Discovery failures with pattern and ECC analysis",
+    "question": "A Discovery schedule launches but no useful CIs are updated. How do you troubleshoot it step by step?",
+    "summary": "Combines MID, ECC Queue, credentials, and pattern troubleshooting into one response.",
+    "roleIds": [
+      "discovery-administrator",
+      "discovery-developer",
+      "itom-developer"
+    ],
+    "moduleIds": [
+      "discovery",
+      "discovery-patterns",
+      "itom-health"
+    ],
+    "topicIds": [
+      "ecc-queue",
+      "pattern-designer",
+      "mid-server-capabilities",
+      "discovery-schedules"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "Discovery",
+      "pattern",
+      "ECC Queue"
+    ],
+    "relatedTables": [
+      "ecc_queue",
+      "discovery_status"
+    ],
+    "scenario": "The job appears to run, but the customer sees incomplete results and no reliable CI updates for target servers.",
+    "exactAnswer": "Trace the flow from schedule launch to MID pickup to ECC Queue responses to pattern execution. Validate credentials, confirm the MID capability and network reachability, inspect ECC output/input timing, and then review pattern logs or sensors to find where population stopped before IRE processing.",
+    "navigationPath": [
+      "All > Discovery > Schedules",
+      "All > ECC Queue",
+      "All > MID Server > Servers",
+      "All > Pattern Designer / Discovery logs"
+    ],
+    "steps": [
+      "Confirm the discovery schedule actually targeted the intended IPs or cloud accounts.",
+      "Check MID Server status, capabilities, and agent health.",
+      "Inspect ECC Queue output and input records for timing gaps or stuck states.",
+      "Validate credential selection and connection reachability.",
+      "Review pattern or sensor execution details to locate the data collection stop point.",
+      "Confirm whether the issue is in transport, identification, or population logic."
+    ],
+    "involvedArtifacts": [
+      "Discovery Schedule",
+      "MID Server",
+      "ECC Queue",
+      "Pattern / Sensor logs"
+    ],
+    "validationChecklist": [
+      "Target range/account is correct.",
+      "MID picks up the workload.",
+      "Responses return through ECC Queue.",
+      "Pattern logic reaches the expected classification and population steps."
+    ],
+    "commonMistakes": [
+      "Jumping to IRE before validating transport and credentials.",
+      "Checking only schedule success and not ECC state transitions.",
+      "Assuming a credential success means the pattern executed successfully."
+    ]
+  },
+  {
+    "id": "grc-control-attestation-reminders",
+    "slug": "grc-control-attestation-reminders",
+    "title": "Build a GRC control attestation reminder process",
+    "question": "How do you implement recurring control attestation reminders and escalations in GRC?",
+    "summary": "Implements due-date reminders, escalations, and audit visibility for attestation cycles.",
+    "roleIds": [
+      "grc-developer",
+      "governance-risk-analyst",
+      "audit-developer"
+    ],
+    "moduleIds": [
+      "grc",
+      "policy-and-compliance",
+      "audit-management"
+    ],
+    "topicIds": [
+      "control-attestations",
+      "notifications",
+      "scheduled-jobs"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "GRC",
+      "attestation",
+      "reminders"
+    ],
+    "relatedTables": [],
+    "scenario": "Control owners keep missing attestation due dates, and the client wants reminders, escalations, and reporting visibility.",
+    "exactAnswer": "Implement due-date reminders using notifications or Flow Designer, escalate overdue attestations to the owner\u2019s manager or compliance lead, and provide a report or dashboard showing upcoming, overdue, and completed attestations by control owner and business unit.",
+    "navigationPath": [
+      "All > Policy and Compliance / GRC administration",
+      "All > Notifications or Flow Designer",
+      "All > Reports / Dashboards"
+    ],
+    "steps": [
+      "Identify the attestation record lifecycle and due-date fields.",
+      "Create reminder timing rules, such as 7 days before, on due date, and overdue intervals.",
+      "Create notifications or flows for owner reminders and escalations.",
+      "Add reporting for due, overdue, and completed attestations.",
+      "Test reminder cadence, reassignment, and late completion handling."
+    ],
+    "involvedArtifacts": [
+      "Notification",
+      "Flow or Scheduled Job",
+      "Report / Dashboard"
+    ],
+    "validationChecklist": [
+      "Owners receive pre-due reminders.",
+      "Overdue records escalate appropriately.",
+      "Dashboards reflect real attestation states.",
+      "No duplicate reminders are sent."
+    ],
+    "commonMistakes": [
+      "Sending reminders without a dedupe strategy.",
+      "Escalating to hardcoded users instead of maintainable ownership hierarchies.",
+      "Ignoring reassignment or owner changes mid-cycle."
+    ]
+  },
+  {
+    "id": "secops-vulnerability-exception-approval",
+    "slug": "secops-vulnerability-exception-approval",
+    "title": "Implement a vulnerability exception approval flow",
+    "question": "How would you design a vulnerability exception process with approvals, expiry, and review?",
+    "summary": "Creates a governed SecOps exception model instead of simply suppressing findings.",
+    "roleIds": [
+      "secops-developer",
+      "vulnerability-analyst",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "vulnerability-response"
+    ],
+    "topicIds": [
+      "vulnerability-exceptions",
+      "vulnerability-groups",
+      "notifications"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "SecOps",
+      "vulnerability exception",
+      "approval"
+    ],
+    "relatedTables": [],
+    "scenario": "A business unit needs a formal exception process for vulnerabilities that cannot be remediated immediately.",
+    "exactAnswer": "Create an exception request flow with required business justification, risk owner approval, expiry date, periodic review, and reporting. Keep the exception tied to the affected vulnerability items or groups so it remains auditable and can be revisited when the expiry or review threshold is reached.",
+    "navigationPath": [
+      "All > Vulnerability Response administration",
+      "All > Flow Designer / Approvals",
+      "All > Notifications / Reports"
+    ],
+    "steps": [
+      "Define the required exception fields such as justification, scope, approver, expiry, and compensating controls.",
+      "Build an approval flow for risk owner or security leadership sign-off.",
+      "Link the exception to the relevant vulnerability items or groups.",
+      "Create reminder and expiry notifications.",
+      "Create reporting for active, expiring, and expired exceptions."
+    ],
+    "involvedArtifacts": [
+      "Approval flow",
+      "Notification",
+      "Report / Dashboard"
+    ],
+    "validationChecklist": [
+      "Exceptions require approval.",
+      "Expiry and review dates are enforced.",
+      "Affected vulnerability records remain linked for auditability.",
+      "Expired exceptions are surfaced for action."
+    ],
+    "commonMistakes": [
+      "Treating exceptions as permanent suppression rules.",
+      "Omitting expiry or review dates.",
+      "Losing the linkage between the exception and the actual vulnerability records."
+    ]
+  },
+  {
+    "id": "ham-stockroom-transfer-process",
+    "slug": "ham-stockroom-transfer-process",
+    "title": "Design a HAM stockroom transfer process",
+    "question": "How do you implement controlled stockroom transfers for hardware assets?",
+    "summary": "Builds chain-of-custody and inventory accuracy into hardware transfer workflows.",
+    "roleIds": [
+      "asset-manager",
+      "ham-analyst",
+      "ham-developer"
+    ],
+    "moduleIds": [
+      "ham",
+      "asset-management"
+    ],
+    "topicIds": [
+      "asset-stockrooms",
+      "asset-models",
+      "notifications"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "HAM",
+      "stockroom",
+      "transfer"
+    ],
+    "relatedTables": [
+      "alm_asset",
+      "alm_stockroom"
+    ],
+    "scenario": "The client wants every asset movement between stockrooms to be tracked, approved where needed, and visible for audit.",
+    "exactAnswer": "Use stockroom-aware transfer tasks or controlled process steps so asset records change location only through approved transfer actions. Capture source stockroom, destination stockroom, requester or technician, timestamps, and receipt confirmation so inventory remains auditable.",
+    "navigationPath": [
+      "All > Asset > Administration",
+      "All > Stockrooms",
+      "All > Notifications / Flow Designer"
+    ],
+    "steps": [
+      "Define when transfers need approval versus simple technician execution.",
+      "Capture source and destination stockrooms on each movement.",
+      "Update asset custody only after transfer confirmation.",
+      "Notify receiving teams for inbound inventory.",
+      "Report transfer history for audit and inventory reconciliation."
+    ],
+    "involvedArtifacts": [
+      "Transfer workflow",
+      "Notification",
+      "Asset update controls"
+    ],
+    "validationChecklist": [
+      "Transfers preserve source and destination history.",
+      "Inventory counts reconcile across stockrooms.",
+      "Only approved or valid moves update custody.",
+      "Receiving confirmations are recorded."
+    ],
+    "commonMistakes": [
+      "Directly editing the stockroom on the asset with no process history.",
+      "Failing to reconcile counts after transfer completion.",
+      "Ignoring technician or receiver accountability."
+    ]
+  },
+  {
+    "id": "sam-reclamation-campaign-design",
+    "slug": "sam-reclamation-campaign-design",
+    "title": "Build a SAM reclamation campaign",
+    "question": "How would you design a software reclamation campaign for underused products?",
+    "summary": "Shows how to turn compliance insight into controlled reclamation action.",
+    "roleIds": [
+      "sam-analyst",
+      "software-asset-manager",
+      "sam-developer"
+    ],
+    "moduleIds": [
+      "sam",
+      "software-compliance"
+    ],
+    "topicIds": [
+      "software-reclamation",
+      "effective-license-position",
+      "software-installations"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "SAM",
+      "reclamation",
+      "ELP"
+    ],
+    "relatedTables": [
+      "cmdb_sam_sw_install"
+    ],
+    "scenario": "The client is over-licensed on a software publisher and wants to reclaim unused entitlements without disrupting needed users.",
+    "exactAnswer": "Define candidate criteria such as inactivity, inactive users, or low-utilization signals, route candidate lists for owner confirmation, schedule uninstall or reclaim actions in a controlled way, and then compare the updated install base against entitlements to improve the effective license position.",
+    "navigationPath": [
+      "All > Software Asset Management",
+      "All > Reports / Workspaces",
+      "All > Flow Designer / Notifications"
+    ],
+    "steps": [
+      "Define the reclamation candidate criteria.",
+      "Generate candidate lists and validate them with managers or software owners.",
+      "Track approvals or opt-outs for business-critical installations.",
+      "Execute uninstall or reclaim actions through the approved operational channel.",
+      "Recalculate compliance position after the campaign."
+    ],
+    "involvedArtifacts": [
+      "Report / Workspace",
+      "Approval or confirmation flow",
+      "Reclamation action process"
+    ],
+    "validationChecklist": [
+      "Candidate rules are defensible.",
+      "Business owners can review the list.",
+      "Completed reclamations update the compliance picture.",
+      "Critical users are not unintentionally disrupted."
+    ],
+    "commonMistakes": [
+      "Treating every inactive installation as safe to remove.",
+      "Skipping owner validation for high-value tools.",
+      "Failing to measure compliance improvement after reclamation."
+    ]
+  }
+]

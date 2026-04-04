@@ -1,0 +1,366 @@
+[
+  {
+    "id": "business-rules-before-vs-after",
+    "slug": "business-rules-before-vs-after",
+    "title": "Before vs After Business Rules",
+    "question": "What is the difference between before and after business rules in ServiceNow?",
+    "summary": "Compares the execution timing and safe usage patterns of before and after business rules.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "business-rules",
+      "before-business-rules",
+      "after-business-rules"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "comparison",
+    "tags": [
+      "business rules",
+      "before",
+      "after"
+    ],
+    "relatedTables": [
+      "sys_script"
+    ],
+    "exactAnswer": "A before business rule runs before the current record is written to the database and is primarily used to set or validate values on the current record. An after business rule runs only after the database write succeeds and is better for related-record updates, notifications, events, and downstream processing.",
+    "keyPoints": [
+      "Before rules are best when you need to change values on the current record before save.",
+      "After rules are best when you need actions that depend on the record already being committed.",
+      "Using an after business rule to update the same record can create extra updates or recursion risk if not designed carefully."
+    ],
+    "examples": [
+      "Use a before insert rule to default assignment_group.",
+      "Use an after update rule to create a related task after a state change."
+    ],
+    "comparisonTable": [
+      {
+        "label": "Execution point",
+        "value": "Before = before commit; After = after commit"
+      },
+      {
+        "label": "Best for",
+        "value": "Before = modify current record; After = related actions"
+      },
+      {
+        "label": "Risk",
+        "value": "After rules can cause unnecessary additional updates on current"
+      }
+    ]
+  },
+  {
+    "id": "business-rules-async-vs-display",
+    "slug": "business-rules-async-vs-display",
+    "title": "Async vs Display Business Rules",
+    "question": "When should you use async and display business rules?",
+    "summary": "Explains async and display business rules and their common interview use cases.",
+    "roleIds": [
+      "servicenow-developer",
+      "itsm-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "async-business-rules",
+      "display-business-rules",
+      "business-rules"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "async",
+      "display",
+      "business rules"
+    ],
+    "relatedTables": [
+      "sys_script"
+    ],
+    "exactAnswer": "An async business rule runs asynchronously after the record operation completes and should be used for non-blocking server work such as event generation or integrations that do not need to delay the user transaction. A display business rule runs when a form is loaded and is typically used to push server-side data to g_scratchpad for client-side use.",
+    "keyPoints": [
+      "Async rules reduce user wait time because they do not block the save transaction.",
+      "Display rules are mainly for sending server-calculated values to client scripts through g_scratchpad.",
+      "Display rules do not persist data changes; they support form rendering."
+    ],
+    "examples": [
+      "Use async for sending an outbound integration event.",
+      "Use display to expose a boolean flag to client scripts."
+    ]
+  },
+  {
+    "id": "glidequery-vs-gliderecord",
+    "slug": "glidequery-vs-gliderecord",
+    "title": "GlideQuery vs GlideRecord",
+    "question": "What is the difference between GlideQuery and GlideRecord?",
+    "summary": "Explains legacy and modern querying styles in ServiceNow server-side scripts.",
+    "roleIds": [
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "glidequery",
+      "gliderecord"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "comparison",
+    "tags": [
+      "glidequery",
+      "gliderecord"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "GlideRecord is the traditional record API and is deeply used across the platform for CRUD operations and row iteration. GlideQuery offers a more modern, chainable querying style that can improve readability for some use cases, but GlideRecord remains the most common and widely expected API in interview answers and production maintenance work.",
+    "keyPoints": [
+      "GlideRecord is the baseline API every ServiceNow developer is expected to know.",
+      "GlideQuery can improve readability but is not a full replacement for every use case.",
+      "Interview-safe answer: understand GlideRecord first, then discuss GlideQuery as a newer fluent option."
+    ],
+    "examples": [
+      "Use GlideRecord when maintaining legacy business rules.",
+      "Use GlideQuery for concise read-oriented queries in supported contexts."
+    ]
+  },
+  {
+    "id": "system-properties-usage",
+    "slug": "system-properties-usage",
+    "title": "System Properties Usage",
+    "question": "When should you use a system property?",
+    "summary": "Explains configuration-driven design using system properties.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "system-properties"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "best-practice",
+    "tags": [
+      "system properties",
+      "configuration"
+    ],
+    "relatedTables": [
+      "sys_properties"
+    ],
+    "exactAnswer": "A system property should be used when a value needs to be configurable without changing code, such as email recipients, toggle flags, default groups, endpoints, or timing values. Properties help reduce hardcoding and make production changes safer and faster.",
+    "keyPoints": [
+      "Use properties for environment-specific and configurable values.",
+      "Do not hardcode values that operations teams may need to change later.",
+      "Document property purpose and default value clearly."
+    ],
+    "examples": [
+      "Store an escalation group sys_id in a property.",
+      "Use a property to enable or disable a custom integration safely."
+    ]
+  },
+  {
+    "id": "notifications-vs-events",
+    "slug": "notifications-vs-events",
+    "title": "Notifications vs Events",
+    "question": "What is the relationship between events and notifications?",
+    "summary": "Explains event-driven email design in ServiceNow.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "itsm-developer"
+    ],
+    "moduleIds": [
+      "notifications-email"
+    ],
+    "topicIds": [
+      "events",
+      "notifications",
+      "email-scripts",
+      "gs-eventqueue"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "notification",
+      "event",
+      "email"
+    ],
+    "relatedTables": [
+      "sysevent",
+      "sysevent_email_action"
+    ],
+    "exactAnswer": "A notification defines who should be notified and under what conditions, while an event is a named signal that can be queued from scripts and then consumed by notifications or script actions. Using events helps decouple business logic from email logic and often makes solutions easier to maintain.",
+    "keyPoints": [
+      "Queue an event from script when a meaningful business moment occurs.",
+      "Trigger notifications off that event instead of embedding email logic everywhere.",
+      "Events are also useful for other asynchronous handlers such as script actions."
+    ],
+    "examples": [
+      "Queue incident.p1.triggered from a business rule.",
+      "Have a notification listen for that event and email the major incident bridge team."
+    ]
+  },
+  {
+    "id": "sla-attachment-troubleshooting",
+    "slug": "sla-attachment-troubleshooting",
+    "title": "SLA Attachment Troubleshooting",
+    "question": "An SLA is not attaching to a task. Where do you look first?",
+    "summary": "A troubleshooting answer for one of the most common ITSM interview scenarios.",
+    "roleIds": [
+      "itsm-developer",
+      "itsm-administrator",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "sla-management",
+      "itsm"
+    ],
+    "topicIds": [
+      "slas",
+      "task-sla",
+      "business-calendars"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "troubleshooting",
+    "tags": [
+      "sla",
+      "task_sla",
+      "troubleshooting"
+    ],
+    "relatedTables": [
+      "contract_sla",
+      "task_sla"
+    ],
+    "exactAnswer": "Start by verifying the SLA definition conditions, start conditions, target table, and whether the record actually meets the criteria at the correct time. Then inspect task_sla records, logs, and any scripts or flows that may alter the values used by the SLA conditions.",
+    "keyPoints": [
+      "Validate the SLA definition against the actual record values, not assumptions.",
+      "Check whether the SLA should attach on insert, update, or a later event.",
+      "Review task_sla results and consider using repair tools where appropriate after fixing logic."
+    ],
+    "examples": [
+      "A priority or assignment value may not be set until after insert, preventing attach at creation time.",
+      "A business calendar mismatch can affect breach calculations even after attachment."
+    ]
+  },
+  {
+    "id": "update-set-best-practices",
+    "slug": "update-set-best-practices",
+    "title": "Update Set Best Practices",
+    "question": "What are the most important update set best practices?",
+    "summary": "Summarizes interview-ready practices for moving configuration safely.",
+    "roleIds": [
+      "servicenow-administrator",
+      "servicenow-developer",
+      "release-upgrade-specialist"
+    ],
+    "moduleIds": [
+      "source-control",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "update-sets",
+      "source-control"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "best-practice",
+    "tags": [
+      "update sets",
+      "deployment"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Use update sets in a disciplined way: keep them scoped to a single purpose, preview before commit, resolve collisions carefully, avoid moving data that should be promoted another way, and document manual steps. For modern app development, combine this with source control where appropriate instead of treating update sets as the only lifecycle tool.",
+    "keyPoints": [
+      "Do not mix unrelated changes in one update set.",
+      "Preview and validate collisions before committing.",
+      "Know which records are not captured automatically and need manual handling."
+    ],
+    "examples": [
+      "Keep one update set for a P1 notification enhancement.",
+      "Document system properties or data fixes that must be applied manually after commit."
+    ]
+  },
+  {
+    "id": "scoped-vs-global-applications",
+    "slug": "scoped-vs-global-applications",
+    "title": "Scoped vs Global Applications",
+    "question": "How do scoped applications differ from global development?",
+    "summary": "Explains design and governance differences between global and scoped applications.",
+    "roleIds": [
+      "app-engine-developer",
+      "servicenow-developer",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "app-engine",
+      "platform-core",
+      "source-control"
+    ],
+    "topicIds": [
+      "scoped-applications"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "scoped app",
+      "global"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "A scoped application provides namespace isolation, stronger boundaries, app-level packaging, and better long-term governance for custom development. Global development has broader reach and is common in legacy implementations, but it increases the risk of coupling and naming collisions if not controlled carefully.",
+    "keyPoints": [
+      "Scoped apps support cleaner ownership and packaging.",
+      "Global changes can be faster for small admin work but are harder to govern at scale.",
+      "Interview-safe answer: prefer scoped apps for substantial custom development."
+    ],
+    "examples": [
+      "Build a new custom employee onboarding app as a scoped application.",
+      "Avoid placing every custom table and script in global without a governance reason."
+    ]
+  },
+  {
+    "id": "event-management-alert-to-incident",
+    "slug": "event-management-alert-to-incident",
+    "title": "Alert to Incident Design",
+    "question": "How does Event Management typically create incidents from alerts?",
+    "summary": "Summarizes common alert-to-incident patterns in ITOM interviews.",
+    "roleIds": [
+      "event-management-developer",
+      "itom-developer",
+      "production-support-engineer"
+    ],
+    "moduleIds": [
+      "event-management",
+      "incident-management"
+    ],
+    "topicIds": [
+      "event-rules",
+      "alert-to-incident",
+      "incident-lifecycle"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "event management",
+      "alert",
+      "incident"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Event Management ingests events, applies event rules and correlation logic to produce alerts, and then uses alert management rules or related automation to create incidents when thresholds or policies are met. The design should control deduplication carefully so repeated noise does not create duplicate incidents.",
+    "keyPoints": [
+      "Events are normalized before becoming actionable alerts.",
+      "Alert correlation reduces noise and duplicate ticket creation.",
+      "Incident creation should be controlled by policy, severity, and ownership logic."
+    ],
+    "examples": [
+      "Create one incident for a sustained critical alert rather than one per repeated event.",
+      "Route the incident to the service owner group based on service or CI context."
+    ]
+  }
+]

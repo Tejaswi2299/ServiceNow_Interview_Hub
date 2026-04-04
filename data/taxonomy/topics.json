@@ -1,0 +1,1316 @@
+[
+  {
+    "id": "acls",
+    "slug": "acls",
+    "name": "ACLs",
+    "category": "Security"
+  },
+  {
+    "id": "identification-rules-advanced",
+    "slug": "identification-rules-advanced",
+    "name": "Advanced Identification Rules",
+    "category": "CMDB"
+  },
+  {
+    "id": "reconciliation-rules-advanced",
+    "slug": "reconciliation-rules-advanced",
+    "name": "Advanced Reconciliation Rules",
+    "category": "CMDB"
+  },
+  {
+    "id": "after-business-rules",
+    "slug": "after-business-rules",
+    "name": "After Business Rules",
+    "category": "Scripting"
+  },
+  {
+    "id": "alert-correlation",
+    "slug": "alert-correlation",
+    "name": "Alert Correlation",
+    "category": "Event Management"
+  },
+  {
+    "id": "alert-to-incident",
+    "slug": "alert-to-incident",
+    "name": "Alert to Incident",
+    "category": "Event Management"
+  },
+  {
+    "id": "app-engine-studio",
+    "slug": "app-engine-studio",
+    "name": "App Engine Studio",
+    "category": "App Engine"
+  },
+  {
+    "id": "application-menu-modules",
+    "slug": "application-menu-modules",
+    "name": "Application Menus and Modules",
+    "category": "Development"
+  },
+  {
+    "id": "approvals",
+    "slug": "approvals",
+    "name": "Approvals",
+    "category": "Platform"
+  },
+  {
+    "id": "asset-ci-alignment",
+    "slug": "asset-ci-alignment",
+    "name": "Asset and CI Alignment",
+    "category": "HAM"
+  },
+  {
+    "id": "asset-lifecycle",
+    "slug": "asset-lifecycle",
+    "name": "Asset Lifecycle",
+    "category": "HAM"
+  },
+  {
+    "id": "asset-models",
+    "slug": "asset-models",
+    "name": "Asset Models",
+    "category": "HAM"
+  },
+  {
+    "id": "asset-stockrooms",
+    "slug": "asset-stockrooms",
+    "name": "Asset Stockrooms",
+    "category": "HAM"
+  },
+  {
+    "id": "asset-transfers",
+    "slug": "asset-transfers",
+    "name": "Asset Transfers",
+    "category": "HAM"
+  },
+  {
+    "id": "assignment-rules",
+    "slug": "assignment-rules",
+    "name": "Assignment Rules",
+    "category": "Platform"
+  },
+  {
+    "id": "async-business-rules",
+    "slug": "async-business-rules",
+    "name": "Async Business Rules",
+    "category": "Scripting"
+  },
+  {
+    "id": "atf-tests",
+    "slug": "atf-tests",
+    "name": "ATF Tests",
+    "category": "Quality"
+  },
+  {
+    "id": "audit-management",
+    "slug": "audit-management-topic",
+    "name": "Audit Management",
+    "category": "GRC"
+  },
+  {
+    "id": "audit-plans",
+    "slug": "audit-plans",
+    "name": "Audit Plans",
+    "category": "GRC"
+  },
+  {
+    "id": "background-scripts",
+    "slug": "background-scripts",
+    "name": "Background Scripts",
+    "category": "Administration"
+  },
+  {
+    "id": "before-business-rules",
+    "slug": "before-business-rules",
+    "name": "Before Business Rules",
+    "category": "Scripting"
+  },
+  {
+    "id": "blackout-maintenance-schedules",
+    "slug": "blackout-maintenance-schedules",
+    "name": "Blackout and Maintenance Schedules",
+    "category": "ITSM"
+  },
+  {
+    "id": "business-calendars",
+    "slug": "business-calendars",
+    "name": "Business Calendars",
+    "category": "ITSM"
+  },
+  {
+    "id": "business-rules",
+    "slug": "business-rules",
+    "name": "Business Rules",
+    "category": "Scripting"
+  },
+  {
+    "id": "catalog-items",
+    "slug": "catalog-items",
+    "name": "Catalog Items",
+    "category": "Catalog"
+  },
+  {
+    "id": "catalog-variables",
+    "slug": "catalog-variables",
+    "name": "Catalog Variables",
+    "category": "Catalog"
+  },
+  {
+    "id": "change-approvals",
+    "slug": "change-approvals",
+    "name": "Change Approvals",
+    "category": "ITSM"
+  },
+  {
+    "id": "change-conflict-detection",
+    "slug": "change-conflict-detection",
+    "name": "Change Conflict Detection",
+    "category": "ITSM"
+  },
+  {
+    "id": "change-models",
+    "slug": "change-models",
+    "name": "Change Models",
+    "category": "ITSM"
+  },
+  {
+    "id": "change-table",
+    "slug": "change-table",
+    "name": "Change Table",
+    "category": "Data Model"
+  },
+  {
+    "id": "choice-lists",
+    "slug": "choice-lists",
+    "name": "Choice Lists",
+    "category": "Data Model"
+  },
+  {
+    "id": "ci-deduplication",
+    "slug": "ci-deduplication",
+    "name": "CI Deduplication",
+    "category": "CMDB"
+  },
+  {
+    "id": "ci-relationships",
+    "slug": "ci-relationships",
+    "name": "CI Relationships",
+    "category": "CMDB"
+  },
+  {
+    "id": "cmdb-class-manager",
+    "slug": "cmdb-class-manager",
+    "name": "Class Manager",
+    "category": "CMDB"
+  },
+  {
+    "id": "client-callable",
+    "slug": "client-callable",
+    "name": "Client Callable Script Includes",
+    "category": "Client/Server"
+  },
+  {
+    "id": "client-scripts",
+    "slug": "client-scripts",
+    "name": "Client Scripts",
+    "category": "Scripting"
+  },
+  {
+    "id": "cloning",
+    "slug": "cloning",
+    "name": "Cloning",
+    "category": "Operations"
+  },
+  {
+    "id": "cloud-discovery-topic",
+    "slug": "cloud-discovery-topic",
+    "name": "Cloud Discovery",
+    "category": "Discovery"
+  },
+  {
+    "id": "cmdb-governance-topic",
+    "slug": "cmdb-governance-topic",
+    "name": "CMDB Governance",
+    "category": "CMDB"
+  },
+  {
+    "id": "cmdb-health",
+    "slug": "cmdb-health",
+    "name": "CMDB Health",
+    "category": "CMDB"
+  },
+  {
+    "id": "cmdb-health-dashboard",
+    "slug": "cmdb-health-dashboard",
+    "name": "CMDB Health Dashboard",
+    "category": "CMDB"
+  },
+  {
+    "id": "cmdb-relationships",
+    "slug": "cmdb-relationships",
+    "name": "CMDB Relationships",
+    "category": "CMDB"
+  },
+  {
+    "id": "cmdb-tables",
+    "slug": "cmdb-tables",
+    "name": "CMDB Tables",
+    "category": "CMDB"
+  },
+  {
+    "id": "coalesce",
+    "slug": "coalesce",
+    "name": "Coalesce",
+    "category": "Data Management"
+  },
+  {
+    "id": "control-attestations",
+    "slug": "control-attestations",
+    "name": "Control Attestations",
+    "category": "GRC"
+  },
+  {
+    "id": "controls-and-control-objectives",
+    "slug": "controls-and-control-objectives",
+    "name": "Controls and Control Objectives",
+    "category": "GRC"
+  },
+  {
+    "id": "credential-affinity",
+    "slug": "credential-affinity",
+    "name": "Credential Affinity",
+    "category": "Discovery"
+  },
+  {
+    "id": "credentials",
+    "slug": "credentials",
+    "name": "Credentials",
+    "category": "Discovery"
+  },
+  {
+    "id": "csm-case-management",
+    "slug": "csm-case-management",
+    "name": "CSM Case Management",
+    "category": "CSM"
+  },
+  {
+    "id": "current-previous",
+    "slug": "current-previous",
+    "name": "current and previous objects",
+    "category": "Scripting"
+  },
+  {
+    "id": "custom-app-tables",
+    "slug": "custom-app-tables",
+    "name": "Custom App Tables",
+    "category": "App Engine"
+  },
+  {
+    "id": "dashboards",
+    "slug": "dashboards",
+    "name": "Dashboards",
+    "category": "Analytics"
+  },
+  {
+    "id": "data-lookup-rules",
+    "slug": "data-lookup-rules",
+    "name": "Data Lookup Rules",
+    "category": "Platform"
+  },
+  {
+    "id": "data-pills",
+    "slug": "data-pills",
+    "name": "Data Pills",
+    "category": "Flow Designer"
+  },
+  {
+    "id": "data-policies",
+    "slug": "data-policies",
+    "name": "Data Policies",
+    "category": "Scripting"
+  },
+  {
+    "id": "data-sources",
+    "slug": "data-sources",
+    "name": "Data Sources",
+    "category": "Import and Transform"
+  },
+  {
+    "id": "data-stream-actions",
+    "slug": "data-stream-actions",
+    "name": "Data Stream Actions",
+    "category": "IntegrationHub"
+  },
+  {
+    "id": "debugging",
+    "slug": "debugging",
+    "name": "Debugging",
+    "category": "Operations"
+  },
+  {
+    "id": "decision-tables",
+    "slug": "decision-tables",
+    "name": "Decision Tables",
+    "category": "Automation"
+  },
+  {
+    "id": "devops-change-velocity",
+    "slug": "devops-change-velocity",
+    "name": "DevOps Change Velocity",
+    "category": "DevOps"
+  },
+  {
+    "id": "dictionary-overrides",
+    "slug": "dictionary-overrides",
+    "name": "Dictionary Overrides",
+    "category": "Data Model"
+  },
+  {
+    "id": "discovery-schedules",
+    "slug": "discovery-schedules",
+    "name": "Discovery Schedules",
+    "category": "Discovery"
+  },
+  {
+    "id": "discovery-troubleshooting",
+    "slug": "discovery-troubleshooting",
+    "name": "Discovery Troubleshooting",
+    "category": "Discovery"
+  },
+  {
+    "id": "display-business-rules",
+    "slug": "display-business-rules",
+    "name": "Display Business Rules",
+    "category": "Scripting"
+  },
+  {
+    "id": "display-values",
+    "slug": "display-values",
+    "name": "Display Values",
+    "category": "Data Model"
+  },
+  {
+    "id": "domain-separation",
+    "slug": "domain-separation",
+    "name": "Domain Separation",
+    "category": "Security"
+  },
+  {
+    "id": "duplicate-cis",
+    "slug": "duplicate-cis",
+    "name": "Duplicate CIs",
+    "category": "CMDB"
+  },
+  {
+    "id": "ecc-queue",
+    "slug": "ecc-queue",
+    "name": "ECC Queue",
+    "category": "Discovery"
+  },
+  {
+    "id": "effective-license-position",
+    "slug": "effective-license-position",
+    "name": "Effective License Position",
+    "category": "SAM"
+  },
+  {
+    "id": "email-scripts",
+    "slug": "email-scripts",
+    "name": "Email Scripts",
+    "category": "Automation"
+  },
+  {
+    "id": "encoded-queries",
+    "slug": "encoded-queries",
+    "name": "Encoded Queries",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "entry-points",
+    "slug": "entry-points",
+    "name": "Entry Points",
+    "category": "Service Mapping"
+  },
+  {
+    "id": "event-rules",
+    "slug": "event-rules",
+    "name": "Event Rules",
+    "category": "Event Management"
+  },
+  {
+    "id": "events",
+    "slug": "events",
+    "name": "Events",
+    "category": "Automation"
+  },
+  {
+    "id": "field-maps",
+    "slug": "field-maps",
+    "name": "Field Maps",
+    "category": "Data Management"
+  },
+  {
+    "id": "fix-scripts",
+    "slug": "fix-scripts",
+    "name": "Fix Scripts",
+    "category": "Administration"
+  },
+  {
+    "id": "flow-triggers",
+    "slug": "flow-triggers",
+    "name": "Flow Triggers",
+    "category": "Flow Designer"
+  },
+  {
+    "id": "gform",
+    "slug": "gform",
+    "name": "g_form API",
+    "category": "Client-side APIs"
+  },
+  {
+    "id": "glideaggregate",
+    "slug": "glideaggregate",
+    "name": "GlideAggregate",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "glideajax",
+    "slug": "glideajax",
+    "name": "GlideAjax",
+    "category": "Client/Server"
+  },
+  {
+    "id": "glide-date-time",
+    "slug": "glide-date-time",
+    "name": "GlideDateTime",
+    "category": "Scripting"
+  },
+  {
+    "id": "glidedatetime",
+    "slug": "glidedatetime",
+    "name": "GlideDateTime",
+    "category": "Scripting"
+  },
+  {
+    "id": "glide-query",
+    "slug": "glide-query",
+    "name": "GlideQuery",
+    "category": "Scripting"
+  },
+  {
+    "id": "glidequery",
+    "slug": "glidequery",
+    "name": "GlideQuery",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "gliderecord",
+    "slug": "gliderecord",
+    "name": "GlideRecord",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "gliderecordsecure",
+    "slug": "gliderecordsecure",
+    "name": "GlideRecordSecure",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "graphql-or-rest",
+    "slug": "graphql-or-rest",
+    "name": "GraphQL vs REST Discussion",
+    "category": "Integrations"
+  },
+  {
+    "id": "gs-api",
+    "slug": "gs-api",
+    "name": "gs API",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "gs-eventqueue",
+    "slug": "gs-eventqueue",
+    "name": "gs.eventQueue",
+    "category": "Automation"
+  },
+  {
+    "id": "hardware-assets",
+    "slug": "hardware-assets",
+    "name": "Hardware Assets",
+    "category": "HAM"
+  },
+  {
+    "id": "horizontal-discovery",
+    "slug": "horizontal-discovery",
+    "name": "Horizontal Discovery",
+    "category": "Discovery"
+  },
+  {
+    "id": "hr-case-security",
+    "slug": "hr-case-security",
+    "name": "HR Case Security",
+    "category": "HRSD"
+  },
+  {
+    "id": "hr-services",
+    "slug": "hr-services",
+    "name": "HR Services",
+    "category": "HRSD"
+  },
+  {
+    "id": "ire",
+    "slug": "ire",
+    "name": "Identification and Reconciliation Engine",
+    "category": "CMDB"
+  },
+  {
+    "id": "identification-rules",
+    "slug": "identification-rules",
+    "name": "Identification Rules",
+    "category": "CMDB"
+  },
+  {
+    "id": "impersonation",
+    "slug": "impersonation",
+    "name": "Impersonation",
+    "category": "Security"
+  },
+  {
+    "id": "import-set-runs",
+    "slug": "import-set-runs",
+    "name": "Import Set Runs",
+    "category": "Import and Transform"
+  },
+  {
+    "id": "import-sets",
+    "slug": "import-sets",
+    "name": "Import Sets",
+    "category": "Data Management"
+  },
+  {
+    "id": "incident-lifecycle",
+    "slug": "incident-lifecycle",
+    "name": "Incident Lifecycle",
+    "category": "ITSM"
+  },
+  {
+    "id": "incident-reopen-patterns",
+    "slug": "incident-reopen-patterns",
+    "name": "Incident Reopen Patterns",
+    "category": "ITSM"
+  },
+  {
+    "id": "incident-table",
+    "slug": "incident-table",
+    "name": "Incident Table",
+    "category": "Data Model"
+  },
+  {
+    "id": "ire-debugging",
+    "slug": "ire-debugging",
+    "name": "IRE Debugging",
+    "category": "CMDB"
+  },
+  {
+    "id": "issue-management",
+    "slug": "issue-management",
+    "name": "Issue Management",
+    "category": "GRC"
+  },
+  {
+    "id": "jelly",
+    "slug": "jelly",
+    "name": "Jelly",
+    "category": "Legacy UI"
+  },
+  {
+    "id": "known-errors",
+    "slug": "known-errors",
+    "name": "Known Errors",
+    "category": "ITSM"
+  },
+  {
+    "id": "license-metrics",
+    "slug": "license-metrics",
+    "name": "License Metrics",
+    "category": "SAM"
+  },
+  {
+    "id": "license-optimization",
+    "slug": "license-optimization",
+    "name": "License Optimization",
+    "category": "SAM"
+  },
+  {
+    "id": "logs",
+    "slug": "logs",
+    "name": "Logs",
+    "category": "Operations"
+  },
+  {
+    "id": "major-incident",
+    "slug": "major-incident",
+    "name": "Major Incident",
+    "category": "ITSM"
+  },
+  {
+    "id": "major-incident-workbench",
+    "slug": "major-incident-workbench",
+    "name": "Major Incident Workbench",
+    "category": "ITSM"
+  },
+  {
+    "id": "mid-server",
+    "slug": "mid-server",
+    "name": "MID Server",
+    "category": "Discovery"
+  },
+  {
+    "id": "mid-server-capabilities",
+    "slug": "mid-server-capabilities",
+    "name": "MID Server Capabilities",
+    "category": "Discovery"
+  },
+  {
+    "id": "mobile-actions",
+    "slug": "mobile-actions",
+    "name": "Mobile Actions",
+    "category": "Mobile"
+  },
+  {
+    "id": "mobile-experiences",
+    "slug": "mobile-experiences",
+    "name": "Mobile Experiences",
+    "category": "Mobile"
+  },
+  {
+    "id": "model-categories",
+    "slug": "model-categories",
+    "name": "Model Categories",
+    "category": "HAM"
+  },
+  {
+    "id": "node-log",
+    "slug": "node-log",
+    "name": "Node Log",
+    "category": "Operations"
+  },
+  {
+    "id": "normalization",
+    "slug": "normalization",
+    "name": "Normalization",
+    "category": "SAM"
+  },
+  {
+    "id": "notifications",
+    "slug": "notifications",
+    "name": "Notifications",
+    "category": "Automation"
+  },
+  {
+    "id": "notifications-email",
+    "slug": "notifications-email",
+    "name": "Notifications & Email",
+    "category": "Platform"
+  },
+  {
+    "id": "onchange-clientscript",
+    "slug": "onchange-clientscript",
+    "name": "onChange Client Scripts",
+    "category": "Scripting"
+  },
+  {
+    "id": "onload-clientscript",
+    "slug": "onload-clientscript",
+    "name": "onLoad Client Scripts",
+    "category": "Scripting"
+  },
+  {
+    "id": "onsubmit-clientscript",
+    "slug": "onsubmit-clientscript",
+    "name": "onSubmit Client Scripts",
+    "category": "Scripting"
+  },
+  {
+    "id": "order-guides",
+    "slug": "order-guides",
+    "name": "Order Guides",
+    "category": "Catalog"
+  },
+  {
+    "id": "pa-breakdowns",
+    "slug": "pa-breakdowns",
+    "name": "PA Breakdowns",
+    "category": "Analytics"
+  },
+  {
+    "id": "pa-indicators",
+    "slug": "pa-indicators",
+    "name": "PA Indicators",
+    "category": "Analytics"
+  },
+  {
+    "id": "pattern-designer",
+    "slug": "pattern-designer",
+    "name": "Pattern Designer",
+    "category": "Discovery"
+  },
+  {
+    "id": "patterns",
+    "slug": "patterns",
+    "name": "Patterns",
+    "category": "Discovery"
+  },
+  {
+    "id": "performance-tuning",
+    "slug": "performance-tuning",
+    "name": "Performance Tuning",
+    "category": "Operations"
+  },
+  {
+    "id": "policy-and-compliance-topic",
+    "slug": "policy-and-compliance-topic",
+    "name": "Policy & Compliance",
+    "category": "GRC"
+  },
+  {
+    "id": "policy-exceptions",
+    "slug": "policy-exceptions",
+    "name": "Policy Exceptions",
+    "category": "GRC"
+  },
+  {
+    "id": "policy-lifecycle",
+    "slug": "policy-lifecycle",
+    "name": "Policy Lifecycle",
+    "category": "GRC"
+  },
+  {
+    "id": "portal-client-controller",
+    "slug": "portal-client-controller",
+    "name": "Portal Client Controller",
+    "category": "Portal"
+  },
+  {
+    "id": "portal-server-script",
+    "slug": "portal-server-script",
+    "name": "Portal Server Script",
+    "category": "Portal"
+  },
+  {
+    "id": "priority",
+    "slug": "priority",
+    "name": "Priority",
+    "category": "ITSM"
+  },
+  {
+    "id": "probes-sensors",
+    "slug": "probes-sensors",
+    "name": "Probes and Sensors",
+    "category": "Discovery"
+  },
+  {
+    "id": "problem-candidates",
+    "slug": "problem-candidates",
+    "name": "Problem Candidates",
+    "category": "ITSM"
+  },
+  {
+    "id": "problem-investigation",
+    "slug": "problem-investigation",
+    "name": "Problem Investigation",
+    "category": "ITSM"
+  },
+  {
+    "id": "problem-table",
+    "slug": "problem-table",
+    "name": "Problem Table",
+    "category": "Data Model"
+  },
+  {
+    "id": "publisher-packs",
+    "slug": "publisher-packs",
+    "name": "Publisher Packs",
+    "category": "SAM"
+  },
+  {
+    "id": "query-business-rules",
+    "slug": "query-business-rules",
+    "name": "Query Business Rules",
+    "category": "Scripting"
+  },
+  {
+    "id": "query-conditions",
+    "slug": "query-conditions",
+    "name": "Query Conditions",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "reclamation",
+    "slug": "reclamation",
+    "name": "Reclamation",
+    "category": "SAM"
+  },
+  {
+    "id": "reconciliation-definitions",
+    "slug": "reconciliation-definitions",
+    "name": "Reconciliation Definitions",
+    "category": "CMDB"
+  },
+  {
+    "id": "reconciliation-rules",
+    "slug": "reconciliation-rules",
+    "name": "Reconciliation Rules",
+    "category": "CMDB"
+  },
+  {
+    "id": "record-producers",
+    "slug": "record-producers",
+    "name": "Record Producers",
+    "category": "Catalog"
+  },
+  {
+    "id": "reference-fields",
+    "slug": "reference-fields",
+    "name": "Reference Fields",
+    "category": "Data Model"
+  },
+  {
+    "id": "reference-qualifiers",
+    "slug": "reference-qualifiers",
+    "name": "Reference Qualifiers",
+    "category": "Data Model"
+  },
+  {
+    "id": "release-readiness",
+    "slug": "release-readiness",
+    "name": "Release Readiness",
+    "category": "Operations"
+  },
+  {
+    "id": "reports",
+    "slug": "reports",
+    "name": "Reports",
+    "category": "Analytics"
+  },
+  {
+    "id": "reports-dashboards",
+    "slug": "reports-dashboards",
+    "name": "Reports & Dashboards",
+    "category": "Reporting"
+  },
+  {
+    "id": "request-tables",
+    "slug": "request-tables",
+    "name": "Request Tables",
+    "category": "Data Model"
+  },
+  {
+    "id": "requested-item-flow",
+    "slug": "requested-item-flow",
+    "name": "Requested Item Flow",
+    "category": "Catalog"
+  },
+  {
+    "id": "rest-api",
+    "slug": "rest-api",
+    "name": "REST API",
+    "category": "Integrations"
+  },
+  {
+    "id": "rest-api-authentication",
+    "slug": "rest-api-authentication",
+    "name": "REST API Authentication",
+    "category": "Integrations"
+  },
+  {
+    "id": "restmessagev2",
+    "slug": "restmessagev2",
+    "name": "RESTMessageV2",
+    "category": "Integrations"
+  },
+  {
+    "id": "risk-scoring",
+    "slug": "risk-scoring",
+    "name": "Risk Scoring",
+    "category": "GRC"
+  },
+  {
+    "id": "risk-statements",
+    "slug": "risk-statements",
+    "name": "Risk Statements",
+    "category": "GRC"
+  },
+  {
+    "id": "roles-groups",
+    "slug": "roles-groups",
+    "name": "Roles and Groups",
+    "category": "Security"
+  },
+  {
+    "id": "root-cause-analysis",
+    "slug": "root-cause-analysis",
+    "name": "Root Cause Analysis",
+    "category": "ITSM"
+  },
+  {
+    "id": "scheduled-jobs",
+    "slug": "scheduled-jobs",
+    "name": "Scheduled Jobs",
+    "category": "Automation"
+  },
+  {
+    "id": "scoped-applications",
+    "slug": "scoped-applications",
+    "name": "Scoped Applications",
+    "category": "Development"
+  },
+  {
+    "id": "script-actions",
+    "slug": "script-actions",
+    "name": "Script Actions",
+    "category": "Automation"
+  },
+  {
+    "id": "script-includes",
+    "slug": "script-includes",
+    "name": "Script Includes",
+    "category": "Scripting"
+  },
+  {
+    "id": "scripted-rest-api",
+    "slug": "scripted-rest-api",
+    "name": "Scripted REST APIs",
+    "category": "Integrations"
+  },
+  {
+    "id": "security-incident-lifecycle",
+    "slug": "security-incident-lifecycle",
+    "name": "Security Incident Lifecycle",
+    "category": "SecOps"
+  },
+  {
+    "id": "security-incident-response-topic",
+    "slug": "security-incident-response-topic",
+    "name": "Security Incident Response",
+    "category": "SecOps"
+  },
+  {
+    "id": "security-incident-tasks",
+    "slug": "security-incident-tasks",
+    "name": "Security Incident Tasks",
+    "category": "SecOps"
+  },
+  {
+    "id": "security-incident-triage",
+    "slug": "security-incident-triage",
+    "name": "Security Incident Triage",
+    "category": "SecOps"
+  },
+  {
+    "id": "security-rules",
+    "slug": "security-rules",
+    "name": "Security Rules",
+    "category": "Security"
+  },
+  {
+    "id": "service-mapping-entry-points",
+    "slug": "service-mapping-entry-points",
+    "name": "Service Mapping Entry Points",
+    "category": "Discovery"
+  },
+  {
+    "id": "service-maps",
+    "slug": "service-maps",
+    "name": "Service Maps",
+    "category": "Service Mapping"
+  },
+  {
+    "id": "service-operations-workspace-topic",
+    "slug": "service-operations-workspace-topic",
+    "name": "Service Operations Workspace",
+    "category": "Workspace"
+  },
+  {
+    "id": "portal-widgets",
+    "slug": "portal-widgets",
+    "name": "Service Portal Widgets",
+    "category": "Portal"
+  },
+  {
+    "id": "setabortaction",
+    "slug": "setabortaction",
+    "name": "setAbortAction",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "setworkflow",
+    "slug": "setworkflow",
+    "name": "setWorkflow",
+    "category": "Server-side APIs"
+  },
+  {
+    "id": "sla-repair",
+    "slug": "sla-repair",
+    "name": "SLA Repair",
+    "category": "ITSM"
+  },
+  {
+    "id": "slas",
+    "slug": "slas",
+    "name": "SLAs",
+    "category": "ITSM"
+  },
+  {
+    "id": "slow-transactions",
+    "slug": "slow-transactions",
+    "name": "Slow Transactions",
+    "category": "Operations"
+  },
+  {
+    "id": "soap-messages",
+    "slug": "soap-messages",
+    "name": "SOAP Messages",
+    "category": "Integrations"
+  },
+  {
+    "id": "software-entitlements",
+    "slug": "software-entitlements",
+    "name": "Software Entitlements",
+    "category": "SAM"
+  },
+  {
+    "id": "software-installations",
+    "slug": "software-installations",
+    "name": "Software Installations",
+    "category": "SAM"
+  },
+  {
+    "id": "software-models",
+    "slug": "software-models",
+    "name": "Software Models",
+    "category": "SAM"
+  },
+  {
+    "id": "software-normalization",
+    "slug": "software-normalization",
+    "name": "Software Normalization",
+    "category": "SAM"
+  },
+  {
+    "id": "software-reclamation",
+    "slug": "software-reclamation",
+    "name": "Software Reclamation",
+    "category": "SAM"
+  },
+  {
+    "id": "source-control",
+    "slug": "source-control",
+    "name": "Source Control",
+    "category": "Deployment"
+  },
+  {
+    "id": "spokes",
+    "slug": "spokes",
+    "name": "Spokes",
+    "category": "IntegrationHub"
+  },
+  {
+    "id": "stale-cis",
+    "slug": "stale-cis",
+    "name": "Stale CIs",
+    "category": "CMDB"
+  },
+  {
+    "id": "standard-change",
+    "slug": "standard-change",
+    "name": "Standard Change",
+    "category": "ITSM"
+  },
+  {
+    "id": "stockrooms",
+    "slug": "stockrooms",
+    "name": "Stockrooms",
+    "category": "HAM"
+  },
+  {
+    "id": "subflows-actions",
+    "slug": "subflows-actions",
+    "name": "Subflows and Actions",
+    "category": "Flow Designer"
+  },
+  {
+    "id": "sys-user",
+    "slug": "sys-user",
+    "name": "sys_user",
+    "category": "Data Model"
+  },
+  {
+    "id": "sys-user-group",
+    "slug": "sys-user-group",
+    "name": "sys_user_group",
+    "category": "Data Model"
+  },
+  {
+    "id": "sys-user-has-role",
+    "slug": "sys-user-has-role",
+    "name": "sys_user_has_role",
+    "category": "Data Model"
+  },
+  {
+    "id": "system-definition",
+    "slug": "system-definition",
+    "name": "System Definition",
+    "category": "Administration"
+  },
+  {
+    "id": "system-properties",
+    "slug": "system-properties",
+    "name": "System Properties",
+    "category": "Administration"
+  },
+  {
+    "id": "tables-dictionary",
+    "slug": "tables-dictionary",
+    "name": "Tables and Dictionary",
+    "category": "Data Model"
+  },
+  {
+    "id": "task-slas",
+    "slug": "task-slas",
+    "name": "Task SLAs",
+    "category": "ITSM"
+  },
+  {
+    "id": "task-table-hierarchy",
+    "slug": "task-table-hierarchy",
+    "name": "Task Table Hierarchy",
+    "category": "Data Model"
+  },
+  {
+    "id": "task-sla",
+    "slug": "task-sla",
+    "name": "task_sla",
+    "category": "ITSM"
+  },
+  {
+    "id": "test-steps",
+    "slug": "test-steps",
+    "name": "Test Steps",
+    "category": "Quality"
+  },
+  {
+    "id": "threat-intel-indicators",
+    "slug": "threat-intel-indicators",
+    "name": "Threat Indicators",
+    "category": "SecOps"
+  },
+  {
+    "id": "threat-intelligence-enrichment",
+    "slug": "threat-intelligence-enrichment",
+    "name": "Threat Intelligence Enrichment",
+    "category": "SecOps"
+  },
+  {
+    "id": "transfers-disposals",
+    "slug": "transfers-disposals",
+    "name": "Transfers and Disposals",
+    "category": "HAM"
+  },
+  {
+    "id": "transform-maps",
+    "slug": "transform-maps",
+    "name": "Transform Maps",
+    "category": "Data Management"
+  },
+  {
+    "id": "transform-scripts",
+    "slug": "transform-scripts",
+    "name": "Transform Scripts",
+    "category": "Data Management"
+  },
+  {
+    "id": "ui-actions",
+    "slug": "ui-actions",
+    "name": "UI Actions",
+    "category": "Platform"
+  },
+  {
+    "id": "ui-builder-components",
+    "slug": "ui-builder-components",
+    "name": "UI Builder Components",
+    "category": "Workspace"
+  },
+  {
+    "id": "ui-pages",
+    "slug": "ui-pages",
+    "name": "UI Pages",
+    "category": "Legacy UI"
+  },
+  {
+    "id": "ui-policies",
+    "slug": "ui-policies",
+    "name": "UI Policies",
+    "category": "Scripting"
+  },
+  {
+    "id": "update-sets",
+    "slug": "update-sets",
+    "name": "Update Sets",
+    "category": "Deployment"
+  },
+  {
+    "id": "upgrades",
+    "slug": "upgrades",
+    "name": "Upgrades",
+    "category": "Operations"
+  },
+  {
+    "id": "variable-sets",
+    "slug": "variable-sets",
+    "name": "Variable Sets",
+    "category": "Catalog"
+  },
+  {
+    "id": "vendor-risk",
+    "slug": "vendor-risk",
+    "name": "Vendor Risk",
+    "category": "GRC"
+  },
+  {
+    "id": "virtual-agent-topics",
+    "slug": "virtual-agent-topics",
+    "name": "Virtual Agent Topics",
+    "category": "Virtual Agent"
+  },
+  {
+    "id": "vulnerability-exceptions",
+    "slug": "vulnerability-exceptions",
+    "name": "Vulnerability Exceptions",
+    "category": "SecOps"
+  },
+  {
+    "id": "vulnerability-groups",
+    "slug": "vulnerability-groups",
+    "name": "Vulnerability Groups",
+    "category": "SecOps"
+  },
+  {
+    "id": "vulnerability-lifecycle",
+    "slug": "vulnerability-lifecycle",
+    "name": "Vulnerability Lifecycle",
+    "category": "SecOps"
+  },
+  {
+    "id": "vulnerability-response-topic",
+    "slug": "vulnerability-response-topic",
+    "name": "Vulnerability Response",
+    "category": "SecOps"
+  },
+  {
+    "id": "workspace-record-pages",
+    "slug": "workspace-record-pages",
+    "name": "Workspace Record Pages",
+    "category": "Workspace"
+  }
+]

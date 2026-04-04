@@ -1,0 +1,129 @@
+[
+  {
+    "id": "catalog-item-manager-approval",
+    "slug": "catalog-item-manager-approval",
+    "title": "Build a catalog item with manager approval",
+    "question": "How do you implement a catalog item that routes for manager approval before fulfillment?",
+    "summary": "Service Catalog implementation scenario with approvals and tasks.",
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "business-analyst"
+    ],
+    "moduleIds": [
+      "service-catalog",
+      "request-management",
+      "flow-designer"
+    ],
+    "topicIds": [
+      "catalog-items",
+      "catalog-variables",
+      "approvals",
+      "requested-item-flow"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "catalog",
+      "approval",
+      "manager"
+    ],
+    "relatedTables": [
+      "sc_req_item",
+      "sc_task",
+      "sysapproval_approver"
+    ],
+    "scenario": "The business needs an Access Request catalog item that collects user input, sends the request to the user's manager for approval, and then creates a fulfillment task for the access team.",
+    "exactAnswer": "Implement the item using catalog variables, a Flow Designer flow triggered on Requested Item creation, a manager approval step, and a fulfillment task step that only runs after approval.",
+    "navigationPath": [
+      "All > Service Catalog > Catalog Definitions > Maintain Items",
+      "All > Flow Designer",
+      "All > Catalog Builder or Maintain Items"
+    ],
+    "steps": [
+      "Create the catalog item and add variables such as requested_for, access_type, and business_justification.",
+      "Ensure requested_for resolves correctly so manager approval can reference the requested user where needed.",
+      "Create a Flow Designer flow triggered when the target catalog item's Requested Item is created.",
+      "Add an approval step that routes to the manager.",
+      "On approval, create fulfillment task records for the access team.",
+      "On rejection, update the Requested Item with a rejected state or explanatory comments.",
+      "Test approval, rejection, and reassignment scenarios."
+    ],
+    "involvedArtifacts": [
+      "Catalog Item",
+      "Catalog Variables",
+      "Flow",
+      "Approval Step",
+      "Catalog Task"
+    ],
+    "validationChecklist": [
+      "The manager receives the approval request.",
+      "Approval creates the fulfillment task only when approved.",
+      "Rejected items do not create fulfillment work.",
+      "The requested_for manager is resolved correctly."
+    ],
+    "commonMistakes": [
+      "Using opened_by instead of requested_for when the process is meant to approve the target user's manager.",
+      "Hardcoding an approver rather than using the manager relationship."
+    ]
+  },
+  {
+    "id": "flow-designer-create-tasks",
+    "slug": "flow-designer-create-tasks",
+    "title": "Use Flow Designer to create fulfillment tasks from a request",
+    "question": "How do you create catalog tasks automatically after a requested item is approved?",
+    "summary": "Flow Designer fulfillment scenario for catalog automation.",
+    "roleIds": [
+      "service-catalog-developer",
+      "employee-center-developer",
+      "app-engine-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "service-catalog",
+      "request-management"
+    ],
+    "topicIds": [
+      "flow-triggers",
+      "subflows-actions",
+      "requested-item-flow",
+      "approvals"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "flow designer",
+      "catalog task"
+    ],
+    "relatedTables": [
+      "sc_req_item",
+      "sc_task"
+    ],
+    "scenario": "The organization wants approved access requests to generate one or more fulfillment tasks automatically.",
+    "exactAnswer": "Implement a flow triggered on Requested Item updates or creation, gate the task creation behind the approved state, then create catalog tasks with assignment, due dates, and instructions based on the request variables.",
+    "navigationPath": [
+      "All > Flow Designer",
+      "All > Requested Items"
+    ],
+    "steps": [
+      "Create a flow that triggers on the target Requested Item or catalog item.",
+      "Add a condition or decision step to proceed only when the item is approved.",
+      "Create one or more catalog task records with the correct assignment groups and task instructions.",
+      "Test approval, rejection, and reapproval scenarios."
+    ],
+    "involvedArtifacts": [
+      "Flow",
+      "Create Record Action",
+      "Decision Logic"
+    ],
+    "validationChecklist": [
+      "Tasks are created only after approval.",
+      "Tasks carry the correct assignment groups and context.",
+      "Rejected items do not create fulfillment work."
+    ],
+    "commonMistakes": [
+      "Triggering task creation at submission instead of approval.",
+      "Forgetting to map variables into the task description or work notes."
+    ]
+  }
+]

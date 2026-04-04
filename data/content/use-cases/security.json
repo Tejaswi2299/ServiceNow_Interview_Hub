@@ -1,0 +1,59 @@
+[
+  {
+    "id": "secure-hr-cases",
+    "slug": "secure-hr-cases",
+    "title": "Secure HR cases with targeted ACL design",
+    "question": "How do you secure HR cases so only HR agents and appropriate fulfillers can access them?",
+    "summary": "HRSD security scenario with table and field access considerations.",
+    "roleIds": [
+      "hrsd-developer",
+      "servicenow-administrator",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "hrsd",
+      "security-access"
+    ],
+    "topicIds": [
+      "acls",
+      "hr-case-security",
+      "roles-groups"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "hr",
+      "acl",
+      "security"
+    ],
+    "relatedTables": [],
+    "scenario": "The client wants HR cases to be visible only to authorized HR agents and a limited set of fulfillers. Sensitive fields must also be protected.",
+    "exactAnswer": "Implement the security model with dedicated HR roles, table and field ACLs, any required criteria based on assignment or ownership, and impersonation-based testing. Protect fields separately if some HR users can open a case but should not see all values.",
+    "navigationPath": [
+      "All > System Security > Access Control (ACL)",
+      "All > HR Administration > Cases",
+      "All > User Administration > Roles"
+    ],
+    "steps": [
+      "Define the target HR roles and which personas need read versus write access.",
+      "Create or update table ACLs on the HR case table to permit only the allowed roles or ownership-based logic.",
+      "Create field ACLs for especially sensitive fields such as investigation details or personal data if required.",
+      "Test with impersonation for each persona: HR agent, fulfiller, non-HR user, and admin where appropriate.",
+      "Document any exceptions or delegated access models."
+    ],
+    "involvedArtifacts": [
+      "Roles",
+      "Table ACLs",
+      "Field ACLs"
+    ],
+    "validationChecklist": [
+      "Authorized HR users can see the case.",
+      "Unauthorized users cannot open the record.",
+      "Sensitive fields remain protected even when the case itself is visible to a broader persona."
+    ],
+    "commonMistakes": [
+      "Protecting only the table and forgetting field-level security.",
+      "Testing only with admin instead of impersonated end-user personas."
+    ]
+  }
+]

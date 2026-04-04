@@ -1,0 +1,219 @@
+{
+  "app-engine": [
+    "scripted-rest-api-parse-body"
+  ],
+  "asset-management": [
+    "ham-stockroom-transfer-validation",
+    "transfer-asset-between-stockrooms"
+  ],
+  "audit-management": [
+    "control-attestation-reminder-event"
+  ],
+  "change-management": [
+    "abort-closed-change-request-update",
+    "change-blackout-window-check",
+    "prevent-conflicting-change-window"
+  ],
+  "cloud-discovery": [
+    "count-cloud-cis-by-account"
+  ],
+  "cmdb": [
+    "build-encoded-query-for-stale-cis",
+    "cmdb-duplicate-serial-check",
+    "count-cloud-cis-by-account",
+    "count-discovered-cis-by-source",
+    "glideaggregate-duplicate-ci-names-by-class",
+    "list-duplicate-ci-names-by-class",
+    "prevent-duplicate-ci-business-rule",
+    "query-child-cis-for-parent-service",
+    "query-ci-relationships",
+    "repair-owned-by-on-business-apps"
+  ],
+  "cmdb-governance": [
+    "cmdb-duplicate-serial-check",
+    "list-duplicate-ci-names-by-class",
+    "repair-owned-by-on-business-apps"
+  ],
+  "discovery": [
+    "build-encoded-query-for-stale-cis",
+    "cmdb-duplicate-serial-check",
+    "count-cloud-cis-by-account",
+    "count-discovered-cis-by-source",
+    "ecc-queue-pending-output-check",
+    "find-mid-server-ecc-errors",
+    "mid-server-health-query"
+  ],
+  "discovery-patterns": [
+    "ecc-queue-pending-output-check",
+    "find-mid-server-ecc-errors"
+  ],
+  "employee-center": [
+    "catalog-client-script-toggle-field"
+  ],
+  "grc": [
+    "control-attestation-reminder-event",
+    "risk-score-utility-script-include",
+    "vendor-risk-high-score-summary"
+  ],
+  "ham": [
+    "count-assets-by-stockroom",
+    "ham-stockroom-transfer-validation",
+    "query-unassigned-hardware-assets",
+    "transfer-asset-between-stockrooms"
+  ],
+  "incident-management": [
+    "client-script-mandatory-assignment-group-p1",
+    "create-problem-candidate-threshold-check",
+    "glideaggregate-p1-by-assignment-group",
+    "query-active-incidents",
+    "query-major-incidents-last-day",
+    "query-p1-incidents-last-24-hours",
+    "transform-map-normalize-state",
+    "ui-action-reopen-incident"
+  ],
+  "itam": [
+    "find-unnormalized-software-installs",
+    "transfer-asset-between-stockrooms"
+  ],
+  "itom-health": [
+    "ecc-queue-pending-output-check"
+  ],
+  "itsm": [
+    "abort-closed-change-request-update",
+    "acl-script-sensitive-incidents",
+    "before-br-default-assignment-group",
+    "change-blackout-window-check",
+    "client-script-mandatory-assignment-group-p1",
+    "count-open-incidents-by-assignment-group",
+    "create-known-error-from-problem",
+    "create-problem-candidate-threshold-check",
+    "encoded-query-p1-last-7-days",
+    "encoded-query-stale-incidents",
+    "glideaggregate-count-active-incidents",
+    "glideaggregate-p1-by-assignment-group",
+    "glidedatetime-open-incidents-age",
+    "grs-vs-gr-secure-demo",
+    "prevent-conflicting-change-window",
+    "query-active-incidents",
+    "query-major-incidents-last-day",
+    "query-p1-incidents-last-24-hours",
+    "queue-event-for-p1-incident",
+    "reference-qualifier-script-assignment-group",
+    "restmessagev2-create-external-ticket",
+    "scheduled-job-auto-close-incidents",
+    "script-include-priority-from-impact-urgency",
+    "setworkflow-false-bulk-update",
+    "ui-action-reopen-incident"
+  ],
+  "knowledge-management": [
+    "create-known-error-from-problem"
+  ],
+  "major-incident-management": [
+    "glideaggregate-count-active-incidents",
+    "query-major-incidents-last-day"
+  ],
+  "notifications-email": [
+    "queue-event-for-p1-incident"
+  ],
+  "platform-core": [
+    "abort-closed-change-request-update",
+    "before-br-default-assignment-group",
+    "encoded-query-p1-last-7-days",
+    "fix-script-deactivate-stale-users",
+    "glideaggregate-count-active-incidents",
+    "glidedatetime-open-incidents-age",
+    "glidequery-active-problems",
+    "grs-vs-gr-secure-demo",
+    "parse-json-and-print-values",
+    "prevent-duplicate-ci-business-rule",
+    "query-business-rule-example",
+    "reference-qualifier-script-assignment-group",
+    "scheduled-job-auto-close-incidents",
+    "script-include-priority-from-impact-urgency",
+    "script-include-return-user-department",
+    "transform-map-normalize-state"
+  ],
+  "platform-operations": [
+    "find-mid-server-ecc-errors",
+    "setworkflow-false-bulk-update"
+  ],
+  "problem-management": [
+    "create-known-error-from-problem",
+    "create-problem-candidate-threshold-check",
+    "encoded-query-stale-incidents",
+    "glidequery-active-problems"
+  ],
+  "reports-dashboards": [
+    "count-open-incidents-by-assignment-group"
+  ],
+  "rest-integrations": [
+    "parse-json-and-print-values",
+    "restmessagev2-create-external-ticket",
+    "scripted-rest-api-parse-body"
+  ],
+  "risk-management": [
+    "risk-score-utility-script-include",
+    "vendor-risk-high-score-summary"
+  ],
+  "security-access": [
+    "acl-script-sensitive-incidents",
+    "grs-vs-gr-secure-demo"
+  ],
+  "security-incident-response": [
+    "count-open-security-incidents-by-state"
+  ],
+  "secops": [
+    "calculate-aging-vulnerabilities",
+    "count-open-security-incidents-by-state",
+    "count-open-vulnerable-items-by-group",
+    "route-vulnerabilities-to-group",
+    "vulnerability-priority-utility"
+  ],
+  "service-catalog": [
+    "catalog-client-script-toggle-field",
+    "script-include-return-user-department"
+  ],
+  "service-mapping": [
+    "query-ci-relationships"
+  ],
+  "sam": [
+    "find-unnormalized-software-installs",
+    "list-unnormalized-software-models",
+    "normalize-publisher-name-function",
+    "sam-reclamation-candidate-function",
+    "sam-reclamation-candidate-query"
+  ],
+  "software-compliance": [
+    "list-unnormalized-software-models",
+    "sam-reclamation-candidate-query"
+  ],
+  "vendor-risk-management": [
+    "vendor-risk-high-score-summary"
+  ],
+  "vulnerability-response": [
+    "calculate-aging-vulnerabilities",
+    "count-open-vulnerable-items-by-group",
+    "route-vulnerabilities-to-group",
+    "vulnerability-priority-utility"
+  ],
+  "atf": [],
+  "csm": [],
+  "devops": [],
+  "event-management": [],
+  "flow-designer": [],
+  "hrsd": [],
+  "integrationhub": [],
+  "mobile": [],
+  "performance-analytics": [],
+  "policy-and-compliance": [],
+  "request-management": [],
+  "service-operations-workspace": [],
+  "service-portal": [],
+  "sla-management": [],
+  "soap-integrations": [],
+  "source-control": [],
+  "threat-intelligence": [],
+  "ui-builder": [],
+  "virtual-agent": [],
+  "workspaces": []
+}

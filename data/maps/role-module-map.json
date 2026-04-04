@@ -1,0 +1,327 @@
+{
+  "app-engine-developer": [
+    "app-engine",
+    "flow-designer",
+    "platform-core",
+    "ui-builder"
+  ],
+  "asset-manager": [
+    "asset-management",
+    "ham",
+    "itam"
+  ],
+  "atf-engineer": [
+    "atf",
+    "itsm",
+    "service-catalog"
+  ],
+  "audit-developer": [
+    "audit-management",
+    "grc",
+    "policy-and-compliance"
+  ],
+  "business-analyst": [
+    "flow-designer",
+    "itsm",
+    "reports-dashboards",
+    "service-catalog"
+  ],
+  "change-management-developer": [
+    "change-management",
+    "flow-designer",
+    "itsm"
+  ],
+  "change-manager": [
+    "change-management",
+    "itsm",
+    "sla-management"
+  ],
+  "cloud-engineer": [
+    "cloud-discovery",
+    "cmdb",
+    "discovery"
+  ],
+  "cmdb-administrator": [
+    "cloud-discovery",
+    "cmdb",
+    "discovery",
+    "platform-operations",
+    "service-mapping"
+  ],
+  "cmdb-analyst": [
+    "cmdb",
+    "discovery"
+  ],
+  "cmdb-developer": [
+    "cmdb",
+    "discovery",
+    "event-management",
+    "service-mapping"
+  ],
+  "cmdb-manager": [
+    "cmdb",
+    "cmdb-governance",
+    "service-mapping"
+  ],
+  "csm-developer": [
+    "csm",
+    "service-catalog",
+    "ui-builder",
+    "workspaces"
+  ],
+  "discovery-administrator": [
+    "cmdb",
+    "discovery",
+    "discovery-patterns",
+    "platform-operations"
+  ],
+  "discovery-developer": [
+    "cmdb",
+    "discovery",
+    "service-mapping"
+  ],
+  "employee-center-developer": [
+    "employee-center",
+    "knowledge-management",
+    "service-catalog"
+  ],
+  "event-management-developer": [
+    "event-management",
+    "incident-management",
+    "itom-health"
+  ],
+  "governance-risk-analyst": [
+    "grc",
+    "policy-and-compliance",
+    "risk-management",
+    "vendor-risk-management"
+  ],
+  "grc-developer": [
+    "audit-management",
+    "grc",
+    "policy-and-compliance",
+    "risk-management"
+  ],
+  "ham-analyst": [
+    "ham",
+    "itam",
+    "platform-operations"
+  ],
+  "ham-developer": [
+    "cmdb",
+    "ham",
+    "itam"
+  ],
+  "hrsd-developer": [
+    "employee-center",
+    "hrsd",
+    "security-access",
+    "service-catalog"
+  ],
+  "integration-developer": [
+    "flow-designer",
+    "integrationhub",
+    "rest-integrations",
+    "soap-integrations"
+  ],
+  "itam-developer": [
+    "cmdb",
+    "ham",
+    "itam",
+    "sam"
+  ],
+  "itom-developer": [
+    "cmdb",
+    "discovery",
+    "event-management",
+    "itom-health",
+    "service-mapping"
+  ],
+  "itsm-administrator": [
+    "change-management",
+    "incident-management",
+    "itsm",
+    "problem-management",
+    "reports-dashboards",
+    "request-management",
+    "sla-management"
+  ],
+  "itsm-developer": [
+    "change-management",
+    "incident-management",
+    "itsm",
+    "notifications-email",
+    "problem-management",
+    "request-management",
+    "sla-management"
+  ],
+  "knowledge-developer": [
+    "employee-center",
+    "knowledge-management"
+  ],
+  "license-compliance-analyst": [
+    "reports-dashboards",
+    "sam",
+    "software-compliance"
+  ],
+  "major-incident-manager": [
+    "incident-management",
+    "itsm",
+    "major-incident-management",
+    "service-operations-workspace"
+  ],
+  "mobile-developer": [
+    "employee-center",
+    "mobile",
+    "workspaces"
+  ],
+  "pa-developer": [
+    "itsm",
+    "performance-analytics",
+    "reports-dashboards"
+  ],
+  "platform-architect": [
+    "platform-core",
+    "platform-operations",
+    "rest-integrations",
+    "security-access",
+    "source-control"
+  ],
+  "platform-owner": [
+    "platform-core",
+    "platform-operations",
+    "security-access",
+    "service-operations-workspace",
+    "source-control"
+  ],
+  "problem-manager": [
+    "incident-management",
+    "itsm",
+    "problem-management"
+  ],
+  "production-support-engineer": [
+    "itsm",
+    "notifications-email",
+    "platform-operations",
+    "security-access"
+  ],
+  "release-upgrade-specialist": [
+    "atf",
+    "platform-operations",
+    "source-control"
+  ],
+  "risk-developer": [
+    "grc",
+    "policy-and-compliance",
+    "risk-management"
+  ],
+  "sam-analyst": [
+    "itam",
+    "platform-operations",
+    "sam"
+  ],
+  "secops-developer": [
+    "cmdb",
+    "secops",
+    "security-incident-response",
+    "threat-intelligence",
+    "vulnerability-response"
+  ],
+  "security-developer": [
+    "platform-core",
+    "secops",
+    "security-access"
+  ],
+  "security-incident-analyst": [
+    "secops",
+    "security-incident-response",
+    "threat-intelligence"
+  ],
+  "sir-developer": [
+    "secops",
+    "security-incident-response"
+  ],
+  "security-incident-response-developer": [
+    "secops",
+    "security-incident-response",
+    "workspaces"
+  ],
+  "service-catalog-developer": [
+    "flow-designer",
+    "notifications-email",
+    "request-management",
+    "service-catalog"
+  ],
+  "service-mapping-developer": [
+    "cmdb",
+    "discovery",
+    "service-mapping"
+  ],
+  "service-operations-workspace-developer": [
+    "itsm",
+    "service-operations-workspace",
+    "ui-builder",
+    "workspaces"
+  ],
+  "service-portal-developer": [
+    "itsm",
+    "service-catalog",
+    "service-portal"
+  ],
+  "servicenow-administrator": [
+    "notifications-email",
+    "platform-core",
+    "platform-operations",
+    "security-access",
+    "source-control"
+  ],
+  "servicenow-developer": [
+    "flow-designer",
+    "platform-core",
+    "rest-integrations",
+    "security-access",
+    "service-catalog",
+    "source-control"
+  ],
+  "sam-developer": [
+    "cmdb",
+    "itam",
+    "sam"
+  ],
+  "software-asset-manager": [
+    "itam",
+    "sam",
+    "software-compliance"
+  ],
+  "technical-consultant": [
+    "flow-designer",
+    "itsm",
+    "platform-core",
+    "rest-integrations",
+    "service-catalog"
+  ],
+  "threat-intelligence-developer": [
+    "secops",
+    "threat-intelligence"
+  ],
+  "ui-builder-developer": [
+    "employee-center",
+    "ui-builder",
+    "workspaces"
+  ],
+  "vulnerability-analyst": [
+    "secops",
+    "threat-intelligence",
+    "vulnerability-response"
+  ],
+  "vulnerability-response-developer": [
+    "cmdb",
+    "secops",
+    "vulnerability-response"
+  ],
+  "workspace-developer": [
+    "itsm",
+    "ui-builder",
+    "workspaces"
+  ]
+}
