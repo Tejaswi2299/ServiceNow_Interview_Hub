@@ -1,0 +1,257 @@
+[
+  {
+    "id": "wave6-mobile-experience-for-approvals",
+    "slug": "mobile-experience-for-approvals",
+    "title": "Design a mobile approval experience",
+    "question": "How do you implement a mobile experience for managers who approve requests from their phone?",
+    "summary": "Adds direct use-case coverage for the Mobile module.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "csm-developer",
+      "employee-center-developer"
+    ],
+    "moduleIds": [
+      "mobile",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "mobile-experiences",
+      "mobile-actions"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "mobile",
+      "approvals"
+    ],
+    "relatedTables": [
+      "sc_request"
+    ],
+    "scenario": "Managers need a fast phone-based approval flow with minimal taps and clear context.",
+    "exactAnswer": "Design a mobile experience that opens the manager to the approval worklist, shows only the key request context, and exposes focused approve or reject actions guarded by role and assignment conditions.",
+    "navigationPath": [
+      "All > Mobile Studio or Mobile App configuration",
+      "All > Request / Approval configuration"
+    ],
+    "steps": [
+      "Identify the approval records and fields managers actually need.",
+      "Create the mobile experience or applet entry point.",
+      "Add role-based visibility and condition scripts for actions.",
+      "Test with sample approvals on a phone form factor."
+    ],
+    "involvedArtifacts": [
+      "Mobile Experience",
+      "Mobile Action",
+      "Approval Record"
+    ],
+    "validationChecklist": [
+      "Managers can see only their approvals.",
+      "Approve and reject actions are available in the right states."
+    ],
+    "commonMistakes": [
+      "Trying to mirror the full desktop form instead of a focused mobile experience."
+    ]
+  },
+  {
+    "id": "wave6-virtual-agent-topic-with-live-handoff",
+    "slug": "virtual-agent-topic-with-live-handoff",
+    "title": "Build a Virtual Agent topic with live handoff",
+    "question": "How do you implement a Virtual Agent topic that resolves simple issues but hands off complex ones to an agent?",
+    "summary": "Adds direct use-case coverage for the Virtual Agent module.",
+    "roleIds": [
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "virtual-agent"
+    ],
+    "topicIds": [
+      "virtual-agent-topics",
+      "decision-tables"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "virtual agent",
+      "handoff"
+    ],
+    "relatedTables": [],
+    "scenario": "The support team wants the bot to solve simple password questions but transfer other requests with the right context.",
+    "exactAnswer": "Build the topic to collect the minimum inputs, resolve the known self-service path when possible, and hand off only when the conversation hits a decision point that requires a human queue with the collected context attached.",
+    "navigationPath": [
+      "All > Virtual Agent Designer",
+      "All > Escalation or handoff configuration"
+    ],
+    "steps": [
+      "Define the self-service and handoff branches.",
+      "Collect only the key context fields.",
+      "Use a decision node or table to choose self-service versus handoff.",
+      "Pass the context into the handoff queue or created record."
+    ],
+    "involvedArtifacts": [
+      "Virtual Agent Topic",
+      "Decision Logic",
+      "Handoff Queue"
+    ],
+    "validationChecklist": [
+      "Simple issues can finish inside the bot.",
+      "Escalated cases carry the collected context."
+    ],
+    "commonMistakes": [
+      "Escalating too early without trying the lightweight self-service path."
+    ]
+  },
+  {
+    "id": "wave6-devops-change-governance",
+    "slug": "devops-change-governance",
+    "title": "Connect DevOps deployment activity to change governance",
+    "question": "How do you implement DevOps integration without losing change governance?",
+    "summary": "Adds direct use-case coverage for the DevOps module.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "change-management-developer",
+      "change-manager"
+    ],
+    "moduleIds": [
+      "devops",
+      "itsm"
+    ],
+    "topicIds": [
+      "devops-change-velocity",
+      "change-conflict-detection"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "devops",
+      "change governance"
+    ],
+    "relatedTables": [
+      "change_request"
+    ],
+    "scenario": "Engineering wants faster deployments, but operations still requires governed change visibility and conflict awareness.",
+    "exactAnswer": "Integrate the pipeline so deployment metadata can create or update the right change records, apply approval or standard change logic where appropriate, and maintain an auditable record of what was deployed and when.",
+    "navigationPath": [
+      "All > Change > Administration",
+      "All > DevOps integration settings"
+    ],
+    "steps": [
+      "Define which deployment types need a change record.",
+      "Map pipeline metadata to the change record model.",
+      "Apply standard or approval-based governance as required.",
+      "Validate conflict detection and deployment evidence logging."
+    ],
+    "involvedArtifacts": [
+      "Pipeline Integration",
+      "Change Request",
+      "Approval or Standard Change Model"
+    ],
+    "validationChecklist": [
+      "Deployments are traceable to governed change records.",
+      "Conflict awareness remains intact."
+    ],
+    "commonMistakes": [
+      "Treating pipeline automation as a reason to remove governance entirely."
+    ]
+  },
+  {
+    "id": "wave6-csm-case-routing",
+    "slug": "csm-case-routing",
+    "title": "Route CSM cases by entitlement and channel",
+    "question": "How do you design case routing in Customer Service Management?",
+    "summary": "Covers a thin module with a concrete implementation scenario.",
+    "roleIds": [
+      "csm-developer"
+    ],
+    "moduleIds": [
+      "csm"
+    ],
+    "topicIds": [
+      "csm-case-management"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "csm",
+      "case routing"
+    ],
+    "relatedTables": [
+      "sn_customerservice_case"
+    ],
+    "scenario": "The customer support team wants inbound cases routed by channel, priority, and entitlement tier.",
+    "exactAnswer": "Define intake rules that evaluate the channel, entitlement level, and service context, then route the case to the correct queue with SLAs and response expectations attached.",
+    "navigationPath": [
+      "All > Customer Service > Cases",
+      "All > Assignment Rules",
+      "All > SLA Definitions"
+    ],
+    "steps": [
+      "Identify the routing inputs and entitlement tiers.",
+      "Configure the assignment and priority logic.",
+      "Attach the correct SLA or response model.",
+      "Test web, email, and agent-created case paths."
+    ],
+    "involvedArtifacts": [
+      "Case",
+      "Assignment Rule",
+      "SLA"
+    ],
+    "validationChecklist": [
+      "Cases route differently by entitlement and channel.",
+      "Response goals match the chosen service level."
+    ],
+    "commonMistakes": [
+      "Using one routing rule for every customer tier."
+    ]
+  },
+  {
+    "id": "wave6-performance-analytics-breakdown-design",
+    "slug": "performance-analytics-breakdown-design",
+    "title": "Design a Performance Analytics breakdown strategy",
+    "question": "How do you implement a breakdown strategy for leadership dashboards?",
+    "summary": "Improves coverage for Performance Analytics.",
+    "roleIds": [
+      "pa-developer"
+    ],
+    "moduleIds": [
+      "performance-analytics"
+    ],
+    "topicIds": [
+      "pa-indicators",
+      "pa-breakdowns",
+      "dashboards"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "pa",
+      "dashboard"
+    ],
+    "relatedTables": [],
+    "scenario": "Leadership wants trend dashboards by business unit, assignment group, and priority without rebuilding each widget manually.",
+    "exactAnswer": "Define indicators with trustworthy data collection, then create reusable breakdown sources and breakdowns so dashboards can pivot the same metric across the dimensions leadership cares about.",
+    "navigationPath": [
+      "All > Performance Analytics > Indicators",
+      "All > Performance Analytics > Breakdowns"
+    ],
+    "steps": [
+      "Define the base indicators.",
+      "Model the needed breakdown sources.",
+      "Create the breakdowns and validate the collected slices.",
+      "Use the same indicators and breakdowns across dashboard widgets."
+    ],
+    "involvedArtifacts": [
+      "Indicator",
+      "Breakdown Source",
+      "Dashboard"
+    ],
+    "validationChecklist": [
+      "One indicator can be analyzed across multiple dimensions.",
+      "Collected data is trustworthy before dashboard rollout."
+    ],
+    "commonMistakes": [
+      "Designing dashboard widgets before indicator and breakdown governance are ready."
+    ]
+  }
+]

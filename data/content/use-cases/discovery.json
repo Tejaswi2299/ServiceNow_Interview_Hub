@@ -1,1 +1,178 @@
-[]
+[
+  {
+    "id": "usecase-discovery-schedule-by-network-zone",
+    "slug": "discovery-schedule-by-network-zone",
+    "title": "Split discovery by network zone",
+    "question": "How do you design Discovery schedules for segmented network zones?",
+    "summary": "Step-by-step design for multiple schedules aligned to the right MID Servers and credentials.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "discovery-schedules",
+      "mid-server-capabilities"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "discovery",
+      "mid server",
+      "schedule"
+    ],
+    "relatedTables": [
+      "discovery_schedule",
+      "ecc_agent"
+    ],
+    "scenario": "The client has separate network zones and wants reliable Discovery without scanning every zone from every MID Server.",
+    "exactAnswer": "Create separate schedules aligned to each network zone, assign the correct MID capability or dedicated MID, verify credential coverage, and validate that each schedule only reaches the intended targets.",
+    "navigationPath": [
+      "All > Discovery Admin > Discovery Schedules",
+      "All > MID Server > Servers",
+      "All > Discovery > Credentials"
+    ],
+    "steps": [
+      "Identify the network zones and target ranges.",
+      "Create a dedicated Discovery schedule for each zone.",
+      "Assign or route to the correct MID Server capability.",
+      "Validate credentials for the assets in that zone.",
+      "Run a controlled test and inspect ECC Queue and Discovery logs."
+    ],
+    "involvedArtifacts": [
+      "Discovery Schedule",
+      "MID Server",
+      "Credentials"
+    ],
+    "validationChecklist": [
+      "Only the intended subnets are scanned.",
+      "The expected MID Server picks up the work.",
+      "CIs are updated without duplicate discovery noise."
+    ],
+    "commonMistakes": [
+      "One giant schedule for every zone.",
+      "Credentials not aligned to the target subnet."
+    ]
+  },
+  {
+    "id": "usecase-pattern-debugging-for-missed-ci",
+    "slug": "pattern-debugging-for-missed-ci",
+    "title": "Debug a pattern that is not populating expected CI data",
+    "question": "What would you do if a discovery pattern runs but misses an expected attribute or relationship?",
+    "summary": "Practical troubleshooting path for pattern execution issues.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "pattern-designer",
+      "ecc-queue",
+      "cmdb-relationships"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "pattern",
+      "troubleshooting",
+      "cmdb"
+    ],
+    "relatedTables": [
+      "sa_pattern",
+      "ecc_queue"
+    ],
+    "scenario": "Discovery reaches the target system but the expected application attribute and dependency relationship are not being populated.",
+    "exactAnswer": "Review the pattern execution steps, verify identification sections, inspect related ECC payloads and pattern logs, then correct the step logic or relationship creation condition that is failing.",
+    "navigationPath": [
+      "All > Discovery Patterns",
+      "All > ECC Queue",
+      "All > CMDB > CI Class Manager"
+    ],
+    "steps": [
+      "Confirm the pattern is the one actually used for the target.",
+      "Review each pattern step output and variable value.",
+      "Inspect ECC payloads and agent responses for missing data.",
+      "Validate the identification and relationship creation steps.",
+      "Retest and compare the updated CI and relationship output."
+    ],
+    "involvedArtifacts": [
+      "Pattern",
+      "ECC Queue",
+      "CI Relationship"
+    ],
+    "validationChecklist": [
+      "Expected attribute is now populated.",
+      "Relationship appears on the CI.",
+      "No duplicate CI was introduced."
+    ],
+    "commonMistakes": [
+      "Changing the wrong pattern version.",
+      "Ignoring identification logic while debugging relationships."
+    ]
+  },
+  {
+    "id": "usecase-mid-server-health-review",
+    "slug": "mid-server-health-review",
+    "title": "Review MID Server health before a discovery rollout",
+    "question": "How do you validate MID Server readiness before enabling discovery for a new scope?",
+    "summary": "Operational checklist for stable discovery onboarding.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "mid-server-capabilities",
+      "ecc-queue"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "mid server",
+      "health",
+      "discovery"
+    ],
+    "relatedTables": [
+      "ecc_agent"
+    ],
+    "scenario": "A new business unit wants Discovery enabled next week, but the team is unsure whether the MID infrastructure is ready.",
+    "exactAnswer": "Validate the MID status, connectivity, capabilities, credentials, and ECC throughput first, then run a pilot schedule before broad rollout.",
+    "navigationPath": [
+      "All > MID Server > Servers",
+      "All > ECC Queue",
+      "All > Discovery > Discovery Schedules"
+    ],
+    "steps": [
+      "Confirm the MID is up and validated.",
+      "Review capability configuration and network reachability.",
+      "Check credential readiness for the new targets.",
+      "Run a pilot schedule against a small range.",
+      "Review ECC activity and discovery results before full release."
+    ],
+    "involvedArtifacts": [
+      "MID Server",
+      "Credential",
+      "Discovery Schedule"
+    ],
+    "validationChecklist": [
+      "MID is validated and healthy.",
+      "Pilot discovery completes successfully.",
+      "No ECC backlog or blocked network path exists."
+    ],
+    "commonMistakes": [
+      "Rolling out full subnet discovery without a pilot."
+    ]
+  }
+]

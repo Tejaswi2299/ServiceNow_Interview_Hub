@@ -7,44 +7,32 @@
     "roles": 58,
     "modules": 54,
     "topics": 219,
-    "theoryItems": 68,
-    "codingItems": 63,
-    "useCaseItems": 62,
-    "quizItems": 206,
-    "totalSeededStudyItems": 193
+    "theoryItems": 120,
+    "codingItems": 70,
+    "useCaseItems": 78,
+    "quizItems": 243,
+    "totalSeededStudyItems": 268
   },
   "status": [
     {
-      "area": "ITSM path",
-      "status": "Expanded \u00b7 48 items"
+      "area": "Data integrity",
+      "status": "Wave 6 fixed empty placeholders, orphan topics, and zero-coverage modules"
     },
     {
-      "area": "CMDB path",
-      "status": "Expanded \u00b7 36 items"
+      "area": "Role coverage",
+      "status": "Mobile Developer and Threat Intelligence Developer now have direct and mapped study coverage"
     },
     {
-      "area": "Discovery path",
-      "status": "Expanded \u00b7 29 items"
+      "area": "Module coverage",
+      "status": "DevOps, Mobile, SOAP Integrations, Threat Intelligence, and Virtual Agent now resolve study content"
     },
     {
-      "area": "GRC path",
-      "status": "Expanded \u00b7 13 items"
+      "area": "Topic coverage",
+      "status": "Previously taxonomy-only topics now have direct study items and search coverage"
     },
     {
-      "area": "SecOps path",
-      "status": "Expanded \u00b7 19 items"
-    },
-    {
-      "area": "HAM path",
-      "status": "Expanded \u00b7 19 items"
-    },
-    {
-      "area": "SAM path",
-      "status": "Expanded \u00b7 24 items"
-    },
-    {
-      "area": "Deep interview edge cases",
-      "status": "Wave 5 added QA fixes, tricky comparisons, advanced troubleshooting, and implementation depth"
+      "area": "Expansion readiness",
+      "status": "Wave 6 added direct theory, coding, and use-case items without changing the static hosting model"
     }
   ]
 }

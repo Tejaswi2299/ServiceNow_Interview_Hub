@@ -2,7 +2,10 @@
   "app-engine": [
     "acls",
     "app-engine-studio",
+    "application-menu-modules",
     "custom-app-tables",
+    "data-pills",
+    "decision-tables",
     "flow-triggers",
     "glide-query",
     "gliderecord",
@@ -17,6 +20,11 @@
     "hardware-assets",
     "notifications"
   ],
+  "atf": [
+    "atf-tests",
+    "catalog-items",
+    "test-steps"
+  ],
   "audit-management": [
     "audit-management",
     "control-attestations",
@@ -27,11 +35,6 @@
     "policy-exceptions",
     "policy-lifecycle",
     "scheduled-jobs"
-  ],
-  "atf": [
-    "atf-tests",
-    "catalog-items",
-    "test-steps"
   ],
   "change-management": [
     "blackout-maintenance-schedules",
@@ -67,6 +70,7 @@
     "ci-deduplication",
     "ci-relationships",
     "cloud-discovery-topic",
+    "cmdb-class-manager",
     "cmdb-governance-topic",
     "cmdb-health",
     "cmdb-health-dashboard",
@@ -119,10 +123,15 @@
     "reconciliation-rules-advanced"
   ],
   "csm": [
+    "csm-case-management",
     "ui-builder-components",
     "workspace-record-pages"
   ],
-  "devops": [],
+  "devops": [
+    "change-conflict-detection",
+    "devops-change-velocity",
+    "upgrades"
+  ],
   "discovery": [
     "ci-deduplication",
     "cloud-discovery-topic",
@@ -183,16 +192,20 @@
     "catalog-variables",
     "change-approvals",
     "custom-app-tables",
+    "data-pills",
     "data-stream-actions",
+    "decision-tables",
     "flow-triggers",
     "requested-item-flow",
     "restmessagev2",
     "spokes",
     "standard-change",
-    "subflows-actions"
+    "subflows-actions",
+    "virtual-agent-topics"
   ],
   "grc": [
     "audit-management",
+    "audit-plans",
     "control-attestations",
     "controls-and-control-objectives",
     "events",
@@ -219,6 +232,7 @@
     "cmdb-tables",
     "glideaggregate",
     "hardware-assets",
+    "model-categories",
     "notifications",
     "reports",
     "stockrooms",
@@ -227,6 +241,7 @@
   "hrsd": [
     "acls",
     "hr-case-security",
+    "hr-services",
     "roles-groups"
   ],
   "incident-management": [
@@ -265,15 +280,20 @@
     "ui-actions"
   ],
   "integrationhub": [
+    "data-sources",
     "data-stream-actions",
     "duplicate-cis",
     "events",
     "identification-rules-advanced",
+    "import-set-runs",
     "ire",
     "ire-debugging",
+    "logs",
     "notifications",
     "reconciliation-rules-advanced",
+    "rest-api-authentication",
     "restmessagev2",
+    "soap-messages",
     "spokes"
   ],
   "itam": [
@@ -283,6 +303,7 @@
     "effective-license-position",
     "gliderecord",
     "hardware-assets",
+    "model-categories",
     "normalization",
     "publisher-packs",
     "reports",
@@ -314,6 +335,8 @@
     "change-models",
     "change-table",
     "client-scripts",
+    "current-previous",
+    "devops-change-velocity",
     "encoded-queries",
     "events",
     "gform",
@@ -328,11 +351,13 @@
     "known-errors",
     "major-incident",
     "major-incident-workbench",
+    "mobile-actions",
     "notifications",
     "notifications-email",
     "onchange-clientscript",
     "priority",
     "problem-candidates",
+    "problem-investigation",
     "problem-table",
     "query-business-rules",
     "reference-qualifiers",
@@ -371,7 +396,11 @@
     "notifications-email",
     "priority"
   ],
-  "mobile": [],
+  "mobile": [
+    "entry-points",
+    "mobile-actions",
+    "mobile-experiences"
+  ],
   "notifications-email": [
     "assignment-rules",
     "change-approvals",
@@ -387,16 +416,21 @@
   "performance-analytics": [
     "cmdb-governance-topic",
     "cmdb-health",
-    "cmdb-health-dashboard"
+    "cmdb-health-dashboard",
+    "dashboards",
+    "pa-breakdowns",
+    "pa-indicators"
   ],
   "platform-core": [
     "acls",
     "after-business-rules",
+    "application-menu-modules",
     "async-business-rules",
     "background-scripts",
     "before-business-rules",
     "business-rules",
     "change-table",
+    "choice-lists",
     "client-callable",
     "client-scripts",
     "cmdb-tables",
@@ -404,6 +438,8 @@
     "data-policies",
     "dictionary-overrides",
     "display-business-rules",
+    "display-values",
+    "domain-separation",
     "encoded-queries",
     "field-maps",
     "fix-scripts",
@@ -415,11 +451,18 @@
     "glidequery",
     "gliderecord",
     "gliderecordsecure",
+    "gs-api",
+    "impersonation",
     "import-sets",
     "incident-lifecycle",
     "incident-table",
+    "logs",
+    "node-log",
+    "onload-clientscript",
+    "onsubmit-clientscript",
     "problem-table",
     "query-business-rules",
+    "query-conditions",
     "reference-fields",
     "reference-qualifiers",
     "request-tables",
@@ -427,11 +470,14 @@
     "roles-groups",
     "scheduled-jobs",
     "scoped-applications",
+    "script-actions",
     "script-includes",
     "security-rules",
     "setabortaction",
     "sys-user",
     "sys-user-group",
+    "sys-user-has-role",
+    "system-definition",
     "system-properties",
     "tables-dictionary",
     "task-table-hierarchy",
@@ -442,6 +488,7 @@
   "platform-operations": [
     "cloning",
     "debugging",
+    "devops-change-velocity",
     "discovery-troubleshooting",
     "ecc-queue",
     "gliderecord",
@@ -449,14 +496,17 @@
     "mid-server",
     "mid-server-capabilities",
     "notifications",
+    "performance-tuning",
     "portal-client-controller",
     "portal-server-script",
     "portal-widgets",
     "release-readiness",
     "setworkflow",
+    "slow-transactions",
     "source-control",
     "system-properties",
-    "update-sets"
+    "update-sets",
+    "upgrades"
   ],
   "policy-and-compliance": [
     "audit-management",
@@ -510,6 +560,7 @@
     "encoded-queries",
     "events",
     "gliderecord",
+    "graphql-or-rest",
     "mid-server",
     "notifications",
     "rest-api",
@@ -517,6 +568,7 @@
     "restmessagev2",
     "scripted-rest-api",
     "security-incident-tasks",
+    "soap-messages",
     "spokes",
     "threat-intelligence-enrichment"
   ],
@@ -531,30 +583,26 @@
     "script-includes",
     "vendor-risk"
   ],
-  "security-access": [
-    "acls",
-    "app-engine-studio",
-    "custom-app-tables",
-    "data-policies",
-    "flow-triggers",
+  "sam": [
+    "asset-ci-alignment",
+    "cmdb-tables",
+    "effective-license-position",
     "gliderecord",
-    "gliderecordsecure",
-    "hr-case-security",
-    "incident-table",
-    "roles-groups",
-    "security-rules",
-    "ui-policies"
-  ],
-  "security-incident-response": [
-    "glideaggregate",
-    "rest-api",
-    "security-incident-lifecycle",
-    "security-incident-response-topic",
-    "security-incident-tasks",
-    "security-incident-triage",
-    "threat-intelligence-enrichment",
-    "vulnerability-lifecycle",
-    "vulnerability-response-topic"
+    "hardware-assets",
+    "issue-management",
+    "license-metrics",
+    "license-optimization",
+    "model-categories",
+    "normalization",
+    "policy-exceptions",
+    "publisher-packs",
+    "reclamation",
+    "reports",
+    "software-entitlements",
+    "software-installations",
+    "software-models",
+    "software-normalization",
+    "software-reclamation"
   ],
   "secops": [
     "acls",
@@ -575,10 +623,43 @@
     "security-incident-tasks",
     "security-incident-triage",
     "security-rules",
+    "sir-lifecycle",
     "slas",
+    "threat-intel-indicators",
     "threat-intelligence-enrichment",
     "vulnerability-exceptions",
     "vulnerability-groups",
+    "vulnerability-lifecycle",
+    "vulnerability-response-topic"
+  ],
+  "security-access": [
+    "acls",
+    "app-engine-studio",
+    "current-previous",
+    "custom-app-tables",
+    "data-policies",
+    "domain-separation",
+    "flow-triggers",
+    "gliderecord",
+    "gliderecordsecure",
+    "gs-api",
+    "hr-case-security",
+    "impersonation",
+    "incident-table",
+    "roles-groups",
+    "security-rules",
+    "sys-user-has-role",
+    "ui-policies"
+  ],
+  "security-incident-response": [
+    "glideaggregate",
+    "rest-api",
+    "security-incident-lifecycle",
+    "security-incident-response-topic",
+    "security-incident-tasks",
+    "security-incident-triage",
+    "sir-lifecycle",
+    "threat-intelligence-enrichment",
     "vulnerability-lifecycle",
     "vulnerability-response-topic"
   ],
@@ -589,9 +670,12 @@
     "catalog-variables",
     "client-callable",
     "client-scripts",
+    "data-lookup-rules",
     "flow-triggers",
     "gform",
     "glideajax",
+    "mobile-actions",
+    "mobile-experiences",
     "order-guides",
     "record-producers",
     "reference-fields",
@@ -601,7 +685,8 @@
     "script-includes",
     "subflows-actions",
     "test-steps",
-    "ui-policies"
+    "ui-policies",
+    "variable-sets"
   ],
   "service-mapping": [
     "background-scripts",
@@ -610,7 +695,9 @@
     "credentials",
     "discovery-schedules",
     "mid-server",
-    "reference-fields"
+    "reference-fields",
+    "service-mapping-entry-points",
+    "service-maps"
   ],
   "service-operations-workspace": [
     "major-incident",
@@ -621,10 +708,12 @@
   ],
   "service-portal": [
     "debugging",
+    "jelly",
     "portal-client-controller",
     "portal-server-script",
     "portal-widgets",
     "ui-builder-components",
+    "ui-pages",
     "workspace-record-pages"
   ],
   "sla-management": [
@@ -644,26 +733,12 @@
     "task-sla",
     "task-slas"
   ],
-  "soap-integrations": [],
-  "sam": [
-    "asset-ci-alignment",
-    "cmdb-tables",
-    "effective-license-position",
-    "gliderecord",
-    "hardware-assets",
-    "issue-management",
-    "license-metrics",
-    "license-optimization",
-    "normalization",
-    "policy-exceptions",
-    "publisher-packs",
-    "reclamation",
-    "reports",
-    "software-entitlements",
-    "software-installations",
-    "software-models",
-    "software-normalization",
-    "software-reclamation"
+  "soap-integrations": [
+    "data-sources",
+    "import-set-runs",
+    "logs",
+    "rest-api-authentication",
+    "soap-messages"
   ],
   "software-compliance": [
     "effective-license-position",
@@ -681,9 +756,12 @@
     "release-readiness",
     "scoped-applications",
     "source-control",
-    "update-sets"
+    "update-sets",
+    "upgrades"
   ],
-  "threat-intelligence": [],
+  "threat-intelligence": [
+    "threat-intel-indicators"
+  ],
   "ui-builder": [
     "portal-widgets",
     "ui-builder-components",
@@ -692,9 +770,14 @@
   "vendor-risk-management": [
     "gliderecord",
     "reports-dashboards",
+    "third-party-risk",
     "vendor-risk"
   ],
-  "virtual-agent": [],
+  "virtual-agent": [
+    "data-pills",
+    "decision-tables",
+    "virtual-agent-topics"
+  ],
   "vulnerability-response": [
     "assignment-rules",
     "business-rules",

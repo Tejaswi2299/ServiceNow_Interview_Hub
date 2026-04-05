@@ -1,0 +1,194 @@
+[
+  {
+    "id": "wave6-soapmessagev2-execute-sample",
+    "slug": "soapmessagev2-execute-sample",
+    "title": "Execute a SOAPMessageV2 call from script",
+    "question": "Write a server-side script that executes a configured SOAP message and logs the status code.",
+    "summary": "Adds direct coding coverage for SOAP integrations.",
+    "roleIds": [
+      "integration-developer",
+      "platform-architect",
+      "servicenow-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "soap-integrations",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "soap-messages",
+      "logs"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "soapmessagev2",
+      "soap",
+      "integration"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Instantiate the configured SOAP message record, execute it, and log the HTTP status so you can validate connectivity before parsing the full payload.",
+    "steps": [
+      "Create the SOAP message and method first.",
+      "Open Scripts - Background or a Script Include test harness.",
+      "Execute the message.",
+      "Log the status and inspect the body if needed."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var sm = new sn_ws.SOAPMessageV2('Legacy ERP', 'GetOrderStatus');\nvar response = sm.execute();\ngs.info('SOAP status: ' + response.getStatusCode());"
+    },
+    "expectedOutput": [
+      "A log entry shows the SOAP response status code."
+    ],
+    "commonMistakes": [
+      "Executing a SOAP message before configuring auth and endpoint details."
+    ],
+    "explanation": [
+      "This is the fastest safe way to validate the transport before adding payload parsing."
+    ]
+  },
+  {
+    "id": "wave6-mobile-action-condition-script",
+    "slug": "mobile-action-condition-script",
+    "title": "Condition script for a mobile action",
+    "question": "Write a script condition that shows a mobile action only when the incident is active and assigned to the current user.",
+    "summary": "Adds coding coverage for the Mobile module.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "change-management-developer",
+      "change-manager"
+    ],
+    "moduleIds": [
+      "mobile",
+      "itsm"
+    ],
+    "topicIds": [
+      "mobile-actions"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "coding",
+    "tags": [
+      "mobile",
+      "condition",
+      "incident"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Use a short server-side condition that checks the active state and current assignee so the action only appears when it is contextually useful to the technician.",
+    "steps": [
+      "Open the mobile action configuration.",
+      "Place the logic in the condition script area.",
+      "Test with an assigned and unassigned active incident."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "answer = current.active == true && current.assigned_to == gs.getUserID();"
+    },
+    "expectedOutput": [
+      "The mobile action appears only for the assigned active incident context."
+    ],
+    "commonMistakes": [
+      "Using display values in a sys_id comparison."
+    ],
+    "explanation": [
+      "Small condition scripts keep mobile actions predictable and easy to support."
+    ]
+  },
+  {
+    "id": "wave6-virtual-agent-decision-output-script",
+    "slug": "virtual-agent-decision-output-script",
+    "title": "Prepare a simple decision output for Virtual Agent handoff",
+    "question": "Write a server-side snippet that returns a support queue label based on incident priority for a Virtual Agent decision.",
+    "summary": "Adds coding coverage for Virtual Agent related logic.",
+    "roleIds": [
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "virtual-agent",
+      "flow-designer"
+    ],
+    "topicIds": [
+      "virtual-agent-topics",
+      "decision-tables"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "virtual agent",
+      "decision",
+      "handoff"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "Return a simple string outcome that a Virtual Agent topic or flow can use to route the user toward the right handoff path.",
+    "steps": [
+      "Open Scripts - Background for a quick validation.",
+      "Paste the snippet with a sample priority variable.",
+      "Use the same idea in your Virtual Agent action or decision logic."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var priority = 1;\nvar queue = priority == 1 ? 'Major Incident Desk' : 'Service Desk';\ngs.info(queue);"
+    },
+    "expectedOutput": [
+      "Major Incident Desk"
+    ],
+    "commonMistakes": [
+      "Embedding large routing trees directly into a topic when a decision table would scale better."
+    ],
+    "explanation": [
+      "Keep chat-routing logic small unless it truly belongs in a reusable decision model."
+    ]
+  },
+  {
+    "id": "wave6-devops-deployment-window-check",
+    "slug": "devops-deployment-window-check",
+    "title": "Validate a deployment window before DevOps promotion",
+    "question": "Write a script that logs whether the current time is inside a permitted deployment window.",
+    "summary": "Adds coding coverage for DevOps and release governance.",
+    "roleIds": [
+      "cmdb-administrator",
+      "discovery-administrator",
+      "ham-analyst",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "devops",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "devops-change-velocity",
+      "upgrades"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "devops",
+      "deployment window"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Capture the current hour and compare it to the approved deployment window before allowing the promotion logic to continue.",
+    "steps": [
+      "Open Scripts - Background.",
+      "Run the check with your chosen time window.",
+      "Move the same pattern into gated promotion logic if needed."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "var hour = new GlideDateTime().getDisplayValueInternal().split(' ')[1].split(':')[0];\nvar allowed = parseInt(hour, 10) >= 20 || parseInt(hour, 10) < 2;\ngs.info('Deployment window open: ' + allowed);"
+    },
+    "expectedOutput": [
+      "Deployment window open: true or false"
+    ],
+    "commonMistakes": [
+      "Hardcoding promotion timing with no visible check or logging."
+    ],
+    "explanation": [
+      "Even a small gate improves governance when tied to release automation."
+    ]
+  }
+]

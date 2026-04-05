@@ -1,1 +1,155 @@
-[]
+[
+  {
+    "id": "data-pills-interview-explained",
+    "slug": "data-pills-interview-explained",
+    "title": "Data pills in Flow Designer",
+    "question": "What are data pills in Flow Designer?",
+    "summary": "Explains how data pills move record values between triggers, actions, and subflows.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "app-engine"
+    ],
+    "topicIds": [
+      "data-pills"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "flow designer",
+      "data pills"
+    ],
+    "relatedTables": [
+      "sys_hub_flow"
+    ],
+    "exactAnswer": "Data pills are the runtime values that Flow Designer exposes from the trigger, previous actions, and referenced records. They let you map data without manually scripting every field. In interviews, explain that data pills are how you pass context through a flow, but you still need to understand what each pill represents and when it is available.",
+    "keyPoints": [
+      "Data pills expose runtime values.",
+      "They are used to map inputs and outputs between actions.",
+      "Using the wrong pill can produce null or unexpected values at runtime."
+    ],
+    "examples": [
+      "Pass the triggering incident number into a notification or subflow input."
+    ]
+  },
+  {
+    "id": "decision-tables-interview-explained",
+    "slug": "decision-tables-interview-explained",
+    "title": "Decision Tables in automation design",
+    "question": "How do you explain Decision Tables in ServiceNow interviews?",
+    "summary": "Shows when declarative decision logic is better than nested scripted conditions.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "app-engine"
+    ],
+    "topicIds": [
+      "decision-tables"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "comparison",
+    "tags": [
+      "decision table",
+      "flow designer",
+      "logic"
+    ],
+    "relatedTables": [
+      "sys_decision"
+    ],
+    "exactAnswer": "Decision Tables let you externalize branching logic into conditions and outcomes that can be maintained without rewriting flow logic or script. In interviews, say they are useful when the business expects frequent rule changes and wants a clearer governance model than nested if/else conditions.",
+    "keyPoints": [
+      "Decision Tables separate decisions from flow orchestration.",
+      "They work well for maintainable business rules that change often.",
+      "They reduce duplicated branching logic across multiple flows."
+    ],
+    "examples": [
+      "Map priority and business unit to approval level using a table of outcomes."
+    ]
+  },
+  {
+    "id": "flow-spokes-interview-basics",
+    "slug": "flow-spokes-interview-basics",
+    "title": "Spokes in Flow Designer",
+    "question": "What is a spoke in Flow Designer?",
+    "summary": "Explains how spokes package reusable integration actions.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "spokes"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "spokes",
+      "flow designer",
+      "integrations"
+    ],
+    "relatedTables": [
+      "sys_hub_action_type_definition"
+    ],
+    "exactAnswer": "A spoke is a packaged set of Flow Designer actions for a specific system or business domain. It provides reusable actions such as create ticket, get record, or trigger event without rebuilding the same integration steps in every flow.",
+    "keyPoints": [
+      "Spokes package reusable actions.",
+      "They reduce repeated integration logic in flows.",
+      "Custom spokes are common in enterprise implementations."
+    ],
+    "examples": [
+      "A custom HR spoke for onboarding tasks."
+    ]
+  },
+  {
+    "id": "flow-error-handling-interview-basics",
+    "slug": "flow-error-handling-interview-basics",
+    "title": "Flow error handling basics",
+    "question": "How do you explain flow error handling in interviews?",
+    "summary": "Explains how to design recoverable and observable flow automation.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer"
+    ],
+    "topicIds": [
+      "flow-triggers"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "best-practice",
+    "tags": [
+      "flow designer",
+      "error handling"
+    ],
+    "relatedTables": [
+      "sys_hub_flow_context"
+    ],
+    "exactAnswer": "Flow error handling means designing branches, waits, notifications, and logging so a failed action does not silently stop business processing. In interviews, explain that you should capture errors, notify owners, and isolate retry logic instead of assuming every action will succeed on the first attempt.",
+    "keyPoints": [
+      "Flows need observable failures, not silent stops.",
+      "Retries and notifications should be deliberate.",
+      "Logging and context inspection are part of good supportability."
+    ],
+    "examples": [
+      "Send a support notification when an external API action fails."
+    ]
+  }
+]

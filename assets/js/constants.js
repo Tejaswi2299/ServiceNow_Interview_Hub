@@ -35,7 +35,8 @@ export const CONTENT_FILES = {
     'data/content/theory/wave2.json',
     'data/content/theory/wave3.json',
     'data/content/theory/wave4.json',
-    'data/content/theory/wave5.json'
+    'data/content/theory/wave5.json',
+    'data/content/theory/wave6-data-fix.json'
   ],
   coding: [
     'data/content/coding/business-rules.json',

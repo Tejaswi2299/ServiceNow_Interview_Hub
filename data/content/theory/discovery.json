@@ -1,1 +1,154 @@
-[]
+[
+  {
+    "id": "discovery-schedules-interview-explained",
+    "slug": "discovery-schedules-interview-explained",
+    "title": "Discovery schedules in interview scenarios",
+    "question": "How should you explain discovery schedules in a ServiceNow interview?",
+    "summary": "Covers how schedules scope IP ranges, credentials, and run cadence for infrastructure discovery.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "discovery-schedules"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "discovery",
+      "schedule",
+      "mid server"
+    ],
+    "relatedTables": [
+      "discovery_schedule"
+    ],
+    "exactAnswer": "A discovery schedule defines what network range to scan, when discovery runs, what behavior to use, and which MID Server executes the probes and patterns. In interviews, explain that schedules control scope, cadence, and operational load, so they must be designed carefully to avoid duplicate scans or missed assets.",
+    "keyPoints": [
+      "A schedule defines targets, timing, and behavior.",
+      "Schedules should align to credential coverage and MID availability.",
+      "Poor schedule design can cause duplicate CI updates or unnecessary load."
+    ],
+    "examples": [
+      "Daily server subnet discovery from a dedicated MID Server."
+    ]
+  },
+  {
+    "id": "mid-server-capabilities-explained",
+    "slug": "mid-server-capabilities-explained",
+    "title": "MID Server capabilities",
+    "question": "What do you say about MID Server capabilities in Discovery interviews?",
+    "summary": "Explains capability matching, network placement, and why the right MID Server matters.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "mid-server-capabilities"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "mid server",
+      "capabilities",
+      "discovery"
+    ],
+    "relatedTables": [
+      "ecc_agent"
+    ],
+    "exactAnswer": "MID Server capabilities are labels used to route work to the correct MID Server. They let Discovery, integrations, or orchestration activities choose a MID Server that sits in the right network zone or has the right tooling. The point is controlled routing instead of randomly sending all work to every MID Server.",
+    "keyPoints": [
+      "Capabilities help route work to the right MID Server.",
+      "They are useful for segmented networks or specialized tool access.",
+      "They improve control and reduce failed executions in the wrong zone."
+    ],
+    "examples": [
+      "Use a Linux capability for a MID that can reach a secured subnet."
+    ]
+  },
+  {
+    "id": "pattern-designer-interview-basics",
+    "slug": "pattern-designer-interview-basics",
+    "title": "Pattern Designer basics",
+    "question": "How do you explain Pattern Designer in Discovery?",
+    "summary": "Explains why patterns replaced older probe-heavy customization for many discovery cases.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "pattern-designer"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "patterns",
+      "discovery",
+      "itom"
+    ],
+    "relatedTables": [
+      "sa_pattern"
+    ],
+    "exactAnswer": "Pattern Designer is used to model how Discovery identifies and explores a technology stack in a structured, step-driven way. In interviews, explain that patterns are preferred for modern customization because they are easier to read, govern, and update than large custom probe-and-sensor logic.",
+    "keyPoints": [
+      "Patterns provide structured discovery logic.",
+      "They are easier to maintain than ad hoc probe customizations.",
+      "They support identification, exploration, and relationship population."
+    ],
+    "examples": [
+      "Custom pattern for a proprietary middleware product."
+    ]
+  },
+  {
+    "id": "ecc-queue-interview-basics",
+    "slug": "ecc-queue-interview-basics",
+    "title": "ECC Queue in Discovery troubleshooting",
+    "question": "Why is ECC Queue important in Discovery troubleshooting?",
+    "summary": "Highlights the transaction layer between the instance and the MID Server.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "ecc-queue"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "troubleshooting",
+    "tags": [
+      "ecc queue",
+      "mid server",
+      "troubleshooting"
+    ],
+    "relatedTables": [
+      "ecc_queue"
+    ],
+    "exactAnswer": "ECC Queue is the message bus between the ServiceNow instance and the MID Server. Discovery commands, payloads, and responses flow through it. In troubleshooting, you inspect ECC Queue to see whether commands were generated, whether the MID picked them up, and whether responses came back or failed.",
+    "keyPoints": [
+      "ECC Queue shows request and response flow.",
+      "It helps separate instance-side issues from MID-side issues.",
+      "A stuck or errored ECC item is a core discovery troubleshooting clue."
+    ],
+    "examples": [
+      "Command created but never picked up by the MID Server."
+    ]
+  }
+]

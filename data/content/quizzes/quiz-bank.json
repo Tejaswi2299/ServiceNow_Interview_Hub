@@ -6187,5 +6187,1100 @@
       "use-case",
       "SAM"
     ]
+  },
+  {
+    "id": "quiz-discovery-schedules-interview-explained",
+    "question": "How should you explain discovery schedules in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "A discovery schedule defines what network range to scan, when discovery runs, what behavior to use, and which MID Server executes the probes and patterns. In interviews, explain that schedules control scope, cadence, and operational load, so they must be designed carefully to avoid duplicate scans or missed assets.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Covers how schedules scope IP ranges, credentials, and run cadence for infrastructure discovery.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "discovery-schedules"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "discovery",
+      "schedule",
+      "mid server"
+    ]
+  },
+  {
+    "id": "quiz-mid-server-capabilities-explained",
+    "question": "What do you say about MID Server capabilities in Discovery interviews?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "MID Server capabilities are labels used to route work to the correct MID Server. They let Discovery, integrations, or orchestration activities choose a MID Server that sits in the right network zone or has the right tooling. The point is controlled routing instead of randomly sending all work to every MID Server.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains capability matching, network placement, and why the right MID Server matters.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "mid-server-capabilities"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "mid server",
+      "capabilities",
+      "discovery"
+    ]
+  },
+  {
+    "id": "quiz-pattern-designer-interview-basics",
+    "question": "How do you explain Pattern Designer in Discovery?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Pattern Designer is used to model how Discovery identifies and explores a technology stack in a structured, step-driven way. In interviews, explain that patterns are preferred for modern customization because they are easier to read, govern, and update than large custom probe-and-sensor logic.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains why patterns replaced older probe-heavy customization for many discovery cases.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "pattern-designer"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "patterns",
+      "discovery",
+      "itom"
+    ]
+  },
+  {
+    "id": "quiz-ecc-queue-interview-basics",
+    "question": "Why is ECC Queue important in Discovery troubleshooting?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "ECC Queue is the message bus between the ServiceNow instance and the MID Server. Discovery commands, payloads, and responses flow through it. In troubleshooting, you inspect ECC Queue to see whether commands were generated, whether the MID picked them up, and whether responses came back or failed.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Highlights the transaction layer between the instance and the MID Server.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "discovery"
+    ],
+    "topicIds": [
+      "ecc-queue"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "ecc queue",
+      "mid server",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "quiz-data-pills-interview-explained",
+    "question": "What are data pills in Flow Designer?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Data pills are the runtime values that Flow Designer exposes from the trigger, previous actions, and referenced records. They let you map data without manually scripting every field. In interviews, explain that data pills are how you pass context through a flow, but you still need to understand what each pill represents and when it is available.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how data pills move record values between triggers, actions, and subflows.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "app-engine"
+    ],
+    "topicIds": [
+      "data-pills"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "flow designer",
+      "data pills"
+    ]
+  },
+  {
+    "id": "quiz-decision-tables-interview-explained",
+    "question": "How do you explain Decision Tables in ServiceNow interviews?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Decision Tables let you externalize branching logic into conditions and outcomes that can be maintained without rewriting flow logic or script. In interviews, say they are useful when the business expects frequent rule changes and wants a clearer governance model than nested if/else conditions.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Shows when declarative decision logic is better than nested scripted conditions.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "app-engine"
+    ],
+    "topicIds": [
+      "decision-tables"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "decision table",
+      "flow designer",
+      "logic"
+    ]
+  },
+  {
+    "id": "quiz-flow-spokes-interview-basics",
+    "question": "What is a spoke in Flow Designer?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "A spoke is a packaged set of Flow Designer actions for a specific system or business domain. It provides reusable actions such as create ticket, get record, or trigger event without rebuilding the same integration steps in every flow.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how spokes package reusable integration actions.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "spokes"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "spokes",
+      "flow designer",
+      "integrations"
+    ]
+  },
+  {
+    "id": "quiz-flow-error-handling-interview-basics",
+    "question": "How do you explain flow error handling in interviews?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Flow error handling means designing branches, waits, notifications, and logging so a failed action does not silently stop business processing. In interviews, explain that you should capture errors, notify owners, and isolate retry logic instead of assuming every action will succeed on the first attempt.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how to design recoverable and observable flow automation.",
+    "roleIds": [
+      "app-engine-developer",
+      "business-analyst",
+      "change-management-developer",
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "flow-designer"
+    ],
+    "topicIds": [
+      "flow-triggers"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "flow designer",
+      "error handling"
+    ]
+  },
+  {
+    "id": "quiz-audit-plans-interview-explained",
+    "question": "What are audit plans in ServiceNow GRC?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "An audit plan is the controlled structure used to define what will be audited, when the work will occur, what controls or entities are in scope, and how evidence will be collected. In interviews, position audit plans as the operating model for repeatable audit execution rather than one-off checklist work.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how audit plans organize scope, timing, and evidence activities.",
+    "roleIds": [
+      "audit-developer",
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "grc"
+    ],
+    "topicIds": [
+      "audit-plans"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "audit",
+      "grc"
+    ]
+  },
+  {
+    "id": "quiz-risk-register-interview-basics",
+    "question": "How do you explain the risk register in a GRC interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "The risk register is the working inventory of documented risks, their impact, likelihood, ownership, and treatment status. A strong interview answer explains that the value is not only recording risk, but routing it into assessment, mitigation, exception, or acceptance workflows.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Shows how risk records become actionable governance items.",
+    "roleIds": [
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "risk-management"
+    ],
+    "topicIds": [
+      "risk-statements"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "grc",
+      "risk"
+    ]
+  },
+  {
+    "id": "quiz-policy-exception-governance-basics",
+    "question": "Why are policy exceptions important in GRC implementations?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Policy exceptions let the business document an approved deviation from a control or policy requirement for a defined period. In interviews, explain that exceptions need owner approval, justification, expiry, and review tracking so they do not become permanent hidden non-compliance.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains temporary non-compliance handling with approvals and review dates.",
+    "roleIds": [
+      "audit-developer",
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "policy-and-compliance"
+    ],
+    "topicIds": [
+      "policy-exceptions"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "policy exception",
+      "grc"
+    ]
+  },
+  {
+    "id": "quiz-vendor-risk-intake-basics",
+    "question": "How do you describe vendor risk intake in GRC?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Vendor risk intake is the controlled process of onboarding a third party into review workflows so the organization can evaluate security, compliance, continuity, and data-handling risk before or during engagement.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Describes how third-party reviews start and move into questionnaires and remediation.",
+    "roleIds": [
+      "governance-risk-analyst"
+    ],
+    "moduleIds": [
+      "vendor-risk-management"
+    ],
+    "topicIds": [
+      "third-party-risk"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "third party risk",
+      "vendor risk"
+    ]
+  },
+  {
+    "id": "quiz-threat-indicators-interview-explained",
+    "question": "What are threat indicators and how would you explain them in a SecOps interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Threat indicators are observables such as hashes, IP addresses, URLs, or domains that represent potentially malicious activity. In interviews, explain that raw indicators are only useful when they are normalized, sourced, scored, de-duplicated, and connected to cases or detections in a governed way.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains why indicators must be normalized, scored, and tied to investigations carefully.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "threat-intelligence"
+    ],
+    "topicIds": [
+      "threat-intel-indicators"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "threat intelligence",
+      "indicator",
+      "secops"
+    ]
+  },
+  {
+    "id": "quiz-security-case-handoff-basics",
+    "question": "How do you explain case handoff in SecOps?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Security case handoff is the process of routing alerts, enriched indicators, or correlation results into a case or incident workflow that analysts can triage and escalate consistently. The interview-ready point is that detection without operational handoff creates noise, while governed handoff creates measurable response work.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains routing detections into repeatable analyst workflows.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "security-incident-response"
+    ],
+    "topicIds": [
+      "sir-lifecycle"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "secops",
+      "sir",
+      "case management"
+    ]
+  },
+  {
+    "id": "quiz-vulnerability-grouping-basics",
+    "question": "Why do vulnerability groups matter in SecOps?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Vulnerability groups consolidate related vulnerable items into a manageable remediation work unit. In interviews, explain that grouping helps teams assign ownership, reduce ticket noise, and prioritize remediation around a system, owner, or campaign instead of treating every finding in isolation.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains why grouping keeps remediation work actionable.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "vulnerability-response"
+    ],
+    "topicIds": [
+      "vulnerability-groups"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "vulnerability",
+      "grouping"
+    ]
+  },
+  {
+    "id": "quiz-secops-prioritization-basics",
+    "question": "How do you explain prioritization in SecOps implementations?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "A good SecOps implementation prioritizes not only by technical severity, but also by confidence, exploitability, business criticality, asset exposure, and whether there is meaningful threat context attached.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Shows how severity, confidence, business context, and exposure combine in triage.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "secops"
+    ],
+    "topicIds": [
+      "threat-intel-indicators"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "secops",
+      "prioritization"
+    ]
+  },
+  {
+    "id": "quiz-model-categories-interview-explained",
+    "question": "What are model categories and why do they matter?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Model categories classify models into standardized business groupings such as laptop, monitor, server, or mobile device. In interviews, explain that categories are important because they improve reporting, lifecycle policy application, and consistency across procurement and stockroom processes.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how model categories drive standardization for hardware and software assets.",
+    "roleIds": [
+      "asset-manager",
+      "ham-analyst",
+      "ham-developer",
+      "itam-developer"
+    ],
+    "moduleIds": [
+      "ham",
+      "itam",
+      "sam"
+    ],
+    "topicIds": [
+      "model-categories"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "model category",
+      "asset management"
+    ]
+  },
+  {
+    "id": "quiz-software-normalization-interview-explained",
+    "question": "How would you explain software normalization in a SAM interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Software normalization is the process of converting raw discovery install data into standardized publishers, products, and versions that can be used for entitlement reconciliation and compliance analysis. Without normalization, effective license position is unreliable.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how raw installs become governed software records and publishers.",
+    "roleIds": [
+      "itam-developer",
+      "license-compliance-analyst",
+      "sam-analyst",
+      "sam-developer"
+    ],
+    "moduleIds": [
+      "sam"
+    ],
+    "topicIds": [
+      "software-normalization"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "sam",
+      "normalization"
+    ]
+  },
+  {
+    "id": "quiz-asset-stockrooms-interview-explained",
+    "question": "What is the role of stockrooms in HAM?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Stockrooms represent controlled inventory locations for receiving, storing, transferring, and issuing assets. In interviews, explain that stockrooms matter because they create accountable custody and make inventory movement visible before assets are assigned to end users.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how stockrooms control receiving, transfers, and deployable inventory.",
+    "roleIds": [
+      "asset-manager",
+      "ham-analyst",
+      "ham-developer",
+      "itam-developer"
+    ],
+    "moduleIds": [
+      "ham",
+      "asset-management"
+    ],
+    "topicIds": [
+      "asset-stockrooms"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "stockroom",
+      "ham"
+    ]
+  },
+  {
+    "id": "quiz-effective-license-position-basics",
+    "question": "How do you explain effective license position in SAM?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Effective license position is the reconciled compliance view that compares discovered software consumption to owned entitlements and license rules. In interviews, explain that ELP is where normalization, product mapping, and entitlement quality finally turn into a compliance answer.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Explains how installs and entitlements are reconciled into a compliance view.",
+    "roleIds": [
+      "itam-developer",
+      "license-compliance-analyst",
+      "sam-analyst",
+      "sam-developer"
+    ],
+    "moduleIds": [
+      "sam"
+    ],
+    "topicIds": [
+      "effective-license-position"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "sam",
+      "elp"
+    ]
+  },
+  {
+    "id": "quiz-application-menu-modules-interview-explained",
+    "question": "How do you explain Application Menus and Modules in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Application menus organize the left navigation into logical application areas, while modules are the individual navigator entries inside those menus. In interviews, explain that modules are just entry points into lists, forms, pages, maps, reports, or scripted destinations, so naming and audience clarity matter.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Application Menus and Modules topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "app-engine",
+      "platform-core"
+    ],
+    "topicIds": [
+      "application-menu-modules"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "application menus and modules",
+      "interview prep",
+      "development"
+    ]
+  },
+  {
+    "id": "quiz-choice-lists-interview-explained",
+    "question": "What should you know about Choice Lists?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Choice lists define controlled values for a field so data entry stays consistent and reporting stays reliable. A strong interview answer mentions that choices can be dictionary-based, localized, environment-specific, and should be governed so teams do not create inconsistent state or category values over time.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Choice Lists topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "choice-lists"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "choice lists",
+      "interview prep",
+      "data model"
+    ]
+  },
+  {
+    "id": "quiz-cmdb-class-manager-interview-explained",
+    "question": "How do you explain Class Manager in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Class Manager should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Class Manager topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "cmdb"
+    ],
+    "topicIds": [
+      "cmdb-class-manager"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "class manager",
+      "interview prep",
+      "cmdb"
+    ]
+  },
+  {
+    "id": "quiz-csm-case-management-interview-explained",
+    "question": "How do you explain CSM Case Management in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "CSM Case Management should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the CSM Case Management topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "csm-developer"
+    ],
+    "moduleIds": [
+      "csm"
+    ],
+    "topicIds": [
+      "csm-case-management"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "csm case management",
+      "interview prep",
+      "csm"
+    ]
+  },
+  {
+    "id": "quiz-dashboards-interview-explained",
+    "question": "How do you explain Dashboards in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Dashboards should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Dashboards topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "pa-developer"
+    ],
+    "moduleIds": [
+      "performance-analytics"
+    ],
+    "topicIds": [
+      "dashboards"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "dashboards",
+      "interview prep",
+      "analytics"
+    ]
+  },
+  {
+    "id": "quiz-data-lookup-rules-interview-explained",
+    "question": "How do you explain Data Lookup Rules in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Data Lookup Rules should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Data Lookup Rules topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "csm-developer",
+      "employee-center-developer"
+    ],
+    "moduleIds": [
+      "service-catalog"
+    ],
+    "topicIds": [
+      "data-lookup-rules"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "data lookup rules",
+      "interview prep",
+      "platform"
+    ]
+  },
+  {
+    "id": "quiz-devops-change-velocity-interview-explained",
+    "question": "How do you explain DevOps Change Velocity in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "DevOps Change Velocity should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the DevOps Change Velocity topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "devops"
+    ],
+    "topicIds": [
+      "devops-change-velocity"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "devops change velocity",
+      "interview prep",
+      "devops"
+    ]
+  },
+  {
+    "id": "quiz-display-values-interview-explained",
+    "question": "What should you know about Display Values?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Display values are the user-friendly values shown for reference or choice fields, while the platform often stores sys_ids or internal values underneath. In interviews, explain that confusion between stored values and display values is a common cause of integration and scripting bugs.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Display Values topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "display-values"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "display values",
+      "interview prep",
+      "data model"
+    ]
+  },
+  {
+    "id": "quiz-domain-separation-interview-explained",
+    "question": "How do you explain Domain Separation from a platform security perspective?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Domain separation partitions data and configuration so multiple business units or customers can operate on one instance with controlled visibility. A strong answer should mention data isolation, scoped administration, and the additional complexity it adds to design and support.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Domain Separation topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "hrsd-developer",
+      "platform-architect",
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "domain-separation"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "domain separation",
+      "interview prep",
+      "security"
+    ]
+  },
+  {
+    "id": "quiz-entry-points-interview-explained",
+    "question": "How do you explain Entry Points in a ServiceNow interview?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Entry Points should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coverage for the Entry Points topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "mobile-developer"
+    ],
+    "moduleIds": [
+      "mobile"
+    ],
+    "topicIds": [
+      "entry-points"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "entry points",
+      "interview prep",
+      "service mapping"
+    ]
+  },
+  {
+    "id": "quiz-soapmessagev2-execute-sample",
+    "question": "Write a server-side script that executes a configured SOAP message and logs the status code.",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Instantiate the configured SOAP message record, execute it, and log the HTTP status so you can validate connectivity before parsing the full payload.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct coding coverage for SOAP integrations.",
+    "roleIds": [
+      "integration-developer",
+      "platform-architect",
+      "servicenow-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "soap-integrations",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "soap-messages",
+      "logs"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "soapmessagev2",
+      "soap",
+      "integration"
+    ]
+  },
+  {
+    "id": "quiz-mobile-action-condition-script",
+    "question": "Write a script condition that shows a mobile action only when the incident is active and assigned to the current user.",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Use a short server-side condition that checks the active state and current assignee so the action only appears when it is contextually useful to the technician.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds coding coverage for the Mobile module.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "change-management-developer",
+      "change-manager"
+    ],
+    "moduleIds": [
+      "mobile",
+      "itsm"
+    ],
+    "topicIds": [
+      "mobile-actions"
+    ],
+    "difficulty": "Beginner",
+    "tags": [
+      "mobile",
+      "condition",
+      "incident"
+    ]
+  },
+  {
+    "id": "quiz-virtual-agent-decision-output-script",
+    "question": "Write a server-side snippet that returns a support queue label based on incident priority for a Virtual Agent decision.",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Return a simple string outcome that a Virtual Agent topic or flow can use to route the user toward the right handoff path.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds coding coverage for Virtual Agent related logic.",
+    "roleIds": [
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "virtual-agent",
+      "flow-designer"
+    ],
+    "topicIds": [
+      "virtual-agent-topics",
+      "decision-tables"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "virtual agent",
+      "decision",
+      "handoff"
+    ]
+  },
+  {
+    "id": "quiz-devops-deployment-window-check",
+    "question": "Write a script that logs whether the current time is inside a permitted deployment window.",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Capture the current hour and compare it to the approved deployment window before allowing the promotion logic to continue.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds coding coverage for DevOps and release governance.",
+    "roleIds": [
+      "cmdb-administrator",
+      "discovery-administrator",
+      "ham-analyst",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "devops",
+      "platform-operations"
+    ],
+    "topicIds": [
+      "devops-change-velocity",
+      "upgrades"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "devops",
+      "deployment window"
+    ]
+  },
+  {
+    "id": "quiz-mobile-experience-for-approvals",
+    "question": "How do you implement a mobile experience for managers who approve requests from their phone?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Design a mobile experience that opens the manager to the approval worklist, shows only the key request context, and exposes focused approve or reject actions guarded by role and assignment conditions.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct use-case coverage for the Mobile module.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "csm-developer",
+      "employee-center-developer"
+    ],
+    "moduleIds": [
+      "mobile",
+      "service-catalog"
+    ],
+    "topicIds": [
+      "mobile-experiences",
+      "mobile-actions"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "mobile",
+      "approvals"
+    ]
+  },
+  {
+    "id": "quiz-virtual-agent-topic-with-live-handoff",
+    "question": "How do you implement a Virtual Agent topic that resolves simple issues but hands off complex ones to an agent?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Build the topic to collect the minimum inputs, resolve the known self-service path when possible, and hand off only when the conversation hits a decision point that requires a human queue with the collected context attached.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct use-case coverage for the Virtual Agent module.",
+    "roleIds": [
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "virtual-agent"
+    ],
+    "topicIds": [
+      "virtual-agent-topics",
+      "decision-tables"
+    ],
+    "difficulty": "Intermediate",
+    "tags": [
+      "virtual agent",
+      "handoff"
+    ]
+  },
+  {
+    "id": "quiz-devops-change-governance",
+    "question": "How do you implement DevOps integration without losing change governance?",
+    "choices": [
+      "It is mainly cosmetic and does not materially affect implementation or support outcomes.",
+      "Integrate the pipeline so deployment metadata can create or update the right change records, apply approval or standard change logic where appropriate, and maintain an auditable record of what was deployed and when.",
+      "It should usually be avoided because ServiceNow does not support it in enterprise implementations.",
+      "It only matters during cloning and does not affect day-to-day platform behavior."
+    ],
+    "answerIndex": 1,
+    "explanation": "Adds direct use-case coverage for the DevOps module.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "change-management-developer",
+      "change-manager"
+    ],
+    "moduleIds": [
+      "devops",
+      "itsm"
+    ],
+    "topicIds": [
+      "devops-change-velocity",
+      "change-conflict-detection"
+    ],
+    "difficulty": "Advanced",
+    "tags": [
+      "devops",
+      "change governance"
+    ]
   }
 ]

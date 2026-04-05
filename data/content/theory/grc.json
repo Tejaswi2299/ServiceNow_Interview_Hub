@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "id": "audit-plans-interview-explained",
+    "slug": "audit-plans-interview-explained",
+    "title": "Audit plans in GRC",
+    "question": "What are audit plans in ServiceNow GRC?",
+    "summary": "Explains how audit plans organize scope, timing, and evidence activities.",
+    "roleIds": [
+      "audit-developer",
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "grc"
+    ],
+    "topicIds": [
+      "audit-plans"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "audit",
+      "grc"
+    ],
+    "relatedTables": [
+      "sn_audit_engagement"
+    ],
+    "exactAnswer": "An audit plan is the controlled structure used to define what will be audited, when the work will occur, what controls or entities are in scope, and how evidence will be collected. In interviews, position audit plans as the operating model for repeatable audit execution rather than one-off checklist work.",
+    "keyPoints": [
+      "Audit plans define scope, timing, and ownership.",
+      "They support repeatable audit execution.",
+      "They help link evidence, findings, and remediation work."
+    ],
+    "examples": [
+      "Quarterly control testing plan for a finance domain."
+    ]
+  },
+  {
+    "id": "risk-register-interview-basics",
+    "slug": "risk-register-interview-basics",
+    "title": "Risk register basics",
+    "question": "How do you explain the risk register in a GRC interview?",
+    "summary": "Shows how risk records become actionable governance items.",
+    "roleIds": [
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "risk-management"
+    ],
+    "topicIds": [
+      "risk-statements"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "grc",
+      "risk"
+    ],
+    "relatedTables": [
+      "sn_risk_risk"
+    ],
+    "exactAnswer": "The risk register is the working inventory of documented risks, their impact, likelihood, ownership, and treatment status. A strong interview answer explains that the value is not only recording risk, but routing it into assessment, mitigation, exception, or acceptance workflows.",
+    "keyPoints": [
+      "The register centralizes risk ownership and status.",
+      "It supports assessment and treatment workflows.",
+      "It gives leadership a governed view of exposure."
+    ],
+    "examples": [
+      "Operational risk registered with mitigation tasks and review dates."
+    ]
+  },
+  {
+    "id": "policy-exception-governance-basics",
+    "slug": "policy-exception-governance-basics",
+    "title": "Policy exception governance",
+    "question": "Why are policy exceptions important in GRC implementations?",
+    "summary": "Explains temporary non-compliance handling with approvals and review dates.",
+    "roleIds": [
+      "audit-developer",
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "policy-and-compliance"
+    ],
+    "topicIds": [
+      "policy-exceptions"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "policy exception",
+      "grc"
+    ],
+    "relatedTables": [
+      "sn_compliance_exception"
+    ],
+    "exactAnswer": "Policy exceptions let the business document an approved deviation from a control or policy requirement for a defined period. In interviews, explain that exceptions need owner approval, justification, expiry, and review tracking so they do not become permanent hidden non-compliance.",
+    "keyPoints": [
+      "Exceptions must be approved and time-bound.",
+      "They should not replace remediation planning.",
+      "Expiry and review dates are key governance controls."
+    ],
+    "examples": [
+      "Temporary exception for a legacy server that cannot meet a hardening deadline."
+    ]
+  },
+  {
+    "id": "vendor-risk-intake-basics",
+    "slug": "vendor-risk-intake-basics",
+    "title": "Vendor risk intake basics",
+    "question": "How do you describe vendor risk intake in GRC?",
+    "summary": "Describes how third-party reviews start and move into questionnaires and remediation.",
+    "roleIds": [
+      "governance-risk-analyst"
+    ],
+    "moduleIds": [
+      "vendor-risk-management"
+    ],
+    "topicIds": [
+      "third-party-risk"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "third party risk",
+      "vendor risk"
+    ],
+    "relatedTables": [
+      "sn_vdr_risk_assessment"
+    ],
+    "exactAnswer": "Vendor risk intake is the controlled process of onboarding a third party into review workflows so the organization can evaluate security, compliance, continuity, and data-handling risk before or during engagement.",
+    "keyPoints": [
+      "Intake creates a governed entry point for third-party review.",
+      "Questionnaires and evidence requests usually follow intake.",
+      "Results should feed remediation or exception workflows."
+    ],
+    "examples": [
+      "Security questionnaire required before purchasing a SaaS platform."
+    ]
+  }
+]

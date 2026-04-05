@@ -1,1 +1,166 @@
-[]
+[
+  {
+    "id": "usecase-threat-feed-onboarding",
+    "slug": "threat-feed-onboarding",
+    "title": "Onboard a threat intelligence feed",
+    "question": "How do you onboard a new threat intelligence feed into ServiceNow?",
+    "summary": "Step-by-step feed intake and indicator governance flow.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer",
+      "threat-intelligence-developer"
+    ],
+    "moduleIds": [
+      "threat-intelligence",
+      "secops"
+    ],
+    "topicIds": [
+      "threat-intel-indicators"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "threat intelligence",
+      "feed",
+      "indicators"
+    ],
+    "relatedTables": [
+      "sn_ti_observable"
+    ],
+    "scenario": "Security leadership wants a new vendor feed imported and usable by analysts without creating noisy duplicates.",
+    "exactAnswer": "Define the feed source, normalize the indicator fields, deduplicate incoming observables, apply confidence or severity metadata, and validate that the indicators enrich downstream investigations cleanly.",
+    "navigationPath": [
+      "All > Threat Intelligence > Indicators",
+      "All > Integrations"
+    ],
+    "steps": [
+      "Review the feed schema and indicator types.",
+      "Map external fields to the target indicator model.",
+      "Add de-duplication and confidence handling.",
+      "Test a sample load and analyst review experience.",
+      "Confirm downstream enrichment works as expected."
+    ],
+    "involvedArtifacts": [
+      "Threat Feed Integration",
+      "Indicator Record",
+      "Enrichment Logic"
+    ],
+    "validationChecklist": [
+      "Indicators are deduplicated.",
+      "Confidence metadata is captured.",
+      "Analysts see usable enrichment."
+    ],
+    "commonMistakes": [
+      "Loading every raw indicator without normalization or retention rules."
+    ]
+  },
+  {
+    "id": "usecase-security-alert-to-incident",
+    "slug": "security-alert-to-incident",
+    "title": "Convert a high-confidence alert into a security incident",
+    "question": "How do you implement the handoff from a high-confidence security alert into a security incident workflow?",
+    "summary": "Operational design for controlled alert-to-incident routing.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "security-incident-response"
+    ],
+    "topicIds": [
+      "sir-lifecycle"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "sir",
+      "secops",
+      "incident"
+    ],
+    "relatedTables": [
+      "sn_si_incident"
+    ],
+    "scenario": "The SOC wants only high-confidence alerts to create formal security incidents with enrichment attached.",
+    "exactAnswer": "Filter alert inputs, enrich them with context, create the incident only when the confidence threshold is met, assign ownership, and map the created record to the incident response lifecycle.",
+    "navigationPath": [
+      "All > Security Incident Response > Incidents",
+      "All > Event Management / SecOps Alerts"
+    ],
+    "steps": [
+      "Define the high-confidence threshold and source criteria.",
+      "Attach enrichment before record creation.",
+      "Create the security incident only when the threshold is met.",
+      "Assign the record to the correct analyst queue.",
+      "Validate state transitions and analyst workflow."
+    ],
+    "involvedArtifacts": [
+      "Alert Source",
+      "Security Incident",
+      "Assignment Rule"
+    ],
+    "validationChecklist": [
+      "Only high-confidence alerts create incidents.",
+      "The created incident includes context and owner assignment."
+    ],
+    "commonMistakes": [
+      "Creating incidents from every alert without triage logic."
+    ]
+  },
+  {
+    "id": "usecase-vulnerability-group-remediation",
+    "slug": "vulnerability-group-remediation",
+    "title": "Use vulnerability groups for remediation ownership",
+    "question": "How do you implement vulnerability grouping so remediation teams receive actionable work?",
+    "summary": "Grouping design for vulnerability ownership and remediation tracking.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "vulnerability-response",
+      "secops"
+    ],
+    "topicIds": [
+      "vulnerability-groups"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "vulnerability",
+      "grouping",
+      "remediation"
+    ],
+    "relatedTables": [
+      "sn_vul_group"
+    ],
+    "scenario": "The vulnerability team receives too many individual findings and wants grouped remediation work by application or owner.",
+    "exactAnswer": "Define grouping criteria such as assignment group, CI owner, or application, then create remediation work from the group level instead of from every vulnerable item individually.",
+    "navigationPath": [
+      "All > Vulnerability Response > Vulnerability Groups"
+    ],
+    "steps": [
+      "Define grouping logic that matches remediation ownership.",
+      "Validate the groups produced from sample findings.",
+      "Route the group to the remediation owner.",
+      "Track closure at the group and item levels."
+    ],
+    "involvedArtifacts": [
+      "Vulnerability Group",
+      "Remediation Task"
+    ],
+    "validationChecklist": [
+      "Groups align to real ownership boundaries.",
+      "Remediation teams receive fewer, more actionable work items."
+    ],
+    "commonMistakes": [
+      "Grouping findings in a way that crosses too many owners."
+    ]
+  }
+]

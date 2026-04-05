@@ -6,11 +6,11 @@
     "ham-stockroom-transfer-process",
     "implement-stockroom-transfer-process"
   ],
-  "audit-management": [
-    "grc-control-attestation-reminders"
-  ],
   "atf": [
     "atf-catalog-test"
+  ],
+  "audit-management": [
+    "grc-control-attestation-reminders"
   ],
   "change-management": [
     "implement-change-blackout-enforcement",
@@ -44,7 +44,11 @@
     "resolve-cmdb-duplicates-with-ire"
   ],
   "csm": [
-    "ui-builder-workspace-page"
+    "ui-builder-workspace-page",
+    "wave6-csm-case-routing"
+  ],
+  "devops": [
+    "wave6-devops-change-governance"
   ],
   "discovery": [
     "cloud-discovery-onboarding-governance",
@@ -57,13 +61,17 @@
     "mid-server-not-validated-troubleshoot",
     "prevent-duplicate-cis-on-import",
     "prevent-duplicate-cis-with-ire",
-    "prevent-duplicate-cis-with-ire-ruleset"
+    "prevent-duplicate-cis-with-ire-ruleset",
+    "usecase-discovery-schedule-by-network-zone",
+    "usecase-mid-server-health-review",
+    "usecase-pattern-debugging-for-missed-ci"
   ],
   "discovery-patterns": [
     "design-discovery-pattern-troubleshooting-flow",
     "discovery-pattern-ecc-triage",
     "mid-server-not-validated-troubleshoot"
   ],
+  "employee-center": [],
   "event-management": [
     "event-management-alert-routing"
   ],
@@ -78,7 +86,8 @@
     "implement-policy-exception-lifecycle",
     "policy-exception-approval-model",
     "risk-assessment-workflow-design",
-    "unauthorized-software-exception-process"
+    "unauthorized-software-exception-process",
+    "usecase-build-audit-evidence-flow"
   ],
   "ham": [
     "asset-to-ci-sync-model",
@@ -103,7 +112,10 @@
   ],
   "integrationhub": [
     "outbound-rest-incident-sync",
-    "resolve-cmdb-duplicates-with-ire"
+    "resolve-cmdb-duplicates-with-ire",
+    "usecase-import-source-validation",
+    "usecase-rest-to-soap-fallback-design",
+    "usecase-soap-wsdl-to-message-setup"
   ],
   "itam": [
     "ham-stockroom-reconciliation-process",
@@ -128,11 +140,16 @@
     "p1-incident-escalation",
     "prevent-sla-duplication-on-reopen",
     "repair-sla-after-priority-change",
-    "service-operations-workspace-major-incident-view"
+    "service-operations-workspace-major-incident-view",
+    "wave6-devops-change-governance"
   ],
+  "knowledge-management": [],
   "major-incident-management": [
     "design-major-incident-governance",
     "major-incident-war-room-process"
+  ],
+  "mobile": [
+    "wave6-mobile-experience-for-approvals"
   ],
   "notifications-email": [
     "major-incident-war-room-design",
@@ -140,7 +157,8 @@
     "p1-incident-escalation"
   ],
   "performance-analytics": [
-    "design-cmdb-health-dashboard-process"
+    "design-cmdb-health-dashboard-process",
+    "wave6-performance-analytics-breakdown-design"
   ],
   "platform-core": [
     "auto-close-resolved-incidents",
@@ -154,7 +172,8 @@
   ],
   "policy-and-compliance": [
     "grc-control-attestation-reminders",
-    "implement-policy-exception-lifecycle"
+    "implement-policy-exception-lifecycle",
+    "usecase-policy-exception-expiry-review"
   ],
   "problem-management": [
     "implement-problem-candidate-pipeline"
@@ -169,19 +188,20 @@
   ],
   "rest-integrations": [
     "ingest-external-security-alerts-into-sir",
-    "outbound-rest-incident-sync"
+    "outbound-rest-incident-sync",
+    "usecase-rest-to-soap-fallback-design"
   ],
   "risk-management": [
     "implement-policy-exception-lifecycle",
     "risk-assessment-workflow-design"
   ],
-  "security-access": [
-    "app-engine-custom-app",
-    "secure-hr-cases"
-  ],
-  "security-incident-response": [
-    "ingest-external-security-alerts-into-sir",
-    "security-incident-triage-flow"
+  "sam": [
+    "design-software-reclamation-flow",
+    "sam-normalization-governance-review",
+    "sam-normalization-review",
+    "sam-reclamation-campaign-design",
+    "software-reclamation-campaign",
+    "unauthorized-software-exception-process"
   ],
   "secops": [
     "ingest-external-security-alerts-into-sir",
@@ -189,13 +209,27 @@
     "secops-vulnerability-exception-approval",
     "secops-vulnerability-routing",
     "security-incident-triage-flow",
+    "usecase-security-alert-to-incident",
+    "usecase-threat-feed-onboarding",
+    "usecase-vulnerability-group-remediation",
     "vulnerability-response-assignment-model"
+  ],
+  "security-access": [
+    "app-engine-custom-app",
+    "secure-hr-cases"
+  ],
+  "security-incident-response": [
+    "ingest-external-security-alerts-into-sir",
+    "security-incident-triage-flow",
+    "usecase-security-alert-to-incident"
   ],
   "service-catalog": [
     "atf-catalog-test",
     "catalog-item-manager-approval",
-    "flow-designer-create-tasks"
+    "flow-designer-create-tasks",
+    "wave6-mobile-experience-for-approvals"
   ],
+  "service-mapping": [],
   "service-operations-workspace": [
     "design-major-incident-governance",
     "service-operations-workspace-major-incident-view"
@@ -210,13 +244,10 @@
     "repair-sla-after-priority-change",
     "sla-not-attaching"
   ],
-  "sam": [
-    "design-software-reclamation-flow",
-    "sam-normalization-governance-review",
-    "sam-normalization-review",
-    "sam-reclamation-campaign-design",
-    "software-reclamation-campaign",
-    "unauthorized-software-exception-process"
+  "soap-integrations": [
+    "usecase-import-source-validation",
+    "usecase-rest-to-soap-fallback-design",
+    "usecase-soap-wsdl-to-message-setup"
   ],
   "software-compliance": [
     "design-software-reclamation-flow",
@@ -226,27 +257,26 @@
   "source-control": [
     "update-set-deployment-plan"
   ],
+  "threat-intelligence": [
+    "usecase-threat-feed-onboarding"
+  ],
   "ui-builder": [
     "ui-builder-workspace-page"
+  ],
+  "vendor-risk-management": [],
+  "virtual-agent": [
+    "wave6-virtual-agent-topic-with-live-handoff"
   ],
   "vulnerability-response": [
     "prevent-duplicate-cis-with-ire",
     "route-vulnerabilities-by-ownership",
     "secops-vulnerability-exception-approval",
     "secops-vulnerability-routing",
+    "usecase-vulnerability-group-remediation",
     "vulnerability-response-assignment-model"
   ],
   "workspaces": [
     "service-operations-workspace-major-incident-view",
     "ui-builder-workspace-page"
-  ],
-  "devops": [],
-  "employee-center": [],
-  "knowledge-management": [],
-  "mobile": [],
-  "service-mapping": [],
-  "soap-integrations": [],
-  "threat-intelligence": [],
-  "vendor-risk-management": [],
-  "virtual-agent": []
+  ]
 }

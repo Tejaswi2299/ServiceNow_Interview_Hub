@@ -318,17 +318,6 @@ function handleGlobalSearchSubmit(event) {
   navigate('/search', { q: query });
 }
 
-function handleBackButtonClick(button) {
-  const fallback = button.dataset.fallback || '#/home';
-
-  if (window.history.length > 1) {
-    window.history.back();
-    return;
-  }
-
-  window.location.hash = fallback;
-}
-
 function handleBookmarkClick(button) {
   const item = currentContentItem(button.dataset.bookmarkId);
   if (!item) return;
@@ -442,11 +431,6 @@ function bindGlobalEvents() {
 
   document.addEventListener('click', (event) => {
     const target = event.target;
-
-    if (target.closest('[data-back-button]')) {
-      handleBackButtonClick(target.closest('[data-back-button]'));
-      return;
-    }
 
     if (target.closest('[data-bookmark-id]')) {
       handleBookmarkClick(target.closest('[data-bookmark-id]'));

@@ -1,1 +1,153 @@
-[]
+[
+  {
+    "id": "model-categories-interview-explained",
+    "slug": "model-categories-interview-explained",
+    "title": "Model categories in asset management",
+    "question": "What are model categories and why do they matter?",
+    "summary": "Explains how model categories drive standardization for hardware and software assets.",
+    "roleIds": [
+      "asset-manager",
+      "ham-analyst",
+      "ham-developer",
+      "itam-developer"
+    ],
+    "moduleIds": [
+      "ham",
+      "itam",
+      "sam"
+    ],
+    "topicIds": [
+      "model-categories"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "model category",
+      "asset management"
+    ],
+    "relatedTables": [
+      "cmdb_model_category"
+    ],
+    "exactAnswer": "Model categories classify models into standardized business groupings such as laptop, monitor, server, or mobile device. In interviews, explain that categories are important because they improve reporting, lifecycle policy application, and consistency across procurement and stockroom processes.",
+    "keyPoints": [
+      "Categories standardize how models are grouped.",
+      "They help lifecycle and reporting consistency.",
+      "Poor categorization creates noisy inventory data."
+    ],
+    "examples": [
+      "Grouping all notebook models into a laptop category for reporting."
+    ]
+  },
+  {
+    "id": "software-normalization-interview-explained",
+    "slug": "software-normalization-interview-explained",
+    "title": "Software normalization in SAM",
+    "question": "How would you explain software normalization in a SAM interview?",
+    "summary": "Explains how raw installs become governed software records and publishers.",
+    "roleIds": [
+      "itam-developer",
+      "license-compliance-analyst",
+      "sam-analyst",
+      "sam-developer"
+    ],
+    "moduleIds": [
+      "sam"
+    ],
+    "topicIds": [
+      "software-normalization"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "sam",
+      "normalization"
+    ],
+    "relatedTables": [
+      "cmdb_sam_sw_install"
+    ],
+    "exactAnswer": "Software normalization is the process of converting raw discovery install data into standardized publishers, products, and versions that can be used for entitlement reconciliation and compliance analysis. Without normalization, effective license position is unreliable.",
+    "keyPoints": [
+      "Normalization cleans and standardizes discovery install data.",
+      "It is required for trustworthy compliance calculations.",
+      "Normalization links raw installs to products and publishers."
+    ],
+    "examples": [
+      "Multiple display names normalized into one governed product family."
+    ]
+  },
+  {
+    "id": "asset-stockrooms-interview-explained",
+    "slug": "asset-stockrooms-interview-explained",
+    "title": "Asset stockrooms and controlled inventory",
+    "question": "What is the role of stockrooms in HAM?",
+    "summary": "Explains how stockrooms control receiving, transfers, and deployable inventory.",
+    "roleIds": [
+      "asset-manager",
+      "ham-analyst",
+      "ham-developer",
+      "itam-developer"
+    ],
+    "moduleIds": [
+      "ham",
+      "asset-management"
+    ],
+    "topicIds": [
+      "asset-stockrooms"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "stockroom",
+      "ham"
+    ],
+    "relatedTables": [
+      "alm_stockroom"
+    ],
+    "exactAnswer": "Stockrooms represent controlled inventory locations for receiving, storing, transferring, and issuing assets. In interviews, explain that stockrooms matter because they create accountable custody and make inventory movement visible before assets are assigned to end users.",
+    "keyPoints": [
+      "Stockrooms track accountable inventory locations.",
+      "Transfers and receipts should be recorded through stockrooms.",
+      "They support accurate deployable inventory reporting."
+    ],
+    "examples": [
+      "Receiving laptops into a regional stockroom before assignment."
+    ]
+  },
+  {
+    "id": "effective-license-position-basics",
+    "slug": "effective-license-position-basics",
+    "title": "Effective license position basics",
+    "question": "How do you explain effective license position in SAM?",
+    "summary": "Explains how installs and entitlements are reconciled into a compliance view.",
+    "roleIds": [
+      "itam-developer",
+      "license-compliance-analyst",
+      "sam-analyst",
+      "sam-developer"
+    ],
+    "moduleIds": [
+      "sam"
+    ],
+    "topicIds": [
+      "effective-license-position"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "sam",
+      "elp"
+    ],
+    "relatedTables": [
+      "samp_sw_compliance"
+    ],
+    "exactAnswer": "Effective license position is the reconciled compliance view that compares discovered software consumption to owned entitlements and license rules. In interviews, explain that ELP is where normalization, product mapping, and entitlement quality finally turn into a compliance answer.",
+    "keyPoints": [
+      "ELP compares software usage to entitlements.",
+      "It depends on good normalization and entitlement data.",
+      "It drives remediation, reclamation, and true-up conversations."
+    ],
+    "examples": [
+      "ELP showing over-deployment for a costly engineering tool."
+    ]
+  }
+]

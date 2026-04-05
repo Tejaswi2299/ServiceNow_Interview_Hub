@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "wave6-application-menu-modules-interview-explained",
+    "slug": "application-menu-modules-interview-explained",
+    "title": "Application Menus and Modules interview basics",
+    "question": "How do you explain Application Menus and Modules in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Application Menus and Modules topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "app-engine",
+      "platform-core"
+    ],
+    "topicIds": [
+      "application-menu-modules"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "application menus and modules",
+      "interview prep",
+      "development"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Application menus organize the left navigation into logical application areas, while modules are the individual navigator entries inside those menus. In interviews, explain that modules are just entry points into lists, forms, pages, maps, reports, or scripted destinations, so naming and audience clarity matter.",
+    "keyPoints": [
+      "Describe what the feature controls.",
+      "Explain when you would configure it instead of scripting around it.",
+      "Mention one governance or supportability consideration."
+    ],
+    "examples": [
+      "Use Application Menus and Modules deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-choice-lists-interview-explained",
+    "slug": "choice-lists-interview-explained",
+    "title": "Choice Lists interview basics",
+    "question": "What should you know about Choice Lists?",
+    "summary": "Adds direct coverage for the Choice Lists topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "choice-lists"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "choice lists",
+      "interview prep",
+      "data model"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Choice lists define controlled values for a field so data entry stays consistent and reporting stays reliable. A strong interview answer mentions that choices can be dictionary-based, localized, environment-specific, and should be governed so teams do not create inconsistent state or category values over time.",
+    "keyPoints": [
+      "Explain why it exists in the data model.",
+      "Mention one operational benefit.",
+      "Mention one common mistake or support consideration."
+    ],
+    "examples": [
+      "Use Choice Lists deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-cmdb-class-manager-interview-explained",
+    "slug": "cmdb-class-manager-interview-explained",
+    "title": "Class Manager interview basics",
+    "question": "How do you explain Class Manager in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Class Manager topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "cloud-engineer",
+      "cmdb-administrator",
+      "cmdb-analyst",
+      "cmdb-developer"
+    ],
+    "moduleIds": [
+      "cmdb"
+    ],
+    "topicIds": [
+      "cmdb-class-manager"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "class manager",
+      "interview prep",
+      "cmdb"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Class Manager should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Class Manager deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-csm-case-management-interview-explained",
+    "slug": "csm-case-management-interview-explained",
+    "title": "CSM Case Management interview basics",
+    "question": "How do you explain CSM Case Management in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the CSM Case Management topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "csm-developer"
+    ],
+    "moduleIds": [
+      "csm"
+    ],
+    "topicIds": [
+      "csm-case-management"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "csm case management",
+      "interview prep",
+      "csm"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "CSM Case Management should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use CSM Case Management deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-dashboards-interview-explained",
+    "slug": "dashboards-interview-explained",
+    "title": "Dashboards interview basics",
+    "question": "How do you explain Dashboards in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Dashboards topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "pa-developer"
+    ],
+    "moduleIds": [
+      "performance-analytics"
+    ],
+    "topicIds": [
+      "dashboards"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "dashboards",
+      "interview prep",
+      "analytics"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Dashboards should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Dashboards deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-data-lookup-rules-interview-explained",
+    "slug": "data-lookup-rules-interview-explained",
+    "title": "Data Lookup Rules interview basics",
+    "question": "How do you explain Data Lookup Rules in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Data Lookup Rules topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "csm-developer",
+      "employee-center-developer"
+    ],
+    "moduleIds": [
+      "service-catalog"
+    ],
+    "topicIds": [
+      "data-lookup-rules"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "data lookup rules",
+      "interview prep",
+      "platform"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Data Lookup Rules should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Data Lookup Rules deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-devops-change-velocity-interview-explained",
+    "slug": "devops-change-velocity-interview-explained",
+    "title": "DevOps Change Velocity interview basics",
+    "question": "How do you explain DevOps Change Velocity in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the DevOps Change Velocity topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "devops"
+    ],
+    "topicIds": [
+      "devops-change-velocity"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "devops change velocity",
+      "interview prep",
+      "devops"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "DevOps Change Velocity should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use DevOps Change Velocity deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-display-values-interview-explained",
+    "slug": "display-values-interview-explained",
+    "title": "Display Values interview basics",
+    "question": "What should you know about Display Values?",
+    "summary": "Adds direct coverage for the Display Values topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "display-values"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "display values",
+      "interview prep",
+      "data model"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Display values are the user-friendly values shown for reference or choice fields, while the platform often stores sys_ids or internal values underneath. In interviews, explain that confusion between stored values and display values is a common cause of integration and scripting bugs.",
+    "keyPoints": [
+      "Explain why it exists in the data model.",
+      "Mention one operational benefit.",
+      "Mention one common mistake or support consideration."
+    ],
+    "examples": [
+      "Use Display Values deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-domain-separation-interview-explained",
+    "slug": "domain-separation-interview-explained",
+    "title": "Domain Separation interview basics",
+    "question": "How do you explain Domain Separation from a platform security perspective?",
+    "summary": "Adds direct coverage for the Domain Separation topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "hrsd-developer",
+      "platform-architect",
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "domain-separation"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "domain separation",
+      "interview prep",
+      "security"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Domain separation partitions data and configuration so multiple business units or customers can operate on one instance with controlled visibility. A strong answer should mention data isolation, scoped administration, and the additional complexity it adds to design and support.",
+    "keyPoints": [
+      "Connect it to least privilege or safe operations.",
+      "Mention why support teams use it carefully.",
+      "Explain one common misuse to avoid."
+    ],
+    "examples": [
+      "Use Domain Separation deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-entry-points-interview-explained",
+    "slug": "entry-points-interview-explained",
+    "title": "Entry Points interview basics",
+    "question": "How do you explain Entry Points in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Entry Points topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "mobile-developer"
+    ],
+    "moduleIds": [
+      "mobile"
+    ],
+    "topicIds": [
+      "entry-points"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "entry points",
+      "interview prep",
+      "service mapping"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Entry Points should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Entry Points deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-graphql-or-rest-interview-explained",
+    "slug": "graphql-or-rest-interview-explained",
+    "title": "GraphQL vs REST Discussion interview basics",
+    "question": "How do you explain GraphQL vs REST Discussion in an integration interview?",
+    "summary": "Adds direct coverage for the GraphQL vs REST Discussion topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "integration-developer",
+      "platform-architect",
+      "servicenow-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "rest-integrations"
+    ],
+    "topicIds": [
+      "graphql-or-rest"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "graphql vs rest discussion",
+      "interview prep",
+      "integrations"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "REST is generally the default integration style in ServiceNow because it is broadly supported and maps well to platform APIs, while GraphQL is more selective and request-shape driven. In interviews, explain that the choice depends on the provider system, data retrieval needs, governance, and support maturity.",
+    "keyPoints": [
+      "Mention transport or payload behavior.",
+      "Explain how you would test it safely.",
+      "Mention error handling or observability."
+    ],
+    "examples": [
+      "Use GraphQL vs REST Discussion deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-hr-services-interview-explained",
+    "slug": "hr-services-interview-explained",
+    "title": "HR Services interview basics",
+    "question": "How do you explain HR Services in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the HR Services topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "hrsd-developer"
+    ],
+    "moduleIds": [
+      "hrsd"
+    ],
+    "topicIds": [
+      "hr-services"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "hr services",
+      "interview prep",
+      "hrsd"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "HR Services should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use HR Services deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-impersonation-interview-explained",
+    "slug": "impersonation-interview-explained",
+    "title": "Impersonation interview basics",
+    "question": "How do you explain Impersonation from a platform security perspective?",
+    "summary": "Adds direct coverage for the Impersonation topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "hrsd-developer",
+      "platform-architect",
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "platform-core",
+      "security-access"
+    ],
+    "topicIds": [
+      "impersonation"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "impersonation",
+      "interview prep",
+      "security"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Impersonation lets an administrator temporarily assume another user context to validate access, visibility, and end-user behavior. It is powerful for testing, but it should be used carefully and auditable because it changes what the platform shows and allows during that session.",
+    "keyPoints": [
+      "Connect it to least privilege or safe operations.",
+      "Mention why support teams use it carefully.",
+      "Explain one common misuse to avoid."
+    ],
+    "examples": [
+      "Use Impersonation deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-jelly-interview-explained",
+    "slug": "jelly-interview-explained",
+    "title": "Jelly interview basics",
+    "question": "How do you explain Jelly in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Jelly topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "service-portal-developer"
+    ],
+    "moduleIds": [
+      "service-portal"
+    ],
+    "topicIds": [
+      "jelly"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "jelly",
+      "interview prep",
+      "legacy ui"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Jelly is the XML-based templating technology used in older ServiceNow UI components such as UI Pages and certain legacy interfaces. In interviews, frame Jelly as legacy platform knowledge that still matters for support and upgrades even though newer UI patterns are preferred for new work.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Jelly deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-mobile-actions-interview-explained",
+    "slug": "mobile-actions-interview-explained",
+    "title": "Mobile Actions interview basics",
+    "question": "How do you explain Mobile Actions for ServiceNow Mobile?",
+    "summary": "Adds direct coverage for the Mobile Actions topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "mobile-developer"
+    ],
+    "moduleIds": [
+      "mobile"
+    ],
+    "topicIds": [
+      "mobile-actions"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "mobile actions",
+      "interview prep",
+      "mobile"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Mobile Actions should be explained in terms of the mobile user journey, role-based access, and how quickly the action or experience lets users complete work from a phone.",
+    "keyPoints": [
+      "Focus on the mobile user experience.",
+      "Mention role-based availability.",
+      "Explain how the design reduces clicks for the end user."
+    ],
+    "examples": [
+      "Use Mobile Actions deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-mobile-experiences-interview-explained",
+    "slug": "mobile-experiences-interview-explained",
+    "title": "Mobile Experiences interview basics",
+    "question": "How do you explain Mobile Experiences for ServiceNow Mobile?",
+    "summary": "Adds direct coverage for the Mobile Experiences topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "mobile-developer"
+    ],
+    "moduleIds": [
+      "mobile"
+    ],
+    "topicIds": [
+      "mobile-experiences"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "mobile experiences",
+      "interview prep",
+      "mobile"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Mobile Experiences should be explained in terms of the mobile user journey, role-based access, and how quickly the action or experience lets users complete work from a phone.",
+    "keyPoints": [
+      "Focus on the mobile user experience.",
+      "Mention role-based availability.",
+      "Explain how the design reduces clicks for the end user."
+    ],
+    "examples": [
+      "Use Mobile Experiences deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-onload-clientscript-interview-explained",
+    "slug": "onload-clientscript-interview-explained",
+    "title": "onLoad Client Scripts interview basics",
+    "question": "How do you explain onLoad Client Scripts in a scripting interview?",
+    "summary": "Adds direct coverage for the onLoad Client Scripts topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "onload-clientscript"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "onload client scripts",
+      "interview prep",
+      "scripting"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "onLoad Client Scripts should be described in terms of script timing, context, and the production impact of using it correctly versus casually.",
+    "keyPoints": [
+      "Explain the execution context.",
+      "Mention why timing or scope matters.",
+      "Call out one common scripting mistake."
+    ],
+    "examples": [
+      "Use onLoad Client Scripts deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-onsubmit-clientscript-interview-explained",
+    "slug": "onsubmit-clientscript-interview-explained",
+    "title": "onSubmit Client Scripts interview basics",
+    "question": "How do you explain onSubmit Client Scripts in a scripting interview?",
+    "summary": "Adds direct coverage for the onSubmit Client Scripts topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "onsubmit-clientscript"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "onsubmit client scripts",
+      "interview prep",
+      "scripting"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "onSubmit Client Scripts should be described in terms of script timing, context, and the production impact of using it correctly versus casually.",
+    "keyPoints": [
+      "Explain the execution context.",
+      "Mention why timing or scope matters.",
+      "Call out one common scripting mistake."
+    ],
+    "examples": [
+      "Use onSubmit Client Scripts deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-pa-breakdowns-interview-explained",
+    "slug": "pa-breakdowns-interview-explained",
+    "title": "PA Breakdowns interview basics",
+    "question": "How do you explain PA Breakdowns in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the PA Breakdowns topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "pa-developer"
+    ],
+    "moduleIds": [
+      "performance-analytics"
+    ],
+    "topicIds": [
+      "pa-breakdowns"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "pa breakdowns",
+      "interview prep",
+      "analytics"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "PA breakdowns slice an indicator by a meaningful dimension such as assignment group, priority, or business unit so leaders can analyze trend movement by segment instead of only as one total line.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use PA Breakdowns deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-pa-indicators-interview-explained",
+    "slug": "pa-indicators-interview-explained",
+    "title": "PA Indicators interview basics",
+    "question": "How do you explain PA Indicators in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the PA Indicators topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "pa-developer"
+    ],
+    "moduleIds": [
+      "performance-analytics"
+    ],
+    "topicIds": [
+      "pa-indicators"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "pa indicators",
+      "interview prep",
+      "analytics"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "PA indicators define what metric is being collected and trended over time. In interviews, explain that indicator design matters because bad indicator definitions produce misleading dashboards even when the widgets themselves look polished.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use PA Indicators deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-performance-tuning-interview-explained",
+    "slug": "performance-tuning-interview-explained",
+    "title": "Performance Tuning interview basics",
+    "question": "How do you explain Performance Tuning in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Performance Tuning topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "cmdb-administrator",
+      "discovery-administrator",
+      "ham-analyst",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-operations"
+    ],
+    "topicIds": [
+      "performance-tuning"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "performance tuning",
+      "interview prep",
+      "operations"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Performance Tuning should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Performance Tuning deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-problem-investigation-interview-explained",
+    "slug": "problem-investigation-interview-explained",
+    "title": "Problem Investigation interview basics",
+    "question": "How do you explain Problem Investigation in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Problem Investigation topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "change-management-developer",
+      "change-manager"
+    ],
+    "moduleIds": [
+      "itsm"
+    ],
+    "topicIds": [
+      "problem-investigation"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "problem investigation",
+      "interview prep",
+      "itsm"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Problem Investigation should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Problem Investigation deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-query-conditions-interview-explained",
+    "slug": "query-conditions-interview-explained",
+    "title": "Query Conditions interview basics",
+    "question": "How do you explain Query Conditions in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Query Conditions topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "query-conditions"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "query conditions",
+      "interview prep",
+      "server-side apis"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Query Conditions should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Query Conditions deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-script-actions-interview-explained",
+    "slug": "script-actions-interview-explained",
+    "title": "Script Actions interview basics",
+    "question": "How do you explain Script Actions in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Script Actions topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "script-actions"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "script actions",
+      "interview prep",
+      "automation"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Script Actions respond to events and execute server-side logic when those events fire. They are useful when the team wants event-driven handling rather than placing every downstream action directly inside a business rule.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Script Actions deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-service-mapping-entry-points-interview-explained",
+    "slug": "service-mapping-entry-points-interview-explained",
+    "title": "Service Mapping Entry Points interview basics",
+    "question": "How do you explain Service Mapping Entry Points in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Service Mapping Entry Points topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "cmdb-administrator",
+      "cmdb-developer",
+      "cmdb-manager",
+      "discovery-developer"
+    ],
+    "moduleIds": [
+      "service-mapping"
+    ],
+    "topicIds": [
+      "service-mapping-entry-points"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "service mapping entry points",
+      "interview prep",
+      "discovery"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Service Mapping Entry Points should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Service Mapping Entry Points deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-service-maps-interview-explained",
+    "slug": "service-maps-interview-explained",
+    "title": "Service Maps interview basics",
+    "question": "How do you explain Service Maps in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Service Maps topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "cmdb-administrator",
+      "cmdb-developer",
+      "cmdb-manager",
+      "discovery-developer"
+    ],
+    "moduleIds": [
+      "service-mapping"
+    ],
+    "topicIds": [
+      "service-maps"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "service maps",
+      "interview prep",
+      "service mapping"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Service Maps should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Service Maps deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-slow-transactions-interview-explained",
+    "slug": "slow-transactions-interview-explained",
+    "title": "Slow Transactions interview basics",
+    "question": "How do you explain Slow Transactions in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Slow Transactions topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "cmdb-administrator",
+      "discovery-administrator",
+      "ham-analyst",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-operations"
+    ],
+    "topicIds": [
+      "slow-transactions"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "slow transactions",
+      "interview prep",
+      "operations"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Slow Transactions should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Slow Transactions deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-system-definition-interview-explained",
+    "slug": "system-definition-interview-explained",
+    "title": "System Definition interview basics",
+    "question": "How do you explain System Definition in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the System Definition topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "system-definition"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "system definition",
+      "interview prep",
+      "administration"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "System Definition should be explained clearly in terms of what it does, where it is configured, and why it matters in a real implementation instead of only in theory.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use System Definition deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-ui-pages-interview-explained",
+    "slug": "ui-pages-interview-explained",
+    "title": "UI Pages interview basics",
+    "question": "How do you explain UI Pages in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the UI Pages topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "service-portal-developer"
+    ],
+    "moduleIds": [
+      "service-portal"
+    ],
+    "topicIds": [
+      "ui-pages"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "ui pages",
+      "interview prep",
+      "legacy ui"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "UI Pages are custom server-rendered pages often built with Jelly, scripts, and client logic for legacy experiences. In interviews, explain that they are powerful but should be used intentionally because maintainability and modernization are important considerations.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use UI Pages deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-upgrades-interview-explained",
+    "slug": "upgrades-interview-explained",
+    "title": "Upgrades interview basics",
+    "question": "How do you explain Upgrades in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Upgrades topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "cmdb-administrator",
+      "discovery-administrator",
+      "ham-analyst",
+      "platform-architect"
+    ],
+    "moduleIds": [
+      "platform-operations",
+      "source-control"
+    ],
+    "topicIds": [
+      "upgrades"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "upgrades",
+      "interview prep",
+      "operations"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Upgrades should be explained as a governance and validation process, not only as a technical version jump. A strong answer mentions skipped changes, regression testing, deprecated behavior review, and stakeholder communication.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Upgrades deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-variable-sets-interview-explained",
+    "slug": "variable-sets-interview-explained",
+    "title": "Variable Sets interview basics",
+    "question": "How do you explain Variable Sets in a ServiceNow interview?",
+    "summary": "Adds direct coverage for the Variable Sets topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "csm-developer",
+      "employee-center-developer"
+    ],
+    "moduleIds": [
+      "service-catalog"
+    ],
+    "topicIds": [
+      "variable-sets"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "theory",
+    "tags": [
+      "variable sets",
+      "interview prep",
+      "catalog"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Variable sets group reusable catalog variables that can be attached to multiple items. They improve consistency and reduce duplication when several catalog items need the same requester inputs.",
+    "keyPoints": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "examples": [
+      "Use Variable Sets deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  },
+  {
+    "id": "wave6-virtual-agent-topics-interview-explained",
+    "slug": "virtual-agent-topics-interview-explained",
+    "title": "Virtual Agent Topics interview basics",
+    "question": "How do you explain Virtual Agent Topics in Virtual Agent?",
+    "summary": "Adds direct coverage for the Virtual Agent Topics topic so it is no longer a taxonomy-only entry.",
+    "roleIds": [
+      "servicenow-developer"
+    ],
+    "moduleIds": [
+      "virtual-agent"
+    ],
+    "topicIds": [
+      "virtual-agent-topics"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "virtual agent topics",
+      "interview prep",
+      "virtual agent"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Virtual Agent Topics should be explained in terms of conversation design, intent handling, and how the chatbot guides the user toward either self-service completion or a clean handoff.",
+    "keyPoints": [
+      "Anchor the answer in conversation flow.",
+      "Mention handoff or routing logic.",
+      "Explain why maintainability matters."
+    ],
+    "examples": [
+      "Use Virtual Agent Topics deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ]
+  }
+]

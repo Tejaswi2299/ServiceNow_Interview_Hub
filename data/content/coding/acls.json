@@ -1,1 +1,155 @@
-[]
+[
+  {
+    "id": "acl-script-user-role-check",
+    "slug": "acl-script-user-role-check",
+    "title": "ACL script with role and group guardrails",
+    "question": "Write an ACL script that allows update only for users with itil_admin or support_group_manager.",
+    "summary": "Shows a practical ACL script pattern with explicit returns and minimal logic.",
+    "roleIds": [
+      "app-engine-developer",
+      "hrsd-developer",
+      "platform-architect",
+      "platform-owner"
+    ],
+    "moduleIds": [
+      "security-access",
+      "platform-core"
+    ],
+    "topicIds": [
+      "acls",
+      "gs-api",
+      "sys-user-has-role"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "coding",
+    "tags": [
+      "acl",
+      "security",
+      "roles"
+    ],
+    "relatedTables": [
+      "sys_security_acl"
+    ],
+    "exactAnswer": "Use an ACL script that returns true only when the session user has the required elevated role or satisfies the additional access check you want to enforce. Keep the script small and deterministic because ACLs run frequently.",
+    "steps": [
+      "Open All > System Security > Access Control (ACL).",
+      "Create or edit the target ACL record.",
+      "Paste the script into the Script field.",
+      "Test with impersonation to validate both allowed and denied outcomes."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "answer = gs.hasRole('itil_admin') || gs.hasRole('support_group_manager');"
+    },
+    "expectedOutput": [
+      "Users with itil_admin or support_group_manager can pass the ACL.",
+      "Other users are denied unless another ACL grants access."
+    ],
+    "commonMistakes": [
+      "Writing long GlideRecord queries in ACL scripts.",
+      "Assuming role checks alone replace field-level security design."
+    ],
+    "explanation": [
+      "ACLs should stay fast and focused.",
+      "Use explicit boolean logic and test with impersonation."
+    ]
+  },
+  {
+    "id": "acl-script-current-user-owns-record",
+    "slug": "acl-script-current-user-owns-record",
+    "title": "ACL script for requester-only access",
+    "question": "Write an ACL script that allows read access only when the current user opened the record.",
+    "summary": "Shows a common requester access control pattern.",
+    "roleIds": [
+      "atf-engineer",
+      "business-analyst",
+      "change-management-developer",
+      "change-manager"
+    ],
+    "moduleIds": [
+      "security-access",
+      "itsm"
+    ],
+    "topicIds": [
+      "acls",
+      "current-previous"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "coding",
+    "tags": [
+      "acl",
+      "requester",
+      "security"
+    ],
+    "relatedTables": [
+      "incident"
+    ],
+    "exactAnswer": "In a record ACL, compare the caller to the opened_by value and return true only when they match. This pattern is common for self-service style access.",
+    "steps": [
+      "Open the target table ACL for read.",
+      "Add the script to compare opened_by to the current user.",
+      "Impersonate a requester and a non-requester to confirm behavior."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "answer = current.opened_by == gs.getUserID();"
+    },
+    "expectedOutput": [
+      "The requester can open the record.",
+      "A different end user is denied unless another ACL permits access."
+    ],
+    "commonMistakes": [
+      "Using display values instead of sys_ids in security comparisons."
+    ],
+    "explanation": [
+      "ACL scripts should compare stable identifiers whenever possible."
+    ]
+  },
+  {
+    "id": "gs-log-performance-script",
+    "slug": "gs-log-performance-script",
+    "title": "Targeted gs.log tracing for script debugging",
+    "question": "Write a small server-side snippet that logs a transaction checkpoint with a custom source for debugging.",
+    "summary": "Demonstrates disciplined use of gs.log for server-side debugging.",
+    "roleIds": [
+      "app-engine-developer",
+      "platform-architect",
+      "platform-owner",
+      "security-developer"
+    ],
+    "moduleIds": [
+      "platform-core"
+    ],
+    "topicIds": [
+      "gs-api",
+      "logs",
+      "node-log"
+    ],
+    "difficulty": "Beginner",
+    "contentType": "coding",
+    "tags": [
+      "gs.log",
+      "debugging"
+    ],
+    "relatedTables": [],
+    "exactAnswer": "Use gs.log with a clear source label so the message is easy to isolate in logs during troubleshooting.",
+    "steps": [
+      "Open Scripts - Background or a safe server-side script context.",
+      "Paste the statement with a meaningful source label.",
+      "Run and verify the message in the system logs."
+    ],
+    "code": {
+      "language": "javascript",
+      "script": "gs.log('Checkpoint reached after validation branch', 'INTERVIEW_HUB_DEBUG');"
+    },
+    "expectedOutput": [
+      "A system log entry appears with source INTERVIEW_HUB_DEBUG."
+    ],
+    "commonMistakes": [
+      "Leaving noisy gs.log statements in production logic."
+    ],
+    "explanation": [
+      "A custom source makes ad hoc debugging easier to filter and review."
+    ]
+  }
+]

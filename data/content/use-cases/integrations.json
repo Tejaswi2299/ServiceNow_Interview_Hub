@@ -1,1 +1,171 @@
-[]
+[
+  {
+    "id": "usecase-soap-wsdl-to-message-setup",
+    "slug": "soap-wsdl-to-message-setup",
+    "title": "Set up a SOAP integration from WSDL to test call",
+    "question": "How do you implement a SOAP integration in ServiceNow from WSDL import through testing?",
+    "summary": "Walkthrough for SOAP-based integration setup and validation.",
+    "roleIds": [
+      "integration-developer",
+      "platform-architect",
+      "servicenow-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "soap-integrations",
+      "integrationhub"
+    ],
+    "topicIds": [
+      "soap-messages",
+      "data-sources"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "soap",
+      "integration",
+      "wsdl"
+    ],
+    "relatedTables": [
+      "sys_ws_definition"
+    ],
+    "scenario": "A legacy system only exposes SOAP endpoints and the team needs to call it from ServiceNow.",
+    "exactAnswer": "Import the WSDL, configure the SOAP message and method, define authentication and parameters, test the request, then parse and validate the response before wiring it into production logic.",
+    "navigationPath": [
+      "All > Outbound > SOAP Message",
+      "All > System Web Services > SOAP"
+    ],
+    "steps": [
+      "Import the WSDL or create the SOAP message record manually.",
+      "Review the generated methods and endpoint details.",
+      "Set authentication and input parameters.",
+      "Use the built-in test related link to send a sample request.",
+      "Validate the XML response and downstream field mapping."
+    ],
+    "involvedArtifacts": [
+      "SOAP Message",
+      "SOAP Method",
+      "Credentials"
+    ],
+    "validationChecklist": [
+      "Endpoint and authentication are correct.",
+      "Request returns the expected XML.",
+      "Response values map cleanly into ServiceNow logic."
+    ],
+    "commonMistakes": [
+      "Skipping response validation after a successful transport call."
+    ]
+  },
+  {
+    "id": "usecase-rest-to-soap-fallback-design",
+    "slug": "rest-to-soap-fallback-design",
+    "title": "Design a SOAP fallback for a hybrid integration",
+    "question": "How would you design a ServiceNow integration when REST is preferred but a SOAP fallback is still required?",
+    "summary": "Explains a maintainable hybrid integration pattern.",
+    "roleIds": [
+      "integration-developer",
+      "platform-architect",
+      "servicenow-developer",
+      "technical-consultant"
+    ],
+    "moduleIds": [
+      "soap-integrations",
+      "integrationhub",
+      "rest-integrations"
+    ],
+    "topicIds": [
+      "soap-messages",
+      "rest-api-authentication"
+    ],
+    "difficulty": "Advanced",
+    "contentType": "use-case",
+    "tags": [
+      "rest",
+      "soap",
+      "integration"
+    ],
+    "relatedTables": [
+      "sys_ws_operation"
+    ],
+    "scenario": "Most partner systems support REST, but one region still relies on SOAP and the business wants a unified design.",
+    "exactAnswer": "Abstract the integration behind a Script Include or spoke-style wrapper so the caller uses one interface while the implementation chooses REST or SOAP per target, then centralize authentication, logging, and error handling.",
+    "navigationPath": [
+      "All > Script Includes",
+      "All > Outbound > REST Message",
+      "All > Outbound > SOAP Message"
+    ],
+    "steps": [
+      "Define one integration interface for the calling logic.",
+      "Implement transport-specific wrappers for REST and SOAP.",
+      "Centralize auth, logging, and retry behavior.",
+      "Select the transport based on system configuration.",
+      "Test both paths with the same business input."
+    ],
+    "involvedArtifacts": [
+      "Script Include",
+      "REST Message",
+      "SOAP Message"
+    ],
+    "validationChecklist": [
+      "Callers do not need to know the transport type.",
+      "Both transport paths are testable and logged."
+    ],
+    "commonMistakes": [
+      "Hardcoding SOAP logic directly in business rules or flows."
+    ]
+  },
+  {
+    "id": "usecase-import-source-validation",
+    "slug": "import-source-validation",
+    "title": "Validate a new data source before an import",
+    "question": "What is your implementation path for onboarding a new data source?",
+    "summary": "Practical data-source validation steps before production imports.",
+    "roleIds": [
+      "integration-developer"
+    ],
+    "moduleIds": [
+      "integrationhub",
+      "soap-integrations"
+    ],
+    "topicIds": [
+      "data-sources",
+      "import-set-runs"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "data source",
+      "import set"
+    ],
+    "relatedTables": [
+      "sys_data_source",
+      "sys_import_set_run"
+    ],
+    "scenario": "A team provides a new file or endpoint and wants the data loaded into ServiceNow quickly.",
+    "exactAnswer": "Validate the data source format, create the import definition, run a controlled import set, inspect the import run details, and only then promote the transform into scheduled production use.",
+    "navigationPath": [
+      "All > System Import Sets > Data Sources",
+      "All > Import Sets > Import Set Runs"
+    ],
+    "steps": [
+      "Create the data source record.",
+      "Load a sample payload or file.",
+      "Run a test import to create an import set.",
+      "Review the import run details and row issues.",
+      "Only then attach or update the transform logic."
+    ],
+    "involvedArtifacts": [
+      "Data Source",
+      "Import Set",
+      "Transform Map"
+    ],
+    "validationChecklist": [
+      "Source fields are readable.",
+      "The import set creates records as expected.",
+      "Bad rows are understood before scheduling the import."
+    ],
+    "commonMistakes": [
+      "Scheduling a source before a controlled test import."
+    ]
+  }
+]

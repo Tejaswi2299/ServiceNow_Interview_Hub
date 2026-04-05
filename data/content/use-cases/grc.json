@@ -1,1 +1,109 @@
-[]
+[
+  {
+    "id": "usecase-build-audit-evidence-flow",
+    "slug": "build-audit-evidence-flow",
+    "title": "Build an audit evidence collection flow",
+    "question": "How do you implement repeatable evidence collection for an audit plan?",
+    "summary": "Implementation flow for evidence requests, reminders, and completion tracking.",
+    "roleIds": [
+      "audit-developer",
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "grc"
+    ],
+    "topicIds": [
+      "audit-plans"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "audit",
+      "evidence",
+      "grc"
+    ],
+    "relatedTables": [
+      "sn_audit_engagement"
+    ],
+    "scenario": "Auditors want a repeatable evidence request process with reminders and tracked completion.",
+    "exactAnswer": "Use the audit plan or engagement as the parent record, create evidence tasks or requests for the control owners, add reminder notifications and due dates, and track completion back on the audit work item.",
+    "navigationPath": [
+      "All > Audit Management > Engagements",
+      "All > System Notification > Email > Notifications"
+    ],
+    "steps": [
+      "Define the evidence request lifecycle.",
+      "Create the task or request model tied to the audit work.",
+      "Add due dates and reminder notifications.",
+      "Capture submitted evidence and completion status.",
+      "Report completion and overdue items back to the audit plan."
+    ],
+    "involvedArtifacts": [
+      "Audit Engagement",
+      "Task or Evidence Request",
+      "Notification"
+    ],
+    "validationChecklist": [
+      "Owners receive requests.",
+      "Due dates and reminders work.",
+      "Completion is visible to the audit team."
+    ],
+    "commonMistakes": [
+      "Managing evidence through untracked email only."
+    ]
+  },
+  {
+    "id": "usecase-policy-exception-expiry-review",
+    "slug": "policy-exception-expiry-review",
+    "title": "Implement policy exception expiry review",
+    "question": "How do you prevent policy exceptions from staying open forever?",
+    "summary": "Time-bound exception governance design.",
+    "roleIds": [
+      "audit-developer",
+      "governance-risk-analyst",
+      "grc-developer",
+      "risk-developer"
+    ],
+    "moduleIds": [
+      "policy-and-compliance"
+    ],
+    "topicIds": [
+      "policy-exceptions"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "use-case",
+    "tags": [
+      "policy exception",
+      "expiry"
+    ],
+    "relatedTables": [
+      "sn_compliance_exception"
+    ],
+    "scenario": "The business uses policy exceptions, but many never get reviewed again after approval.",
+    "exactAnswer": "Add required expiry dates, owner reminders, and an escalation path for overdue exceptions so each exception must be renewed, remediated, or formally closed.",
+    "navigationPath": [
+      "All > Policy and Compliance > Exceptions",
+      "All > Notifications"
+    ],
+    "steps": [
+      "Require expiry dates on exception creation.",
+      "Send reminder notifications before expiry.",
+      "Escalate overdue exceptions to managers or risk owners.",
+      "Track renewals or closures in reporting."
+    ],
+    "involvedArtifacts": [
+      "Policy Exception",
+      "Notification",
+      "Escalation"
+    ],
+    "validationChecklist": [
+      "Every exception has an owner and expiry.",
+      "Overdue exceptions are visible and escalated."
+    ],
+    "commonMistakes": [
+      "Allowing indefinite exceptions with no review cycle."
+    ]
+  }
+]

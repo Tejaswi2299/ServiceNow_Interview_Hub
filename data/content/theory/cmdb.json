@@ -116,7 +116,7 @@
   {
     "id": "cmdb-relationship-vs-reference",
     "slug": "cmdb-relationship-vs-reference",
-    "title": "CI Relationship vs Reference Field",
+    "title": "CMDB relationship vs reference field",
     "question": "What is the difference between a CMDB relationship and a simple reference field?",
     "summary": "Clarifies modeling dependencies in CMDB design.",
     "roleIds": [

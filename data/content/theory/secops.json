@@ -1,1 +1,157 @@
-[]
+[
+  {
+    "id": "threat-indicators-interview-explained",
+    "slug": "threat-indicators-interview-explained",
+    "title": "Threat indicators in SecOps",
+    "question": "What are threat indicators and how would you explain them in a SecOps interview?",
+    "summary": "Explains why indicators must be normalized, scored, and tied to investigations carefully.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer",
+      "threat-intelligence-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "threat-intelligence"
+    ],
+    "topicIds": [
+      "threat-intel-indicators"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "threat intelligence",
+      "indicator",
+      "secops"
+    ],
+    "relatedTables": [
+      "sn_ti_observable"
+    ],
+    "exactAnswer": "Threat indicators are observables such as hashes, IP addresses, URLs, or domains that represent potentially malicious activity. In interviews, explain that raw indicators are only useful when they are normalized, sourced, scored, de-duplicated, and connected to cases or detections in a governed way.",
+    "keyPoints": [
+      "Indicators are observables, not conclusions on their own.",
+      "Normalization and de-duplication matter.",
+      "Indicators should enrich detections and investigations."
+    ],
+    "examples": [
+      "Inbound feed of malicious domains normalized before analyst review."
+    ]
+  },
+  {
+    "id": "security-case-handoff-basics",
+    "slug": "security-case-handoff-basics",
+    "title": "Security case handoff basics",
+    "question": "How do you explain case handoff in SecOps?",
+    "summary": "Explains routing detections into repeatable analyst workflows.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "security-incident-response"
+    ],
+    "topicIds": [
+      "sir-lifecycle"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "secops",
+      "sir",
+      "case management"
+    ],
+    "relatedTables": [
+      "sn_si_incident"
+    ],
+    "exactAnswer": "Security case handoff is the process of routing alerts, enriched indicators, or correlation results into a case or incident workflow that analysts can triage and escalate consistently. The interview-ready point is that detection without operational handoff creates noise, while governed handoff creates measurable response work.",
+    "keyPoints": [
+      "Detections must become actionable work.",
+      "Routing and triage ownership are critical.",
+      "Case transitions should align to analyst workflow stages."
+    ],
+    "examples": [
+      "High-confidence alert opens a security incident with enrichment attached."
+    ]
+  },
+  {
+    "id": "vulnerability-grouping-basics",
+    "slug": "vulnerability-grouping-basics",
+    "title": "Vulnerability grouping basics",
+    "question": "Why do vulnerability groups matter in SecOps?",
+    "summary": "Explains why grouping keeps remediation work actionable.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer"
+    ],
+    "moduleIds": [
+      "secops",
+      "vulnerability-response"
+    ],
+    "topicIds": [
+      "vulnerability-groups"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "theory",
+    "tags": [
+      "vulnerability",
+      "grouping"
+    ],
+    "relatedTables": [
+      "sn_vul_group"
+    ],
+    "exactAnswer": "Vulnerability groups consolidate related vulnerable items into a manageable remediation work unit. In interviews, explain that grouping helps teams assign ownership, reduce ticket noise, and prioritize remediation around a system, owner, or campaign instead of treating every finding in isolation.",
+    "keyPoints": [
+      "Grouping reduces alert fatigue and work sprawl.",
+      "Groups support assignment and coordinated remediation.",
+      "Grouping logic should align to ownership and remediation strategy."
+    ],
+    "examples": [
+      "Group all critical server findings for one application team into one remediation stream."
+    ]
+  },
+  {
+    "id": "secops-prioritization-basics",
+    "slug": "secops-prioritization-basics",
+    "title": "SecOps prioritization basics",
+    "question": "How do you explain prioritization in SecOps implementations?",
+    "summary": "Shows how severity, confidence, business context, and exposure combine in triage.",
+    "roleIds": [
+      "secops-developer",
+      "security-developer",
+      "security-incident-analyst",
+      "security-incident-response-developer",
+      "threat-intelligence-developer"
+    ],
+    "moduleIds": [
+      "secops"
+    ],
+    "topicIds": [
+      "threat-intel-indicators"
+    ],
+    "difficulty": "Intermediate",
+    "contentType": "best-practice",
+    "tags": [
+      "secops",
+      "prioritization"
+    ],
+    "relatedTables": [
+      "sn_si_incident"
+    ],
+    "exactAnswer": "A good SecOps implementation prioritizes not only by technical severity, but also by confidence, exploitability, business criticality, asset exposure, and whether there is meaningful threat context attached.",
+    "keyPoints": [
+      "Priority should combine technical and business context.",
+      "Threat enrichment raises triage quality.",
+      "Consistent prioritization is essential for analyst trust."
+    ],
+    "examples": [
+      "Critical vulnerability on a public-facing payment server outranks a lab asset finding."
+    ]
+  }
+]
