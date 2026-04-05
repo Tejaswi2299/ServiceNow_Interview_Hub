@@ -251,7 +251,7 @@ function groupedTopicAccordions(items, lookups, titleFallback = 'General', prefe
 function groupedTypeAccordions(items) {
   const labels = {
     theory: 'Concepts & Explanations',
-    comparison: 'Comparisons & Tricky Differences',
+    comparison: 'Tricky Questions',
     troubleshooting: 'Troubleshooting',
     'table-schema': 'Tables & Schema',
     'best-practice': 'Best Practices',
@@ -559,8 +559,10 @@ function renderTopicNavigation(topics) {
 }
 
 function splitStudyItems(items) {
+  const trickyTypes = new Set(['comparison', 'tricky']);
   return {
-    conceptItems: items.filter((item) => item.contentType !== 'coding' && item.contentType !== 'use-case'),
+    conceptItems: items.filter((item) => item.contentType !== 'coding' && item.contentType !== 'use-case' && !trickyTypes.has(item.contentType)),
+    trickyItems: items.filter((item) => trickyTypes.has(item.contentType)),
     codingItems: items.filter((item) => item.contentType === 'coding'),
     useCaseItems: items.filter((item) => item.contentType === 'use-case')
   };
@@ -584,8 +586,9 @@ export function renderRoleDetail(state, role, related) {
   const modules = (role.moduleIds || []).map((id) => state.lookups.modulesById[id]).filter(Boolean);
   const mappedTopicIds = unique([...(role.topicIds || []), ...((state.data.maps.roleTopic[role.id] || state.data.maps.roleTopic[role.slug] || [])), ...related.flatMap((item) => item.topicIds || [])]);
   const mappedTopics = mappedTopicIds.map((id) => state.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
-  const { conceptItems, codingItems, useCaseItems } = splitStudyItems(related);
+  const { conceptItems, trickyItems, codingItems, useCaseItems } = splitStudyItems(related);
   const conceptGroups = groupedTopicAccordions(conceptItems, state.lookups, 'Concepts', mappedTopicIds);
+  const trickyGroups = groupedTopicAccordions(trickyItems, state.lookups, 'Tricky questions', mappedTopicIds);
   const codingGroups = groupedTopicAccordions(codingItems, state.lookups, 'Coding', mappedTopicIds);
   const useCaseGroups = groupedTopicAccordions(useCaseItems, state.lookups, 'Use cases', mappedTopicIds);
   return `
@@ -602,7 +605,8 @@ export function renderRoleDetail(state, role, related) {
       ${modules.length ? `<div class="meta-inline role-module-pills">${modules.slice(0, 10).map((module) => `<a class="badge subtle" href="#/modules/${module.slug}">${escapeHtml(module.name)}</a>`).join('')}</div>` : ''}
     </section>
     ${renderTopicNavigation(mappedTopics)}
-    ${renderAccordionSet(conceptGroups, 'Concepts & tricky questions', 'Core interview explanations and tricky distinctions for this role.')}
+    ${renderAccordionSet(conceptGroups, 'Core concepts', 'Exact explanations, best practices, and interview-ready concepts for this role.')}
+    ${trickyGroups.length ? renderAccordionSet(trickyGroups, 'Tricky questions', 'High-signal comparison questions and tricky distinctions for this role.') : ''}
     ${renderAccordionSet(codingGroups, 'Coding questions', 'Exact scripts and coding drills connected to this role.')}
     ${renderAccordionSet(useCaseGroups, 'Use case scenarios', 'Step-by-step implementation scenarios connected to this role.')}
   `;
@@ -625,8 +629,9 @@ export function renderModulesPage(state) {
 export function renderModuleDetail(state, module, related) {
   const mappedTopicIds = unique([...(module.topicIds || []), ...((state.data.maps.moduleTopic[module.id] || state.data.maps.moduleTopic[module.slug] || [])), ...related.flatMap((item) => item.topicIds || [])]);
   const mappedTopics = mappedTopicIds.map((id) => state.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
-  const { conceptItems, codingItems, useCaseItems } = splitStudyItems(related);
+  const { conceptItems, trickyItems, codingItems, useCaseItems } = splitStudyItems(related);
   const conceptGroups = groupedTopicAccordions(conceptItems, state.lookups, 'Concepts', mappedTopicIds);
+  const trickyGroups = groupedTopicAccordions(trickyItems, state.lookups, 'Tricky questions', mappedTopicIds);
   const codingGroups = groupedTopicAccordions(codingItems, state.lookups, 'Coding', mappedTopicIds);
   const useCaseGroups = groupedTopicAccordions(useCaseItems, state.lookups, 'Use cases', mappedTopicIds);
   return `
@@ -642,7 +647,8 @@ export function renderModuleDetail(state, module, related) {
       </div>
     </section>
     ${renderTopicNavigation(mappedTopics)}
-    ${renderAccordionSet(conceptGroups, 'Concepts & tricky questions', 'Core interview explanations and tricky distinctions for this module.')}
+    ${renderAccordionSet(conceptGroups, 'Core concepts', 'Exact explanations, best practices, and interview-ready concepts for this module.')}
+    ${trickyGroups.length ? renderAccordionSet(trickyGroups, 'Tricky questions', 'High-signal comparison questions and tricky distinctions for this module.') : ''}
     ${renderAccordionSet(codingGroups, 'Coding questions', 'Exact scripts and coding drills connected to this module.')}
     ${renderAccordionSet(useCaseGroups, 'Use case scenarios', 'Step-by-step implementation scenarios connected to this module.')}
   `;
@@ -958,75 +964,103 @@ export function renderBookmarksPage(state) {
 export function renderQuizSetup(state) {
   return `
     ${backButton('#/home')}
-    <section class="quiz-shell">
-      <article class="card page-banner">
-        <div class="section-header">
-          <div>
-            <h2>Quiz Setup</h2>
-            <p>Select scope, difficulty, and count, then launch a focused practice round from the current question bank.</p>
+    <section class="quiz-shell quiz-setup-shell">
+      <article class="card quiz-setup-card accent-panel">
+        <div class="quiz-setup-hero">
+          <div class="quiz-setup-copy">
+            <span class="quiz-kicker">Interview practice</span>
+            <h2>Build a focused quiz round</h2>
+            <p>Choose what you want to practice, set the difficulty and count, then launch a cleaner revision round from the current question bank.</p>
+            <div class="badges quiz-hero-badges">
+              <span class="badge green">Mixed or targeted scope</span>
+              <span class="badge">Bookmark missed items</span>
+              <span class="badge orange">10 · 20 · 25 · 30 · 40 questions</span>
+            </div>
           </div>
-        </div>
-        <div class="stat-grid">
-          <div class="stat-tile"><span>Quiz items</span><strong>${formatCount(state.data.quizzes.length)}</strong></div>
-          <div class="stat-tile"><span>Available counts</span><strong>10 · 20 · 25 · 30 · 40</strong></div>
-          <div class="stat-tile"><span>Best use</span><strong>Revision + recall</strong></div>
-          <div class="stat-tile"><span>After quiz</span><strong>Bookmark missed items</strong></div>
+          <div class="quiz-setup-stats">
+            <div class="stat-tile quiz-stat-tile"><span>Question bank</span><strong>${formatCount(state.data.quizzes.length)}</strong></div>
+            <div class="stat-tile quiz-stat-tile"><span>Best for</span><strong>Revision + recall</strong></div>
+            <div class="stat-tile quiz-stat-tile"><span>Quiz formats</span><strong>Mixed · Role · Module · Topic</strong></div>
+            <div class="stat-tile quiz-stat-tile"><span>After the round</span><strong>Review missed items</strong></div>
+          </div>
         </div>
 
-        <form id="quiz-setup-form" class="filters" data-quiz-form>
-          <label>
-            Scope
-            <select name="scope">
-              <option value="mixed">Mixed</option>
-              <option value="role">Role</option>
-              <option value="module">Module</option>
-              <option value="topic">Topic</option>
-              <option value="coding">Coding</option>
-              <option value="use-case">Use Case</option>
-            </select>
-          </label>
-          <label>
-            Role
-            <select name="roleValue">
-              <option value="">Any role</option>
-              ${state.data.roles.map((role) => `<option value="${escapeHtml(role.id)}">${escapeHtml(role.name)}</option>`).join('')}
-            </select>
-          </label>
-          <label>
-            Module
-            <select name="moduleValue">
-              <option value="">Any module</option>
-              ${state.data.modules.map((module) => `<option value="${escapeHtml(module.id)}">${escapeHtml(module.name)}</option>`).join('')}
-            </select>
-          </label>
-          <label>
-            Topic
-            <select name="topicValue">
-              <option value="">Any topic</option>
-              ${state.data.topics.map((topic) => `<option value="${escapeHtml(topic.id)}">${escapeHtml(topic.name)}</option>`).join('')}
-            </select>
-          </label>
-          <label>
-            Difficulty
-            <select name="difficulty">
-              <option value="">All levels</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </select>
-          </label>
-          <label>
-            Count
-            <select name="count">
-              ${[10, 20, 25, 30, 40].map((count) => `<option value="${count}">${count}</option>`).join('')}
-            </select>
-          </label>
-          <div>
-            <button class="button-link" type="submit">Start quiz</button>
-          </div>
+        <form id="quiz-setup-form" class="quiz-setup-form" data-quiz-form>
+          <section class="quiz-form-section">
+            <div class="section-header compact-section-header">
+              <div>
+                <h3>Practice scope</h3>
+                <p>Choose the area you want to target for this round.</p>
+              </div>
+            </div>
+            <div class="quiz-field-grid quiz-field-grid-wide">
+              <label>
+                Scope
+                <select name="scope">
+                  <option value="mixed">Mixed</option>
+                  <option value="role">Role</option>
+                  <option value="module">Module</option>
+                  <option value="topic">Topic</option>
+                  <option value="coding">Coding</option>
+                  <option value="use-case">Use Case</option>
+                </select>
+              </label>
+              <label>
+                Role
+                <select name="roleValue">
+                  <option value="">Any role</option>
+                  ${state.data.roles.map((role) => `<option value="${escapeHtml(role.id)}">${escapeHtml(role.name)}</option>`).join('')}
+                </select>
+              </label>
+              <label>
+                Module
+                <select name="moduleValue">
+                  <option value="">Any module</option>
+                  ${state.data.modules.map((module) => `<option value="${escapeHtml(module.id)}">${escapeHtml(module.name)}</option>`).join('')}
+                </select>
+              </label>
+              <label>
+                Topic
+                <select name="topicValue">
+                  <option value="">Any topic</option>
+                  ${state.data.topics.map((topic) => `<option value="${escapeHtml(topic.id)}">${escapeHtml(topic.name)}</option>`).join('')}
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="quiz-form-section">
+            <div class="section-header compact-section-header">
+              <div>
+                <h3>Round settings</h3>
+                <p>Pick the difficulty and number of questions for this attempt.</p>
+              </div>
+            </div>
+            <div class="quiz-field-grid quiz-field-grid-compact">
+              <label>
+                Difficulty
+                <select name="difficulty">
+                  <option value="">All levels</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                </select>
+              </label>
+              <label>
+                Count
+                <select name="count">
+                  ${[10, 20, 25, 30, 40].map((count) => `<option value="${count}">${count}</option>`).join('')}
+                </select>
+              </label>
+            </div>
+            <div class="quiz-actions-row">
+              <button class="button-link quiz-start-button" type="submit">Start quiz</button>
+              <p class="quiz-helper-copy">Missed answers can be bookmarked after the quiz so you can revisit weak areas later.</p>
+            </div>
+          </section>
         </form>
 
-        <div class="notice">Tip: if you choose Role, Module, or Topic scope, the app uses the matching value field and ignores the others. Coding and Use Case scopes pull from those quiz categories directly.</div>
+        <div class="notice quiz-note">If you choose Role, Module, or Topic scope, the app uses the matching field for that round. Coding and Use Case scopes pull directly from those quiz categories.</div>
       </article>
     </section>
   `;
