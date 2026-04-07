@@ -100,6 +100,59 @@ function getAllStudyItems(state) {
   return [...state.data.theory, ...state.data.coding, ...state.data.useCases];
 }
 
+function normalizeSearchValue(value) {
+  return `${value || ''}`.toLowerCase();
+}
+
+function matchesSearch(value, query) {
+  if (!query) return true;
+  return normalizeSearchValue(value).includes(normalizeSearchValue(query));
+}
+
+function itemSearchText(item, lookups) {
+  const roles = (item.roleIds || []).map((id) => lookups.rolesById?.[id]?.name).filter(Boolean).join(' ');
+  const modules = (item.moduleIds || []).map((id) => lookups.modulesById?.[id]?.name).filter(Boolean).join(' ');
+  const topics = (item.topicIds || []).map((id) => lookups.topicsById?.[id]?.name).filter(Boolean).join(' ');
+  return [
+    item.title,
+    item.question,
+    item.summary,
+    item.exactAnswer,
+    (item.tags || []).join(' '),
+    (item.relatedTables || []).join(' '),
+    roles,
+    modules,
+    topics
+  ].join(' ');
+}
+
+function filterStudyItemsByQuery(items, query, lookups) {
+  if (!query) return items;
+  return items.filter((item) => matchesSearch(itemSearchText(item, lookups), query));
+}
+
+function filterTopicsByQuery(topics, query) {
+  if (!query) return topics;
+  return topics.filter((topic) => matchesSearch(`${topic.name} ${topic.category || ''} ${topic.summary || ''}`, query));
+}
+
+function filterRolesByQuery(roles, query, lookups) {
+  if (!query) return roles;
+  return roles.filter((role) => {
+    const moduleNames = (role.moduleIds || []).map((id) => lookups.modulesById?.[id]?.name).filter(Boolean).join(' ');
+    const topicNames = (role.topicIds || []).map((id) => lookups.topicsById?.[id]?.name).filter(Boolean).join(' ');
+    return matchesSearch(`${role.name} ${role.summary || ''} ${role.category || ''} ${moduleNames} ${topicNames}`, query);
+  });
+}
+
+function filterModulesByQuery(modules, query, lookups) {
+  if (!query) return modules;
+  return modules.filter((module) => {
+    const topicNames = (module.topicIds || []).map((id) => lookups.topicsById?.[id]?.name).filter(Boolean).join(' ');
+    return matchesSearch(`${module.name} ${module.summary || ''} ${module.category || ''} ${topicNames}`, query);
+  });
+}
+
 function getRoleCounts(state, role) {
   const related = getAllStudyItems(state).filter((item) => (item.roleIds || []).includes(role.id));
   const topicIds = unique(related.flatMap((item) => item.topicIds || []));
@@ -568,27 +621,33 @@ function splitStudyItems(items) {
 
 
 
-export function renderRolesPage(state) {
+export function renderRolesPage(state, filters = {}) {
+  const q = filters.q || '';
+  const roles = filterRolesByQuery(state.data.roles, q, state.lookups);
   return `
     ${simpleBanner('Browse by role', 'Select your target role to see the most relevant topics, coding questions, and use cases.', 'role')}
+    ${filterBar({ route: '/roles', filters, roles: [], modules: [], topics: [], showRole: false, showModule: false, showTopic: false, showDifficulty: false, showSearch: true, showCategory: false })}
     <div class="grid cards-3">
-      ${state.data.roles.map((role) => entityCard(role, 'roles', state.lookups)).join('')}
+      ${roles.map((role) => entityCard(role, 'roles', state.lookups)).join('') || '<section class="card empty-state"><h2>No roles match this search.</h2><p>Try another role name or clear the search.</p></section>'}
     </div>
   `;
 }
 
 
 
-export function renderRoleDetail(state, role, related) {
+export function renderRoleDetail(state, role, related, filters = {}) {
+  const q = filters.q || '';
   const modules = (role.moduleIds || []).map((id) => state.lookups.modulesById[id]).filter(Boolean);
   const mappedTopicIds = unique([...(role.topicIds || []), ...((state.data.maps.roleTopic[role.id] || state.data.maps.roleTopic[role.slug] || [])), ...related.flatMap((item) => item.topicIds || [])]);
-  const mappedTopics = mappedTopicIds.map((id) => state.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
-  const { conceptItems, codingItems, useCaseItems } = splitStudyItems(related);
+  const mappedTopics = filterTopicsByQuery(mappedTopicIds.map((id) => state.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name)), q);
+  const filteredRelated = filterStudyItemsByQuery(related, q, state.lookups);
+  const { conceptItems, codingItems, useCaseItems } = splitStudyItems(filteredRelated);
   const conceptGroups = groupedTopicAccordions(conceptItems, state.lookups, 'Concepts', mappedTopicIds);
   const codingGroups = groupedTopicAccordions(codingItems, state.lookups, 'Coding', mappedTopicIds);
   const useCaseGroups = groupedTopicAccordions(useCaseItems, state.lookups, 'Use cases', mappedTopicIds);
   return `
     <nav class="breadcrumbs"><a href="#/roles">Roles</a><span class="sep">/</span><span>${escapeHtml(role.name)}</span></nav>
+    ${backButton('#/roles')}
     <section class="card entity-detail-hero compact-detail-hero clean-detail-hero">
       <div class="entity-card-inline detail-inline">
         <div class="entity-icon-wrap role">${iconSvg(iconForEntity('roles', role))}</div>
@@ -599,6 +658,7 @@ export function renderRoleDetail(state, role, related) {
       </div>
       ${modules.length ? `<div class="meta-inline role-module-pills">${modules.slice(0, 10).map((module) => `<a class="badge subtle" href="#/modules/${module.slug}">${escapeHtml(module.name)}</a>`).join('')}</div>` : ''}
     </section>
+    ${filterBar({ route: `/roles/${role.slug}`, filters, roles: [], modules: [], topics: [], showRole: false, showModule: false, showTopic: false, showDifficulty: false, showSearch: true, showCategory: false })}
     ${renderTopicNavigation(mappedTopics)}
     ${renderAccordionSet(conceptGroups, 'Concepts & tricky questions', 'Core interview explanations and tricky distinctions for this role.')}
     ${renderAccordionSet(codingGroups, 'Coding questions', 'Exact scripts and coding drills connected to this role.')}
@@ -608,26 +668,32 @@ export function renderRoleDetail(state, role, related) {
 
 
 
-export function renderModulesPage(state) {
+export function renderModulesPage(state, filters = {}) {
+  const q = filters.q || '';
+  const modules = filterModulesByQuery(state.data.modules, q, state.lookups);
   return `
     ${simpleBanner('Browse by module', 'Open a product area to study the topics and questions underneath it.', 'module')}
+    ${filterBar({ route: '/modules', filters, roles: [], modules: [], topics: [], showRole: false, showModule: false, showTopic: false, showDifficulty: false, showSearch: true, showCategory: false })}
     <div class="grid cards-3">
-      ${state.data.modules.map((module) => entityCard(module, 'modules', state.lookups)).join('')}
+      ${modules.map((module) => entityCard(module, 'modules', state.lookups)).join('') || '<section class="card empty-state"><h2>No modules match this search.</h2><p>Try another module name or clear the search.</p></section>'}
     </div>
   `;
 }
 
 
 
-export function renderModuleDetail(state, module, related) {
+export function renderModuleDetail(state, module, related, filters = {}) {
+  const q = filters.q || '';
   const mappedTopicIds = unique([...(module.topicIds || []), ...((state.data.maps.moduleTopic[module.id] || state.data.maps.moduleTopic[module.slug] || [])), ...related.flatMap((item) => item.topicIds || [])]);
-  const mappedTopics = mappedTopicIds.map((id) => state.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
-  const { conceptItems, codingItems, useCaseItems } = splitStudyItems(related);
+  const mappedTopics = filterTopicsByQuery(mappedTopicIds.map((id) => state.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name)), q);
+  const filteredRelated = filterStudyItemsByQuery(related, q, state.lookups);
+  const { conceptItems, codingItems, useCaseItems } = splitStudyItems(filteredRelated);
   const conceptGroups = groupedTopicAccordions(conceptItems, state.lookups, 'Concepts', mappedTopicIds);
   const codingGroups = groupedTopicAccordions(codingItems, state.lookups, 'Coding', mappedTopicIds);
   const useCaseGroups = groupedTopicAccordions(useCaseItems, state.lookups, 'Use cases', mappedTopicIds);
   return `
     <nav class="breadcrumbs"><a href="#/modules">Modules</a><span class="sep">/</span><span>${escapeHtml(module.name)}</span></nav>
+    ${backButton('#/modules')}
     <section class="card entity-detail-hero compact-detail-hero clean-detail-hero">
       <div class="entity-card-inline detail-inline">
         <div class="entity-icon-wrap module">${iconSvg(iconForEntity('modules', module))}</div>
@@ -637,6 +703,7 @@ export function renderModuleDetail(state, module, related) {
         </div>
       </div>
     </section>
+    ${filterBar({ route: `/modules/${module.slug}`, filters, roles: [], modules: [], topics: [], showRole: false, showModule: false, showTopic: false, showDifficulty: false, showSearch: true, showCategory: false })}
     ${renderTopicNavigation(mappedTopics)}
     ${renderAccordionSet(conceptGroups, 'Concepts & tricky questions', 'Core interview explanations and tricky distinctions for this module.')}
     ${renderAccordionSet(codingGroups, 'Coding questions', 'Exact scripts and coding drills connected to this module.')}
