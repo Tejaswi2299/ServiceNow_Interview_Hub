@@ -44,6 +44,22 @@ function bookmarkButton(item) {
   return `<button class="icon-button ${active ? 'active' : ''}" title="${active ? 'Remove bookmark' : 'Save bookmark'}" data-bookmark-id="${escapeHtml(item.id)}">★</button>`;
 }
 
+function backButton(fallback = '#/home', label = '← Back') {
+  return `
+    <div class="page-back-wrap">
+      <button
+        type="button"
+        class="page-back-button"
+        data-back-button
+        data-fallback="${fallback}"
+        aria-label="Go back"
+      >
+        ${label}
+      </button>
+    </div>
+  `;
+}
+
 
 function iconSvg(iconName, className = 'entity-icon') {
   const icons = {
@@ -653,6 +669,7 @@ export function renderTopicDetail(state, topic, related) {
   const groups = groupedTypeAccordions(related);
   return `
     <nav class="breadcrumbs"><a href="#/topics">Topics</a><span class="sep">/</span><span>${escapeHtml(topic.name)}</span></nav>
+    ${backButton('#/topics')}
     <section class="card entity-detail-hero compact-detail-hero">
       <div class="entity-card-inline detail-inline">
         <div class="entity-icon-wrap topic">${iconSvg(iconForEntity('topics', topic))}</div>
@@ -699,6 +716,7 @@ export function renderStudyDetail(state, item, relatedItems) {
     <nav class="breadcrumbs">
       <a href="#/topics">Topics</a><span class="sep">/</span><span>${escapeHtml(item.title)}</span>
     </nav>
+    ${backButton('#/topics')}
     <section class="detail-layout">
       <article>
         <section class="card detail-section">
@@ -742,6 +760,7 @@ export function renderCodingDetail(state, item, relatedItems) {
     <nav class="breadcrumbs">
       <a href="#/coding">Coding</a><span class="sep">/</span><span>${escapeHtml(item.title)}</span>
     </nav>
+    ${backButton('#/coding')}
     <section class="detail-layout">
       <article>
         <section class="card detail-section">
@@ -794,6 +813,7 @@ export function renderUseCaseDetail(state, item, relatedItems) {
     <nav class="breadcrumbs">
       <a href="#/use-cases">Use Cases</a><span class="sep">/</span><span>${escapeHtml(item.title)}</span>
     </nav>
+    ${backButton('#/use-cases')}
     <section class="detail-layout">
       <article>
         <section class="card detail-section">
@@ -927,6 +947,7 @@ export function renderBookmarksPage(state) {
 
 export function renderQuizSetup(state) {
   return `
+    ${backButton('#/home')}
     <section class="quiz-shell">
       <article class="card page-banner">
         <div class="section-header">
@@ -1006,6 +1027,7 @@ export function renderQuizRunner(session) {
   const question = session.questions[session.currentIndex];
   if (!question) {
     return `
+      ${backButton('#/quiz')}
       <section class="quiz-shell">
         <article class="card empty-state">
           <h2>No quiz question available</h2>
@@ -1019,6 +1041,7 @@ export function renderQuizRunner(session) {
   }
   const selected = session.answers[session.currentIndex];
   return `
+    ${backButton('#/quiz')}
     <section class="quiz-shell">
       <article class="card quiz-question">
         <div class="quiz-progress">
@@ -1044,6 +1067,7 @@ export function renderQuizRunner(session) {
 
 export function renderQuizResults(summary, state) {
   return `
+    ${backButton('#/quiz')}
     <section class="quiz-shell">
       <article class="card">
         <div class="section-header">
