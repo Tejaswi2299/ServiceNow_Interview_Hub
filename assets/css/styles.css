@@ -235,6 +235,33 @@ pre.code-block{
 .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .empty-state{text-align:center;padding:34px}
 .empty-state p{color:var(--muted)}
+
+.page-back-wrap{margin:0 0 14px 0}
+.page-back-button{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:42px;
+  padding:10px 16px;
+  border-radius:12px;
+  border:1px solid rgba(116,159,255,.22);
+  background:rgba(10,22,48,.82);
+  color:var(--text);
+  font-weight:600;
+  cursor:pointer;
+  transition:all .18s ease;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+.page-back-button:hover{
+  border-color:rgba(116,159,255,.45);
+  transform:translateY(-1px);
+  background:rgba(14,30,60,.96);
+}
+.page-back-button:focus-visible{
+  outline:2px solid rgba(77,208,225,.9);
+  outline-offset:2px;
+}
+
 .quiz-shell{display:grid;gap:18px}
 .quiz-question h3{margin:0 0 10px}
 .quiz-choices{display:grid;gap:12px;margin-top:16px}
