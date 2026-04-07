@@ -1,34 +1,153 @@
+<div align="center">
+
 # ServiceNow Interview Hub
 
-Static GitHub Pages package for ServiceNow interview preparation.
+### A structured, focused hub for preparing for ServiceNow interviews
 
-## Included
-- roles, modules, and topics navigation
-- coding questions
-- use case scenarios
-- quiz
-- bookmarks
-- Google Analytics 4 support CTA integration
-- Wave 6 data-fix pass for missing topics, thin modules, and empty content files
+![Status](https://img.shields.io/badge/status-active-22c55e)
+![Coverage](https://img.shields.io/badge/coverage-roles%20%7C%20modules%20%7C%20topics-3b82f6)
+![Practice](https://img.shields.io/badge/practice-quiz%20%7C%20coding%20%7C%20use%20cases-f59e0b)
+![Platform](https://img.shields.io/badge/platform-GitHub%20Pages-111827)
 
-## Deploy to GitHub Pages
-1. Download and unzip this package.
-2. Open your GitHub repository: `ServiceNow_Interview_Hub`.
-3. Upload **the contents of the project folder** to the repository root so `index.html` sits at the top level of the repo.
-4. Commit the upload to your main branch.
-5. In GitHub, open **Settings → Pages**.
-6. Under **Build and deployment**, choose **Deploy from a branch**.
-7. Select your branch (for example `main`) and choose **/(root)**.
-8. Click **Save** and wait for GitHub Pages to publish.
-9. After the site is live, hard refresh the browser once so the latest JSON and JavaScript files load.
+</div>
 
-## Updating content later
-- Add or edit JSON under `data/content/` for theory, coding, or use cases.
-- Keep IDs and slugs unique.
-- If you add brand-new JSON files, also add them to `assets/js/constants.js`.
-- Rebuild `data/indexes/search-index.json` and `data/indexes/coverage-index.json` if you expand content significantly.
+---
 
-## Notes
-- This package is static HTML, CSS, JavaScript, and JSON.
-- No local install is required.
-- Bookmarks and progress stay in the browser through localStorage.
+## Overview
+
+**ServiceNow Interview Hub** is a dedicated interview preparation space built to help candidates study ServiceNow in a more structured and practical way.
+
+Instead of preparing from scattered notes, random question lists, and disconnected resources, this hub organizes interview preparation into one clear experience so you can study by:
+
+- **Role**
+- **Module**
+- **Topic**
+- **Coding questions**
+- **Use case scenarios**
+- **Quiz practice**
+
+It is designed for learners, administrators, developers, consultants, and job seekers who want one place to prepare seriously for ServiceNow interviews.
+
+---
+
+## What this project includes
+
+### Role-based preparation
+Study based on the role you are targeting so your preparation stays focused and relevant.
+
+Examples include:
+- ServiceNow Administrator
+- ServiceNow Developer
+- ITSM Developer
+- CMDB Administrator
+- Discovery Developer
+- GRC Developer
+- SecOps Developer
+- HAM / SAM roles
+- App Engine and platform roles
+
+### Module-based preparation
+Browse interview content by ServiceNow product area and platform capability.
+
+Examples include:
+- ITSM
+- CMDB
+- Discovery
+- Flow Designer
+- Service Catalog
+- Integrations
+- GRC
+- SecOps
+- HAM
+- SAM
+- UI Builder
+- App Engine
+
+### Topic-based preparation
+Drill into specific concepts that are commonly asked in interviews.
+
+Examples include:
+- Business Rules
+- Client Scripts
+- UI Policies
+- ACLs
+- GlideRecord
+- GlideAjax
+- Script Includes
+- Transform Maps
+- Notifications
+- Scheduled Jobs
+- System Properties
+- CMDB Relationships
+- IRE
+- Discovery Patterns
+
+### Coding questions
+Practice ServiceNow scripting questions with direct answers and practical examples.
+
+### Use case scenarios
+Review implementation-style interview questions and real-world scenarios.
+
+### Quiz mode
+Test your understanding across roles, modules, and topics.
+
+### Bookmarks
+Save important questions and revisit weak areas later.
+
+---
+
+## Why this hub is useful
+
+This project is meant to help you:
+
+- prepare from **one place instead of many scattered resources**
+- study content that feels **relevant to your target role**
+- practice both **theory and implementation-based questions**
+- improve confidence with **coding and scenario preparation**
+- revise important topics quickly using **bookmarks and quiz flow**
+
+---
+
+## Who this is for
+
+This hub is useful for:
+
+- candidates preparing for ServiceNow interviews
+- developers transitioning into ServiceNow roles
+- administrators preparing for technical interview rounds
+- consultants preparing for implementation discussions
+- learners looking for structured interview coverage
+
+---
+
+## Study experience
+
+Inside the hub, you can:
+
+- browse by **role**
+- browse by **module**
+- browse by **topic**
+- study **coding questions**
+- review **use case scenarios**
+- take **quizzes**
+- save items with **bookmarks**
+
+---
+
+## Project goal
+
+> Build a strong, structured, and growing ServiceNow interview hub that helps candidates prepare with clarity and confidence.
+
+---
+
+## Support
+
+If this project helps you in your interview preparation and you would like to support future updates, you can use the support option available inside the hub.
+
+---
+
+## Final note
+
+This project is intended to keep growing with broader coverage, deeper scenarios, and stronger interview-focused preparation over time.
+
+If your goal is to prepare seriously for ServiceNow interviews, this hub is meant to be your one-stop study space.
