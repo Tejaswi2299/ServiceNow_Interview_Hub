@@ -491,3 +491,18 @@ hr.soft{border:none;border-top:1px solid var(--border);margin:18px 0}
   .home-hero-simple .hero-copy h2{max-width:none;font-size:2rem}
   .entity-card-inline{grid-template-columns:auto minmax(0,1fr) auto}
 }
+
+
+.filters input[type="search"]{
+  width:100%;
+}
+
+@media (min-width: 981px){
+  .filters[data-filter-form^="/roles/"],
+  .filters[data-filter-form^="/modules/"],
+  .filters[data-filter-form="/roles"],
+  .filters[data-filter-form="/modules"]{
+    grid-template-columns: minmax(280px, 520px);
+    justify-content:start;
+  }
+}
