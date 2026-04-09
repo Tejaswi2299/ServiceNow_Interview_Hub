@@ -1,4 +1,3 @@
-
 import { loadAllData } from './loaders.js';
 import { appState } from './state.js';
 import { parseHash, navigate } from './router.js';
@@ -27,6 +26,7 @@ import {
   renderUseCaseDetail,
   renderUseCasesPage
 } from './renderers.js';
+import { enhanceTopicDetailPage, ensureEnhancementAssets, renderTrickyPage } from './topic-enhancements.js';
 
 const appMain = document.getElementById('app-main');
 const pageTitleNode = document.getElementById('page-title');
@@ -93,7 +93,6 @@ function relatedItemsFor(item, limit = 4) {
     .map((row) => row.candidate);
 }
 
-
 function intersects(listA = [], listB = []) {
   if (!listA.length || !listB.length) return false;
   const setB = new Set(listB);
@@ -158,8 +157,9 @@ function renderRoute() {
   }
 
   if (segments[0] === 'roles' && segments.length === 1) {
+    const filters = routeQueryFilters(route);
     setPageHeading('Roles', '/roles');
-    setAppHtml(renderRolesPage(appState));
+    setAppHtml(renderRolesPage(appState, filters));
     return;
   }
 
@@ -170,16 +170,18 @@ function renderRoute() {
       setAppHtml(renderNotFound());
       return;
     }
+    const filters = routeQueryFilters(route);
     const related = getRoleRelatedItems(role, content);
     setPageHeading(role.name, `/roles/${role.slug}`);
-    setAppHtml(renderRoleDetail(appState, role, related));
+    setAppHtml(renderRoleDetail(appState, role, related, filters));
     trackEvent('role_open', { role_id: role.id, role_name: role.name });
     return;
   }
 
   if (segments[0] === 'modules' && segments.length === 1) {
+    const filters = routeQueryFilters(route);
     setPageHeading('Modules', '/modules');
-    setAppHtml(renderModulesPage(appState));
+    setAppHtml(renderModulesPage(appState, filters));
     return;
   }
 
@@ -190,9 +192,10 @@ function renderRoute() {
       setAppHtml(renderNotFound());
       return;
     }
+    const filters = routeQueryFilters(route);
     const related = getModuleRelatedItems(module, content);
     setPageHeading(module.name, `/modules/${module.slug}`);
-    setAppHtml(renderModuleDetail(appState, module, related));
+    setAppHtml(renderModuleDetail(appState, module, related, filters));
     trackEvent('module_open', { module_id: module.id, module_name: module.name });
     return;
   }
@@ -214,7 +217,16 @@ function renderRoute() {
     const related = content.filter((item) => (item.topicIds || []).includes(topic.id));
     setPageHeading(topic.name, `/topics/${topic.slug}`);
     setAppHtml(renderTopicDetail(appState, topic, related));
+    enhanceTopicDetailPage(appState, topic, related);
     trackEvent('topic_open', { topic_id: topic.id, topic_name: topic.name });
+    return;
+  }
+
+  if (segments[0] === 'tricky' && segments.length === 1) {
+    const filters = routeQueryFilters(route);
+    const items = filterStudyItems(content, { ...filters, type: 'tricky' });
+    setPageHeading('Tricky Questions', '/tricky');
+    setAppHtml(renderTrickyPage(appState, items, filters));
     return;
   }
 
@@ -508,6 +520,7 @@ function bindGlobalEvents() {
 
 async function init() {
   bindGlobalEvents();
+  ensureEnhancementAssets();
 
   try {
     appState.data = await loadAllData();
