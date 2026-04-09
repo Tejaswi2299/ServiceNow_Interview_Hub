@@ -1,4 +1,3 @@
-
 import { loadAllData } from './loaders.js';
 import { appState } from './state.js';
 import { parseHash, navigate } from './router.js';
@@ -27,6 +26,7 @@ import {
   renderUseCaseDetail,
   renderUseCasesPage
 } from './renderers.js';
+import { enhanceTopicDetailPage, ensureEnhancementAssets, renderTrickyPage } from './topic-enhancements.js';
 
 const appMain = document.getElementById('app-main');
 const pageTitleNode = document.getElementById('page-title');
@@ -92,7 +92,6 @@ function relatedItemsFor(item, limit = 4) {
     .slice(0, limit)
     .map((row) => row.candidate);
 }
-
 
 function intersects(listA = [], listB = []) {
   if (!listA.length || !listB.length) return false;
@@ -218,7 +217,16 @@ function renderRoute() {
     const related = content.filter((item) => (item.topicIds || []).includes(topic.id));
     setPageHeading(topic.name, `/topics/${topic.slug}`);
     setAppHtml(renderTopicDetail(appState, topic, related));
+    enhanceTopicDetailPage(appState, topic, related);
     trackEvent('topic_open', { topic_id: topic.id, topic_name: topic.name });
+    return;
+  }
+
+  if (segments[0] === 'tricky' && segments.length === 1) {
+    const filters = routeQueryFilters(route);
+    const items = filterStudyItems(content, { ...filters, type: 'tricky' });
+    setPageHeading('Tricky Questions', '/tricky');
+    setAppHtml(renderTrickyPage(appState, items, filters));
     return;
   }
 
@@ -512,6 +520,7 @@ function bindGlobalEvents() {
 
 async function init() {
   bindGlobalEvents();
+  ensureEnhancementAssets();
 
   try {
     appState.data = await loadAllData();
