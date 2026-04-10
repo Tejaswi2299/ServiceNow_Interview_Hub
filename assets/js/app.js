@@ -60,6 +60,7 @@ function buildLookups() {
   appState.lookups.rolesById = Object.fromEntries(appState.data.roles.map((item) => [item.id, item]));
   appState.lookups.modulesById = Object.fromEntries(appState.data.modules.map((item) => [item.id, item]));
   appState.lookups.topicsById = Object.fromEntries(appState.data.topics.map((item) => [item.id, item]));
+  appState.lookups.topicOverviewByTopicId = Object.fromEntries((appState.data.topicOverviews || []).map((item) => [item.topicId, item]));
   const content = [...appState.data.theory, ...appState.data.coding, ...appState.data.useCases];
   appState.lookups.contentById = Object.fromEntries(content.map((item) => [item.id, item]));
 }

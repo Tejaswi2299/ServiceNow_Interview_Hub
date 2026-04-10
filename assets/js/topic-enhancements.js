@@ -97,7 +97,6 @@ function renderTrickyCard(item, lookups) {
       <div class="title-row">
         <div>
           <div class="badges">
-            <span class="badge green">Tricky</span>
             <span class="badge orange">${escapeHtml(item.difficulty || 'Interview')}</span>
           </div>
           <h3>${escapeHtml(item.title)}</h3>
@@ -124,6 +123,10 @@ function getTrickyItems(items = []) {
   return items.filter((item) => TRICKY_CONTENT_TYPES.includes(item.contentType));
 }
 
+function getVerifiedOverview(state, topicId) {
+  return state.lookups?.topicOverviewByTopicId?.[topicId] || null;
+}
+
 function topicCounts(relatedItems = []) {
   return {
     concepts: relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType)).length,
@@ -134,7 +137,7 @@ function topicCounts(relatedItems = []) {
 }
 
 function buildFallbackKeyComponents(topic, relatedTables = []) {
-  const fallback = [
+  return [
     `Core purpose and business value of ${topic.name}.`,
     `Where ${topic.name} is configured, scripted, or maintained in the platform.`,
     relatedTables.length
@@ -142,7 +145,6 @@ function buildFallbackKeyComponents(topic, relatedTables = []) {
       : `Key records, conditions, APIs, or dependencies that influence ${topic.name}.`,
     `How ${topic.name} is tested, validated, and debugged during implementation.`
   ];
-  return fallback;
 }
 
 function buildFallbackExamples(topic, moduleNames = []) {
@@ -218,31 +220,34 @@ function buildFallbackPitfalls(topic) {
 }
 
 function buildTopicOverview(topic, relatedItems = [], state) {
+  const verified = getVerifiedOverview(state, topic.id);
   const trickyItems = getTrickyItems(relatedItems);
   const conceptItems = relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType));
   const leadItem = conceptItems.find((item) => item.contentType === 'theory') || conceptItems[0] || trickyItems[0] || null;
-  const relatedTables = unique(relatedItems.flatMap((item) => item.relatedTables || [])).slice(0, 8);
+  const relatedTables = unique([...(verified?.tablesInvolved || []), ...relatedItems.flatMap((item) => item.relatedTables || [])]).slice(0, 8);
   const roleNames = unique(relatedItems.flatMap((item) => (item.roleIds || []).map((id) => state.lookups.rolesById?.[id]?.name).filter(Boolean))).slice(0, 4);
   const moduleNames = unique(relatedItems.flatMap((item) => (item.moduleIds || []).map((id) => state.lookups.modulesById?.[id]?.name).filter(Boolean))).slice(0, 4);
   const counts = topicCounts(relatedItems);
 
   const keyPoints = unique(conceptItems.flatMap((item) => item.keyPoints || [])).slice(0, 5);
-  const finalKeyPoints = keyPoints.length ? keyPoints : buildFallbackKeyComponents(topic, relatedTables);
+  const finalKeyPoints = verified?.keyComponents?.length ? verified.keyComponents : (keyPoints.length ? keyPoints : buildFallbackKeyComponents(topic, relatedTables));
 
   const realTimeExamples = unique(conceptItems.flatMap((item) => item.examples || [])).slice(0, 3);
-  const finalExamples = realTimeExamples.length ? realTimeExamples : buildFallbackExamples(topic, moduleNames);
+  const finalExamples = verified?.realTimeExamples?.length ? verified.realTimeExamples : (realTimeExamples.length ? realTimeExamples : buildFallbackExamples(topic, moduleNames));
 
   const pitfalls = unique([
     ...trickyItems.map((item) => item.question || item.title),
     ...relatedItems.filter((item) => item.contentType === 'comparison').map((item) => item.title),
     ...relatedItems.filter((item) => item.contentType === 'troubleshooting').map((item) => item.title)
   ]).slice(0, 5);
-  const finalPitfalls = pitfalls.length ? pitfalls : buildFallbackPitfalls(topic);
+  const finalPitfalls = verified?.interviewPitfalls?.length ? verified.interviewPitfalls : (pitfalls.length ? pitfalls : buildFallbackPitfalls(topic));
 
-  const definition = leadItem?.exactAnswer
+  const definition = verified?.definition
+    || leadItem?.exactAnswer
     || leadItem?.summary
     || `${topic.name} is a ${topic.category || 'ServiceNow'} topic in this hub. Use this page to understand what it does, how it is used, and how it is discussed in interviews.`;
-  const whatItDoes = leadItem?.summary
+  const whatItDoes = verified?.whatItDoes
+    || leadItem?.summary
     || safeFirstText(finalKeyPoints)
     || `${topic.name} is currently linked to ${formatCount(relatedItems.length)} study item(s) inside the hub.`;
 
