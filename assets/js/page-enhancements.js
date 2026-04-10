@@ -1,4 +1,6 @@
 import { makeHash } from './router.js';
+import { filterStudyItems } from './filters.js';
+import { appState } from './state.js';
 
 function normalizeText(value) {
   return `${value || ''}`.toLowerCase();
@@ -26,6 +28,10 @@ function ensureOption(select, value, label) {
   select.prepend(option);
 }
 
+function clearSelectValue(select) {
+  if (select) select.value = '';
+}
+
 export function syncProgressiveQuizForm(form) {
   if (!form) return;
 
@@ -38,29 +44,32 @@ export function syncProgressiveQuizForm(form) {
   const submitWrapper = form.querySelector('.hero-actions');
   const difficultySelect = difficultyWrapper?.querySelector('select');
   const countSelect = countWrapper?.querySelector('select');
-
-  if (!form.dataset.progressiveQuizInit) {
-    ensureOption(scopeSelect, '', 'Select scope');
-    ensureOption(difficultySelect, '', 'Select difficulty');
-    ensureOption(difficultySelect, 'all', 'All levels');
-    ensureOption(countSelect, '', 'Select count');
-    if (scopeSelect) scopeSelect.value = '';
-    if (difficultySelect) difficultySelect.value = '';
-    if (countSelect) countSelect.value = '';
-    form.dataset.progressiveQuizInit = 'true';
-  }
-
-  const scope = scopeSelect?.value || '';
   const roleSelect = roleWrapper?.querySelector('select');
   const moduleSelect = moduleWrapper?.querySelector('select');
   const topicSelect = topicWrapper?.querySelector('select');
 
-  ['role', 'module', 'topic'].forEach((field) => {
-    const wrapper = form.querySelector(`[data-quiz-field="${field}"]`);
-    const select = wrapper?.querySelector('select');
+  if (!form.dataset.progressiveQuizInit) {
+    ensureOption(scopeSelect, '', 'Select scope');
+    ensureOption(difficultySelect, '', 'Select difficulty');
+    ensureOption(countSelect, '', 'Select count');
+    clearSelectValue(scopeSelect);
+    clearSelectValue(roleSelect);
+    clearSelectValue(moduleSelect);
+    clearSelectValue(topicSelect);
+    clearSelectValue(difficultySelect);
+    clearSelectValue(countSelect);
+    form.dataset.progressiveQuizInit = 'true';
+  }
+
+  const scope = scopeSelect?.value || '';
+
+  [['role', roleWrapper, roleSelect], ['module', moduleWrapper, moduleSelect], ['topic', topicWrapper, topicSelect]].forEach(([field, wrapper, select]) => {
     const active = scope === field;
     if (wrapper) wrapper.hidden = !active;
-    if (select) select.disabled = !active;
+    if (select) {
+      select.disabled = !active;
+      if (!active) clearSelectValue(select);
+    }
   });
 
   const selectedScopeValue = scope === 'role'
@@ -73,11 +82,17 @@ export function syncProgressiveQuizForm(form) {
 
   const canShowDifficulty = Boolean(scope) && (scope === 'mixed' || Boolean(selectedScopeValue));
   if (difficultyWrapper) difficultyWrapper.hidden = !canShowDifficulty;
-  if (difficultySelect) difficultySelect.disabled = !canShowDifficulty;
+  if (difficultySelect) {
+    difficultySelect.disabled = !canShowDifficulty;
+    if (!canShowDifficulty) clearSelectValue(difficultySelect);
+  }
 
   const canShowCount = canShowDifficulty && Boolean(difficultySelect?.value);
   if (countWrapper) countWrapper.hidden = !canShowCount;
-  if (countSelect) countSelect.disabled = !canShowCount;
+  if (countSelect) {
+    countSelect.disabled = !canShowCount;
+    if (!canShowCount) clearSelectValue(countSelect);
+  }
 
   const canShowSubmit = canShowCount && Boolean(countSelect?.value);
   if (submitWrapper) submitWrapper.hidden = !canShowSubmit;
@@ -89,47 +104,45 @@ export function ensurePageEnhancementStyles() {
   styleNode.id = 'page-enhancement-styles';
   styleNode.textContent = `
     .page-back-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-    .detail-pager{display:flex;align-items:center;gap:8px;}
-    .detail-nav-button{width:40px;height:40px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;}
-    .detail-nav-button:hover:not(:disabled){border-color:rgba(56,189,248,.35);background:rgba(56,189,248,.08);}
-    .detail-nav-button:disabled{opacity:.35;cursor:not-allowed;}
+    .detail-pager{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-left:auto;}
+    .detail-nav-button{min-height:40px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);display:inline-flex;align-items:center;justify-content:center;padding:0 14px;font-size:.95rem;font-weight:600;cursor:pointer;text-decoration:none;}
+    .detail-nav-button:hover{border-color:rgba(56,189,248,.35);background:rgba(56,189,248,.08);}
+    .detail-nav-button.is-disabled{opacity:.35;pointer-events:none;}
     .clickable-card{cursor:pointer;}
     .tricky-page-banner ~ .grid .badge.green{display:none;}
   `;
   document.head.appendChild(styleNode);
 }
 
-function filterModulesForNavigation(appState, query = {}) {
+function filterModulesForNavigation(appStateArg, query = {}) {
   const q = normalizeText(query.q);
-  return [...appState.data.modules]
+  return [...appStateArg.data.modules]
     .filter((module) => !q || normalizeText(`${module.name} ${module.summary || ''} ${module.category || ''}`).includes(q))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function filterTopicsForNavigation(appState, query = {}) {
+function filterTopicsForNavigation(appStateArg, query = {}) {
   const q = normalizeText(query.q);
-  return [...appState.data.topics]
+  return [...appStateArg.data.topics]
     .filter((topic) => (!query.category || topic.category === query.category) && (!q || normalizeText(`${topic.name} ${topic.category || ''}`).includes(q)))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function getRoleTopicList(appState, role, allItems, getRoleRelatedItems) {
+function getRoleTopicList(appStateArg, role, allItems, getRoleRelatedItems) {
   if (!role) return [];
   const related = getRoleRelatedItems(role, allItems);
-  const topicIds = [...new Set([...(role.topicIds || []), ...((appState.data.maps.roleTopic[role.id] || appState.data.maps.roleTopic[role.slug] || [])), ...related.flatMap((item) => item.topicIds || [])])];
-  return topicIds.map((id) => appState.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+  const topicIds = [...new Set([...(role.topicIds || []), ...((appStateArg.data.maps.roleTopic[role.id] || appStateArg.data.maps.roleTopic[role.slug] || [])), ...related.flatMap((item) => item.topicIds || [])])];
+  return topicIds.map((id) => appStateArg.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function getModuleTopicList(appState, module, allItems, getModuleRelatedItems) {
+function getModuleTopicList(appStateArg, module, allItems, getModuleRelatedItems) {
   if (!module) return [];
   const related = getModuleRelatedItems(module, allItems);
-  const topicIds = [...new Set([...(module.topicIds || []), ...((appState.data.maps.moduleTopic[module.id] || appState.data.maps.moduleTopic[module.slug] || [])), ...related.flatMap((item) => item.topicIds || [])])];
-  return topicIds.map((id) => appState.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+  const topicIds = [...new Set([...(module.topicIds || []), ...((appStateArg.data.maps.moduleTopic[module.id] || appStateArg.data.maps.moduleTopic[module.slug] || [])), ...related.flatMap((item) => item.topicIds || [])])];
+  return topicIds.map((id) => appStateArg.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function enhanceScopedLinks({ appState, route, findEntity, getRoleRelatedItems, getModuleRelatedItems }) {
-  const content = [...appState.data.theory, ...appState.data.coding, ...appState.data.useCases];
-
+function enhanceScopedLinks({ appState: appStateArg, route, findEntity }) {
   if (route.segments[0] === 'coding' && route.segments.length === 1) {
     const extra = { ...route.query, from: '/coding' };
     document.querySelectorAll('.item-card .link-arrow').forEach((link) => {
@@ -166,7 +179,7 @@ function enhanceScopedLinks({ appState, route, findEntity, getRoleRelatedItems, 
   }
 
   if (route.segments[0] === 'roles' && route.segments[1]) {
-    const role = findEntity(appState.data.roles, route.segments[1]);
+    const role = findEntity(appStateArg.data.roles, route.segments[1]);
     if (!role) return;
     const extra = { scopeType: 'role', scopeId: role.id, backPath: `/roles/${role.slug}` };
     document.querySelectorAll('.topic-nav-grid .entity-card-link[href^="#/topics/"]').forEach((link) => {
@@ -175,7 +188,7 @@ function enhanceScopedLinks({ appState, route, findEntity, getRoleRelatedItems, 
   }
 
   if (route.segments[0] === 'modules' && route.segments[1]) {
-    const module = findEntity(appState.data.modules, route.segments[1]);
+    const module = findEntity(appStateArg.data.modules, route.segments[1]);
     if (!module) return;
     const extra = { scopeType: 'module', scopeId: module.id, backPath: `/modules/${module.slug}` };
     document.querySelectorAll('.topic-nav-grid .entity-card-link[href^="#/topics/"]').forEach((link) => {
@@ -194,42 +207,45 @@ function enhanceClickableCards() {
   });
 }
 
-function buildDetailPager({ appState, route, findEntity, getRoleRelatedItems, getModuleRelatedItems, routeQueryFilters }) {
-  const content = [...appState.data.theory, ...appState.data.coding, ...appState.data.useCases];
+function enhanceQuizRunnerPage() {
+  const actions = document.querySelector('.quiz-question .hero-actions');
+  if (!actions) return;
+  if (!actions.querySelector('[data-quiz-exit]')) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'button secondary';
+    button.dataset.quizExit = 'true';
+    button.textContent = 'Exit quiz';
+    button.addEventListener('click', () => {
+      appState.quizSession = null;
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+    });
+    actions.appendChild(button);
+  }
+}
+
+function buildDetailPager({ appState: appStateArg, route, getRoleRelatedItems, getModuleRelatedItems, routeQueryFilters }) {
+  const content = [...appStateArg.data.theory, ...appStateArg.data.coding, ...appStateArg.data.useCases];
   let items = [];
   let pathPrefix = '';
   const currentSlug = route.segments[1] || '';
 
   if (route.segments[0] === 'coding' && route.segments[1]) {
-    items = appState.data.coding.filter((item) => {
-      const filters = routeQueryFilters(route);
-      return (!filters.role || (item.roleIds || []).includes(filters.role))
-        && (!filters.module || (item.moduleIds || []).includes(filters.module))
-        && (!filters.topic || (item.topicIds || []).includes(filters.topic))
-        && (!filters.difficulty || item.difficulty === filters.difficulty)
-        && (!filters.q || normalizeText(`${item.title} ${item.question} ${item.summary || ''}`).includes(normalizeText(filters.q)));
-    });
+    items = filterStudyItems(appStateArg.data.coding, routeQueryFilters(route), appStateArg).sort((a, b) => a.title.localeCompare(b.title));
     pathPrefix = '/coding';
   } else if (route.segments[0] === 'use-cases' && route.segments[1]) {
-    items = appState.data.useCases.filter((item) => {
-      const filters = routeQueryFilters(route);
-      return (!filters.role || (item.roleIds || []).includes(filters.role))
-        && (!filters.module || (item.moduleIds || []).includes(filters.module))
-        && (!filters.topic || (item.topicIds || []).includes(filters.topic))
-        && (!filters.difficulty || item.difficulty === filters.difficulty)
-        && (!filters.q || normalizeText(`${item.title} ${item.question} ${item.summary || ''}`).includes(normalizeText(filters.q)));
-    });
+    items = filterStudyItems(appStateArg.data.useCases, routeQueryFilters(route), appStateArg).sort((a, b) => a.title.localeCompare(b.title));
     pathPrefix = '/use-cases';
   } else if (route.segments[0] === 'modules' && route.segments[1]) {
-    items = filterModulesForNavigation(appState, route.query);
+    items = filterModulesForNavigation(appStateArg, route.query);
     pathPrefix = '/modules';
   } else if (route.segments[0] === 'topics' && route.segments[1]) {
     if (route.query.scopeType === 'role') {
-      items = getRoleTopicList(appState, appState.lookups.rolesById[route.query.scopeId], content, getRoleRelatedItems);
+      items = getRoleTopicList(appStateArg, appStateArg.lookups.rolesById[route.query.scopeId], content, getRoleRelatedItems);
     } else if (route.query.scopeType === 'module') {
-      items = getModuleTopicList(appState, appState.lookups.modulesById[route.query.scopeId], content, getModuleRelatedItems);
+      items = getModuleTopicList(appStateArg, appStateArg.lookups.modulesById[route.query.scopeId], content, getModuleRelatedItems);
     } else {
-      items = filterTopicsForNavigation(appState, route.query);
+      items = filterTopicsForNavigation(appStateArg, route.query);
     }
     pathPrefix = '/topics';
   } else {
@@ -246,8 +262,8 @@ function buildDetailPager({ appState, route, findEntity, getRoleRelatedItems, ge
 
   return `
     <div class="detail-pager">
-      <button type="button" class="detail-nav-button" ${previousHash ? `data-open-route="${previousHash}" title="Previous"` : 'disabled title="Previous"'} aria-label="Previous">←</button>
-      <button type="button" class="detail-nav-button" ${nextHash ? `data-open-route="${nextHash}" title="Next"` : 'disabled title="Next"'} aria-label="Next">→</button>
+      ${previousHash ? `<a class="detail-nav-button" href="${previousHash}" aria-label="Open previous item">← Previous</a>` : `<span class="detail-nav-button is-disabled" aria-hidden="true">← Previous</span>`}
+      ${nextHash ? `<a class="detail-nav-button" href="${nextHash}" aria-label="Open next item">Next →</a>` : `<span class="detail-nav-button is-disabled" aria-hidden="true">Next →</span>`}
     </div>
   `;
 }
@@ -307,4 +323,5 @@ export function enhancePageUi(args) {
   enhanceClickableCards();
   enhanceBackButtonFallback(args);
   enhanceDetailNavigation(args);
+  enhanceQuizRunnerPage();
 }
