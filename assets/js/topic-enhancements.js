@@ -66,6 +66,7 @@ export function ensureEnhancementAssets() {
 
 function linkForItem(item) {
   if (!item) return '#/home';
+  if (item.route) return item.route;
   if (item.contentType === 'coding') return `#/coding/${item.slug}`;
   if (item.contentType === 'use-case') return `#/use-cases/${item.slug}`;
   return `#/study/${item.slug}`;
@@ -97,11 +98,10 @@ function renderTrickyCard(item, lookups) {
       <div class="title-row">
         <div>
           <div class="badges">
-            <span class="badge green">Tricky</span>
             <span class="badge orange">${escapeHtml(item.difficulty || 'Interview')}</span>
           </div>
           <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.summary || item.question || 'Open the item to review the full tricky explanation and exact answer.')}</p>
+          <p>${escapeHtml(item.summary || item.question || 'Open the item to review the related topic and exact explanation.')}</p>
         </div>
       </div>
       <div class="meta-inline">
@@ -110,7 +110,7 @@ function renderTrickyCard(item, lookups) {
       </div>
       <div class="footer-row">
         <span class="small">${escapeHtml(item.question || 'Open this tricky item')}</span>
-        <a class="link-arrow" href="${linkForItem(item)}">Open →</a>
+        <a class="link-arrow" href="${linkForItem(item)}">Open topic →</a>
       </div>
     </article>
   `;
@@ -124,17 +124,20 @@ function getTrickyItems(items = []) {
   return items.filter((item) => TRICKY_CONTENT_TYPES.includes(item.contentType));
 }
 
-function topicCounts(relatedItems = []) {
-  return {
-    concepts: relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType)).length,
-    coding: relatedItems.filter((item) => item.contentType === 'coding').length,
-    useCases: relatedItems.filter((item) => item.contentType === 'use-case').length,
-    tricky: getTrickyItems(relatedItems).length
-  };
+function getVerifiedOverview(state, topicId) {
+  return state.lookups?.topicOverviewByTopicId?.[topicId] || null;
+}
+
+function getMappedModuleNames(state, topicId) {
+  return unique((state.lookups?.topicToModuleIds?.[topicId] || []).map((id) => state.lookups.modulesById?.[id]?.name).filter(Boolean));
+}
+
+function getMappedRoleNames(state, topicId) {
+  return unique((state.lookups?.topicToRoleIds?.[topicId] || []).map((id) => state.lookups.rolesById?.[id]?.name).filter(Boolean));
 }
 
 function buildFallbackKeyComponents(topic, relatedTables = []) {
-  const fallback = [
+  return [
     `Core purpose and business value of ${topic.name}.`,
     `Where ${topic.name} is configured, scripted, or maintained in the platform.`,
     relatedTables.length
@@ -142,7 +145,6 @@ function buildFallbackKeyComponents(topic, relatedTables = []) {
       : `Key records, conditions, APIs, or dependencies that influence ${topic.name}.`,
     `How ${topic.name} is tested, validated, and debugged during implementation.`
   ];
-  return fallback;
 }
 
 function buildFallbackExamples(topic, moduleNames = []) {
@@ -218,31 +220,47 @@ function buildFallbackPitfalls(topic) {
 }
 
 function buildTopicOverview(topic, relatedItems = [], state) {
+  const verified = getVerifiedOverview(state, topic.id);
   const trickyItems = getTrickyItems(relatedItems);
   const conceptItems = relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType));
   const leadItem = conceptItems.find((item) => item.contentType === 'theory') || conceptItems[0] || trickyItems[0] || null;
-  const relatedTables = unique(relatedItems.flatMap((item) => item.relatedTables || [])).slice(0, 8);
-  const roleNames = unique(relatedItems.flatMap((item) => (item.roleIds || []).map((id) => state.lookups.rolesById?.[id]?.name).filter(Boolean))).slice(0, 4);
-  const moduleNames = unique(relatedItems.flatMap((item) => (item.moduleIds || []).map((id) => state.lookups.modulesById?.[id]?.name).filter(Boolean))).slice(0, 4);
-  const counts = topicCounts(relatedItems);
+  const relatedTables = unique([...(verified?.tablesInvolved || []), ...relatedItems.flatMap((item) => item.relatedTables || [])]).slice(0, 8);
+  const roleNames = unique([
+    ...getMappedRoleNames(state, topic.id),
+    ...relatedItems.flatMap((item) => (item.roleIds || []).map((id) => state.lookups.rolesById?.[id]?.name).filter(Boolean))
+  ]).slice(0, 4);
+  const moduleNames = unique([
+    ...getMappedModuleNames(state, topic.id),
+    ...relatedItems.flatMap((item) => (item.moduleIds || []).map((id) => state.lookups.modulesById?.[id]?.name).filter(Boolean))
+  ]).slice(0, 4);
+  const trickyCount = Math.max(trickyItems.length, (verified?.interviewPitfalls || []).length);
+  const counts = {
+    concepts: conceptItems.length,
+    coding: relatedItems.filter((item) => item.contentType === 'coding').length,
+    useCases: relatedItems.filter((item) => item.contentType === 'use-case').length,
+    tricky: trickyCount
+  };
 
   const keyPoints = unique(conceptItems.flatMap((item) => item.keyPoints || [])).slice(0, 5);
-  const finalKeyPoints = keyPoints.length ? keyPoints : buildFallbackKeyComponents(topic, relatedTables);
+  const finalKeyPoints = verified?.keyComponents?.length ? verified.keyComponents : (keyPoints.length ? keyPoints : buildFallbackKeyComponents(topic, relatedTables));
 
   const realTimeExamples = unique(conceptItems.flatMap((item) => item.examples || [])).slice(0, 3);
-  const finalExamples = realTimeExamples.length ? realTimeExamples : buildFallbackExamples(topic, moduleNames);
+  const finalExamples = verified?.realTimeExamples?.length ? verified.realTimeExamples : (realTimeExamples.length ? realTimeExamples : buildFallbackExamples(topic, moduleNames));
 
   const pitfalls = unique([
+    ...(verified?.interviewPitfalls || []),
     ...trickyItems.map((item) => item.question || item.title),
     ...relatedItems.filter((item) => item.contentType === 'comparison').map((item) => item.title),
     ...relatedItems.filter((item) => item.contentType === 'troubleshooting').map((item) => item.title)
   ]).slice(0, 5);
   const finalPitfalls = pitfalls.length ? pitfalls : buildFallbackPitfalls(topic);
 
-  const definition = leadItem?.exactAnswer
+  const definition = verified?.definition
+    || leadItem?.exactAnswer
     || leadItem?.summary
     || `${topic.name} is a ${topic.category || 'ServiceNow'} topic in this hub. Use this page to understand what it does, how it is used, and how it is discussed in interviews.`;
-  const whatItDoes = leadItem?.summary
+  const whatItDoes = verified?.whatItDoes
+    || leadItem?.summary
     || safeFirstText(finalKeyPoints)
     || `${topic.name} is currently linked to ${formatCount(relatedItems.length)} study item(s) inside the hub.`;
 
@@ -326,6 +344,28 @@ function renderSectionNav(sections = []) {
   `;
 }
 
+function renderDerivedTrickyBlocks(topic, pitfalls = []) {
+  if (!pitfalls.length) return '';
+  return `
+    <div class="grid cards-2">
+      ${pitfalls.map((pitfall, index) => `
+        <article class="card item-card">
+          <div class="title-row">
+            <div>
+              <h3>Interview pitfall ${index + 1}</h3>
+              <p>${escapeHtml(pitfall)}</p>
+            </div>
+          </div>
+          <div class="footer-row">
+            <span class="small">${escapeHtml(topic.name)}</span>
+            <span class="small">Review the overview and related questions on this page.</span>
+          </div>
+        </article>
+      `).join('')}
+    </div>
+  `;
+}
+
 export function renderTrickyPage(state, items, filters = {}) {
   return `
     <section class="card clean-banner tricky-page-banner">
@@ -333,7 +373,7 @@ export function renderTrickyPage(state, items, filters = {}) {
         <div class="clean-banner-icon">?</div>
         <div>
           <h2>Tricky Questions</h2>
-          <p>Review the mapped tricky, comparison, and troubleshooting content across roles, modules, and topics.</p>
+          <p>Review interview pitfalls derived from topic overviews across roles, modules, and topics.</p>
         </div>
       </div>
     </section>
@@ -364,7 +404,7 @@ export function renderTrickyPage(state, items, filters = {}) {
         Difficulty
         <select name="difficulty" data-filter-control>
           <option value="">All levels</option>
-          ${['Beginner', 'Intermediate', 'Advanced'].map((level) => `<option value="${level}" ${filters.difficulty === level ? 'selected' : ''}>${level}</option>`).join('')}
+          ${['Interview', 'Beginner', 'Intermediate', 'Advanced'].map((level) => `<option value="${level}" ${filters.difficulty === level ? 'selected' : ''}>${level}</option>`).join('')}
         </select>
       </label>
       <label>
@@ -398,6 +438,7 @@ export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
   const sourceSection = accordionStack?.closest('section') || document.querySelector('.empty-state')?.closest('section');
   if (!sourceSection) return;
 
+  const verified = getVerifiedOverview(state, topic.id);
   const accordionDetails = accordionStack ? [...accordionStack.querySelectorAll('.study-accordion')] : [];
   const sections = {
     concepts: [],
@@ -423,6 +464,10 @@ export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
     sections.concepts.push(detail.outerHTML);
   });
 
+  if (!sections.tricky.length && verified?.interviewPitfalls?.length) {
+    sections.tricky.push(renderDerivedTrickyBlocks(topic, verified.interviewPitfalls));
+  }
+
   const visibleSections = [];
   if (sections.concepts.length) visibleSections.push({ id: 'topic-concepts', label: 'Concepts' });
   if (sections.coding.length) visibleSections.push({ id: 'topic-coding', label: 'Coding' });
@@ -439,7 +484,7 @@ export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
     sectionWrapper('topic-concepts', 'Concepts & explanations', 'Read the mapped concepts first, then move into practice questions.', sections.concepts.join('')),
     sectionWrapper('topic-coding', 'Coding questions', 'Exact scripting drills mapped to this topic.', sections.coding.join('')),
     sectionWrapper('topic-use-cases', 'Use case scenarios', 'Implementation-style interview scenarios connected to this topic.', sections.useCases.join('')),
-    sectionWrapper('topic-tricky', 'Tricky questions', 'Edge cases, interview traps, and tricky distinctions for this topic.', sections.tricky.join('')),
+    sectionWrapper('topic-tricky', 'Tricky questions', 'Interview pitfalls and tricky distinctions for this topic.', sections.tricky.join('')),
     fallbackBody
   ].join('');
 

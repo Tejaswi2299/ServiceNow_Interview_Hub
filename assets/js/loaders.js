@@ -15,7 +15,7 @@ async function fetchMany(paths = []) {
 }
 
 export async function loadAllData() {
-  const [roles, modules, topics, contentTypes, difficultyLevels, roleModule, moduleTopic, roleTopic, moduleCoding, moduleUseCase, theory, coding, useCases, quizzes, searchIndex, coverage] = await Promise.all([
+  const [roles, modules, topics, contentTypes, difficultyLevels, roleModule, moduleTopic, roleTopic, moduleCoding, moduleUseCase, theory, topicOverviews, coding, useCases, quizzes, searchIndex, coverage] = await Promise.all([
     fetchJson(TAXONOMY_FILES.roles),
     fetchJson(TAXONOMY_FILES.modules),
     fetchJson(TAXONOMY_FILES.topics),
@@ -27,6 +27,7 @@ export async function loadAllData() {
     fetchJson(MAP_FILES.moduleCoding),
     fetchJson(MAP_FILES.moduleUseCase),
     fetchMany(CONTENT_FILES.theory),
+    fetchMany(CONTENT_FILES.topicOverviews || []),
     fetchMany(CONTENT_FILES.coding),
     fetchMany(CONTENT_FILES.useCases),
     fetchJson(CONTENT_FILES.quizzes),
@@ -41,6 +42,7 @@ export async function loadAllData() {
     contentTypes,
     difficultyLevels,
     theory,
+    topicOverviews,
     coding,
     useCases,
     quizzes,

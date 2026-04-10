@@ -7,6 +7,7 @@ import { toggleBookmark } from './bookmarks.js';
 import { buildQuiz, gradeQuiz } from './quiz.js';
 import { trackEvent, trackPageView } from './analytics.js';
 import { escapeHtml } from './utils.js';
+import { buildTopicOverviews } from './topic-overview-defaults.js';
 import {
   renderBookmarksPage,
   renderCodingDetail,
@@ -28,6 +29,7 @@ import {
   renderUseCasesPage
 } from './renderers.js';
 import { enhanceTopicDetailPage, ensureEnhancementAssets, renderTrickyPage } from './topic-enhancements.js';
+import { enhancePageUi, syncProgressiveQuizForm } from './page-enhancements.js';
 
 const appMain = document.getElementById('app-main');
 const pageTitleNode = document.getElementById('page-title');
@@ -36,7 +38,21 @@ const globalSearchInput = document.getElementById('global-search-input');
 const mobileNavToggle = document.getElementById('mobile-nav-toggle');
 const sidebar = document.querySelector('.sidebar');
 const QUIZ_COUNTS = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
-const TRICKY_CONTENT_TYPES = ['tricky', 'comparison', 'troubleshooting'];
+
+function uniqueIds(values = []) {
+  return [...new Set((values || []).filter(Boolean))];
+}
+
+function invertMap(map = {}) {
+  const inverted = {};
+  Object.entries(map || {}).forEach(([parentId, childIds]) => {
+    (childIds || []).forEach((childId) => {
+      if (!inverted[childId]) inverted[childId] = [];
+      inverted[childId].push(parentId);
+    });
+  });
+  return inverted;
+}
 
 function setPageHeading(title, routePath = '') {
   document.title = `${title} | ServiceNow Interview Hub`;
@@ -55,10 +71,58 @@ function updateActiveNav(path) {
   });
 }
 
+function getMappedModuleIdsForTopic(topicId) {
+  return uniqueIds([
+    ...(appState.lookups.topicToModuleIds?.[topicId] || []),
+    ...(appState.lookups.topicsById?.[topicId]?.moduleIds || [])
+  ]);
+}
+
+function getMappedRoleIdsForTopic(topicId, moduleIds = []) {
+  const roleIdsFromTopic = appState.lookups.topicToRoleIds?.[topicId] || [];
+  const roleIdsFromModules = moduleIds.flatMap((moduleId) => appState.lookups.moduleToRoleIds?.[moduleId] || []);
+  return uniqueIds([...roleIdsFromTopic, ...roleIdsFromModules]);
+}
+
+function buildDerivedTrickyItems() {
+  return (appState.data.topicOverviews || []).flatMap((overview) => {
+    const topic = appState.lookups.topicsById?.[overview.topicId];
+    if (!topic) return [];
+    const moduleIds = getMappedModuleIdsForTopic(overview.topicId);
+    const roleIds = getMappedRoleIdsForTopic(overview.topicId, moduleIds);
+
+    return (overview.interviewPitfalls || [])
+      .filter(Boolean)
+      .map((pitfall, index) => ({
+        id: `tricky-${overview.topicId}-${index + 1}`,
+        slug: `${topic.slug}-pitfall-${index + 1}`,
+        title: pitfall,
+        question: pitfall,
+        summary: `Interview pitfall for ${topic.name}`,
+        contentType: 'tricky',
+        difficulty: 'Interview',
+        topicId: overview.topicId,
+        topicIds: [overview.topicId],
+        moduleIds,
+        roleIds,
+        route: `#/topics/${topic.slug}`
+      }));
+  });
+}
+
 function buildLookups() {
   appState.lookups.rolesById = Object.fromEntries(appState.data.roles.map((item) => [item.id, item]));
   appState.lookups.modulesById = Object.fromEntries(appState.data.modules.map((item) => [item.id, item]));
   appState.lookups.topicsById = Object.fromEntries(appState.data.topics.map((item) => [item.id, item]));
+  appState.lookups.roleToModules = appState.data.maps.roleModule || {};
+  appState.lookups.moduleToTopics = appState.data.maps.moduleTopic || {};
+  appState.lookups.roleToTopics = appState.data.maps.roleTopic || {};
+  appState.lookups.topicToModuleIds = invertMap(appState.lookups.moduleToTopics);
+  appState.lookups.topicToRoleIds = invertMap(appState.lookups.roleToTopics);
+  appState.lookups.moduleToRoleIds = invertMap(appState.lookups.roleToModules);
+  appState.data.topicOverviews = buildTopicOverviews(appState.data.topics, appState.data.topicOverviews || []);
+  appState.lookups.topicOverviewByTopicId = Object.fromEntries((appState.data.topicOverviews || []).map((item) => [item.topicId, item]));
+  appState.data.derivedTrickyItems = buildDerivedTrickyItems();
   const content = [...appState.data.theory, ...appState.data.coding, ...appState.data.useCases];
   appState.lookups.contentById = Object.fromEntries(content.map((item) => [item.id, item]));
 }
@@ -122,10 +186,6 @@ function getModuleRelatedItems(module, allItems) {
     mappedCodingIds.has(item.id) ||
     mappedUseCaseIds.has(item.id)
   );
-}
-
-function getTrickyStudyItems(allItems = []) {
-  return allItems.filter((item) => TRICKY_CONTENT_TYPES.includes(item.contentType));
 }
 
 function routeQueryFilters(route) {
@@ -201,15 +261,7 @@ function buildQuizSetupMarkup() {
 }
 
 function syncQuizSetupForm(form) {
-  if (!form) return;
-  const scope = form.querySelector('[data-quiz-scope]')?.value || 'mixed';
-  ['role', 'module', 'topic'].forEach((field) => {
-    const wrapper = form.querySelector(`[data-quiz-field="${field}"]`);
-    const select = wrapper?.querySelector('select');
-    const active = scope === field;
-    if (wrapper) wrapper.hidden = !active;
-    if (select) select.disabled = !active;
-  });
+  syncProgressiveQuizForm(form);
 }
 
 function enhanceQuizSetupPage() {
@@ -222,6 +274,14 @@ function enhanceQuizSetupPage() {
 
 function enhanceRenderedPage() {
   enhanceQuizSetupPage();
+  enhancePageUi({
+    appState,
+    route: appState.route,
+    findEntity,
+    getRoleRelatedItems,
+    getModuleRelatedItems,
+    routeQueryFilters
+  });
 }
 
 function setAppHtml(html) {
@@ -311,13 +371,14 @@ function renderRoute() {
     setPageHeading(topic.name, `/topics/${topic.slug}`);
     setAppHtml(renderTopicDetail(appState, topic, related));
     enhanceTopicDetailPage(appState, topic, related);
+    enhanceRenderedPage();
     trackEvent('topic_open', { topic_id: topic.id, topic_name: topic.name });
     return;
   }
 
   if (segments[0] === 'tricky' && segments.length === 1) {
     const filters = routeQueryFilters(route);
-    const items = filterStudyItems(getTrickyStudyItems(content), filters);
+    const items = filterStudyItems(appState.data.derivedTrickyItems || [], filters, appState);
     setPageHeading('Tricky Questions', '/tricky');
     setAppHtml(renderTrickyPage(appState, items, filters));
     return;
@@ -325,7 +386,7 @@ function renderRoute() {
 
   if (segments[0] === 'coding' && segments.length === 1) {
     const filters = routeQueryFilters(route);
-    const items = filterStudyItems(appState.data.coding, filters);
+    const items = filterStudyItems(appState.data.coding, filters, appState);
     setPageHeading('Coding Questions', '/coding');
     setAppHtml(renderCodingPage(appState, items, filters));
     return;
@@ -346,7 +407,7 @@ function renderRoute() {
 
   if (segments[0] === 'use-cases' && segments.length === 1) {
     const filters = routeQueryFilters(route);
-    const items = filterStudyItems(appState.data.useCases, filters);
+    const items = filterStudyItems(appState.data.useCases, filters, appState);
     setPageHeading('Use Cases', '/use-cases');
     setAppHtml(renderUseCasesPage(appState, items, filters));
     return;
@@ -383,7 +444,6 @@ function renderRoute() {
     const results = searchIndex(appState.data.searchIndex, query);
     setPageHeading('Search', '/search');
     setAppHtml(renderSearchResults(query, results, appState));
-    if (query) trackEvent('search_used', { query, results: results.length });
     return;
   }
 
@@ -425,8 +485,9 @@ function handleGlobalSearchSubmit(event) {
 
 function handleBackButtonClick(button) {
   const fallback = button.dataset.fallback || '#/home';
+  const forceFallback = button.dataset.forceFallback === 'true';
 
-  if (window.history.length > 1) {
+  if (!forceFallback && window.history.length > 1) {
     window.history.back();
     return;
   }
@@ -470,7 +531,11 @@ function handleFilterForm(form) {
 
 function handleQuizSetup(form) {
   const data = new FormData(form);
-  const scope = data.get('scope') || 'mixed';
+  const scope = data.get('scope') || '';
+  if (!scope) {
+    window.alert('Select a scope before starting the quiz.');
+    return;
+  }
 
   let value = '';
   if (scope === 'role') value = data.get('roleValue') || '';
@@ -490,11 +555,23 @@ function handleQuizSetup(form) {
     return;
   }
 
+  const selectedDifficulty = data.get('difficulty') || '';
+  if (!selectedDifficulty) {
+    window.alert('Select a difficulty before starting the quiz.');
+    return;
+  }
+
+  const selectedCount = Number(data.get('count') || 0);
+  if (!selectedCount) {
+    window.alert('Select how many questions you want before starting the quiz.');
+    return;
+  }
+
   const options = {
     scope,
     value,
-    difficulty: data.get('difficulty') || '',
-    count: Number(data.get('count') || 10)
+    difficulty: selectedDifficulty === 'all' ? '' : selectedDifficulty,
+    count: selectedCount
   };
 
   const questions = buildQuiz(appState.data.quizzes, options);
@@ -581,6 +658,12 @@ function bindGlobalEvents() {
       return;
     }
 
+    const openTarget = target.closest('[data-open-route]');
+    if (openTarget && !target.closest('a,button,[data-bookmark-id]')) {
+      window.location.hash = openTarget.dataset.openRoute;
+      return;
+    }
+
     if (target.matches('[data-quiz-choice]')) {
       handleQuizChoice(target.dataset.quizChoice);
       return;
@@ -610,12 +693,20 @@ function bindGlobalEvents() {
     }
   });
 
+  document.addEventListener('keydown', (event) => {
+    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-open-route]')) {
+      event.preventDefault();
+      window.location.hash = event.target.dataset.openRoute;
+    }
+  });
+
   document.addEventListener('change', (event) => {
     const target = event.target;
 
-    if (target.matches('[data-quiz-scope]')) {
-      syncQuizSetupForm(target.closest('[data-quiz-form]'));
-      return;
+    if (target.matches('[data-quiz-form] select, [data-quiz-scope]')) {
+      const form = target.closest('[data-quiz-form]');
+      if (form) syncQuizSetupForm(form);
+      if (target.matches('[data-quiz-scope]')) return;
     }
 
     if (target.matches('[data-filter-control]')) {

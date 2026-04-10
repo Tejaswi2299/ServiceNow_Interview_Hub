@@ -38,6 +38,9 @@ export const CONTENT_FILES = {
     'data/content/theory/wave5.json',
     'data/content/theory/wave6-data-fix.json'
   ],
+  topicOverviews: [
+    'data/content/topic-overviews/verified-core.json'
+  ],
   coding: [
     'data/content/coding/business-rules.json',
     'data/content/coding/client-scripts.json',
