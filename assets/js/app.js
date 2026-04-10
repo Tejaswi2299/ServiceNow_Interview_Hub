@@ -6,6 +6,7 @@ import { searchIndex } from './search.js';
 import { toggleBookmark } from './bookmarks.js';
 import { buildQuiz, gradeQuiz } from './quiz.js';
 import { trackEvent, trackPageView } from './analytics.js';
+import { escapeHtml } from './utils.js';
 import {
   renderBookmarksPage,
   renderCodingDetail,
@@ -34,6 +35,8 @@ const globalSearchForm = document.getElementById('global-search-form');
 const globalSearchInput = document.getElementById('global-search-input');
 const mobileNavToggle = document.getElementById('mobile-nav-toggle');
 const sidebar = document.querySelector('.sidebar');
+const QUIZ_COUNTS = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+const TRICKY_CONTENT_TYPES = ['tricky', 'comparison', 'troubleshooting'];
 
 function setPageHeading(title, routePath = '') {
   document.title = `${title} | ServiceNow Interview Hub`;
@@ -121,6 +124,10 @@ function getModuleRelatedItems(module, allItems) {
   );
 }
 
+function getTrickyStudyItems(allItems = []) {
+  return allItems.filter((item) => TRICKY_CONTENT_TYPES.includes(item.contentType));
+}
+
 function routeQueryFilters(route) {
   return {
     role: route.query.role || '',
@@ -132,8 +139,94 @@ function routeQueryFilters(route) {
   };
 }
 
+function buildQuizSetupMarkup() {
+  return `
+    <div class="section-header">
+      <div>
+        <h2>Quiz</h2>
+        <p>Choose the scope first, then select the matching role, module, or topic, set difficulty, choose the number of questions, and start the round.</p>
+      </div>
+    </div>
+    <form id="quiz-setup-form" class="filters" data-quiz-form>
+      <label>
+        Scope
+        <select name="scope" data-quiz-scope>
+          <option value="mixed">Mixed</option>
+          <option value="role">Role</option>
+          <option value="module">Module</option>
+          <option value="topic">Topic</option>
+        </select>
+      </label>
+      <label data-quiz-field="role" hidden>
+        Role
+        <select name="roleValue" disabled>
+          <option value="">Select a role</option>
+          ${appState.data.roles.map((role) => `<option value="${escapeHtml(role.id)}">${escapeHtml(role.name)}</option>`).join('')}
+        </select>
+      </label>
+      <label data-quiz-field="module" hidden>
+        Module
+        <select name="moduleValue" disabled>
+          <option value="">Select a module</option>
+          ${appState.data.modules.map((module) => `<option value="${escapeHtml(module.id)}">${escapeHtml(module.name)}</option>`).join('')}
+        </select>
+      </label>
+      <label data-quiz-field="topic" hidden>
+        Topic
+        <select name="topicValue" disabled>
+          <option value="">Select a topic</option>
+          ${appState.data.topics.map((topic) => `<option value="${escapeHtml(topic.id)}">${escapeHtml(topic.name)}</option>`).join('')}
+        </select>
+      </label>
+      <label>
+        Difficulty
+        <select name="difficulty">
+          <option value="">All levels</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </label>
+      <label>
+        Question count
+        <select name="count">
+          ${QUIZ_COUNTS.map((count) => `<option value="${count}" ${count === 10 ? 'selected' : ''}>${count}</option>`).join('')}
+        </select>
+      </label>
+      <div class="hero-actions">
+        <button class="button-link" type="submit">Start quiz</button>
+      </div>
+    </form>
+  `;
+}
+
+function syncQuizSetupForm(form) {
+  if (!form) return;
+  const scope = form.querySelector('[data-quiz-scope]')?.value || 'mixed';
+  ['role', 'module', 'topic'].forEach((field) => {
+    const wrapper = form.querySelector(`[data-quiz-field="${field}"]`);
+    const select = wrapper?.querySelector('select');
+    const active = scope === field;
+    if (wrapper) wrapper.hidden = !active;
+    if (select) select.disabled = !active;
+  });
+}
+
+function enhanceQuizSetupPage() {
+  const quizBanner = document.querySelector('.quiz-shell .card.page-banner');
+  const quizForm = quizBanner?.querySelector('[data-quiz-form]');
+  if (!quizBanner || !quizForm) return;
+  quizBanner.innerHTML = buildQuizSetupMarkup();
+  syncQuizSetupForm(quizBanner.querySelector('[data-quiz-form]'));
+}
+
+function enhanceRenderedPage() {
+  enhanceQuizSetupPage();
+}
+
 function setAppHtml(html) {
   appMain.innerHTML = html;
+  enhanceRenderedPage();
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
@@ -224,7 +317,7 @@ function renderRoute() {
 
   if (segments[0] === 'tricky' && segments.length === 1) {
     const filters = routeQueryFilters(route);
-    const items = filterStudyItems(content, { ...filters, type: 'tricky' });
+    const items = filterStudyItems(getTrickyStudyItems(content), filters);
     setPageHeading('Tricky Questions', '/tricky');
     setAppHtml(renderTrickyPage(appState, items, filters));
     return;
@@ -384,6 +477,19 @@ function handleQuizSetup(form) {
   if (scope === 'module') value = data.get('moduleValue') || '';
   if (scope === 'topic') value = data.get('topicValue') || '';
 
+  if (scope === 'role' && !value) {
+    window.alert('Select a role before starting the quiz.');
+    return;
+  }
+  if (scope === 'module' && !value) {
+    window.alert('Select a module before starting the quiz.');
+    return;
+  }
+  if (scope === 'topic' && !value) {
+    window.alert('Select a topic before starting the quiz.');
+    return;
+  }
+
   const options = {
     scope,
     value,
@@ -460,6 +566,16 @@ function bindGlobalEvents() {
       return;
     }
 
+    if (target.closest('[data-scroll-target]')) {
+      const trigger = target.closest('[data-scroll-target]');
+      const sectionId = trigger.dataset.scrollTarget;
+      const destination = document.getElementById(sectionId);
+      if (destination) {
+        destination.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
     if (target.closest('[data-bookmark-id]')) {
       handleBookmarkClick(target.closest('[data-bookmark-id]'));
       return;
@@ -496,9 +612,15 @@ function bindGlobalEvents() {
 
   document.addEventListener('change', (event) => {
     const target = event.target;
+
+    if (target.matches('[data-quiz-scope]')) {
+      syncQuizSetupForm(target.closest('[data-quiz-form]'));
+      return;
+    }
+
     if (target.matches('[data-filter-control]')) {
       const form = target.closest('[data-filter-form]');
-      if (form) handleFilterForm(form);
+      if (form && form.dataset.autoSubmit !== 'false') handleFilterForm(form);
     }
   });
 
