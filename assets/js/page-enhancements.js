@@ -244,6 +244,12 @@ function buildDetailPager({ appState: appStateArg, route, getRoleRelatedItems, g
       items = getRoleTopicList(appStateArg, appStateArg.lookups.rolesById[route.query.scopeId], content, getRoleRelatedItems);
     } else if (route.query.scopeType === 'module') {
       items = getModuleTopicList(appStateArg, appStateArg.lookups.modulesById[route.query.scopeId], content, getModuleRelatedItems);
+    } else if (route.segments[0] === 'roles' && route.segments[1]) {
+  items = [...appStateArg.data.roles]
+    .filter((role) => !route.query.q || normalizeText(`${role.name} ${role.summary || ''}`).includes(normalizeText(route.query.q)))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  pathPrefix = '/roles';
+}
     } else {
       items = filterTopicsForNavigation(appStateArg, route.query);
     }
