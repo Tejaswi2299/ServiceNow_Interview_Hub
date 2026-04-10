@@ -22,7 +22,20 @@ function enhancementStyles() {
     .topic-section-wrap{margin-bottom:18px;}
     .tricky-page-banner .clean-banner-head{align-items:center;}
     .filter-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
-    @media (max-width:880px){.topic-overview-grid,.topic-overview-footer{grid-template-columns:1fr;}}
+    .tricky-answer-stack{display:grid;gap:14px;}
+    .tricky-answer-card{border-radius:18px;border:1px solid var(--border);background:rgba(255,255,255,.03);overflow:hidden;}
+    .tricky-answer-card summary{list-style:none;cursor:pointer;padding:18px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+    .tricky-answer-card summary::-webkit-details-marker{display:none;}
+    .tricky-answer-card[open] summary{border-bottom:1px solid var(--border);}
+    .tricky-answer-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+    .tricky-answer-body{padding:18px;display:grid;gap:16px;}
+    .tricky-answer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+    .tricky-answer-panel{padding:14px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.02);}
+    .tricky-answer-panel h4{margin:0 0 8px;}
+    .tricky-answer-panel p,.tricky-answer-panel li{color:var(--muted);line-height:1.6;}
+    .tricky-answer-panel ul{margin:0;padding-left:1rem;}
+    .tricky-chevron{font-size:1.1rem;color:var(--muted);}
+    @media (max-width:880px){.topic-overview-grid,.topic-overview-footer,.tricky-answer-grid{grid-template-columns:1fr;}}
   `;
 }
 
@@ -64,14 +77,6 @@ export function ensureEnhancementAssets() {
   }
 }
 
-function linkForItem(item) {
-  if (!item) return '#/home';
-  if (item.route) return item.route;
-  if (item.contentType === 'coding') return `#/coding/${item.slug}`;
-  if (item.contentType === 'use-case') return `#/use-cases/${item.slug}`;
-  return `#/study/${item.slug}`;
-}
-
 function topicOptionRows(topics, selectedId = '') {
   return topics
     .map((topic) => `<option value="${escapeHtml(topic.id)}" ${selectedId === topic.id ? 'selected' : ''}>${escapeHtml(topic.name)}</option>`)
@@ -88,32 +93,6 @@ function moduleOptionRows(modules, selectedId = '') {
   return modules
     .map((module) => `<option value="${escapeHtml(module.id)}" ${selectedId === module.id ? 'selected' : ''}>${escapeHtml(module.name)}</option>`)
     .join('');
-}
-
-function renderTrickyCard(item, lookups) {
-  const moduleNames = (item.moduleIds || []).slice(0, 3).map((id) => lookups.modulesById?.[id]?.name).filter(Boolean);
-  const topicNames = (item.topicIds || []).slice(0, 3).map((id) => lookups.topicsById?.[id]?.name).filter(Boolean);
-  return `
-    <article class="card item-card">
-      <div class="title-row">
-        <div>
-          <div class="badges">
-            <span class="badge orange">${escapeHtml(item.difficulty || 'Interview')}</span>
-          </div>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.summary || item.question || 'Open the item to review the related topic and exact explanation.')}</p>
-        </div>
-      </div>
-      <div class="meta-inline">
-        ${moduleNames.map((name) => `<span class="badge subtle">${escapeHtml(name)}</span>`).join('')}
-        ${topicNames.map((name) => `<span class="badge subtle">${escapeHtml(name)}</span>`).join('')}
-      </div>
-      <div class="footer-row">
-        <span class="small">${escapeHtml(item.question || 'Open this tricky item')}</span>
-        <a class="link-arrow" href="${linkForItem(item)}">Open topic →</a>
-      </div>
-    </article>
-  `;
 }
 
 function safeFirstText(values = []) {
@@ -344,26 +323,83 @@ function renderSectionNav(sections = []) {
   `;
 }
 
-function renderDerivedTrickyBlocks(topic, pitfalls = []) {
-  if (!pitfalls.length) return '';
+function buildTrickyAnswerModel(item, state) {
+  const topicId = item.topicId || item.topicIds?.[0] || '';
+  const overview = getVerifiedOverview(state, topicId) || {};
+  const topicName = state.lookups?.topicsById?.[topicId]?.name || 'Topic';
+  const modules = unique((item.moduleIds || []).map((id) => state.lookups?.modulesById?.[id]?.name).filter(Boolean));
+  const answerParts = [overview.definition, overview.whatItDoes, ...(overview.keyComponents || []).slice(0, 2)].filter(Boolean);
+  return {
+    title: item.title || item.question || `Tricky question for ${topicName}`,
+    summary: item.summary || `Interview pitfall related to ${topicName}`,
+    answer: answerParts.join(' ') || `Review the ${topicName} definition, behavior, and key components to answer this correctly in an interview.`,
+    whyTricky: item.question || item.title || `Candidates often oversimplify ${topicName} and miss the real platform behavior.`,
+    example: safeFirstText(overview.realTimeExamples || []) || `Use a real ${topicName} implementation example when answering this in an interview.`,
+    tables: overview.tablesInvolved || [],
+    modules,
+    topicName,
+    difficulty: item.difficulty || 'Interview'
+  };
+}
+
+function renderTrickyAnswerAccordion(item, state, index = 0) {
+  const model = buildTrickyAnswerModel(item, state);
   return `
-    <div class="grid cards-2">
-      ${pitfalls.map((pitfall, index) => `
-        <article class="card item-card">
-          <div class="title-row">
-            <div>
-              <h3>Interview pitfall ${index + 1}</h3>
-              <p>${escapeHtml(pitfall)}</p>
-            </div>
+    <details class="tricky-answer-card" ${index === 0 ? 'open' : ''}>
+      <summary>
+        <div>
+          <div class="tricky-answer-meta">
+            <span class="badge orange">${escapeHtml(model.difficulty)}</span>
+            <span class="badge subtle">${escapeHtml(model.topicName)}</span>
+            ${model.modules.slice(0, 2).map((moduleName) => `<span class="badge subtle">${escapeHtml(moduleName)}</span>`).join('')}
           </div>
-          <div class="footer-row">
-            <span class="small">${escapeHtml(topic.name)}</span>
-            <span class="small">Review the overview and related questions on this page.</span>
-          </div>
-        </article>
-      `).join('')}
-    </div>
+          <h3>${escapeHtml(model.title)}</h3>
+          <p>${escapeHtml(model.summary)}</p>
+        </div>
+        <span class="tricky-chevron">▾</span>
+      </summary>
+      <div class="tricky-answer-body">
+        <div class="tricky-answer-grid">
+          <section class="tricky-answer-panel">
+            <h4>Correct answer</h4>
+            <p>${escapeHtml(model.answer)}</p>
+          </section>
+          <section class="tricky-answer-panel">
+            <h4>Why it is tricky</h4>
+            <p>${escapeHtml(model.whyTricky)}</p>
+          </section>
+          <section class="tricky-answer-panel">
+            <h4>Real-time example</h4>
+            <p>${escapeHtml(model.example)}</p>
+          </section>
+          <section class="tricky-answer-panel">
+            <h4>Related tables</h4>
+            ${model.tables.length ? `<div class="topic-chip-list">${model.tables.map((tableName) => `<span class="badge subtle">${escapeHtml(tableName)}</span>`).join('')}</div>` : `<p>No related tables mapped for this tricky item yet.</p>`}
+          </section>
+        </div>
+      </div>
+    </details>
   `;
+}
+
+function renderTrickyAnswerStack(items, state) {
+  if (!items.length) return '';
+  return `<div class="tricky-answer-stack">${items.map((item, index) => renderTrickyAnswerAccordion(item, state, index)).join('')}</div>`;
+}
+
+function buildDerivedTrickyItemsForTopic(topic, state, overview) {
+  return (overview?.interviewPitfalls || []).map((pitfall, index) => ({
+    id: `derived-tricky-${topic.id}-${index + 1}`,
+    topicId: topic.id,
+    topicIds: [topic.id],
+    moduleIds: state.lookups?.topicToModuleIds?.[topic.id] || [],
+    roleIds: state.lookups?.topicToRoleIds?.[topic.id] || [],
+    title: pitfall,
+    question: pitfall,
+    summary: `Interview pitfall for ${topic.name}`,
+    difficulty: 'Interview',
+    contentType: 'tricky'
+  }));
 }
 
 export function renderTrickyPage(state, items, filters = {}) {
@@ -373,7 +409,7 @@ export function renderTrickyPage(state, items, filters = {}) {
         <div class="clean-banner-icon">?</div>
         <div>
           <h2>Tricky Questions</h2>
-          <p>Review interview pitfalls derived from topic overviews across roles, modules, and topics.</p>
+          <p>Review tricky interview questions with inline answers, explanations, examples, and table references.</p>
         </div>
       </div>
     </section>
@@ -424,12 +460,10 @@ export function renderTrickyPage(state, items, filters = {}) {
       </div>
     </section>
 
-    <section class="grid cards-2">
-      ${items.length
-        ? items.map((item) => renderTrickyCard(item, state.lookups)).join('')
-        : `<section class="card empty-state"><h2>No tricky questions match this filter.</h2><p>Try clearing the filters or broadening the search terms.</p></section>`
-      }
-    </section>
+    ${items.length
+      ? renderTrickyAnswerStack(items, state)
+      : `<section class="card empty-state"><h2>No tricky questions match this filter.</h2><p>Try clearing the filters or broadening the search terms.</p></section>`
+    }
   `;
 }
 
@@ -465,7 +499,8 @@ export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
   });
 
   if (!sections.tricky.length && verified?.interviewPitfalls?.length) {
-    sections.tricky.push(renderDerivedTrickyBlocks(topic, verified.interviewPitfalls));
+    const derivedItems = buildDerivedTrickyItemsForTopic(topic, state, verified);
+    sections.tricky.push(renderTrickyAnswerStack(derivedItems, state));
   }
 
   const visibleSections = [];
@@ -484,7 +519,7 @@ export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
     sectionWrapper('topic-concepts', 'Concepts & explanations', 'Read the mapped concepts first, then move into practice questions.', sections.concepts.join('')),
     sectionWrapper('topic-coding', 'Coding questions', 'Exact scripting drills mapped to this topic.', sections.coding.join('')),
     sectionWrapper('topic-use-cases', 'Use case scenarios', 'Implementation-style interview scenarios connected to this topic.', sections.useCases.join('')),
-    sectionWrapper('topic-tricky', 'Tricky questions', 'Interview pitfalls and tricky distinctions for this topic.', sections.tricky.join('')),
+    sectionWrapper('topic-tricky', 'Tricky questions', 'Interview pitfalls with inline answers, examples, and related table context.', sections.tricky.join('')),
     fallbackBody
   ].join('');
 
