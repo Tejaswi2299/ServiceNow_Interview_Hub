@@ -35,7 +35,10 @@ function clearSelectValue(select) {
 export function syncProgressiveQuizForm(form) {
   if (!form) return;
 
+  form.classList.add('quiz-progressive-form');
+
   const scopeSelect = form.querySelector('[data-quiz-scope]');
+  const scopeWrapper = scopeSelect?.closest('label');
   const roleWrapper = form.querySelector('[data-quiz-field="role"]');
   const moduleWrapper = form.querySelector('[data-quiz-field="module"]');
   const topicWrapper = form.querySelector('[data-quiz-field="topic"]');
@@ -47,6 +50,14 @@ export function syncProgressiveQuizForm(form) {
   const roleSelect = roleWrapper?.querySelector('select');
   const moduleSelect = moduleWrapper?.querySelector('select');
   const topicSelect = topicWrapper?.querySelector('select');
+
+  scopeWrapper?.classList.add('quiz-step-scope');
+  roleWrapper?.classList.add('quiz-step-entity');
+  moduleWrapper?.classList.add('quiz-step-entity');
+  topicWrapper?.classList.add('quiz-step-entity');
+  difficultyWrapper?.classList.add('quiz-step-half');
+  countWrapper?.classList.add('quiz-step-half');
+  submitWrapper?.classList.add('quiz-step-actions');
 
   if (!form.dataset.progressiveQuizInit) {
     ensureOption(scopeSelect, '', 'Select scope');
@@ -110,8 +121,27 @@ export function ensurePageEnhancementStyles() {
     .detail-nav-button.is-disabled{opacity:.35;pointer-events:none;}
     .clickable-card{cursor:pointer;}
     .tricky-page-banner ~ .grid .badge.green{display:none;}
+    .quiz-progressive-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:end;max-width:820px;}
+    .quiz-progressive-form label{display:flex;flex-direction:column;gap:8px;min-width:0;}
+    .quiz-progressive-form .quiz-step-scope,
+    .quiz-progressive-form .quiz-step-entity,
+    .quiz-progressive-form .quiz-step-actions{grid-column:1 / -1;}
+    .quiz-progressive-form .quiz-step-actions{display:flex;justify-content:flex-start;}
+    .quiz-progressive-form select,
+    .quiz-progressive-form input{width:100%;}
+    @media (max-width:720px){
+      .quiz-progressive-form{grid-template-columns:1fr;}
+      .quiz-progressive-form .quiz-step-half{grid-column:1 / -1;}
+    }
   `;
   document.head.appendChild(styleNode);
+}
+
+function filterRolesForNavigation(appStateArg, query = {}) {
+  const q = normalizeText(query.q);
+  return [...appStateArg.data.roles]
+    .filter((role) => !q || normalizeText(`${role.name} ${role.summary || ''} ${role.category || ''}`).includes(q))
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function filterModulesForNavigation(appStateArg, query = {}) {
@@ -160,6 +190,13 @@ function enhanceScopedLinks({ appState: appStateArg, route, findEntity }) {
   if (route.segments[0] === 'tricky' && route.segments.length === 1) {
     const extra = { ...route.query, from: '/tricky' };
     document.querySelectorAll('.item-card .link-arrow').forEach((link) => {
+      link.setAttribute('href', mergeHashQuery(link.getAttribute('href') || '', extra));
+    });
+  }
+
+  if (route.segments[0] === 'roles' && route.segments.length === 1) {
+    const extra = { ...route.query, from: '/roles' };
+    document.querySelectorAll('.entity-card-link[href^="#/roles/"]').forEach((link) => {
       link.setAttribute('href', mergeHashQuery(link.getAttribute('href') || '', extra));
     });
   }
@@ -230,7 +267,10 @@ function buildDetailPager({ appState: appStateArg, route, getRoleRelatedItems, g
   let pathPrefix = '';
   const currentSlug = route.segments[1] || '';
 
-  if (route.segments[0] === 'coding' && route.segments[1]) {
+  if (route.segments[0] === 'roles' && route.segments[1]) {
+    items = filterRolesForNavigation(appStateArg, route.query);
+    pathPrefix = '/roles';
+  } else if (route.segments[0] === 'coding' && route.segments[1]) {
     items = filterStudyItems(appStateArg.data.coding, routeQueryFilters(route), appStateArg).sort((a, b) => a.title.localeCompare(b.title));
     pathPrefix = '/coding';
   } else if (route.segments[0] === 'use-cases' && route.segments[1]) {
@@ -284,6 +324,12 @@ function enhanceBackButtonFallback({ route }) {
 
   if (route.segments[0] === 'topics' && route.query.backPath) {
     backButton.dataset.fallback = makeHash(route.query.backPath);
+    backButton.dataset.forceFallback = 'true';
+    return;
+  }
+
+  if (route.segments[0] === 'roles') {
+    backButton.dataset.fallback = makeHash(route.query.from || '/roles', { q: route.query.q || '' });
     backButton.dataset.forceFallback = 'true';
     return;
   }
