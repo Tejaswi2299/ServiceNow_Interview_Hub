@@ -28,6 +28,7 @@ import {
   renderUseCasesPage
 } from './renderers.js';
 import { enhanceTopicDetailPage, ensureEnhancementAssets, renderTrickyPage } from './topic-enhancements.js';
+import { enhancePageUi, syncProgressiveQuizForm } from './page-enhancements.js';
 
 const appMain = document.getElementById('app-main');
 const pageTitleNode = document.getElementById('page-title');
@@ -201,15 +202,7 @@ function buildQuizSetupMarkup() {
 }
 
 function syncQuizSetupForm(form) {
-  if (!form) return;
-  const scope = form.querySelector('[data-quiz-scope]')?.value || 'mixed';
-  ['role', 'module', 'topic'].forEach((field) => {
-    const wrapper = form.querySelector(`[data-quiz-field="${field}"]`);
-    const select = wrapper?.querySelector('select');
-    const active = scope === field;
-    if (wrapper) wrapper.hidden = !active;
-    if (select) select.disabled = !active;
-  });
+  syncProgressiveQuizForm(form);
 }
 
 function enhanceQuizSetupPage() {
@@ -222,6 +215,14 @@ function enhanceQuizSetupPage() {
 
 function enhanceRenderedPage() {
   enhanceQuizSetupPage();
+  enhancePageUi({
+    appState,
+    route: appState.route,
+    findEntity,
+    getRoleRelatedItems,
+    getModuleRelatedItems,
+    routeQueryFilters
+  });
 }
 
 function setAppHtml(html) {
@@ -311,6 +312,7 @@ function renderRoute() {
     setPageHeading(topic.name, `/topics/${topic.slug}`);
     setAppHtml(renderTopicDetail(appState, topic, related));
     enhanceTopicDetailPage(appState, topic, related);
+    enhanceRenderedPage();
     trackEvent('topic_open', { topic_id: topic.id, topic_name: topic.name });
     return;
   }
@@ -425,8 +427,9 @@ function handleGlobalSearchSubmit(event) {
 
 function handleBackButtonClick(button) {
   const fallback = button.dataset.fallback || '#/home';
+  const forceFallback = button.dataset.forceFallback === 'true';
 
-  if (window.history.length > 1) {
+  if (!forceFallback && window.history.length > 1) {
     window.history.back();
     return;
   }
@@ -470,7 +473,11 @@ function handleFilterForm(form) {
 
 function handleQuizSetup(form) {
   const data = new FormData(form);
-  const scope = data.get('scope') || 'mixed';
+  const scope = data.get('scope') || '';
+  if (!scope) {
+    window.alert('Select a scope before starting the quiz.');
+    return;
+  }
 
   let value = '';
   if (scope === 'role') value = data.get('roleValue') || '';
@@ -490,11 +497,23 @@ function handleQuizSetup(form) {
     return;
   }
 
+  const selectedDifficulty = data.get('difficulty') || '';
+  if (!selectedDifficulty) {
+    window.alert('Select a difficulty before starting the quiz.');
+    return;
+  }
+
+  const selectedCount = Number(data.get('count') || 0);
+  if (!selectedCount) {
+    window.alert('Select how many questions you want before starting the quiz.');
+    return;
+  }
+
   const options = {
     scope,
     value,
-    difficulty: data.get('difficulty') || '',
-    count: Number(data.get('count') || 10)
+    difficulty: selectedDifficulty === 'all' ? '' : selectedDifficulty,
+    count: selectedCount
   };
 
   const questions = buildQuiz(appState.data.quizzes, options);
@@ -581,6 +600,12 @@ function bindGlobalEvents() {
       return;
     }
 
+    const openTarget = target.closest('[data-open-route]');
+    if (openTarget && !target.closest('a,button,[data-bookmark-id]')) {
+      window.location.hash = openTarget.dataset.openRoute;
+      return;
+    }
+
     if (target.matches('[data-quiz-choice]')) {
       handleQuizChoice(target.dataset.quizChoice);
       return;
@@ -610,12 +635,20 @@ function bindGlobalEvents() {
     }
   });
 
+  document.addEventListener('keydown', (event) => {
+    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-open-route]')) {
+      event.preventDefault();
+      window.location.hash = event.target.dataset.openRoute;
+    }
+  });
+
   document.addEventListener('change', (event) => {
     const target = event.target;
 
-    if (target.matches('[data-quiz-scope]')) {
-      syncQuizSetupForm(target.closest('[data-quiz-form]'));
-      return;
+    if (target.matches('[data-quiz-form] select, [data-quiz-scope]')) {
+      const form = target.closest('[data-quiz-form]');
+      if (form) syncQuizSetupForm(form);
+      if (target.matches('[data-quiz-scope]')) return;
     }
 
     if (target.matches('[data-filter-control]')) {

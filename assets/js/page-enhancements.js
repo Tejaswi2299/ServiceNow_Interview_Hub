@@ -94,6 +94,7 @@ export function ensurePageEnhancementStyles() {
     .detail-nav-button:hover:not(:disabled){border-color:rgba(56,189,248,.35);background:rgba(56,189,248,.08);}
     .detail-nav-button:disabled{opacity:.35;cursor:not-allowed;}
     .clickable-card{cursor:pointer;}
+    .tricky-page-banner ~ .grid .badge.green{display:none;}
   `;
   document.head.appendChild(styleNode);
 }
