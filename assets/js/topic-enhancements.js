@@ -1,5 +1,7 @@
 import { escapeHtml, formatCount, unique } from './utils.js';
 
+const TRICKY_CONTENT_TYPES = ['tricky', 'comparison', 'troubleshooting'];
+
 function enhancementStyles() {
   return `
     .topic-overview-card{margin-bottom:18px;}
@@ -15,10 +17,11 @@ function enhancementStyles() {
     .topic-overview-footer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px;}
     .topic-chip-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
     .topic-section-nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
-    .topic-section-pill{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);font-weight:600;}
+    .topic-section-pill{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);font-weight:600;cursor:pointer;}
     .topic-section-pill:hover{border-color:rgba(56,189,248,.35);background:rgba(56,189,248,.08);}
     .topic-section-wrap{margin-bottom:18px;}
     .tricky-page-banner .clean-banner-head{align-items:center;}
+    .filter-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
     @media (max-width:880px){.topic-overview-grid,.topic-overview-footer{grid-template-columns:1fr;}}
   `;
 }
@@ -117,33 +120,131 @@ function safeFirstText(values = []) {
   return values.find((value) => `${value || ''}`.trim()) || '';
 }
 
+function getTrickyItems(items = []) {
+  return items.filter((item) => TRICKY_CONTENT_TYPES.includes(item.contentType));
+}
+
 function topicCounts(relatedItems = []) {
   return {
-    concepts: relatedItems.filter((item) => !['coding', 'use-case', 'tricky'].includes(item.contentType)).length,
+    concepts: relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType)).length,
     coding: relatedItems.filter((item) => item.contentType === 'coding').length,
     useCases: relatedItems.filter((item) => item.contentType === 'use-case').length,
-    tricky: relatedItems.filter((item) => item.contentType === 'tricky').length
+    tricky: getTrickyItems(relatedItems).length
   };
 }
 
+function buildFallbackKeyComponents(topic, relatedTables = []) {
+  const fallback = [
+    `Core purpose and business value of ${topic.name}.`,
+    `Where ${topic.name} is configured, scripted, or maintained in the platform.`,
+    relatedTables.length
+      ? `Records or tables commonly discussed with ${topic.name}: ${relatedTables.slice(0, 3).join(', ')}.`
+      : `Key records, conditions, APIs, or dependencies that influence ${topic.name}.`,
+    `How ${topic.name} is tested, validated, and debugged during implementation.`
+  ];
+  return fallback;
+}
+
+function buildFallbackExamples(topic, moduleNames = []) {
+  const moduleContext = moduleNames[0] || topic.category || 'the platform';
+  const category = (topic.category || '').toLowerCase();
+
+  if (category.includes('security')) {
+    return [
+      `Explain how you would validate ${topic.name} for a user who should have access and another user who should be denied access.`,
+      `Describe a production example where ${topic.name} controls read, write, or execution behavior safely within ${moduleContext}.`
+    ];
+  }
+
+  if (category.includes('cmdb') || category.includes('discovery')) {
+    return [
+      `Describe how ${topic.name} affects CI quality, identification, or operational visibility in ${moduleContext}.`,
+      `Explain how you would troubleshoot ${topic.name} when records, relationships, or discovery results are not behaving as expected.`
+    ];
+  }
+
+  if (category.includes('scripting') || category.includes('api') || category.includes('client/server')) {
+    return [
+      `Walk through a real requirement where ${topic.name} is used to control form behavior, record processing, or server-side logic.`,
+      `Explain how you would test ${topic.name} end-to-end in a non-production instance before moving the change forward.`
+    ];
+  }
+
+  if (category.includes('catalog') || category.includes('itsm')) {
+    return [
+      `Describe a service request or ticket workflow where ${topic.name} changes how work is routed, fulfilled, or validated.`,
+      `Explain how ${topic.name} would be reviewed during defect triage when users report that the process is not behaving correctly.`
+    ];
+  }
+
+  return [
+    `Explain a production use case where ${topic.name} supports a real requirement in ${moduleContext}.`,
+    `Describe how you would validate ${topic.name} after configuration so the business outcome is achieved without side effects.`
+  ];
+}
+
+function buildFallbackPitfalls(topic) {
+  const category = (topic.category || '').toLowerCase();
+  const common = [
+    `Confusing what ${topic.name} does with adjacent platform features instead of explaining its exact purpose.`,
+    `Skipping validation of conditions, target records, or execution context before declaring ${topic.name} complete.`
+  ];
+
+  if (category.includes('security')) {
+    return [
+      ...common,
+      `Overgranting access or validating only one user path instead of checking both allowed and denied outcomes for ${topic.name}.`
+    ];
+  }
+
+  if (category.includes('cmdb') || category.includes('discovery')) {
+    return [
+      ...common,
+      `Ignoring data quality, identification, reconciliation, or relationship impact when discussing ${topic.name}.`
+    ];
+  }
+
+  if (category.includes('scripting') || category.includes('api')) {
+    return [
+      ...common,
+      `Discussing ${topic.name} without covering debugging, test strategy, or side effects on the transaction.`
+    ];
+  }
+
+  return [
+    ...common,
+    `Answering ${topic.name} only at a definition level instead of explaining implementation checks, validation, and interview tradeoffs.`
+  ];
+}
+
 function buildTopicOverview(topic, relatedItems = [], state) {
-  const conceptItems = relatedItems.filter((item) => !['coding', 'use-case', 'tricky'].includes(item.contentType));
-  const trickyItems = relatedItems.filter((item) => item.contentType === 'tricky');
+  const trickyItems = getTrickyItems(relatedItems);
+  const conceptItems = relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType));
   const leadItem = conceptItems.find((item) => item.contentType === 'theory') || conceptItems[0] || trickyItems[0] || null;
-  const keyPoints = unique(conceptItems.flatMap((item) => item.keyPoints || [])).slice(0, 5);
   const relatedTables = unique(relatedItems.flatMap((item) => item.relatedTables || [])).slice(0, 8);
+  const roleNames = unique(relatedItems.flatMap((item) => (item.roleIds || []).map((id) => state.lookups.rolesById?.[id]?.name).filter(Boolean))).slice(0, 4);
+  const moduleNames = unique(relatedItems.flatMap((item) => (item.moduleIds || []).map((id) => state.lookups.modulesById?.[id]?.name).filter(Boolean))).slice(0, 4);
+  const counts = topicCounts(relatedItems);
+
+  const keyPoints = unique(conceptItems.flatMap((item) => item.keyPoints || [])).slice(0, 5);
+  const finalKeyPoints = keyPoints.length ? keyPoints : buildFallbackKeyComponents(topic, relatedTables);
+
   const realTimeExamples = unique(conceptItems.flatMap((item) => item.examples || [])).slice(0, 3);
+  const finalExamples = realTimeExamples.length ? realTimeExamples : buildFallbackExamples(topic, moduleNames);
+
   const pitfalls = unique([
     ...trickyItems.map((item) => item.question || item.title),
     ...relatedItems.filter((item) => item.contentType === 'comparison').map((item) => item.title),
     ...relatedItems.filter((item) => item.contentType === 'troubleshooting').map((item) => item.title)
   ]).slice(0, 5);
-  const roleNames = unique(relatedItems.flatMap((item) => (item.roleIds || []).map((id) => state.lookups.rolesById?.[id]?.name).filter(Boolean))).slice(0, 4);
-  const moduleNames = unique(relatedItems.flatMap((item) => (item.moduleIds || []).map((id) => state.lookups.modulesById?.[id]?.name).filter(Boolean))).slice(0, 4);
-  const counts = topicCounts(relatedItems);
+  const finalPitfalls = pitfalls.length ? pitfalls : buildFallbackPitfalls(topic);
 
-  const definition = leadItem?.exactAnswer || leadItem?.summary || `Use the mapped sections below to prepare ${topic.name} through concepts, scenarios, and tricky interview questions.`;
-  const whatItDoes = leadItem?.summary || safeFirstText(keyPoints) || `This topic is mapped to ${formatCount(relatedItems.length)} study item(s) inside the hub.`;
+  const definition = leadItem?.exactAnswer
+    || leadItem?.summary
+    || `${topic.name} is a ${topic.category || 'ServiceNow'} topic in this hub. Use this page to understand what it does, how it is used, and how it is discussed in interviews.`;
+  const whatItDoes = leadItem?.summary
+    || safeFirstText(finalKeyPoints)
+    || `${topic.name} is currently linked to ${formatCount(relatedItems.length)} study item(s) inside the hub.`;
 
   return `
     <section class="card topic-overview-card" id="topic-overview">
@@ -174,22 +275,22 @@ function buildTopicOverview(topic, relatedItems = [], state) {
 
         <section class="topic-overview-block">
           <h3>Key components</h3>
-          ${keyPoints.length ? `<ul>${keyPoints.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>` : `<p class="small">Mapped concept items under this topic will appear below.</p>`}
+          <ul>${finalKeyPoints.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>
         </section>
 
         <section class="topic-overview-block">
           <h3>Tables involved</h3>
-          ${relatedTables.length ? `<div class="topic-chip-list">${relatedTables.map((tableName) => `<span class="badge subtle">${escapeHtml(tableName)}</span>`).join('')}</div>` : `<p class="small">No related tables are tagged on the current topic items.</p>`}
+          ${relatedTables.length ? `<div class="topic-chip-list">${relatedTables.map((tableName) => `<span class="badge subtle">${escapeHtml(tableName)}</span>`).join('')}</div>` : `<p class="small">No related tables are mapped yet for this topic.</p>`}
         </section>
 
         <section class="topic-overview-block">
           <h3>Real-time example</h3>
-          ${realTimeExamples.length ? `<ul>${realTimeExamples.map((example) => `<li>${escapeHtml(example)}</li>`).join('')}</ul>` : `<p class="small">No example is mapped yet. Use the coding and scenario sections below.</p>`}
+          <ul>${finalExamples.map((example) => `<li>${escapeHtml(example)}</li>`).join('')}</ul>
         </section>
 
         <section class="topic-overview-block">
           <h3>Interview pitfalls</h3>
-          ${pitfalls.length ? `<ul>${pitfalls.map((pitfall) => `<li>${escapeHtml(pitfall)}</li>`).join('')}</ul>` : `<p class="small">No tricky interview pitfall is mapped yet for this topic.</p>`}
+          <ul>${finalPitfalls.map((pitfall) => `<li>${escapeHtml(pitfall)}</li>`).join('')}</ul>
         </section>
       </div>
 
@@ -220,7 +321,7 @@ function renderSectionNav(sections = []) {
   if (!sections.length) return '';
   return `
     <nav class="card topic-section-nav" aria-label="On this topic">
-      ${sections.map((section) => `<a class="topic-section-pill" href="#${escapeHtml(section.id)}">${escapeHtml(section.label)}</a>`).join('')}
+      ${sections.map((section) => `<button type="button" class="topic-section-pill" data-scroll-target="${escapeHtml(section.id)}">${escapeHtml(section.label)}</button>`).join('')}
     </nav>
   `;
 }
@@ -232,12 +333,12 @@ export function renderTrickyPage(state, items, filters = {}) {
         <div class="clean-banner-icon">?</div>
         <div>
           <h2>Tricky Questions</h2>
-          <p>Review only the mapped tricky content across roles, modules, and topics without opening each path one by one.</p>
+          <p>Review the mapped tricky, comparison, and troubleshooting content across roles, modules, and topics.</p>
         </div>
       </div>
     </section>
 
-    <form class="filters card" data-filter-form="/tricky">
+    <form class="filters card" data-filter-form="/tricky" data-auto-submit="false">
       <label>
         Role
         <select name="role" data-filter-control>
@@ -270,12 +371,23 @@ export function renderTrickyPage(state, items, filters = {}) {
         Search in page
         <input type="search" name="q" value="${escapeHtml(filters.q || '')}" placeholder="Filter tricky questions" data-filter-control />
       </label>
+      <div class="filter-actions">
+        <button class="button-link" type="submit">Apply filters</button>
+        <a class="button secondary" href="#/tricky">Clear filters</a>
+      </div>
     </form>
+
+    <section class="section-header">
+      <div>
+        <h2>Results</h2>
+        <p>${escapeHtml(formatCount(items.length))} tricky item(s) match the current filters.</p>
+      </div>
+    </section>
 
     <section class="grid cards-2">
       ${items.length
         ? items.map((item) => renderTrickyCard(item, state.lookups)).join('')
-        : `<section class="card empty-state"><h2>No tricky questions match this filter.</h2><p>Try removing one or more filters or add more tricky-tagged content to the data files.</p></section>`
+        : `<section class="card empty-state"><h2>No tricky questions match this filter.</h2><p>Try clearing the filters or broadening the search terms.</p></section>`
       }
     </section>
   `;
@@ -283,14 +395,10 @@ export function renderTrickyPage(state, items, filters = {}) {
 
 export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
   const accordionStack = document.querySelector('.accordion-stack');
-  if (!accordionStack) return;
-
-  const sourceSection = accordionStack.closest('section');
+  const sourceSection = accordionStack?.closest('section') || document.querySelector('.empty-state')?.closest('section');
   if (!sourceSection) return;
 
-  const accordionDetails = [...accordionStack.querySelectorAll('.study-accordion')];
-  if (!accordionDetails.length) return;
-
+  const accordionDetails = accordionStack ? [...accordionStack.querySelectorAll('.study-accordion')] : [];
   const sections = {
     concepts: [],
     coding: [],
@@ -308,7 +416,7 @@ export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
       sections.useCases.push(detail.outerHTML);
       return;
     }
-    if (label.includes('tricky')) {
+    if (label.includes('tricky') || label.includes('comparison') || label.includes('troubleshoot')) {
       sections.tricky.push(detail.outerHTML);
       return;
     }
@@ -321,13 +429,18 @@ export function enhanceTopicDetailPage(state, topic, relatedItems = []) {
   if (sections.useCases.length) visibleSections.push({ id: 'topic-use-cases', label: 'Use Cases' });
   if (sections.tricky.length) visibleSections.push({ id: 'topic-tricky', label: 'Tricky' });
 
+  const fallbackBody = !visibleSections.length
+    ? `<section class="card empty-state"><h2>No mapped study items yet</h2><p>This topic now includes a complete overview, but detailed question content has not been mapped yet. Use the definition, components, examples, and pitfalls above to prepare the topic.</p></section>`
+    : '';
+
   const replacementHtml = [
     buildTopicOverview(topic, relatedItems, state),
     renderSectionNav(visibleSections),
     sectionWrapper('topic-concepts', 'Concepts & explanations', 'Read the mapped concepts first, then move into practice questions.', sections.concepts.join('')),
     sectionWrapper('topic-coding', 'Coding questions', 'Exact scripting drills mapped to this topic.', sections.coding.join('')),
     sectionWrapper('topic-use-cases', 'Use case scenarios', 'Implementation-style interview scenarios connected to this topic.', sections.useCases.join('')),
-    sectionWrapper('topic-tricky', 'Tricky questions', 'Edge cases, interview traps, and tricky distinctions for this topic.', sections.tricky.join(''))
+    sectionWrapper('topic-tricky', 'Tricky questions', 'Edge cases, interview traps, and tricky distinctions for this topic.', sections.tricky.join('')),
+    fallbackBody
   ].join('');
 
   sourceSection.outerHTML = replacementHtml;
