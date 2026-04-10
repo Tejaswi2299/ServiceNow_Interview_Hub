@@ -8,6 +8,7 @@ import { buildQuiz, gradeQuiz } from './quiz.js';
 import { trackEvent, trackPageView } from './analytics.js';
 import { escapeHtml } from './utils.js';
 import { buildTopicOverviews } from './topic-overview-defaults.js';
+import { buildPitfallStudyItems, getTrickyStudyItems } from './tricky-study-items.js';
 import {
   renderBookmarksPage,
   renderCodingDetail,
@@ -71,45 +72,6 @@ function updateActiveNav(path) {
   });
 }
 
-function getMappedModuleIdsForTopic(topicId) {
-  return uniqueIds([
-    ...(appState.lookups.topicToModuleIds?.[topicId] || []),
-    ...(appState.lookups.topicsById?.[topicId]?.moduleIds || [])
-  ]);
-}
-
-function getMappedRoleIdsForTopic(topicId, moduleIds = []) {
-  const roleIdsFromTopic = appState.lookups.topicToRoleIds?.[topicId] || [];
-  const roleIdsFromModules = moduleIds.flatMap((moduleId) => appState.lookups.moduleToRoleIds?.[moduleId] || []);
-  return uniqueIds([...roleIdsFromTopic, ...roleIdsFromModules]);
-}
-
-function buildDerivedTrickyItems() {
-  return (appState.data.topicOverviews || []).flatMap((overview) => {
-    const topic = appState.lookups.topicsById?.[overview.topicId];
-    if (!topic) return [];
-    const moduleIds = getMappedModuleIdsForTopic(overview.topicId);
-    const roleIds = getMappedRoleIdsForTopic(overview.topicId, moduleIds);
-
-    return (overview.interviewPitfalls || [])
-      .filter(Boolean)
-      .map((pitfall, index) => ({
-        id: `tricky-${overview.topicId}-${index + 1}`,
-        slug: `${topic.slug}-pitfall-${index + 1}`,
-        title: pitfall,
-        question: pitfall,
-        summary: `Interview pitfall for ${topic.name}`,
-        contentType: 'tricky',
-        difficulty: 'Interview',
-        topicId: overview.topicId,
-        topicIds: [overview.topicId],
-        moduleIds,
-        roleIds,
-        route: `#/topics/${topic.slug}`
-      }));
-  });
-}
-
 function buildLookups() {
   appState.lookups.rolesById = Object.fromEntries(appState.data.roles.map((item) => [item.id, item]));
   appState.lookups.modulesById = Object.fromEntries(appState.data.modules.map((item) => [item.id, item]));
@@ -122,7 +84,16 @@ function buildLookups() {
   appState.lookups.moduleToRoleIds = invertMap(appState.lookups.roleToModules);
   appState.data.topicOverviews = buildTopicOverviews(appState.data.topics, appState.data.topicOverviews || []);
   appState.lookups.topicOverviewByTopicId = Object.fromEntries((appState.data.topicOverviews || []).map((item) => [item.topicId, item]));
-  appState.data.derivedTrickyItems = buildDerivedTrickyItems();
+
+  const generatedPitfalls = buildPitfallStudyItems({
+    topics: appState.data.topics,
+    theory: appState.data.theory,
+    topicOverviews: appState.data.topicOverviews,
+    lookups: appState.lookups
+  });
+  appState.data.generatedTrickyItems = generatedPitfalls;
+  appState.data.theory = [...appState.data.theory, ...generatedPitfalls];
+
   const content = [...appState.data.theory, ...appState.data.coding, ...appState.data.useCases];
   appState.lookups.contentById = Object.fromEntries(content.map((item) => [item.id, item]));
 }
@@ -378,7 +349,7 @@ function renderRoute() {
 
   if (segments[0] === 'tricky' && segments.length === 1) {
     const filters = routeQueryFilters(route);
-    const items = filterStudyItems(appState.data.derivedTrickyItems || [], filters, appState);
+    const items = filterStudyItems(getTrickyStudyItems(appState.data.theory), filters, appState);
     setPageHeading('Tricky Questions', '/tricky');
     setAppHtml(renderTrickyPage(appState, items, filters));
     return;
