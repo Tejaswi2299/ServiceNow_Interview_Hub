@@ -7,6 +7,7 @@ import { toggleBookmark } from './bookmarks.js';
 import { buildQuiz, gradeQuiz } from './quiz.js';
 import { trackEvent, trackPageView } from './analytics.js';
 import { escapeHtml } from './utils.js';
+import { buildTopicOverviews } from './topic-overview-defaults.js';
 import {
   renderBookmarksPage,
   renderCodingDetail,
@@ -60,6 +61,7 @@ function buildLookups() {
   appState.lookups.rolesById = Object.fromEntries(appState.data.roles.map((item) => [item.id, item]));
   appState.lookups.modulesById = Object.fromEntries(appState.data.modules.map((item) => [item.id, item]));
   appState.lookups.topicsById = Object.fromEntries(appState.data.topics.map((item) => [item.id, item]));
+  appState.data.topicOverviews = buildTopicOverviews(appState.data.topics, appState.data.topicOverviews || []);
   appState.lookups.topicOverviewByTopicId = Object.fromEntries((appState.data.topicOverviews || []).map((item) => [item.topicId, item]));
   const content = [...appState.data.theory, ...appState.data.coding, ...appState.data.useCases];
   appState.lookups.contentById = Object.fromEntries(content.map((item) => [item.id, item]));
