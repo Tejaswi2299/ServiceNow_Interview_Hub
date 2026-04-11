@@ -186,7 +186,7 @@ function enhanceScopedLinks({ appState: appStateArg, route, findEntity }) {
       link.setAttribute('href', mergeHashQuery(link.getAttribute('href') || '', extra));
     });
   }
-
+  
   if (route.segments[0] === 'tricky' && route.segments.length === 1) {
     const extra = { ...route.query, from: '/tricky' };
     document.querySelectorAll('.item-card .link-arrow').forEach((link) => {
@@ -285,7 +285,17 @@ function buildDetailPager({ appState: appStateArg, route, getRoleRelatedItems, g
     } else if (route.query.scopeType === 'module') {
       items = getModuleTopicList(appStateArg, appStateArg.lookups.modulesById[route.query.scopeId], content, getModuleRelatedItems);
  
-    } else {
+    } 
+    else if (route.segments[0] === 'study' && route.query.from === '/tricky') {
+  const trickyItems = filterStudyItems(
+    getTrickyStudyItems(appStateArg.data.theory),
+    routeQueryFilters(route),
+    appStateArg
+  ).sort((a, b) => a.title.localeCompare(b.title));
+
+  items = trickyItems;
+  pathPrefix = '/study';
+}else {
       items = filterTopicsForNavigation(appStateArg, route.query);
     }
     pathPrefix = '/topics';
