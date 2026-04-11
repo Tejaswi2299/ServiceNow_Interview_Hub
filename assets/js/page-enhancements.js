@@ -2,6 +2,8 @@ import { makeHash } from './router.js';
 import { filterStudyItems } from './filters.js';
 import { appState } from './state.js';
 
+const TRICKY_TYPES = ['comparison', 'tricky', 'troubleshooting'];
+
 function normalizeText(value) {
   return `${value || ''}`.toLowerCase();
 }
@@ -142,6 +144,11 @@ function getModuleTopicList(appStateArg, module, allItems, getModuleRelatedItems
   return topicIds.map((id) => appStateArg.lookups.topicsById[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
 }
 
+function getTrickyStudyList(appStateArg, filters = {}) {
+  const trickyTheory = (appStateArg.data.theory || []).filter((item) => TRICKY_TYPES.includes(item.contentType));
+  return filterStudyItems(trickyTheory, filters, appStateArg).sort((a, b) => a.title.localeCompare(b.title));
+}
+
 function enhanceScopedLinks({ appState: appStateArg, route, findEntity }) {
   if (route.segments[0] === 'coding' && route.segments.length === 1) {
     const extra = { ...route.query, from: '/coding' };
@@ -230,7 +237,10 @@ function buildDetailPager({ appState: appStateArg, route, getRoleRelatedItems, g
   let pathPrefix = '';
   const currentSlug = route.segments[1] || '';
 
-  if (route.segments[0] === 'coding' && route.segments[1]) {
+  if (route.segments[0] === 'study' && route.segments[1] && route.query.from === '/tricky') {
+    items = getTrickyStudyList(appStateArg, routeQueryFilters(route));
+    pathPrefix = '/study';
+  } else if (route.segments[0] === 'coding' && route.segments[1]) {
     items = filterStudyItems(appStateArg.data.coding, routeQueryFilters(route), appStateArg).sort((a, b) => a.title.localeCompare(b.title));
     pathPrefix = '/coding';
   } else if (route.segments[0] === 'use-cases' && route.segments[1]) {
@@ -244,7 +254,6 @@ function buildDetailPager({ appState: appStateArg, route, getRoleRelatedItems, g
       items = getRoleTopicList(appStateArg, appStateArg.lookups.rolesById[route.query.scopeId], content, getRoleRelatedItems);
     } else if (route.query.scopeType === 'module') {
       items = getModuleTopicList(appStateArg, appStateArg.lookups.modulesById[route.query.scopeId], content, getModuleRelatedItems);
- 
     } else {
       items = filterTopicsForNavigation(appStateArg, route.query);
     }
@@ -281,6 +290,18 @@ function enhanceDetailNavigation(args) {
 function enhanceBackButtonFallback({ route }) {
   const backButton = document.querySelector('[data-back-button]');
   if (!backButton || route.segments.length < 2) return;
+
+  if (route.segments[0] === 'study' && route.query.from === '/tricky') {
+    backButton.dataset.fallback = makeHash('/tricky', {
+      role: route.query.role || '',
+      module: route.query.module || '',
+      topic: route.query.topic || '',
+      difficulty: route.query.difficulty || '',
+      q: route.query.q || ''
+    });
+    backButton.dataset.forceFallback = 'true';
+    return;
+  }
 
   if (route.segments[0] === 'topics' && route.query.backPath) {
     backButton.dataset.fallback = makeHash(route.query.backPath);
