@@ -1,0 +1,861 @@
+[
+  {
+    "topicId": "acls",
+    "definition": "Access Control rules (ACLs) control whether a user can access a platform object or perform an operation such as read, write, create, delete, or execute.",
+    "whatItDoes": "ACLs protect record data, field data, and other platform resources by evaluating required roles, conditions, and scripts before access is granted.",
+    "tablesInvolved": ["sys_security_acl", "sys_security_acl_role"],
+    "keyComponents": [
+      "Type, operation, and name determine what resource the ACL protects.",
+      "ACL evaluation can include required roles, a condition builder, and an advanced script.",
+      "Record and field access must both evaluate correctly when field security is involved.",
+      "Specific rules are evaluated before more generic parent-table or wildcard matches."
+    ],
+    "realTimeExamples": [
+      "Restrict write access to Incident work_notes so only support staff can update it.",
+      "Protect a Script Include or UI Page with execute access so only the right role can invoke it."
+    ],
+    "interviewPitfalls": [
+      "Explaining ACLs as only role checks and ignoring conditions and scripts.",
+      "Testing only one user path instead of validating both allowed and denied outcomes.",
+      "Putting expensive GlideRecord logic in ACL scripts without considering performance."
+    ]
+  },
+  {
+    "topicId": "business-rules",
+    "definition": "Business Rules are server-side scripts that run when records are queried, inserted, updated, deleted, or displayed.",
+    "whatItDoes": "They enforce business logic around database operations, maintain data integrity, trigger follow-on processing, and prepare data for the client when needed.",
+    "tablesInvolved": ["sys_script"],
+    "keyComponents": [
+      "The table defines which record set the rule runs against.",
+      "The When setting controls timing such as before, after, async, display, or query.",
+      "Conditions narrow when the rule runs and reduce unnecessary execution.",
+      "Advanced scripts commonly use current and previous objects plus server-side APIs like GlideRecord and GlideSystem."
+    ],
+    "realTimeExamples": [
+      "Set default values or validate required data before an Incident is inserted.",
+      "Create a follow-on task or queue an event after a Change request is updated."
+    ],
+    "interviewPitfalls": [
+      "Confusing Business Rules with client-side behavior on the form.",
+      "Using a Business Rule without a condition when the logic only applies to a subset of records.",
+      "Causing recursion by updating the same record repeatedly without safeguards."
+    ]
+  },
+  {
+    "topicId": "before-business-rules",
+    "definition": "A before Business Rule runs before the database operation is committed.",
+    "whatItDoes": "It is typically used to validate data or set field values on the current record before insert, update, or delete processing completes.",
+    "tablesInvolved": ["sys_script"],
+    "keyComponents": [
+      "Runs in the transaction before the row is committed.",
+      "Can change values on current without requiring a separate update() call.",
+      "Best used for validation, normalization, and defaulting logic."
+    ],
+    "realTimeExamples": [
+      "Set priority from impact and urgency before an Incident is saved.",
+      "Prevent invalid state changes when mandatory supporting data is missing."
+    ],
+    "interviewPitfalls": [
+      "Calling current.update() inside a before rule and creating recursion risk.",
+      "Using a before rule for work that should happen after the save, like noncritical follow-on processing."
+    ]
+  },
+  {
+    "topicId": "after-business-rules",
+    "definition": "An after Business Rule runs immediately after the database operation completes on the current record.",
+    "whatItDoes": "It is typically used when the current record is already saved and related processing should happen next, such as updating dependent records or generating follow-on actions.",
+    "tablesInvolved": ["sys_script"],
+    "keyComponents": [
+      "Runs after the current record operation completes.",
+      "Useful for logic that depends on the saved state of the record.",
+      "Often used for related-record updates, notifications, or event generation."
+    ],
+    "realTimeExamples": [
+      "Create or update related task records after a parent request changes state.",
+      "Queue an event for downstream notification processing after a record update."
+    ],
+    "interviewPitfalls": [
+      "Using after rules for simple field defaulting that should be handled in a before rule.",
+      "Putting heavy processing in an after rule when async is more appropriate."
+    ]
+  },
+  {
+    "topicId": "async-business-rules",
+    "definition": "An async Business Rule runs after the database transaction commits, but the logic is deferred to background processing.",
+    "whatItDoes": "It offloads noninteractive server work so the user does not wait for long-running post-save logic.",
+    "tablesInvolved": ["sys_script", "sys_trigger"],
+    "keyComponents": [
+      "Runs after commit instead of blocking the user transaction.",
+      "Best for noncritical follow-on work such as integrations or heavier calculations.",
+      "Cannot be used when immediate client-visible results are required."
+    ],
+    "realTimeExamples": [
+      "Push a saved record to an external system after commit.",
+      "Run nonurgent enrichment or downstream processing after an update."
+    ],
+    "interviewPitfalls": [
+      "Expecting async logic to finish before the user sees the saved record.",
+      "Using async when downstream logic must happen synchronously for data correctness."
+    ]
+  },
+  {
+    "topicId": "display-business-rules",
+    "definition": "A display Business Rule runs when a form is being prepared for display and is commonly used to populate g_scratchpad values for the client.",
+    "whatItDoes": "It sends server-derived information to the client before the form renders so client scripts can use it without extra round trips.",
+    "tablesInvolved": ["sys_script"],
+    "keyComponents": [
+      "Runs during record display rather than on save.",
+      "Often populates g_scratchpad for client-side consumption.",
+      "Useful when the client needs server-only data at form load time."
+    ],
+    "realTimeExamples": [
+      "Populate a scratchpad flag so client logic knows whether the current user can see a custom action.",
+      "Send related-record summary data needed by an onLoad client script."
+    ],
+    "interviewPitfalls": [
+      "Using a display rule for database update logic.",
+      "Sending too much data to g_scratchpad instead of only what the client needs."
+    ]
+  },
+  {
+    "topicId": "query-business-rules",
+    "definition": "A query Business Rule runs before a database query executes and can change the query conditions that are applied.",
+    "whatItDoes": "It restricts or modifies which records are returned from a query, often as an additional security or visibility control.",
+    "tablesInvolved": ["sys_script"],
+    "keyComponents": [
+      "Runs on query operations rather than insert or update.",
+      "Can add query conditions to current before records are returned.",
+      "Should be used carefully because it affects all matching queries on the table."
+    ],
+    "realTimeExamples": [
+      "Filter a custom table so users only see records for their assignment group.",
+      "Apply a global visibility filter to archived or restricted records."
+    ],
+    "interviewPitfalls": [
+      "Using a query Business Rule where ACLs should be the primary security mechanism.",
+      "Adding complex logic that unexpectedly hides records across the platform."
+    ]
+  },
+  {
+    "topicId": "current-previous",
+    "definition": "In Business Rules, current represents the active record being processed and previous represents the record values before the operation when that context is available.",
+    "whatItDoes": "These objects let scripts compare old and new values, detect field changes, and act on the record in context.",
+    "tablesInvolved": ["sys_script"],
+    "keyComponents": [
+      "current is a GlideRecord-like object for the record in flight.",
+      "previous is used to compare prior values in synchronous Business Rule contexts.",
+      "Methods such as changes() and changesTo() are often used for field-change detection."
+    ],
+    "realTimeExamples": [
+      "Trigger logic only when priority changes from 3 to 1.",
+      "Add work notes only when assignment group changes."
+    ],
+    "interviewPitfalls": [
+      "Assuming previous is always available in every execution context.",
+      "Comparing string values manually when field change helper methods are available."
+    ]
+  },
+  {
+    "topicId": "client-scripts",
+    "definition": "Client Scripts are client-side JavaScript that run on forms when they load, change, or submit.",
+    "whatItDoes": "They control form behavior such as validating data, changing field states, showing messages, and reacting to user input before the request reaches the server.",
+    "tablesInvolved": ["sys_script_client"],
+    "keyComponents": [
+      "Client Script types include onLoad, onChange, and onSubmit for forms.",
+      "They commonly use client APIs like g_form and GlideAjax.",
+      "They should focus on form behavior, not server-side database operations."
+    ],
+    "realTimeExamples": [
+      "Make a field mandatory when another field changes to a specific value.",
+      "Warn users before submitting a high-priority request without required details."
+    ],
+    "interviewPitfalls": [
+      "Trying to use server-side APIs like GlideRecord directly in client scripts.",
+      "Putting too much logic in onLoad scripts and slowing the form down."
+    ]
+  },
+  {
+    "topicId": "onload-clientscript",
+    "definition": "An onLoad Client Script runs when a form loads before the user interacts with it.",
+    "whatItDoes": "It initializes form state, messages, or field behavior based on the data already on the form.",
+    "tablesInvolved": ["sys_script_client"],
+    "keyComponents": [
+      "Runs during form load.",
+      "Uses g_form for field visibility, mandatory state, messages, and related client actions.",
+      "Should be used sparingly because it affects form load time."
+    ],
+    "realTimeExamples": [
+      "Display a warning banner when an Incident is already in a critical state.",
+      "Hide or show a section based on the current record values."
+    ],
+    "interviewPitfalls": [
+      "Adding heavy logic that delays the form becoming interactive.",
+      "Using onLoad for validation that belongs in onSubmit."
+    ]
+  },
+  {
+    "topicId": "onchange-clientscript",
+    "definition": "An onChange Client Script runs when a specific field value changes on a form.",
+    "whatItDoes": "It reacts to user input in real time and can modify other fields, show messages, or request server data when needed.",
+    "tablesInvolved": ["sys_script_client"],
+    "keyComponents": [
+      "Receives control, oldValue, newValue, isLoading, and isTemplate parameters.",
+      "Typically targets one field and responds to value changes.",
+      "Often combines g_form with GlideAjax when server data is required."
+    ],
+    "realTimeExamples": [
+      "When state changes to Closed Complete, make resolution fields mandatory.",
+      "When Requested for changes, retrieve related server data such as manager or email."
+    ],
+    "interviewPitfalls": [
+      "Ignoring isLoading and firing logic during form initialization.",
+      "Creating field-update loops by changing the same field repeatedly."
+    ]
+  },
+  {
+    "topicId": "onsubmit-clientscript",
+    "definition": "An onSubmit Client Script runs when the user submits a form.",
+    "whatItDoes": "It validates the final state of the form before the data is sent to the server and can block submission by returning false.",
+    "tablesInvolved": ["sys_script_client"],
+    "keyComponents": [
+      "Runs at submit time rather than during field edits.",
+      "Best for final validation checks and user confirmations.",
+      "Can prevent submission when the form is incomplete or invalid."
+    ],
+    "realTimeExamples": [
+      "Prevent save when a priority-1 ticket is missing a business impact explanation.",
+      "Ask the user to confirm a destructive or high-risk action before submit."
+    ],
+    "interviewPitfalls": [
+      "Doing work in onSubmit that should have been handled earlier in onChange.",
+      "Assuming client-side validation alone is enough for critical server-side data rules."
+    ]
+  },
+  {
+    "topicId": "ui-policies",
+    "definition": "UI Policies are client-side rules that control form and field behavior, often without requiring custom script.",
+    "whatItDoes": "They make fields mandatory, read-only, or visible based on conditions and can optionally run UI Policy Scripts for extra client logic.",
+    "tablesInvolved": ["sys_ui_policy", "sys_ui_policy_action"],
+    "keyComponents": [
+      "UI Policy conditions determine when the policy applies.",
+      "UI Policy Actions set field mandatory, visible, or read-only states.",
+      "UI Policy scripts extend the behavior when declarative actions are not enough."
+    ],
+    "realTimeExamples": [
+      "Make Closure code mandatory only when state changes to Closed.",
+      "Show additional justification fields when a sensitive category is selected."
+    ],
+    "interviewPitfalls": [
+      "Using a client script when a simpler UI Policy would do the job.",
+      "Forgetting that UI Policies affect forms, not direct server-side imports or integrations."
+    ]
+  },
+  {
+    "topicId": "data-policies",
+    "definition": "Data Policies enforce field rules such as mandatory or read-only requirements at the data layer, beyond form-only behavior.",
+    "whatItDoes": "They help ensure consistent data quality across form submissions and, when configured, other data entry paths such as imports or web services.",
+    "tablesInvolved": ["sys_data_policy", "sys_data_policy_rule"],
+    "keyComponents": [
+      "A Data Policy has conditions that determine when it applies.",
+      "Data Policy Rules define the affected fields and required behavior.",
+      "Data Policies complement UI Policies by enforcing rules beyond the visible form experience."
+    ],
+    "realTimeExamples": [
+      "Require a business owner field whenever a custom service record is marked active.",
+      "Enforce mandatory fields on records loaded from noninteractive sources."
+    ],
+    "interviewPitfalls": [
+      "Confusing Data Policies with UI Policies and assuming they behave the same way.",
+      "Not checking whether the policy is configured to enforce requirements for non-form updates."
+    ]
+  },
+  {
+    "topicId": "script-includes",
+    "definition": "Script Includes are reusable server-side script logic that define functions or classes and run only when explicitly called.",
+    "whatItDoes": "They centralize shared logic so Business Rules, APIs, background scripts, and other server-side components can reuse it consistently.",
+    "tablesInvolved": ["sys_script_include"],
+    "keyComponents": [
+      "Script Includes can be classless on-demand functions or class-based definitions.",
+      "Accessible from and application scope settings affect how they can be called.",
+      "Client-callable Script Includes are a special case used with GlideAjax."
+    ],
+    "realTimeExamples": [
+      "Create a utility class that calculates SLA targets or assignment logic used by multiple scripts.",
+      "Centralize integration payload-building logic so several Business Rules can reuse it."
+    ],
+    "interviewPitfalls": [
+      "Duplicating complex logic in multiple Business Rules instead of reusing a Script Include.",
+      "Ignoring scope and accessibility settings when calling a Script Include across applications."
+    ]
+  },
+  {
+    "topicId": "client-callable",
+    "definition": "A client-callable Script Include is a Script Include that can be invoked from client-side scripts, typically through GlideAjax.",
+    "whatItDoes": "It exposes controlled server-side logic to the client so forms can request server data without loading full records unnecessarily.",
+    "tablesInvolved": ["sys_script_include"],
+    "keyComponents": [
+      "The Script Include must be marked client callable.",
+      "In scoped apps, GlideAjax patterns commonly extend global.AbstractAjaxProcessor.",
+      "Methods return targeted data instead of exposing unrestricted database access."
+    ],
+    "realTimeExamples": [
+      "Return a user's email or manager information when the Requested for field changes.",
+      "Validate a value against server-side rules from a form without submitting the record."
+    ],
+    "interviewPitfalls": [
+      "Marking a Script Include client callable but not designing safe, narrow methods.",
+      "Returning more data than necessary instead of a minimal response."
+    ]
+  },
+  {
+    "topicId": "glideajax",
+    "definition": "GlideAjax is a client-to-server mechanism that lets client scripts call a server-side Script Include and receive a response asynchronously.",
+    "whatItDoes": "It fetches server data or performs controlled server-side checks without requiring a full form submission.",
+    "tablesInvolved": ["sys_script_include", "sys_user"],
+    "keyComponents": [
+      "Client scripts send parameters to a client-callable Script Include.",
+      "The server-side logic returns XML or JSON-based data for the client to parse.",
+      "Using GlideAjax can be more efficient than returning an entire referenced record."
+    ],
+    "realTimeExamples": [
+      "Retrieve a Requested for user's email instead of loading the full user record client side.",
+      "Check a server-side rule during form entry and update the UI based on the response."
+    ],
+    "interviewPitfalls": [
+      "Using GlideAjax for logic that could be satisfied from data already on the form.",
+      "Building wide, generic server calls instead of focused methods with small responses."
+    ]
+  },
+  {
+    "topicId": "gliderecord",
+    "definition": "GlideRecord is the primary server-side API for querying, inserting, updating, and deleting records in ServiceNow tables.",
+    "whatItDoes": "It interacts directly with table data and is used throughout server-side scripting for CRUD operations and record traversal.",
+    "tablesInvolved": ["task", "incident", "sys_db_object"],
+    "keyComponents": [
+      "Common methods include addQuery(), addEncodedQuery(), query(), next(), initialize(), insert(), update(), and deleteRecord().",
+      "It operates against a target table and exposes that table's fields on the record object.",
+      "Efficient query design matters for performance and data safety."
+    ],
+    "realTimeExamples": [
+      "Find active incidents assigned to a group and update related fields.",
+      "Create a related task record after a parent request meets a condition."
+    ],
+    "interviewPitfalls": [
+      "Querying large tables without adequate filters or limits.",
+      "Using GlideRecord on the client instead of server-side only patterns."
+    ]
+  },
+  {
+    "topicId": "glideaggregate",
+    "definition": "GlideAggregate is a server-side API built for aggregate operations such as COUNT, SUM, MIN, MAX, and AVG on table data.",
+    "whatItDoes": "It performs grouped or aggregated queries more efficiently than looping through raw GlideRecord result sets for reporting-style calculations.",
+    "tablesInvolved": ["incident", "task"],
+    "keyComponents": [
+      "Supports aggregate methods like COUNT and SUM.",
+      "Can group results using orderBy()/grouping patterns depending on the use case.",
+      "Optimized for aggregate use cases compared with manual counting loops."
+    ],
+    "realTimeExamples": [
+      "Count incidents by category over a time window.",
+      "Calculate aggregate request volume for a dashboard or summary job."
+    ],
+    "interviewPitfalls": [
+      "Using GlideRecord loops to count records when GlideAggregate is more appropriate.",
+      "Forgetting that aggregate results must be read with aggregate-specific methods."
+    ]
+  },
+  {
+    "topicId": "gs-api",
+    "definition": "The gs object exposes the GlideSystem API, a core server-side utility API for logging, messaging, user context, dates, and event-related operations.",
+    "whatItDoes": "It provides platform utility functions rather than direct database CRUD behavior.",
+    "tablesInvolved": ["No direct table — utility API"],
+    "keyComponents": [
+      "Common uses include logging, getting current user information, adding messages, and generating events.",
+      "It is available in server-side contexts such as Business Rules, Script Includes, and background scripts.",
+      "It complements record APIs like GlideRecord rather than replacing them."
+    ],
+    "realTimeExamples": [
+      "Write debug or error information to logs while troubleshooting a script.",
+      "Queue an event or add an info message after server-side processing."
+    ],
+    "interviewPitfalls": [
+      "Treating GlideSystem like a database API.",
+      "Overusing log statements in production logic without a debugging strategy."
+    ]
+  },
+  {
+    "topicId": "encoded-queries",
+    "definition": "An encoded query is a compact query string format used by ServiceNow to represent filters that GlideRecord and related APIs can execute.",
+    "whatItDoes": "It lets scripts reuse list-style filter logic in a single string rather than chaining many query conditions.",
+    "tablesInvolved": ["Target table varies by use case"],
+    "keyComponents": [
+      "Encoded queries often originate from list filters or condition builders.",
+      "They can be passed to addEncodedQuery() for server-side filtering.",
+      "They are powerful but should still be readable and maintainable."
+    ],
+    "realTimeExamples": [
+      "Reuse a saved Incident filter in a background script.",
+      "Apply a complex date-and-state filter in a Script Include with a single query string."
+    ],
+    "interviewPitfalls": [
+      "Copying opaque encoded queries into code without documenting intent.",
+      "Using encoded queries where a few explicit conditions would be clearer."
+    ]
+  },
+  {
+    "topicId": "import-sets",
+    "definition": "Import Sets provide a staged data-import mechanism for bringing external data into ServiceNow before transforming it into target tables.",
+    "whatItDoes": "They load source data into staging tables, then rely on transform maps and field maps to create or update target records.",
+    "tablesInvolved": ["sys_import_set", "sys_import_set_row"],
+    "keyComponents": [
+      "Data is loaded into a staging table first, not directly into the target table.",
+      "Transform Maps move data from staging to target tables.",
+      "Import quality depends on field mapping, coalesce, and error review."
+    ],
+    "realTimeExamples": [
+      "Load a spreadsheet of users or assets into a staging table before transforming the data.",
+      "Import CI data from an external export and review row errors before promoting records."
+    ],
+    "interviewPitfalls": [
+      "Treating the staging table as the final data model.",
+      "Ignoring transform history and row errors after a nominally successful run."
+    ]
+  },
+  {
+    "topicId": "data-sources",
+    "definition": "A Data Source defines where import data comes from and how it is loaded into a staging table.",
+    "whatItDoes": "It identifies the external source format or location and provides the configuration used by Load Data and import operations.",
+    "tablesInvolved": ["sys_data_source", "sys_import_set"],
+    "keyComponents": [
+      "A Data Source defines the incoming file or connection details.",
+      "Loading a data source populates a staging table used by the import process.",
+      "Different source types can require different configuration options."
+    ],
+    "realTimeExamples": [
+      "Configure a CSV Data Source for user onboarding imports.",
+      "Use a spreadsheet Data Source to stage historical asset records."
+    ],
+    "interviewPitfalls": [
+      "Confusing a Data Source with the Transform Map that moves data to the target table.",
+      "Ignoring file format and encoding issues that affect load quality."
+    ]
+  },
+  {
+    "topicId": "transform-maps",
+    "definition": "A Transform Map defines how data from an import staging table maps into a target table.",
+    "whatItDoes": "It controls the field mappings, transform behavior, and options such as whether business rules or mandatory enforcement run during the transformation.",
+    "tablesInvolved": ["sys_transform_map", "sys_transform_entry", "sys_transform_script"],
+    "keyComponents": [
+      "Source table and target table are the core transform map relationship.",
+      "Field Maps connect incoming columns to target fields.",
+      "Options like Run business rules, Enforce mandatory fields, and Copy empty values affect import behavior."
+    ],
+    "realTimeExamples": [
+      "Map staged employee IDs and names into the user table.",
+      "Control whether an import updates existing records or inserts new ones."
+    ],
+    "interviewPitfalls": [
+      "Assuming a successful transform means the data is correct.",
+      "Ignoring how transform-map options change downstream behavior and performance."
+    ]
+  },
+  {
+    "topicId": "transform-scripts",
+    "definition": "Transform Scripts are server-side scripts that run at specific points during a transformation to control or enrich import behavior.",
+    "whatItDoes": "They let you manipulate source and target data, handle exceptions, or add custom logic during import processing.",
+    "tablesInvolved": ["sys_transform_script", "sys_transform_map"],
+    "keyComponents": [
+      "Transform Scripts run in event stages such as onBefore or onAfter depending on the script type.",
+      "They use source and target objects provided by the transform runtime.",
+      "They should be used when field maps alone are not enough."
+    ],
+    "realTimeExamples": [
+      "Normalize an incoming source value before writing it to the target table.",
+      "Skip or reroute certain import rows when custom business conditions are met."
+    ],
+    "interviewPitfalls": [
+      "Using transform scripts for logic that should be solved with clean field mapping.",
+      "Adding opaque import logic without documenting which transform stage it belongs to."
+    ]
+  },
+  {
+    "topicId": "coalesce",
+    "definition": "Coalesce is a field-map option used during transforms to decide whether an incoming row should update an existing target record or create a new one.",
+    "whatItDoes": "It matches staged rows to target rows based on one or more fields so imports can update existing records instead of always inserting duplicates.",
+    "tablesInvolved": ["sys_transform_entry", "sys_import_set_row"],
+    "keyComponents": [
+      "Coalesce can be defined on one or multiple target fields.",
+      "If a matching target record is found, the record is updated.",
+      "If no match is found, a new record is inserted."
+    ],
+    "realTimeExamples": [
+      "Use employee number to update an existing user instead of creating a duplicate.",
+      "Use serial number to match hardware assets during an import."
+    ],
+    "interviewPitfalls": [
+      "Choosing nonunique coalesce fields and updating the wrong record.",
+      "Assuming no coalesce means partial updates rather than guaranteed inserts."
+    ]
+  },
+  {
+    "topicId": "field-maps",
+    "definition": "Field Maps define how individual source columns map to target fields within a Transform Map.",
+    "whatItDoes": "They align source data to the correct target schema and can participate in behaviors such as coalescing.",
+    "tablesInvolved": ["sys_transform_entry", "sys_transform_map"],
+    "keyComponents": [
+      "Each field map pairs a source field with a target field.",
+      "Coalesce can be configured at the field-map level.",
+      "Field maps can be created automatically or manually refined."
+    ],
+    "realTimeExamples": [
+      "Map a spreadsheet column named Employee ID to user.employee_number.",
+      "Map a source serial number column to a hardware asset serial number field and mark it as coalesce."
+    ],
+    "interviewPitfalls": [
+      "Relying on automap without validating that names and types actually align.",
+      "Forgetting that a bad field map can silently distort imported data."
+    ]
+  },
+  {
+    "topicId": "notifications",
+    "definition": "Notifications are configured rules that send outbound messages such as emails when specific events or record conditions occur.",
+    "whatItDoes": "They automate communication to users or groups based on platform activity and event processing.",
+    "tablesInvolved": ["sysevent_email_action", "sys_email", "sysevent"],
+    "keyComponents": [
+      "Notifications define recipients, content, and send conditions.",
+      "They can be triggered by events or record conditions.",
+      "The actual outbound email records can be tracked separately."
+    ],
+    "realTimeExamples": [
+      "Send an approval email when a request enters an approval state.",
+      "Notify an assignment group when a major incident is created."
+    ],
+    "interviewPitfalls": [
+      "Creating overlapping notifications that send duplicate emails.",
+      "Confusing the event that triggers a notification with the notification record itself."
+    ]
+  },
+  {
+    "topicId": "events",
+    "definition": "Events are queued platform signals used to trigger downstream processing such as notifications or script actions.",
+    "whatItDoes": "They decouple the business action from the follow-on handler so downstream logic can react consistently.",
+    "tablesInvolved": ["sysevent"],
+    "keyComponents": [
+      "An event has a name and usually references a record context.",
+      "Events are commonly generated from server-side code using gs.eventQueue().",
+      "Notifications and Script Actions can listen for specific event names."
+    ],
+    "realTimeExamples": [
+      "Queue a custom event after a request is approved.",
+      "Generate an event when a key field changes so notifications react consistently."
+    ],
+    "interviewPitfalls": [
+      "Confusing events with notifications themselves.",
+      "Queuing events without a clear downstream consumer."
+    ]
+  },
+  {
+    "topicId": "gs-eventqueue",
+    "definition": "gs.eventQueue() is a GlideSystem method that queues an event for later processing.",
+    "whatItDoes": "It places an event on the platform event queue so notifications or script actions can process it asynchronously.",
+    "tablesInvolved": ["sysevent"],
+    "keyComponents": [
+      "Called from server-side scripts.",
+      "Typically includes an event name, record context, and optional parameters.",
+      "Supports event-driven design instead of hardwiring notification logic into every script."
+    ],
+    "realTimeExamples": [
+      "Queue an event when a change request moves to an approved state.",
+      "Trigger a custom notification flow using event parameters for extra context."
+    ],
+    "interviewPitfalls": [
+      "Using gs.eventQueue without defining who consumes the event.",
+      "Putting all notification logic in Business Rules instead of event-driven handlers."
+    ]
+  },
+  {
+    "topicId": "assignment-rules",
+    "definition": "Assignment Rules automatically determine the user or group that should receive work based on record conditions.",
+    "whatItDoes": "They standardize routing logic so records are assigned consistently without manual triage every time.",
+    "tablesInvolved": ["sysrule_assignment"],
+    "keyComponents": [
+      "Rules are evaluated against record conditions.",
+      "They can assign to a group, user, or both depending on configuration.",
+      "They are commonly used on task-based processes such as Incident or Case routing."
+    ],
+    "realTimeExamples": [
+      "Route network incidents to the network support group based on category.",
+      "Assign onboarding requests to a regional fulfillment team."
+    ],
+    "interviewPitfalls": [
+      "Overlapping rules that compete and create unexpected assignments.",
+      "Treating assignment logic as ad hoc script logic instead of a maintainable routing design."
+    ]
+  },
+  {
+    "topicId": "approvals",
+    "definition": "Approvals represent records and logic used to request and track acceptance decisions before work can continue.",
+    "whatItDoes": "They pause or gate a process until approvers accept, reject, or otherwise decide on the work.",
+    "tablesInvolved": ["sysapproval_approver"],
+    "keyComponents": [
+      "Approval records track the approver, state, and parent record relationship.",
+      "Approval generation can be driven by workflow, flow, or platform logic.",
+      "Downstream process steps often depend on approval state changes."
+    ],
+    "realTimeExamples": [
+      "Require manager approval before a catalog request continues to fulfillment.",
+      "Pause a change process until CAB or technical approval is completed."
+    ],
+    "interviewPitfalls": [
+      "Explaining approvals only as emails instead of records and process gates.",
+      "Ignoring what happens when approvals are reassigned, canceled, or become stale."
+    ]
+  },
+  {
+    "topicId": "catalog-items",
+    "definition": "A Catalog Item is an orderable good or service in the Service Catalog.",
+    "whatItDoes": "It collects request information from users and drives request, requested item, task, approval, and fulfillment processing.",
+    "tablesInvolved": ["sc_cat_item", "sc_request", "sc_req_item", "sc_task"],
+    "keyComponents": [
+      "Catalog Items define the orderable offering itself.",
+      "Variables collect user inputs.",
+      "Downstream fulfillment typically creates request and requested item records."
+    ],
+    "realTimeExamples": [
+      "Order a laptop, software, or access package through a standard request form.",
+      "Submit a new service request that triggers approvals and fulfillment tasks."
+    ],
+    "interviewPitfalls": [
+      "Confusing a Catalog Item with a Record Producer or Order Guide.",
+      "Ignoring the request data model created after submission."
+    ]
+  },
+  {
+    "topicId": "record-producers",
+    "definition": "A Record Producer is a catalog construct that creates a target record directly, often instead of creating a standard requested item flow.",
+    "whatItDoes": "It lets users submit catalog-style forms that generate records such as incidents, HR cases, or custom table records.",
+    "tablesInvolved": ["sc_cat_item", "item_option_new", "Target table varies by producer"],
+    "keyComponents": [
+      "It is configured as a Service Catalog item type.",
+      "Variables capture input and map into the target record.",
+      "The target record is created directly on the configured table."
+    ],
+    "realTimeExamples": [
+      "Create an Incident from a simplified help form in the catalog.",
+      "Create a custom onboarding record directly from a producer form."
+    ],
+    "interviewPitfalls": [
+      "Describing a Record Producer as the same thing as a standard Catalog Item request.",
+      "Ignoring variable-to-target-field mapping behavior."
+    ]
+  },
+  {
+    "topicId": "variable-sets",
+    "definition": "A Variable Set is a reusable group of catalog variables that can be attached to multiple catalog items or order guides.",
+    "whatItDoes": "It reduces duplication by letting multiple catalog experiences share the same grouped question set.",
+    "tablesInvolved": ["item_option_new_set", "item_option_new"],
+    "keyComponents": [
+      "Variable Sets can be attached to multiple catalog items or order guides.",
+      "They help standardize repeated question groups.",
+      "Catalog scripts and policies should reference internal names correctly."
+    ],
+    "realTimeExamples": [
+      "Reuse employee contact variables across several onboarding catalog items.",
+      "Attach the same access-justification variables to multiple access request items."
+    ],
+    "interviewPitfalls": [
+      "Duplicating the same variables across many items instead of using a set.",
+      "Using names or labels inconsistently when client logic should target internal names."
+    ]
+  },
+  {
+    "topicId": "order-guides",
+    "definition": "An Order Guide is a catalog construct that helps users request multiple related catalog items in one guided experience.",
+    "whatItDoes": "It collects high-level inputs and can cascade variables to included items so a bundle of requests is created together.",
+    "tablesInvolved": ["sc_cat_item_guide", "sc_cat_item", "sc_req_item"],
+    "keyComponents": [
+      "Order Guides group multiple catalog items.",
+      "Guide variables help determine which included items and values are used.",
+      "Variable cascading can pass shared answers to generated items."
+    ],
+    "realTimeExamples": [
+      "Request a new employee bundle that includes laptop, software, and access items.",
+      "Use guide variables to drive which included requests are created."
+    ],
+    "interviewPitfalls": [
+      "Describing an Order Guide as just a larger single Catalog Item.",
+      "Ignoring variable cascading and included-item behavior."
+    ]
+  },
+  {
+    "topicId": "requested-item-flow",
+    "definition": "Requested Item Flow refers to the backend request lifecycle after a catalog item is ordered, especially how the requested item moves through fulfillment.",
+    "whatItDoes": "It connects the request, requested item, approvals, and catalog tasks that fulfill the order.",
+    "tablesInvolved": ["sc_request", "sc_req_item", "sc_task", "sysapproval_approver"],
+    "keyComponents": [
+      "The request record is the umbrella container.",
+      "The requested item tracks item-specific fulfillment state.",
+      "Catalog tasks and approvals drive the execution of fulfillment work."
+    ],
+    "realTimeExamples": [
+      "A laptop order creates a request, one requested item, approval records, and catalog tasks for procurement and imaging.",
+      "A software request moves the requested item through approval and then automated fulfillment."
+    ],
+    "interviewPitfalls": [
+      "Confusing the request, requested item, and catalog task tables.",
+      "Explaining fulfillment without referencing the actual request data model."
+    ]
+  },
+  {
+    "topicId": "mid-server",
+    "definition": "A MID Server is a Java application installed inside the customer network that provides a secure bridge between the ServiceNow instance and external systems or internal infrastructure.",
+    "whatItDoes": "It enables Discovery, integrations, orchestration, and other outbound interactions without exposing the instance directly to internal endpoints.",
+    "tablesInvolved": ["ecc_agent", "ecc_agent_capability", "ecc_queue"],
+    "keyComponents": [
+      "The MID Server runs inside the network and communicates outbound to the instance.",
+      "It commonly supports Discovery, Service Mapping, integrations, and automation workloads.",
+      "Work is exchanged through the ECC Queue."
+    ],
+    "realTimeExamples": [
+      "Use a MID Server to discover servers behind a firewall.",
+      "Route internal integration traffic through a MID Server for secure connectivity."
+    ],
+    "interviewPitfalls": [
+      "Describing the MID Server as if it stores primary business data.",
+      "Ignoring network placement, credentials, and capability considerations."
+    ]
+  },
+  {
+    "topicId": "ecc-queue",
+    "definition": "The ECC Queue is the communication point between the ServiceNow instance and MID Server-driven work.",
+    "whatItDoes": "It stores output work items for MID Servers and input/result messages returned from MID Server processing.",
+    "tablesInvolved": ["ecc_queue"],
+    "keyComponents": [
+      "The queue contains both outbound work and inbound results.",
+      "Agent, topic, payload, queue direction, and state are key troubleshooting fields.",
+      "Discovery and MID-based integrations rely heavily on ECC Queue records."
+    ],
+    "realTimeExamples": [
+      "Review ECC Queue records when a probe or pattern does not complete as expected.",
+      "Check the payload and error string to understand a failed MID-executed command."
+    ],
+    "interviewPitfalls": [
+      "Looking only at Discovery Status and not tracing the underlying ECC messages.",
+      "Treating an ECC completion code as proof that the target data is correct without deeper inspection."
+    ]
+  },
+  {
+    "topicId": "discovery-schedules",
+    "definition": "A Discovery Schedule defines when and where ServiceNow Discovery runs against a set of IP ranges, CIs, or cloud targets.",
+    "whatItDoes": "It controls discovery execution timing, target scope, and the generation of status records and ECC activity for the run.",
+    "tablesInvolved": ["discovery_schedule", "discovery_status", "ecc_queue"],
+    "keyComponents": [
+      "The schedule defines targets and runtime timing.",
+      "Discovery runs produce status records you can inspect.",
+      "Related ECC Queue activity shows the actual work sent through MID processing."
+    ],
+    "realTimeExamples": [
+      "Run nightly server discovery against a data-center subnet.",
+      "Review discovery status and related ECC activity when a schedule fails to populate expected CIs."
+    ],
+    "interviewPitfalls": [
+      "Blaming schedules for every Discovery issue when credentials, MID placement, or probes are the actual problem.",
+      "Explaining Discovery only at the schedule level without mentioning status and ECC traces."
+    ]
+  },
+  {
+    "topicId": "ire",
+    "definition": "The Identification and Reconciliation Engine (IRE) is the CMDB framework that identifies CIs uniquely and reconciles updates from authorized data sources.",
+    "whatItDoes": "It helps prevent duplicate CIs, applies identification logic, and enforces source authority rules when CI data is inserted or updated.",
+    "tablesInvolved": ["cmdb_ci", "sys_object_source", "cmdb_ire_partial_payloads"],
+    "keyComponents": [
+      "IRE uses identification rules to find the correct CI.",
+      "It uses reconciliation rules to decide which sources can update which attributes.",
+      "It supports APIs and payload-based create or update processing for CMDB data."
+    ],
+    "realTimeExamples": [
+      "Process imported or discovered CI payloads through IRE instead of writing directly to CMDB tables.",
+      "Use IRE to prevent duplicate server records when multiple discovery or integration sources send data."
+    ],
+    "interviewPitfalls": [
+      "Explaining IRE only as deduplication and skipping reconciliation behavior.",
+      "Updating CMDB records directly when IRE should be the controlled entry point."
+    ]
+  },
+  {
+    "topicId": "identification-rules",
+    "definition": "Identification Rules define the attributes or identifiers that IRE uses to determine whether an incoming CI payload matches an existing CI.",
+    "whatItDoes": "They establish CI matching logic so records can be identified consistently across sources.",
+    "tablesInvolved": ["cmdb_identifier", "cmdb_identifier_entry"],
+    "keyComponents": [
+      "Rules are defined per class and can be inherited through the CMDB hierarchy.",
+      "They use one or more identifier entries and attributes for matching.",
+      "Strong identification logic is essential to prevent duplicate CIs."
+    ],
+    "realTimeExamples": [
+      "Identify a server by serial number or another reliable combination of attributes.",
+      "Tune a class rule when integration payloads are not matching the intended CI."
+    ],
+    "interviewPitfalls": [
+      "Choosing weak identifiers that are not truly stable or unique.",
+      "Ignoring class inheritance when troubleshooting why a rule is applied."
+    ]
+  },
+  {
+    "topicId": "reconciliation-rules",
+    "definition": "Reconciliation Rules define which data source is authoritative for updating CI attributes when multiple sources send data to the CMDB.",
+    "whatItDoes": "They prevent lower-authority sources from overwriting trusted attribute values on CIs.",
+    "tablesInvolved": ["cmdb_reconciliation_rule", "cmdb_reconciliation_definition"],
+    "keyComponents": [
+      "Rules are applied during IRE-driven update scenarios.",
+      "They determine source authority for attribute updates.",
+      "They help maintain CMDB trust when Discovery, integrations, and imports all contribute data."
+    ],
+    "realTimeExamples": [
+      "Allow Discovery to update operational server attributes while another source owns financial attributes.",
+      "Prevent a low-trust import from overwriting a value already owned by a higher-authority source."
+    ],
+    "interviewPitfalls": [
+      "Talking about reconciliation only as record matching instead of attribute-authority control.",
+      "Ignoring source precedence when CMDB values appear to revert unexpectedly."
+    ]
+  },
+  {
+    "topicId": "cmdb-tables",
+    "definition": "CMDB tables store Configuration Items in a class hierarchy rooted in the CMDB data model.",
+    "whatItDoes": "They organize CI records by class so applications can store common and class-specific attributes correctly.",
+    "tablesInvolved": ["cmdb_ci", "cmdb_ci_server", "cmdb_ci_computer"],
+    "keyComponents": [
+      "cmdb_ci is the base for CI class extension.",
+      "Child class tables inherit from parent CMDB classes.",
+      "Choosing the correct class matters for relationships, patterns, and downstream behavior."
+    ],
+    "realTimeExamples": [
+      "Store a server in the right CI class so Discovery and Service Mapping work correctly.",
+      "Model different infrastructure types with inherited CMDB classes rather than one flat custom table."
+    ],
+    "interviewPitfalls": [
+      "Treating CMDB as one generic table instead of a class hierarchy.",
+      "Using the wrong class and losing expected identification, reconciliation, or relationship behavior."
+    ]
+  },
+  {
+    "topicId": "ci-relationships",
+    "definition": "CI Relationships represent dependencies or associations between Configuration Items in the CMDB.",
+    "whatItDoes": "They help model how infrastructure and services connect so impact analysis, Service Mapping, and operational views are meaningful.",
+    "tablesInvolved": ["cmdb_rel_ci", "cmdb_rel_type"],
+    "keyComponents": [
+      "Relationship records connect parent and child CIs using a relationship type.",
+      "The relationship type defines the semantic meaning of the connection.",
+      "Relationship quality directly affects impact and topology outcomes."
+    ],
+    "realTimeExamples": [
+      "Model an application server running on a virtual machine that depends on an infrastructure service.",
+      "Use CI relationships to understand downstream impact when a shared database fails."
+    ],
+    "interviewPitfalls": [
+      "Creating relationships without a clear semantic meaning or type.",
+      "Ignoring relationship accuracy when troubleshooting impact or service maps."
+    ]
+  }
+]
