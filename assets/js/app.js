@@ -191,6 +191,8 @@ function buildQuizSetupMarkup() {
           <option value="role">Role</option>
           <option value="module">Module</option>
           <option value="topic">Topic</option>
+          <option value="coding">Coding</option>
+          <option value="use-case">Use Case</option>
         </select>
       </label>
       <label data-quiz-field="role" hidden>

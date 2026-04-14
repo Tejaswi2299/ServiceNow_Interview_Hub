@@ -91,7 +91,7 @@ export function syncProgressiveQuizForm(form) {
         ? topicSelect?.value
         : '';
 
-  const canShowDifficulty = Boolean(scope) && (scope === 'mixed' || Boolean(selectedScopeValue));
+  const canShowDifficulty = Boolean(scope) && (scope === 'mixed' || scope === 'coding' || scope === 'use-case' || Boolean(selectedScopeValue));
   if (difficultyWrapper) difficultyWrapper.hidden = !canShowDifficulty;
   if (difficultySelect) {
     difficultySelect.disabled = !canShowDifficulty;
