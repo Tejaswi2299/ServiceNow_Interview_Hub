@@ -45,6 +45,19 @@
     ],
     "explanation": [
       "eventQueue allows notifications to listen to meaningful events rather than duplicating conditions everywhere."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Queue%20an%20event%20for%20a%20P1%20incident",
+      "https://developer.servicenow.com/dev.do#!/search/Queue%20an%20event%20for%20a%20P1%20incident"
+    ],
+    "keyPoints": [
+      "Answer Write a script snippet that queues an event when an incident becomes Priority 1. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script snippet that queues an event when an incident becomes Priority 1. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

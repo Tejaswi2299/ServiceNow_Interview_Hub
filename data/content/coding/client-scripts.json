@@ -46,6 +46,19 @@
     "explanation": [
       "The script reacts only to priority changes.",
       "Using == is acceptable here because client field values arrive as strings."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=onChange%20client%20script%20to%20make%20Assignment%20Group%20mandatory%20for%20P1%20incidents",
+      "https://developer.servicenow.com/dev.do#!/search/onChange%20client%20script%20to%20make%20Assignment%20Group%20mandatory%20for%20P1%20incidents"
+    ],
+    "keyPoints": [
+      "Answer Write an onChange client script that makes Assignment Group mandatory when Priority becomes 1 and optional otherwise. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write an onChange client script that makes Assignment Group mandatory when Priority becomes 1 and optional otherwise. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -93,6 +106,19 @@
     ],
     "explanation": [
       "UI Actions can run server-side and redirect the user after updating the record."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=UI%20Action%20to%20reopen%20a%20closed%20incident",
+      "https://developer.servicenow.com/dev.do#!/search/UI%20Action%20to%20reopen%20a%20closed%20incident"
+    ],
+    "keyPoints": [
+      "Answer Write a server-side UI Action that reopens a closed incident and resets work notes. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a server-side UI Action that reopens a closed incident and resets work notes. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -139,6 +165,19 @@
     ],
     "explanation": [
       "Advanced qualifiers can return an encoded query string directly."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Advanced%20reference%20qualifier%20for%20Assignment%20Group",
+      "https://developer.servicenow.com/dev.do#!/search/Advanced%20reference%20qualifier%20for%20Assignment%20Group"
+    ],
+    "keyPoints": [
+      "Answer Write a script-based reference qualifier that shows only active assignment groups. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script-based reference qualifier that shows only active assignment groups. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -183,6 +222,19 @@
     ],
     "explanation": [
       "Catalog client scripts behave similarly to form client scripts but target variables."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Catalog%20client%20script%20to%20show%20a%20field%20based%20on%20request%20type",
+      "https://developer.servicenow.com/dev.do#!/search/Catalog%20client%20script%20to%20show%20a%20field%20based%20on%20request%20type"
+    ],
+    "keyPoints": [
+      "Answer Write a catalog client script that shows manager_approval_reason only when request_type is Access. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a catalog client script that shows manager_approval_reason only when request_type is Access. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

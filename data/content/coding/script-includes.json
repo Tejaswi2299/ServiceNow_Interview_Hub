@@ -48,6 +48,19 @@
     "explanation": [
       "AbstractAjaxProcessor is the standard pattern for classic GlideAjax use.",
       "getXMLAnswer is used to read a simple string response."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Client-callable%20Script%20Include%20to%20return%20a%20user%27s%20department",
+      "https://developer.servicenow.com/dev.do#!/search/Client-callable%20Script%20Include%20to%20return%20a%20user%27s%20department"
+    ],
+    "keyPoints": [
+      "Answer Write a client-callable Script Include and GlideAjax client call that returns a user's department. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a client-callable Script Include and GlideAjax client call that returns a user's department. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

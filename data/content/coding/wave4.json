@@ -50,6 +50,19 @@
     ],
     "explanation": [
       "This script gives operational visibility into recent major incidents without building a report first."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20major%20incidents%20opened%20in%20the%20last%2024%20hours",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20major%20incidents%20opened%20in%20the%20last%2024%20hours"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that lists major incidents opened in the last 24 hours and prints the number, business service, and state. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that lists major incidents opened in the last 24 hours and prints the number, business service, and state. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -83,7 +96,7 @@
     "relatedTables": [
       "incident"
     ],
-    "exactAnswer": "Use GlideAggregate on incident, constrain by CI and opened date, and compare the count to the threshold.",
+    "exactAnswer": "Create a Script Include method that uses GlideAggregate on incident to count records for the same CI opened in the last 24 hours, compares that count with a configurable threshold, and returns whether a problem candidate should be created.",
     "steps": [
       "Create a new Script Include.",
       "Paste the method.",
@@ -99,6 +112,19 @@
     "commonMistakes": [
       "Using GlideRecord and counting manually when GlideAggregate is cleaner.",
       "Not validating threshold as an integer."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Flag%20repeat%20incidents%20for%20problem%20candidate%20review",
+      "https://developer.servicenow.com/dev.do#!/search/Flag%20repeat%20incidents%20for%20problem%20candidate%20review"
+    ],
+    "keyPoints": [
+      "Answer Write a script include method that counts incidents with the same configuration item in the last 7 days and returns true when the threshold is met. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script include method that counts incidents with the same configuration item in the last 7 days and returns true when the threshold is met. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -147,6 +173,19 @@
     "commonMistakes": [
       "Checking only exact same start time instead of overlap logic.",
       "Forgetting to exclude the current record on update."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prevent%20conflicting%20change%20windows",
+      "https://developer.servicenow.com/dev.do#!/search/Prevent%20conflicting%20change%20windows"
+    ],
+    "keyPoints": [
+      "Answer Write a before insert/update business rule snippet that blocks a normal change if another overlapping scheduled change exists for the same CI. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a before insert/update business rule snippet that blocks a normal change if another overlapping scheduled change exists for the same CI. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -196,6 +235,19 @@
     "commonMistakes": [
       "Running mass update without verifying support group quality.",
       "Not considering update business rules that may fire."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Backfill%20owned_by%20on%20business%20applications",
+      "https://developer.servicenow.com/dev.do#!/search/Backfill%20owned_by%20on%20business%20applications"
+    ],
+    "keyPoints": [
+      "Answer Write a fix script that sets owned_by from the support group manager when owned_by is empty on business applications. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a fix script that sets owned_by from the support group manager when owned_by is empty on business applications. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -244,6 +296,19 @@
     "commonMistakes": [
       "Treating same-name records across different classes as duplicates automatically.",
       "Cleaning duplicates without checking identification rules and source precedence."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=List%20duplicate%20CI%20names%20by%20class",
+      "https://developer.servicenow.com/dev.do#!/search/List%20duplicate%20CI%20names%20by%20class"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that prints duplicate CI names within the same class. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that prints duplicate CI names within the same class. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -293,6 +358,19 @@
     "commonMistakes": [
       "Not filtering by MID Server agent.",
       "Assuming every failed discovery creates state=error without checking queue patterns."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Find%20recent%20MID%20Server%20ECC%20errors",
+      "https://developer.servicenow.com/dev.do#!/search/Find%20recent%20MID%20Server%20ECC%20errors"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that lists ECC Queue error records for a specific MID Server from the last 2 days. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that lists ECC Queue error records for a specific MID Server from the last 2 days. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -342,6 +420,19 @@
     "commonMistakes": [
       "Ignoring cases where CI ownership is missing.",
       "Hardcoding assignment groups instead of using ownership data."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Route%20vulnerabilities%20to%20a%20remediation%20group",
+      "https://developer.servicenow.com/dev.do#!/search/Route%20vulnerabilities%20to%20a%20remediation%20group"
+    ],
+    "keyPoints": [
+      "Answer Write a business rule snippet that assigns a vulnerability group based on the CI support group when the vulnerability item is created. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a business rule snippet that assigns a vulnerability group based on the CI support group when the vulnerability item is created. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -389,6 +480,19 @@
     "commonMistakes": [
       "Using the wrong table name for the installed SecOps app version.",
       "Forgetting that display values may differ from numeric states."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20open%20security%20incidents%20by%20state",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20open%20security%20incidents%20by%20state"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that prints the count of open security incidents by state. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that prints the count of open security incidents by state. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -437,6 +541,19 @@
     "commonMistakes": [
       "Updating stockroom without updating operational location where required.",
       "Moving assets without an approval or inventory process context."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Transfer%20an%20asset%20between%20stockrooms%20in%20script%20logic",
+      "https://developer.servicenow.com/dev.do#!/search/Transfer%20an%20asset%20between%20stockrooms%20in%20script%20logic"
+    ],
+    "keyPoints": [
+      "Answer Write a server-side script snippet that updates an asset stockroom and location while recording a work note. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a server-side script snippet that updates an asset stockroom and location while recording a work note. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -485,6 +602,19 @@
     "commonMistakes": [
       "Assuming field names are identical in every SAM setup.",
       "Treating every unmapped install as a licensing issue before normalization review."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=List%20software%20install%20records%20that%20still%20need%20normalization%20review",
+      "https://developer.servicenow.com/dev.do#!/search/List%20software%20install%20records%20that%20still%20need%20normalization%20review"
+    ],
+    "keyPoints": [
+      "Answer Write a script that prints software install evidence with missing or weak normalized product mapping. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script that prints software install evidence with missing or weak normalized product mapping. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -531,6 +661,19 @@
     ],
     "commonMistakes": [
       "Using created date when the process expects opened date or first-seen date."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Calculate%20aging%20vulnerabilities%20older%20than%2030%20days",
+      "https://developer.servicenow.com/dev.do#!/search/Calculate%20aging%20vulnerabilities%20older%20than%2030%20days"
+    ],
+    "keyPoints": [
+      "Answer Write a script that prints open vulnerable items older than 30 days with assignment group and CI. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script that prints open vulnerable items older than 30 days with assignment group and CI. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -579,6 +722,19 @@
     "commonMistakes": [
       "Using GlideRecord when user-respecting data retrieval is required.",
       "Returning more fields than necessary."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Demonstrate%20GlideRecordSecure%20for%20user-respecting%20queries",
+      "https://developer.servicenow.com/dev.do#!/search/Demonstrate%20GlideRecordSecure%20for%20user-respecting%20queries"
+    ],
+    "keyPoints": [
+      "Answer Write a script include method that returns incident numbers using GlideRecordSecure so ACLs are respected for the current user context. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script include method that returns incident numbers using GlideRecordSecure so ACLs are respected for the current user context. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -626,6 +782,19 @@
     "commonMistakes": [
       "Using an encoded query against the wrong class table.",
       "Assuming install_status values without checking the instance choices."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20an%20encoded%20query%20for%20stale%20CIs",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20an%20encoded%20query%20for%20stale%20CIs"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that finds servers not updated in 90 days using an encoded query and prints name and last discovered date. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that finds servers not updated in 90 days using an encoded query and prints name and last discovered date. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -675,6 +844,19 @@
     "commonMistakes": [
       "Using assumed table names without confirming the implementation.",
       "Treating score fields as universal across every GRC setup."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Summarize%20high-risk%20vendors",
+      "https://developer.servicenow.com/dev.do#!/search/Summarize%20high-risk%20vendors"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that prints vendor risk records above a defined score threshold with owner and status. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that prints vendor risk records above a defined score threshold with owner and status. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -725,6 +907,19 @@
     "commonMistakes": [
       "Publishing automatically without review governance.",
       "Not validating knowledge base and ownership requirements."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Create%20a%20known-error%20style%20note%20from%20a%20problem%20record",
+      "https://developer.servicenow.com/dev.do#!/search/Create%20a%20known-error%20style%20note%20from%20a%20problem%20record"
+    ],
+    "keyPoints": [
+      "Answer Write a server-side script snippet that copies workaround information from a problem record into a knowledge draft or related note trigger point. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a server-side script snippet that copies workaround information from a problem record into a knowledge draft or related note trigger point. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

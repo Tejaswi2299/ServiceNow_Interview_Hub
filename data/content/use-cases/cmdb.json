@@ -62,6 +62,19 @@
     "commonMistakes": [
       "Running full discovery before validating credentials on a small scope.",
       "Ignoring IRE and identification effects when checking CMDB results."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Onboard%20Discovery%20with%20a%20MID%20Server",
+      "https://developer.servicenow.com/dev.do#!/search/Onboard%20Discovery%20with%20a%20MID%20Server"
+    ],
+    "keyPoints": [
+      "Answer How do you set up Discovery for a new network segment? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you set up Discovery for a new network segment? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -97,7 +110,7 @@
       "cmdb_ci"
     ],
     "scenario": "Discovery, a Service Graph connector, and vulnerability tools all send data about the same devices. The customer wants one trusted CI per device.",
-    "exactAnswer": "Implement the solution by defining the target classes, confirming identification rules, aligning source payloads with those identifiers, reviewing reconciliation priorities, and validating whether each source is allowed to update the governed attributes it sends.",
+    "exactAnswer": "Avoid duplicate CIs by sending all inbound CI updates through IRE with complete identifiers for the correct class, then enforcing reconciliation precedence so each trusted source updates only allowed attributes.",
     "navigationPath": [
       "All > CMDB > Identification/Reconciliation",
       "All > CMDB > CI Class Manager",
@@ -123,6 +136,19 @@
     "commonMistakes": [
       "Treating CMDB duplicate prevention as a simple transform map problem.",
       "Ignoring source payload quality when identification fields are missing or inconsistent."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prevent%20duplicate%20CI%20creation%20using%20IRE-aware%20design",
+      "https://developer.servicenow.com/dev.do#!/search/Prevent%20duplicate%20CI%20creation%20using%20IRE-aware%20design"
+    ],
+    "keyPoints": [
+      "Answer How do you avoid duplicate CIs when multiple sources feed the CMDB? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you avoid duplicate CIs when multiple sources feed the CMDB? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -180,6 +206,19 @@
     "commonMistakes": [
       "Trying to automate routing before CI matching quality is stable.",
       "Assuming every CI already has a correct support group or owner."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Route%20vulnerabilities%20to%20remediation%20teams",
+      "https://developer.servicenow.com/dev.do#!/search/Route%20vulnerabilities%20to%20remediation%20teams"
+    ],
+    "keyPoints": [
+      "Answer How do you assign vulnerabilities to the correct team based on CI ownership? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you assign vulnerabilities to the correct team based on CI ownership? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

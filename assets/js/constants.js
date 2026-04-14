@@ -16,7 +16,8 @@ export const MAP_FILES = {
   moduleTopic: 'data/maps/module-topic-map.json',
   roleTopic: 'data/maps/role-topic-map.json',
   moduleCoding: 'data/maps/module-coding-map.json',
-  moduleUseCase: 'data/maps/module-usecase-map.json'
+  moduleUseCase: 'data/maps/module-usecase-map.json',
+  topicAliases: 'data/maps/topic-aliases.json'
 };
 
 export const CONTENT_FILES = {

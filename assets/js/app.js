@@ -44,6 +44,10 @@ function uniqueIds(values = []) {
   return [...new Set((values || []).filter(Boolean))];
 }
 
+function normalizeTopicId(topicId = '') {
+  return appState.data.maps?.topicAliases?.[topicId] || topicId;
+}
+
 function invertMap(map = {}) {
   const inverted = {};
   Object.entries(map || {}).forEach(([parentId, childIds]) => {
@@ -76,6 +80,7 @@ function buildLookups() {
   appState.lookups.rolesById = Object.fromEntries(appState.data.roles.map((item) => [item.id, item]));
   appState.lookups.modulesById = Object.fromEntries(appState.data.modules.map((item) => [item.id, item]));
   appState.lookups.topicsById = Object.fromEntries(appState.data.topics.map((item) => [item.id, item]));
+  appState.lookups.topicAliases = appState.data.maps.topicAliases || {};
   appState.lookups.roleToModules = appState.data.maps.roleModule || {};
   appState.lookups.moduleToTopics = appState.data.maps.moduleTopic || {};
   appState.lookups.roleToTopics = appState.data.maps.roleTopic || {};
@@ -163,7 +168,7 @@ function routeQueryFilters(route) {
   return {
     role: route.query.role || '',
     module: route.query.module || '',
-    topic: route.query.topic || '',
+    topic: normalizeTopicId(route.query.topic || ''),
     difficulty: route.query.difficulty || '',
     q: route.query.q || '',
     category: route.query.category || ''
@@ -186,6 +191,8 @@ function buildQuizSetupMarkup() {
           <option value="role">Role</option>
           <option value="module">Module</option>
           <option value="topic">Topic</option>
+          <option value="coding">Coding</option>
+          <option value="use-case">Use Case</option>
         </select>
       </label>
       <label data-quiz-field="role" hidden>
@@ -332,10 +339,15 @@ function renderRoute() {
   }
 
   if (segments[0] === 'topics' && segments[1]) {
-    const topic = findEntity(appState.data.topics, segments[1]);
+    const normalizedTopicSegment = normalizeTopicId(segments[1]);
+    const topic = findEntity(appState.data.topics, normalizedTopicSegment);
     if (!topic) {
       setPageHeading('Not found', route.path);
       setAppHtml(renderNotFound());
+      return;
+    }
+    if (segments[1] !== topic.slug && segments[1] !== topic.id) {
+      navigate(`/topics/${topic.slug}`, route.query, { replace: true });
       return;
     }
     const related = content.filter((item) => (item.topicIds || []).includes(topic.id));

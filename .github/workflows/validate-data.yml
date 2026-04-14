@@ -1,6 +1,8 @@
 name: Validate interview hub data
 
 on:
+  push:
+    branches: [ main, master, work ]
   pull_request:
   workflow_dispatch:
 
@@ -16,5 +18,5 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Validate taxonomy and topic overview data
+      - name: Validate content and mappings
         run: node scripts/validate-data.mjs

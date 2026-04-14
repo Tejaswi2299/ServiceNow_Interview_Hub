@@ -46,6 +46,19 @@
     ],
     "explanation": [
       "This is the fastest safe way to validate the transport before adding payload parsing."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Execute%20a%20SOAPMessageV2%20call%20from%20script",
+      "https://developer.servicenow.com/dev.do#!/search/Execute%20a%20SOAPMessageV2%20call%20from%20script"
+    ],
+    "keyPoints": [
+      "Answer Write a server-side script that executes a configured SOAP message and logs the status code. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a server-side script that executes a configured SOAP message and logs the status code. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -95,6 +108,19 @@
     ],
     "explanation": [
       "Small condition scripts keep mobile actions predictable and easy to support."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Condition%20script%20for%20a%20mobile%20action",
+      "https://developer.servicenow.com/dev.do#!/search/Condition%20script%20for%20a%20mobile%20action"
+    ],
+    "keyPoints": [
+      "Answer Write a script condition that shows a mobile action only when the incident is active and assigned to the current user. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script condition that shows a mobile action only when the incident is active and assigned to the current user. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -142,6 +168,19 @@
     ],
     "explanation": [
       "Keep chat-routing logic small unless it truly belongs in a reusable decision model."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prepare%20a%20simple%20decision%20output%20for%20Virtual%20Agent%20handoff",
+      "https://developer.servicenow.com/dev.do#!/search/Prepare%20a%20simple%20decision%20output%20for%20Virtual%20Agent%20handoff"
+    ],
+    "keyPoints": [
+      "Answer Write a server-side snippet that returns a support queue label based on incident priority for a Virtual Agent decision. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a server-side snippet that returns a support queue label based on incident priority for a Virtual Agent decision. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -189,6 +228,19 @@
     ],
     "explanation": [
       "Even a small gate improves governance when tied to release automation."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Validate%20a%20deployment%20window%20before%20DevOps%20promotion",
+      "https://developer.servicenow.com/dev.do#!/search/Validate%20a%20deployment%20window%20before%20DevOps%20promotion"
+    ],
+    "keyPoints": [
+      "Answer Write a script that logs whether the current time is inside a permitted deployment window. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script that logs whether the current time is inside a permitted deployment window. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

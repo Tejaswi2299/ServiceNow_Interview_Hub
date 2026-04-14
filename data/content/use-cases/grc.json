@@ -52,6 +52,19 @@
     ],
     "commonMistakes": [
       "Managing evidence through untracked email only."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20an%20audit%20evidence%20collection%20flow",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20an%20audit%20evidence%20collection%20flow"
+    ],
+    "keyPoints": [
+      "Answer How do you implement repeatable evidence collection for an audit plan? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement repeatable evidence collection for an audit plan? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -104,6 +117,19 @@
     ],
     "commonMistakes": [
       "Allowing indefinite exceptions with no review cycle."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20policy%20exception%20expiry%20review",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20policy%20exception%20expiry%20review"
+    ],
+    "keyPoints": [
+      "Answer How do you prevent policy exceptions from staying open forever? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you prevent policy exceptions from staying open forever? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

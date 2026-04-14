@@ -6533,7 +6533,7 @@
       "vendor-risk-management"
     ],
     "topicIds": [
-      "third-party-risk"
+      "vendor-risk"
     ],
     "difficulty": "Intermediate",
     "tags": [
@@ -6594,7 +6594,7 @@
       "security-incident-response"
     ],
     "topicIds": [
-      "sir-lifecycle"
+      "security-incident-lifecycle"
     ],
     "difficulty": "Intermediate",
     "tags": [

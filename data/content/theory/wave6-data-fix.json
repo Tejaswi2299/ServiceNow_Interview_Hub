@@ -4,7 +4,7 @@
     "slug": "application-menu-modules-interview-explained",
     "title": "Application Menus and Modules interview basics",
     "question": "How do you explain Application Menus and Modules in a ServiceNow interview?",
-    "summary": "Adds direct coverage for the Application Menus and Modules topic so it is no longer a taxonomy-only entry.",
+    "summary": "Defines what application menus and modules are, where they are configured, and how to answer this topic with platform-accurate detail.",
     "roleIds": [
       "app-engine-developer",
       "platform-architect",
@@ -26,14 +26,16 @@
       "development"
     ],
     "relatedTables": [],
-    "exactAnswer": "Application menus organize the left navigation into logical application areas, while modules are the individual navigator entries inside those menus. In interviews, explain that modules are just entry points into lists, forms, pages, maps, reports, or scripted destinations, so naming and audience clarity matter.",
+    "exactAnswer": "In ServiceNow, an Application Menu is the top-level navigator container for an application, and Modules are the navigator entries inside that menu. A module is configured to open a target such as a record list, a filtered list, a form/new record flow, a dashboard/report, or another destination. In interviews, state that this is a navigation design object (not business logic), and that clear naming, ordering, and role-based visibility determine whether users can reliably find app functions.",
     "keyPoints": [
-      "Describe what the feature controls.",
-      "Explain when you would configure it instead of scripting around it.",
-      "Mention one governance or supportability consideration."
+      "Application Menu = top-level app container in the navigator; Module = clickable entry under that menu.",
+      "Modules should point to the right target type (for example list, filtered list, or form entry) based on user task.",
+      "Visibility should be controlled with roles and application ownership so users only see what they should access.",
+      "Treat menu/module design as governed information architecture, not as ad-hoc shortcuts."
     ],
     "examples": [
-      "Use Application Menus and Modules deliberately in a governed implementation instead of treating it as a one-off configuration."
+      "Create an Operations menu with separate modules for Open Incidents (filtered list), Create Incident (new record), and Team Dashboard so analysts can navigate by task.",
+      "During UAT, rename and reorder modules based on business language so users can find records without retraining."
     ]
   },
   {

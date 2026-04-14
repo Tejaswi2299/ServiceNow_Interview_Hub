@@ -221,6 +221,32 @@ function buildFallbackPitfalls(topic) {
 
 function buildTopicOverview(topic, relatedItems = [], state) {
   const verified = getVerifiedOverview(state, topic.id);
+  if (verified?.verified === false) {
+    return `
+      <section class="card topic-overview-card" id="topic-overview">
+        <div class="topic-overview-header">
+          <div>
+            <p class="topic-overview-kicker">Topic explanation</p>
+            <h2>${escapeHtml(topic.name)}</h2>
+            <p class="topic-overview-subtitle">${escapeHtml(topic.category || 'ServiceNow topic')}</p>
+          </div>
+        </div>
+        <div class="topic-overview-grid">
+          <section class="topic-overview-block topic-overview-definition">
+            <h3>Verification status</h3>
+            <p>This topic is not verified yet against official documentation. Auto-generated fallback explanations are intentionally disabled.</p>
+          </section>
+          <section class="topic-overview-block">
+            <h3>What to expect</h3>
+            <ul>
+              <li>Definition, key components, and interview pitfalls will appear after verification.</li>
+              <li>Existing study items for this topic remain accessible below.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    `;
+  }
   const trickyItems = getTrickyItems(relatedItems);
   const conceptItems = relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType));
   const leadItem = conceptItems.find((item) => item.contentType === 'theory') || conceptItems[0] || trickyItems[0] || null;

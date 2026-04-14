@@ -1014,17 +1014,25 @@ function mergeEntry(defaultEntry, curatedEntry = {}) {
 export function buildTopicOverviews(topics = [], curated = []) {
   const curatedByTopicId = Object.fromEntries((curated || []).map((item) => [item.topicId, item]));
   return topics.map((topic) => {
-    const exact = EXACT_DEFAULTS[topic.id] || {};
-    const generic = defaultTemplates(topic);
-    const defaultEntry = {
+    const curatedEntry = curatedByTopicId[topic.id];
+    if (curatedEntry) {
+      return {
+        ...curatedEntry,
+        topicId: topic.id,
+        verified: true
+      };
+    }
+
+    return {
       topicId: topic.id,
-      definition: exact.definition || generic.definition,
-      whatItDoes: exact.whatItDoes || generic.whatItDoes,
-      tablesInvolved: exact.tablesInvolved || inferTables(topic),
-      keyComponents: generic.keyComponents,
-      realTimeExamples: generic.realTimeExamples,
-      interviewPitfalls: generic.interviewPitfalls
+      verified: false,
+      definition: 'Not verified yet.',
+      whatItDoes: 'This topic overview is pending official-document verification.',
+      tablesInvolved: ['Not verified yet'],
+      keyComponents: ['Officially verified key components are pending.'],
+      realTimeExamples: ['Officially verified examples are pending.'],
+      interviewPitfalls: ['This topic is intentionally withheld from generated pitfalls until verified.'],
+      trickyComparisonSupport: false
     };
-    return mergeEntry(defaultEntry, curatedByTopicId[topic.id]);
   });
 }

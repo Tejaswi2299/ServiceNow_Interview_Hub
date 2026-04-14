@@ -36,6 +36,10 @@
     "examples": [
       "Use a spoke action in a flow that creates an external ticket.",
       "Use RESTMessageV2 inside a Script Include that needs full script control."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=IntegrationHub%20%20RESTMessageV2",
+      "https://developer.servicenow.com/dev.do#!/search/IntegrationHub%20%20RESTMessageV2"
     ]
   }
 ]

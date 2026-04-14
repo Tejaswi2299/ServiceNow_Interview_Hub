@@ -52,6 +52,19 @@
     "explanation": [
       "Before update is required because the write must be stopped before commit.",
       "Role-based bypass is cleaner than one-off user exceptions."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Block%20updates%20to%20closed%20changes%20in%20a%20query-safe%20way",
+      "https://developer.servicenow.com/dev.do#!/search/Block%20updates%20to%20closed%20changes%20in%20a%20query-safe%20way"
+    ],
+    "keyPoints": [
+      "Answer Write a business rule script that prevents updates to a closed change request unless the user has an override role. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a business rule script that prevents updates to a closed change request unless the user has an override role. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -102,6 +115,19 @@
     ],
     "explanation": [
       "GlideDateTime is the right API for time arithmetic in platform scripts."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Calculate%20incident%20age%20with%20GlideDateTime",
+      "https://developer.servicenow.com/dev.do#!/search/Calculate%20incident%20age%20with%20GlideDateTime"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that prints open incidents older than 7 days using GlideDateTime. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that prints open incidents older than 7 days using GlideDateTime. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -152,6 +178,19 @@
     ],
     "explanation": [
       "Encoded queries are useful when you want to replicate a tested list filter quickly."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Use%20an%20encoded%20query%20for%20recent%20P1%20incidents",
+      "https://developer.servicenow.com/dev.do#!/search/Use%20an%20encoded%20query%20for%20recent%20P1%20incidents"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that uses an encoded query to list active P1 incidents opened in the last 7 days. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that uses an encoded query to list active P1 incidents opened in the last 7 days. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -204,6 +243,19 @@
     ],
     "explanation": [
       "Cloud discovery interviews often test whether you validate the data model before scripting."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20cloud%20CIs%20by%20account",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20cloud%20CIs%20by%20account"
+    ],
+    "keyPoints": [
+      "Answer Write a script to count cloud-discovered CIs by cloud account or source identifier. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to count cloud-discovered CIs by cloud account or source identifier. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -253,6 +305,19 @@
     ],
     "explanation": [
       "The exact field can vary by model, so the interview-ready answer includes validating the table dictionary first."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Find%20software%20installs%20that%20still%20need%20normalization%20review",
+      "https://developer.servicenow.com/dev.do#!/search/Find%20software%20installs%20that%20still%20need%20normalization%20review"
+    ],
+    "keyPoints": [
+      "Answer Write a script to find software installation records with missing normalized product references. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to find software installation records with missing normalized product references. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]
