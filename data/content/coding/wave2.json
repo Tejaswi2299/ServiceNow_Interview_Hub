@@ -46,6 +46,19 @@
     ],
     "explanation": [
       "GlideAggregate is the correct API when the requirement is count by group."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20P1%20incidents%20by%20assignment%20group",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20P1%20incidents%20by%20assignment%20group"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to count active P1 incidents by assignment group. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to count active P1 incidents by assignment group. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -85,7 +98,20 @@
     "code": {
       "language": "javascript",
       "script": "var PriorityUtils = Class.create();\nPriorityUtils.prototype = {\n  initialize: function() {},\n  getPriority: function(impact, urgency) {\n    var score = parseInt(impact, 10) + parseInt(urgency, 10);\n    if (score <= 2) return 1;\n    if (score === 3) return 2;\n    if (score === 4) return 3;\n    return 4;\n  },\n  type: 'PriorityUtils'\n};"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Script%20Include%20to%20calculate%20priority%20from%20impact%20and%20urgency",
+      "https://developer.servicenow.com/dev.do#!/search/Script%20Include%20to%20calculate%20priority%20from%20impact%20and%20urgency"
+    ],
+    "keyPoints": [
+      "Answer Write a reusable function that calculates priority from impact and urgency values. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a reusable function that calculates priority from impact and urgency values. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "glideaggregate-duplicate-ci-names-by-class",
@@ -124,7 +150,20 @@
     "code": {
       "language": "javascript",
       "script": "var ga = new GlideAggregate('cmdb_ci');\nga.addAggregate('COUNT');\nga.groupBy('name');\nga.groupBy('sys_class_name');\nga.query();\nwhile (ga.next()) {\n  var count = parseInt(ga.getAggregate('COUNT'), 10);\n  if (count > 1) {\n    gs.print(ga.getValue('name') + ' | ' + ga.getDisplayValue('sys_class_name') + ' | ' + count);\n  }\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Find%20duplicate%20CI%20names%20by%20class",
+      "https://developer.servicenow.com/dev.do#!/search/Find%20duplicate%20CI%20names%20by%20class"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to identify repeated CI names within the same class. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to identify repeated CI names within the same class. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "query-child-cis-for-parent-service",
@@ -163,7 +202,20 @@
     "code": {
       "language": "javascript",
       "script": "var parentServiceId = 'PUT_PARENT_SERVICE_SYS_ID_HERE';\nvar rel = new GlideRecord('cmdb_rel_ci');\nrel.addQuery('parent', parentServiceId);\nrel.query();\nwhile (rel.next()) {\n  gs.print(rel.child.getDisplayValue() + ' [' + rel.type.getDisplayValue() + ']');\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20child%20CIs%20for%20a%20parent%20service",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20child%20CIs%20for%20a%20parent%20service"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to list all child CIs related to a given business service. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to list all child CIs related to a given business service. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "count-discovered-cis-by-source",
@@ -201,7 +253,20 @@
     "code": {
       "language": "javascript",
       "script": "var ga = new GlideAggregate('cmdb_ci');\nga.addNotNullQuery('discovery_source');\nga.addAggregate('COUNT');\nga.groupBy('discovery_source');\nga.query();\nwhile (ga.next()) {\n  gs.print(ga.getValue('discovery_source') + ' -> ' + ga.getAggregate('COUNT'));\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20discovered%20CIs%20by%20discovery%20source",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20discovered%20CIs%20by%20discovery%20source"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to count CIs by discovery_source. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to count CIs by discovery_source. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "mid-server-health-query",
@@ -238,7 +303,20 @@
     "code": {
       "language": "javascript",
       "script": "var mid = new GlideRecord('ecc_agent');\nmid.query();\nwhile (mid.next()) {\n  gs.print(mid.name + ' | status=' + mid.status + ' | validated=' + mid.validated);\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20MID%20Server%20records%20and%20status",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20MID%20Server%20records%20and%20status"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to print MID Server names and status. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to print MID Server names and status. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "risk-score-utility-script-include",
@@ -275,7 +353,20 @@
     "code": {
       "language": "javascript",
       "script": "var RiskScoringUtils = Class.create();\nRiskScoringUtils.prototype = {\n  initialize: function() {},\n  getRating: function(impact, likelihood) {\n    var score = parseInt(impact, 10) * parseInt(likelihood, 10);\n    if (score >= 16) return 'Critical';\n    if (score >= 9) return 'High';\n    if (score >= 4) return 'Moderate';\n    return 'Low';\n  },\n  type: 'RiskScoringUtils'\n};"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Script%20Include%20to%20calculate%20a%20qualitative%20risk%20rating",
+      "https://developer.servicenow.com/dev.do#!/search/Script%20Include%20to%20calculate%20a%20qualitative%20risk%20rating"
+    ],
+    "keyPoints": [
+      "Answer Write a Script Include that converts impact and likelihood into a qualitative risk rating. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a Script Include that converts impact and likelihood into a qualitative risk rating. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "control-attestation-reminder-event",
@@ -314,7 +405,20 @@
     "code": {
       "language": "javascript",
       "script": "var gr = new GlideRecord('task');\ngr.addQuery('state', '!=', 3);\ngr.addQuery('due_date', '<=', gs.daysAgoEnd(-2));\ngr.query();\nwhile (gr.next()) {\n  gs.eventQueue('grc.attestation.reminder', gr, gr.getUniqueValue(), gr.assigned_to);\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Queue%20reminder%20events%20for%20pending%20control%20attestations",
+      "https://developer.servicenow.com/dev.do#!/search/Queue%20reminder%20events%20for%20pending%20control%20attestations"
+    ],
+    "keyPoints": [
+      "Answer Write a script snippet that queues a reminder event for attestations due in two days. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script snippet that queues a reminder event for attestations due in two days. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "vulnerability-priority-utility",
@@ -350,7 +454,20 @@
     "code": {
       "language": "javascript",
       "script": "var VulnerabilityPriorityUtils = Class.create();\nVulnerabilityPriorityUtils.prototype = {\n  initialize: function() {},\n  getPriority: function(exploitability, criticality) {\n    var score = parseInt(exploitability, 10) + parseInt(criticality, 10);\n    if (score >= 8) return 'P1';\n    if (score >= 6) return 'P2';\n    if (score >= 4) return 'P3';\n    return 'P4';\n  },\n  type: 'VulnerabilityPriorityUtils'\n};"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Script%20Include%20to%20derive%20vulnerability%20priority",
+      "https://developer.servicenow.com/dev.do#!/search/Script%20Include%20to%20derive%20vulnerability%20priority"
+    ],
+    "keyPoints": [
+      "Answer Write a Script Include that converts exploitability and asset criticality into a response priority. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a Script Include that converts exploitability and asset criticality into a response priority. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "count-open-vulnerable-items-by-group",
@@ -388,7 +505,20 @@
     "code": {
       "language": "javascript",
       "script": "var ga = new GlideAggregate('sn_vul_vulnerable_item');\nga.addQuery('state', '!=', 'closed');\nga.addAggregate('COUNT');\nga.groupBy('assignment_group');\nga.query();\nwhile (ga.next()) {\n  gs.print(ga.getDisplayValue('assignment_group') + ' -> ' + ga.getAggregate('COUNT'));\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20open%20vulnerable%20items%20by%20assignment%20group",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20open%20vulnerable%20items%20by%20assignment%20group"
+    ],
+    "keyPoints": [
+      "Answer Write a script to count open vulnerable items grouped by assignment group. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to count open vulnerable items grouped by assignment group. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "query-unassigned-hardware-assets",
@@ -426,7 +556,20 @@
     "code": {
       "language": "javascript",
       "script": "var gr = new GlideRecord('alm_hardware');\ngr.addNullQuery('assigned_to');\ngr.addQuery('install_status', 'in_use');\ngr.query();\nwhile (gr.next()) {\n  gs.print(gr.asset_tag + ' | ' + gr.getDisplayValue('model'));\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20unassigned%20hardware%20assets",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20unassigned%20hardware%20assets"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to list in-use hardware assets that are not assigned to a user. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to list in-use hardware assets that are not assigned to a user. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "count-assets-by-stockroom",
@@ -465,7 +608,20 @@
     "code": {
       "language": "javascript",
       "script": "var ga = new GlideAggregate('alm_hardware');\nga.addAggregate('COUNT');\nga.groupBy('stockroom');\nga.query();\nwhile (ga.next()) {\n  gs.print(ga.getDisplayValue('stockroom') + ' -> ' + ga.getAggregate('COUNT'));\n}"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20hardware%20assets%20by%20stockroom",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20hardware%20assets%20by%20stockroom"
+    ],
+    "keyPoints": [
+      "Answer Write a GlideAggregate script to count hardware assets by stockroom. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a GlideAggregate script to count hardware assets by stockroom. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "sam-reclamation-candidate-function",
@@ -501,7 +657,20 @@
     "code": {
       "language": "javascript",
       "script": "var SAMReclamationUtils = Class.create();\nSAMReclamationUtils.prototype = {\n  initialize: function() {},\n  isCandidate: function(daysSinceUse, threshold) {\n    return parseInt(daysSinceUse, 10) >= parseInt(threshold, 10);\n  },\n  type: 'SAMReclamationUtils'\n};"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Create%20a%20function%20to%20identify%20reclamation%20candidates",
+      "https://developer.servicenow.com/dev.do#!/search/Create%20a%20function%20to%20identify%20reclamation%20candidates"
+    ],
+    "keyPoints": [
+      "Answer Write a Script Include function that returns true when software usage is inactive beyond a threshold. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a Script Include function that returns true when software usage is inactive beyond a threshold. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   },
   {
     "id": "normalize-publisher-name-function",
@@ -537,6 +706,19 @@
     "code": {
       "language": "javascript",
       "script": "var PublisherNormalizationUtils = Class.create();\nPublisherNormalizationUtils.prototype = {\n  initialize: function() {},\n  normalize: function(name) {\n    var map = {\n      'microsoft corporation': 'Microsoft',\n      'microsoft corp.': 'Microsoft',\n      'adobe systems': 'Adobe',\n      'adobe inc.': 'Adobe'\n    };\n    var key = (name || '').toString().toLowerCase();\n    return map[key] || name;\n  },\n  type: 'PublisherNormalizationUtils'\n};"
-    }
+    },
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Normalize%20publisher%20name%20with%20a%20map",
+      "https://developer.servicenow.com/dev.do#!/search/Normalize%20publisher%20name%20with%20a%20map"
+    ],
+    "keyPoints": [
+      "Answer Write a simple function that normalizes common publisher-name variations into a single standard value. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a simple function that normalizes common publisher-name variations into a single standard value. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
+    ]
   }
 ]

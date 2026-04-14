@@ -65,6 +65,19 @@
     "commonMistakes": [
       "Using opened_by instead of requested_for when the process is meant to approve the target user's manager.",
       "Hardcoding an approver rather than using the manager relationship."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20a%20catalog%20item%20with%20manager%20approval",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20a%20catalog%20item%20with%20manager%20approval"
+    ],
+    "keyPoints": [
+      "Answer How do you implement a catalog item that routes for manager approval before fulfillment? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement a catalog item that routes for manager approval before fulfillment? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -124,6 +137,19 @@
     "commonMistakes": [
       "Triggering task creation at submission instead of approval.",
       "Forgetting to map variables into the task description or work notes."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Use%20Flow%20Designer%20to%20create%20fulfillment%20tasks%20from%20a%20request",
+      "https://developer.servicenow.com/dev.do#!/search/Use%20Flow%20Designer%20to%20create%20fulfillment%20tasks%20from%20a%20request"
+    ],
+    "keyPoints": [
+      "Answer How do you create catalog tasks automatically after a requested item is approved? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you create catalog tasks automatically after a requested item is approved? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

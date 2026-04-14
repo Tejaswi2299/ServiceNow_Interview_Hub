@@ -36,6 +36,10 @@
     "examples": [
       "Make a task field mandatory on incident only by using a dictionary override.",
       "Change the label of an inherited field on a child table where appropriate."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Dictionary%20Entry%20%20Dictionary%20Override",
+      "https://developer.servicenow.com/dev.do#!/search/Dictionary%20Entry%20%20Dictionary%20Override"
     ]
   },
   {
@@ -74,6 +78,10 @@
     "examples": [
       "Load CSV rows into an import set table first.",
       "Use a transform map to move user records into sys_user."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Import%20Set%20%20Transform%20Map",
+      "https://developer.servicenow.com/dev.do#!/search/Import%20Set%20%20Transform%20Map"
     ]
   },
   {
@@ -152,6 +160,10 @@
     "examples": [
       "A server record may reference a support group via a reference field.",
       "An application service 'depends on' a database server through a CMDB relationship."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=CMDB%20relationship%20%20reference%20field",
+      "https://developer.servicenow.com/dev.do#!/search/CMDB%20relationship%20%20reference%20field"
     ]
   },
   {

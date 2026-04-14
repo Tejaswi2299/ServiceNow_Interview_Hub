@@ -46,6 +46,19 @@
     ],
     "explanation": [
       "Before rules can set current field values directly without current.update()."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Before%20business%20rule%20to%20default%20Assignment%20Group%20based%20on%20Category",
+      "https://developer.servicenow.com/dev.do#!/search/Before%20business%20rule%20to%20default%20Assignment%20Group%20based%20on%20Category"
+    ],
+    "keyPoints": [
+      "Answer Write a before insert/update business rule that sets Assignment Group to Service Desk when Category is inquiry and no group is already selected. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a before insert/update business rule that sets Assignment Group to Service Desk when Category is inquiry and no group is already selected. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -94,6 +107,19 @@
     ],
     "explanation": [
       "setAbortAction(true) stops the insert transaction cleanly when the rule finds a duplicate."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prevent%20duplicate%20CI%20creation%20with%20a%20before%20insert%20business%20rule",
+      "https://developer.servicenow.com/dev.do#!/search/Prevent%20duplicate%20CI%20creation%20with%20a%20before%20insert%20business%20rule"
+    ],
+    "keyPoints": [
+      "Answer Write a before insert business rule that aborts creation when a server CI with the same serial number already exists. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a before insert business rule that aborts creation when a server CI with the same serial number already exists. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -138,6 +164,19 @@
     ],
     "explanation": [
       "Query business rules are powerful but should be used sparingly and intentionally."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20business%20rule%20to%20enforce%20default%20sort",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20business%20rule%20to%20enforce%20default%20sort"
+    ],
+    "keyPoints": [
+      "Answer What is a query business rule example you can explain in code? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate What is a query business rule example you can explain in code? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

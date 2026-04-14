@@ -51,6 +51,19 @@
     ],
     "commonMistakes": [
       "Trying to mirror the full desktop form instead of a focused mobile experience."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20mobile%20approval%20experience",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20mobile%20approval%20experience"
+    ],
+    "keyPoints": [
+      "Answer How do you implement a mobile experience for managers who approve requests from their phone? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement a mobile experience for managers who approve requests from their phone? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -99,6 +112,19 @@
     ],
     "commonMistakes": [
       "Escalating too early without trying the lightweight self-service path."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20a%20Virtual%20Agent%20topic%20with%20live%20handoff",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20a%20Virtual%20Agent%20topic%20with%20live%20handoff"
+    ],
+    "keyPoints": [
+      "Answer How do you implement a Virtual Agent topic that resolves simple issues but hands off complex ones to an agent? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement a Virtual Agent topic that resolves simple issues but hands off complex ones to an agent? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -153,6 +179,19 @@
     ],
     "commonMistakes": [
       "Treating pipeline automation as a reason to remove governance entirely."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Connect%20DevOps%20deployment%20activity%20to%20change%20governance",
+      "https://developer.servicenow.com/dev.do#!/search/Connect%20DevOps%20deployment%20activity%20to%20change%20governance"
+    ],
+    "keyPoints": [
+      "Answer How do you implement DevOps integration without losing change governance? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement DevOps integration without losing change governance? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -203,6 +242,19 @@
     ],
     "commonMistakes": [
       "Using one routing rule for every customer tier."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Route%20CSM%20cases%20by%20entitlement%20and%20channel",
+      "https://developer.servicenow.com/dev.do#!/search/Route%20CSM%20cases%20by%20entitlement%20and%20channel"
+    ],
+    "keyPoints": [
+      "Answer How do you design case routing in Customer Service Management? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you design case routing in Customer Service Management? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -252,6 +304,19 @@
     ],
     "commonMistakes": [
       "Designing dashboard widgets before indicator and breakdown governance are ready."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20Performance%20Analytics%20breakdown%20strategy",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20Performance%20Analytics%20breakdown%20strategy"
+    ],
+    "keyPoints": [
+      "Answer How do you implement a breakdown strategy for leadership dashboards? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement a breakdown strategy for leadership dashboards? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

@@ -44,7 +44,11 @@ function matchesSelection(item, options) {
 export function buildQuiz(quizzes = [], options = {}) {
   const count = Number(options.count || DEFAULT_QUIZ_COUNT);
   const filtered = quizzes.filter((item) => matchesSelection(item, options));
-  const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+  const shuffled = [...filtered];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
   return shuffled.slice(0, count);
 }
 

@@ -5,15 +5,21 @@
   "type": "object",
   "required": [
     "topicId",
+    "verified",
+    "verificationLevel",
     "definition",
     "whatItDoes",
     "tablesInvolved",
     "keyComponents",
     "realTimeExamples",
-    "interviewPitfalls"
+    "interviewPitfalls",
+    "trickyComparisonSupport",
+    "officialSources"
   ],
   "properties": {
     "topicId": { "type": "string", "minLength": 1 },
+    "verified": { "type": "boolean" },
+    "verificationLevel": { "type": "string", "enum": ["official", "derived", "draft"] },
     "definition": { "type": "string", "minLength": 1 },
     "whatItDoes": { "type": "string", "minLength": 1 },
     "tablesInvolved": {
@@ -35,7 +41,13 @@
       "type": "array",
       "minItems": 1,
       "items": { "type": "string", "minLength": 1 }
+    },
+    "trickyComparisonSupport": { "type": "boolean" },
+    "officialSources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

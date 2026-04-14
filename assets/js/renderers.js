@@ -1,6 +1,7 @@
 
 import { buildMetaChips, escapeHtml, formatCount, truncate, unique } from './utils.js';
 import { isBookmarked, getBookmarks } from './bookmarks.js';
+import { buildQuizSetupFormMarkup } from './quiz-setup.js';
 
 function linkForItem(item) {
   if (!item) return '#/home';
@@ -1030,58 +1031,13 @@ export function renderQuizSetup(state) {
           <div class="stat-tile"><span>After quiz</span><strong>Bookmark missed items</strong></div>
         </div>
 
-        <form id="quiz-setup-form" class="filters" data-quiz-form>
-          <label>
-            Scope
-            <select name="scope">
-              <option value="mixed">Mixed</option>
-              <option value="role">Role</option>
-              <option value="module">Module</option>
-              <option value="topic">Topic</option>
-              <option value="coding">Coding</option>
-              <option value="use-case">Use Case</option>
-            </select>
-          </label>
-          <label>
-            Role
-            <select name="roleValue">
-              <option value="">Any role</option>
-              ${state.data.roles.map((role) => `<option value="${escapeHtml(role.id)}">${escapeHtml(role.name)}</option>`).join('')}
-            </select>
-          </label>
-          <label>
-            Module
-            <select name="moduleValue">
-              <option value="">Any module</option>
-              ${state.data.modules.map((module) => `<option value="${escapeHtml(module.id)}">${escapeHtml(module.name)}</option>`).join('')}
-            </select>
-          </label>
-          <label>
-            Topic
-            <select name="topicValue">
-              <option value="">Any topic</option>
-              ${state.data.topics.map((topic) => `<option value="${escapeHtml(topic.id)}">${escapeHtml(topic.name)}</option>`).join('')}
-            </select>
-          </label>
-          <label>
-            Difficulty
-            <select name="difficulty">
-              <option value="">All levels</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </select>
-          </label>
-          <label>
-            Count
-            <select name="count">
-              ${[10, 20, 25, 30, 40].map((count) => `<option value="${count}">${count}</option>`).join('')}
-            </select>
-          </label>
-          <div>
-            <button class="button-link" type="submit">Start quiz</button>
-          </div>
-        </form>
+        ${buildQuizSetupFormMarkup({
+          roles: state.data.roles,
+          modules: state.data.modules,
+          topics: state.data.topics,
+          counts: [10, 20, 25, 30, 40],
+          progressive: false
+        })}
 
         <div class="notice">Tip: if you choose Role, Module, or Topic scope, the app uses the matching value field and ignores the others. Coding and Use Case scopes pull from those quiz categories directly.</div>
       </article>

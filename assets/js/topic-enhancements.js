@@ -221,6 +221,32 @@ function buildFallbackPitfalls(topic) {
 
 function buildTopicOverview(topic, relatedItems = [], state) {
   const verified = getVerifiedOverview(state, topic.id);
+  if (verified?.verified === false) {
+    return `
+      <section class="card topic-overview-card" id="topic-overview">
+        <div class="topic-overview-header">
+          <div>
+            <p class="topic-overview-kicker">Topic explanation</p>
+            <h2>${escapeHtml(topic.name)}</h2>
+            <p class="topic-overview-subtitle">${escapeHtml(topic.category || 'ServiceNow topic')}</p>
+          </div>
+        </div>
+        <div class="topic-overview-grid">
+          <section class="topic-overview-block topic-overview-definition">
+            <h3>Verification status</h3>
+            <p>This topic is not verified yet against official documentation. Auto-generated fallback explanations are intentionally disabled.</p>
+          </section>
+          <section class="topic-overview-block">
+            <h3>What to expect</h3>
+            <ul>
+              <li>Definition, key components, and interview pitfalls will appear after verification.</li>
+              <li>Existing study items for this topic remain accessible below.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    `;
+  }
   const trickyItems = getTrickyItems(relatedItems);
   const conceptItems = relatedItems.filter((item) => !['coding', 'use-case', ...TRICKY_CONTENT_TYPES].includes(item.contentType));
   const leadItem = conceptItems.find((item) => item.contentType === 'theory') || conceptItems[0] || trickyItems[0] || null;
@@ -366,7 +392,24 @@ function renderDerivedTrickyBlocks(topic, pitfalls = []) {
   `;
 }
 
+function trickyPageLink(filters = {}, page = 1) {
+  const params = new URLSearchParams();
+  const nextFilters = { ...filters, page: page > 1 ? String(page) : '' };
+  Object.entries(nextFilters).forEach(([key, value]) => {
+    if (`${value || ''}`.trim()) params.set(key, value);
+  });
+  const query = params.toString();
+  return `#/tricky${query ? `?${query}` : ''}`;
+}
+
 export function renderTrickyPage(state, items, filters = {}) {
+  const PAGE_SIZE = 12;
+  const currentPage = Math.max(1, Number(filters.page || 1));
+  const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+  const boundedPage = Math.min(currentPage, totalPages);
+  const pageStart = (boundedPage - 1) * PAGE_SIZE;
+  const pagedItems = items.slice(pageStart, pageStart + PAGE_SIZE);
+
   return `
     <section class="card clean-banner tricky-page-banner">
       <div class="clean-banner-head">
@@ -420,13 +463,17 @@ export function renderTrickyPage(state, items, filters = {}) {
     <section class="section-header">
       <div>
         <h2>Results</h2>
-        <p>${escapeHtml(formatCount(items.length))} tricky item(s) match the current filters.</p>
+        <p>${escapeHtml(formatCount(items.length))} tricky item(s) match the current filters. Showing page ${boundedPage} of ${totalPages}.</p>
+      </div>
+      <div class="filter-actions">
+        ${boundedPage > 1 ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage - 1)}">← Previous</a>` : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">← Previous</span>`}
+        ${boundedPage < totalPages ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage + 1)}">Next →</a>` : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">Next →</span>`}
       </div>
     </section>
 
     <section class="grid cards-2">
-      ${items.length
-        ? items.map((item) => renderTrickyCard(item, state.lookups)).join('')
+      ${pagedItems.length
+        ? pagedItems.map((item) => renderTrickyCard(item, state.lookups)).join('')
         : `<section class="card empty-state"><h2>No tricky questions match this filter.</h2><p>Try clearing the filters or broadening the search terms.</p></section>`
       }
     </section>

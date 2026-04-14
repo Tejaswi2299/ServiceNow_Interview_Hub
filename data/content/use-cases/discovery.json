@@ -56,6 +56,19 @@
     "commonMistakes": [
       "One giant schedule for every zone.",
       "Credentials not aligned to the target subnet."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Split%20discovery%20by%20network%20zone",
+      "https://developer.servicenow.com/dev.do#!/search/Split%20discovery%20by%20network%20zone"
+    ],
+    "keyPoints": [
+      "Answer How do you design Discovery schedules for segmented network zones? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you design Discovery schedules for segmented network zones? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -116,6 +129,19 @@
     "commonMistakes": [
       "Changing the wrong pattern version.",
       "Ignoring identification logic while debugging relationships."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Debug%20a%20pattern%20that%20is%20not%20populating%20expected%20CI%20data",
+      "https://developer.servicenow.com/dev.do#!/search/Debug%20a%20pattern%20that%20is%20not%20populating%20expected%20CI%20data"
+    ],
+    "keyPoints": [
+      "Answer What would you do if a discovery pattern runs but misses an expected attribute or relationship? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate What would you do if a discovery pattern runs but misses an expected attribute or relationship? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -173,6 +199,19 @@
     ],
     "commonMistakes": [
       "Rolling out full subnet discovery without a pilot."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Review%20MID%20Server%20health%20before%20a%20discovery%20rollout",
+      "https://developer.servicenow.com/dev.do#!/search/Review%20MID%20Server%20health%20before%20a%20discovery%20rollout"
+    ],
+    "keyPoints": [
+      "Answer How do you validate MID Server readiness before enabling discovery for a new scope? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you validate MID Server readiness before enabling discovery for a new scope? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]
