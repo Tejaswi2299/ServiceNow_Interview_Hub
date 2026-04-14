@@ -7,31 +7,33 @@ Reviewed repository structure, data manifests, and JSON content quality with foc
 ## Checks run
 
 1. `node scripts/validate-data.mjs`
-2. JSON parse sweep across all `data/**/*.json` files
+2. JSON parse sweep across all `*.json` files
 3. Manifest path existence check for `data/content/manifest.json`
 
-## Findings and resolution
+## Findings
 
-### 1) Validation script startup bug (resolved)
+### 1) Validation script had a hard failure due to duplicate declarations (fixed)
 
-The validator previously redeclared `theory`, `coding`, and `useCases`, which caused a startup `SyntaxError` before any checks could run.
+The validator declared `theory`, `coding`, and `useCases` twice, causing an immediate `SyntaxError` and preventing any standards checks from running.
 
-- Resolution: kept manifest-driven loaders and removed duplicate redeclarations in `scripts/validate-data.mjs`.
+- Status: **Fixed** in `scripts/validate-data.mjs` by keeping the manifest-driven loaders and removing duplicate redeclarations.
 
-### 2) Topic overview JSON corruption causing UI load failure (resolved)
+### 2) Core topic overview data contains malformed JSON (open issue)
 
-The UI error (`Failed to load interview hub data`) was caused by malformed JSON and duplicated topic entries in `data/content/topic-overviews/verified-core.json`.
+`data/content/topic-overviews/verified-core.json` has invalid JSON syntax near the first ACL entry (duplicate `"verified"` key missing a separator after `verificationLevel`).
 
-- Resolution:
-  - fixed malformed JSON syntax in the topic overview file,
-  - removed duplicate `topicId` entries while preserving the first valid record for each topic.
+- Impact: blocks loading `topicOverviews` and prevents full cross-file standards validation.
+- Status: **Open** (data issue in source file).
 
-### 3) Data standards status (current)
+### 3) Manifest integrity check passed
 
-- `node scripts/validate-data.mjs` now passes.
-- JSON parse sweep reports zero invalid files.
-- Manifest path integrity check reports zero missing files.
+All file paths listed in `data/content/manifest.json` exist on disk.
 
-## Recommended next step
+- Status: **Passed**.
 
-Add CI gating for `node scripts/validate-data.mjs` to prevent broken JSON or duplicate topic entries from reaching the default branch.
+## Recommended remediation order
+
+1. Fix malformed JSON in `data/content/topic-overviews/verified-core.json`.
+2. Re-run `node scripts/validate-data.mjs` to surface semantic/data-model errors.
+3. Address any reported taxonomy/map/content reference errors.
+4. Add CI gate to run `node scripts/validate-data.mjs` on pull requests.
