@@ -29,7 +29,6 @@
     "trickyComparisonSupport": true,
     "verified": true,
     "verificationLevel": "derived"
-    "verified": true
   },
   {
     "topicId": "identification-rules-advanced",
@@ -5797,117 +5796,23 @@
     "verified": true,
     "definition": "Plan the deployment by isolating the change into a clean update set or app version, documenting manual steps and dependent records, previewing collisions in the target, validating in test first, and preparing a rollback or mitigation plan.",
     "whatItDoes": "Deployment use case focused on collisions, manual steps, and validation.",
-      "Use Transfers and Disposals in one production-style scenario and explain measurable outcome."
-    ],
-    "interviewPitfalls": [
-      "Explaining Transfers and Disposals generically without platform-specific behavior."
-    ],
-    "trickyComparisonSupport": false,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Transfers%20and%20Disposals",
-      "https://developer.servicenow.com/dev.do#!/search/Transfers%20and%20Disposals"
-    ]
-  },
-  {
-    "topicId": "transform-maps",
-    "definition": "A Transform Map defines how data from an import staging table maps into a target table.",
-    "whatItDoes": "It controls the field mappings, transform behavior, and options such as whether business rules or mandatory enforcement run during the transformation.",
     "tablesInvolved": [
-      "sys_transform_map",
-      "sys_transform_entry",
-      "sys_transform_script"
+      "sys_update_set",
+      "sys_update_xml",
+      "sys_remote_update_set"
     ],
     "keyComponents": [
-      "Source table and target table are the core transform map relationship.",
-      "Field Maps connect incoming columns to target fields.",
-      "Options like Run business rules, Enforce mandatory fields, and Copy empty values affect import behavior."
+      "Keep update sets focused and avoid mixing unrelated changes.",
+      "Preview and resolve collisions before committing in the target instance.",
+      "Document manual steps and dependent artifacts not captured by update sets."
     ],
     "realTimeExamples": [
-      "Map staged employee IDs and names into the user table.",
-      "Control whether an import updates existing records or inserts new ones."
+      "Promote an Incident form enhancement from dev to test and validate behavior before production cutover.",
+      "Use preview results to detect a collision with an existing target-side customization and resolve it safely."
     ],
     "interviewPitfalls": [
-      "Assuming a successful transform means the data is correct.",
-      "Ignoring how transform-map options change downstream behavior and performance."
-    ],
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Transform%20Maps",
-      "https://developer.servicenow.com/dev.do#!/search/Transform%20Maps"
-    ],
-    "trickyComparisonSupport": true,
-    "verified": true
-  },
-  {
-    "topicId": "transform-scripts",
-    "definition": "Transform Scripts are server-side scripts that run at specific points during a transformation to control or enrich import behavior.",
-    "whatItDoes": "They let you manipulate source and target data, handle exceptions, or add custom logic during import processing.",
-    "tablesInvolved": [
-      "sys_transform_script",
-      "sys_transform_map"
-    ],
-    "keyComponents": [
-      "Transform Scripts run in event stages such as onBefore or onAfter depending on the script type.",
-      "They use source and target objects provided by the transform runtime.",
-      "They should be used when field maps alone are not enough."
-    ],
-    "realTimeExamples": [
-      "Normalize an incoming source value before writing it to the target table.",
-      "Skip or reroute certain import rows when custom business conditions are met."
-    ],
-    "interviewPitfalls": [
-      "Using transform scripts for logic that should be solved with clean field mapping.",
-      "Adding opaque import logic without documenting which transform stage it belongs to."
-    ],
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Transform%20Scripts",
-      "https://developer.servicenow.com/dev.do#!/search/Transform%20Scripts"
-    ],
-    "trickyComparisonSupport": true,
-    "verified": true
-  },
-  {
-    "topicId": "ui-actions",
-    "verified": true,
-    "definition": "Create a form UI Action on incident with a condition that shows it only for closed records, then set the state back to In Progress and update work notes before saving.",
-    "whatItDoes": "Practical UI Action scripting example.",
-    "tablesInvolved": [
-      "incident"
-    ],
-    "keyComponents": [
-      "Define UI Actions in exact platform terms.",
-      "Explain runtime behavior and scope boundaries.",
-      "Validate configuration with realistic test data."
-    ],
-    "realTimeExamples": [
-      "Use UI Actions in one production-style scenario and explain measurable outcome."
-    ],
-    "interviewPitfalls": [
-      "Explaining UI Actions generically without platform-specific behavior."
-    ],
-    "trickyComparisonSupport": false,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=UI%20Actions",
-      "https://developer.servicenow.com/dev.do#!/search/UI%20Actions"
-    ]
-  },
-  {
-    "topicId": "ui-builder-components",
-    "verified": true,
-    "definition": "Service Portal is the classic portal framework based on pages, widgets, AngularJS patterns, and portal-specific client/server scripting.",
-    "whatItDoes": "Provides a modern experience-layer comparison for interview discussions.",
-    "tablesInvolved": [
-      "Needs official table verification"
-    ],
-    "keyComponents": [
-      "Define Update Sets in exact platform terms.",
-      "Explain runtime behavior and scope boundaries.",
-      "Validate configuration with realistic test data."
-    ],
-    "realTimeExamples": [
-      "Use Update Sets in one production-style scenario and explain measurable outcome."
-    ],
-    "interviewPitfalls": [
-      "Explaining Update Sets generically without platform-specific behavior."
+      "Assuming update sets capture every change without identifying excluded artifacts.",
+      "Skipping preview and backout planning for production deployments."
     ],
     "trickyComparisonSupport": false,
     "officialSources": [
@@ -5920,44 +5825,26 @@
     "topicId": "upgrades",
     "verified": true,
     "definition": "Upgrades should be explained as a governance and validation process, not only as a technical version jump.",
-    "whatItDoes": "Adds direct coverage for the Upgrades topic so it is no longer a taxonomy-only entry.",
-      "Service Portal remains common in existing implementations.",
-      "UI Builder is central to modern workspace experiences.",
-      "Choose based on audience, maintainability, and existing platform standards."
-    ],
-    "realTimeExamples": [
-      "Build a legacy external portal enhancement in Service Portal.",
-      "Build a modern fulfillment workspace page in UI Builder."
-    ],
-    "interviewPitfalls": [
-      "Service Portal vs Workspace vs UI Builder"
-    ],
-    "trickyComparisonSupport": true,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=UI%20Builder%20Components",
-      "https://developer.servicenow.com/dev.do#!/search/UI%20Builder%20Components"
-    ]
-  },
-  {
-    "topicId": "ui-pages",
-    "verified": true,
-    "definition": "UI Pages are custom server-rendered pages often built with Jelly, scripts, and client logic for legacy experiences.",
-    "whatItDoes": "Adds direct coverage for the UI Pages topic so it is no longer a taxonomy-only entry.",
+    "whatItDoes": "Covers release readiness, impact analysis, and post-upgrade validation activities.",
     "tablesInvolved": [
-      "Needs official table verification"
+      "sys_upgrade_history",
+      "sys_upgrade_history_log",
+      "sys_update_version"
     ],
     "keyComponents": [
-      "Explain the business or technical purpose.",
-      "Mention where it is configured or observed.",
-      "Give one practical implementation consideration."
+      "Review skipped records and customization impacts before production rollout.",
+      "Use clone and sub-production testing to validate critical business flows.",
+      "Coordinate governance, freeze windows, and stakeholder communication around the upgrade."
     ],
     "realTimeExamples": [
-      "Use Upgrades deliberately in a governed implementation instead of treating it as a one-off configuration."
+      "Test incident, request, and integration flows in a cloned instance after upgrading to the target release.",
+      "Resolve skipped updates for customized UI actions and verify no regression in approval workflows."
     ],
     "interviewPitfalls": [
-      "Explaining Upgrades generically without platform-specific behavior."
+      "Describing upgrades as a single-click activity without risk assessment and remediation planning.",
+      "Ignoring skipped records and post-upgrade testing evidence."
     ],
-    "trickyComparisonSupport": false,
+    "trickyComparisonSupport": true,
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Upgrades",
       "https://developer.servicenow.com/dev.do#!/search/Upgrades"
@@ -5966,49 +5853,31 @@
   },
   {
     "topicId": "variable-sets",
+    "verified": true,
     "definition": "A Variable Set is a reusable group of catalog variables that can be attached to multiple catalog items or order guides.",
     "whatItDoes": "It reduces duplication by letting multiple catalog experiences share the same grouped question set.",
     "tablesInvolved": [
       "item_option_new_set",
       "item_option_new"
-      "Use UI Pages deliberately in a governed implementation instead of treating it as a one-off configuration."
-    ],
-    "interviewPitfalls": [
-      "Explaining UI Pages generically without platform-specific behavior."
-    ],
-    "trickyComparisonSupport": false,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=UI%20Pages",
-      "https://developer.servicenow.com/dev.do#!/search/UI%20Pages"
-    ]
-  },
-  {
-    "topicId": "ui-policies",
-    "definition": "UI Policies are client-side rules that control form and field behavior, often without requiring custom script.",
-    "whatItDoes": "They make fields mandatory, read-only, or visible based on conditions and can optionally run UI Policy Scripts for extra client logic.",
-    "tablesInvolved": [
-      "sys_ui_policy",
-      "sys_ui_policy_action"
     ],
     "keyComponents": [
-      "UI Policy conditions determine when the policy applies.",
-      "UI Policy Actions set field mandatory, visible, or read-only states.",
-      "UI Policy scripts extend the behavior when declarative actions are not enough."
+      "Variable sets centralize shared inputs used by multiple catalog items.",
+      "Variables can be ordered and controlled for visibility, mandatory, and default behavior.",
+      "Consistent naming helps maintain reliable client scripts and catalog UI policies."
     ],
     "realTimeExamples": [
-      "Make Closure code mandatory only when state changes to Closed.",
-      "Show additional justification fields when a sensitive category is selected."
+      "Attach the same employee details variable set to onboarding and hardware request items.",
+      "Update one variable set to roll out a policy change across multiple catalog items."
     ],
     "interviewPitfalls": [
       "Duplicating the same variables across many items instead of using a set.",
       "Using names or labels inconsistently when client logic should target internal names."
     ],
+    "trickyComparisonSupport": false,
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Variable%20Sets",
       "https://developer.servicenow.com/dev.do#!/search/Variable%20Sets"
     ],
-    "trickyComparisonSupport": true,
-    "verified": true,
     "verificationLevel": "derived"
   },
   {
@@ -6062,143 +5931,6 @@
       "https://developer.servicenow.com/dev.do#!/search/Virtual%20Agent%20Topics"
     ],
     "verificationLevel": "derived"
-      "Using a client script when a simpler UI Policy would do the job.",
-      "Forgetting that UI Policies affect forms, not direct server-side imports or integrations."
-    ],
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=UI%20Policies",
-      "https://developer.servicenow.com/dev.do#!/search/UI%20Policies"
-    ],
-    "trickyComparisonSupport": true,
-    "verified": true
-  },
-  {
-    "topicId": "update-sets",
-    "verified": true,
-    "definition": "Plan the deployment by isolating the change into a clean update set or app version, documenting manual steps and dependent records, previewing collisions in the target, validating in test first, and preparing a rollback or mitigation plan.",
-    "whatItDoes": "Deployment use case focused on collisions, manual steps, and validation.",
-    "tablesInvolved": [
-      "Needs official table verification"
-    ],
-    "keyComponents": [
-      "Define Update Sets in exact platform terms.",
-      "Explain runtime behavior and scope boundaries.",
-      "Validate configuration with realistic test data."
-    ],
-    "realTimeExamples": [
-      "Use Update Sets in one production-style scenario and explain measurable outcome."
-    ],
-    "interviewPitfalls": [
-      "Explaining Update Sets generically without platform-specific behavior."
-    ],
-    "trickyComparisonSupport": false,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Update%20Sets",
-      "https://developer.servicenow.com/dev.do#!/search/Update%20Sets"
-    ]
-  },
-  {
-    "topicId": "upgrades",
-    "verified": true,
-    "definition": "Upgrades should be explained as a governance and validation process, not only as a technical version jump.",
-    "whatItDoes": "Adds direct coverage for the Upgrades topic so it is no longer a taxonomy-only entry.",
-    "tablesInvolved": [
-      "Needs official table verification"
-    ],
-    "keyComponents": [
-      "Explain the business or technical purpose.",
-      "Mention where it is configured or observed.",
-      "Give one practical implementation consideration."
-    ],
-    "realTimeExamples": [
-      "Use Upgrades deliberately in a governed implementation instead of treating it as a one-off configuration."
-    ],
-    "interviewPitfalls": [
-      "Explaining Upgrades generically without platform-specific behavior."
-    ],
-    "trickyComparisonSupport": false,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Upgrades",
-      "https://developer.servicenow.com/dev.do#!/search/Upgrades"
-    ]
-  },
-  {
-    "topicId": "variable-sets",
-    "definition": "A Variable Set is a reusable group of catalog variables that can be attached to multiple catalog items or order guides.",
-    "whatItDoes": "It reduces duplication by letting multiple catalog experiences share the same grouped question set.",
-    "tablesInvolved": [
-      "item_option_new_set",
-      "item_option_new"
-    ],
-    "keyComponents": [
-      "Variable Sets can be attached to multiple catalog items or order guides.",
-      "They help standardize repeated question groups.",
-      "Catalog scripts and policies should reference internal names correctly."
-    ],
-    "realTimeExamples": [
-      "Reuse employee contact variables across several onboarding catalog items.",
-      "Attach the same access-justification variables to multiple access request items."
-    ],
-    "interviewPitfalls": [
-      "Duplicating the same variables across many items instead of using a set.",
-      "Using names or labels inconsistently when client logic should target internal names."
-    ],
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Variable%20Sets",
-      "https://developer.servicenow.com/dev.do#!/search/Variable%20Sets"
-    ],
-    "trickyComparisonSupport": true,
-    "verified": true
-  },
-  {
-    "topicId": "vendor-risk",
-    "verified": true,
-    "definition": "Vendor risk intake is the controlled process of onboarding a third party into review workflows so the organization can evaluate security, compliance, continuity, and data-handling risk before or during engagement.",
-    "whatItDoes": "Describes how third-party reviews start and move into questionnaires and remediation.",
-    "tablesInvolved": [
-      "sn_vdr_risk_assessment"
-    ],
-    "keyComponents": [
-      "Intake creates a governed entry point for third-party review.",
-      "Questionnaires and evidence requests usually follow intake.",
-      "Results should feed remediation or exception workflows."
-    ],
-    "realTimeExamples": [
-      "Security questionnaire required before purchasing a SaaS platform."
-    ],
-    "interviewPitfalls": [
-      "Explaining Vendor Risk generically without platform-specific behavior."
-    ],
-    "trickyComparisonSupport": false,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Vendor%20Risk",
-      "https://developer.servicenow.com/dev.do#!/search/Vendor%20Risk"
-    ]
-  },
-  {
-    "topicId": "virtual-agent-topics",
-    "verified": true,
-    "definition": "Virtual Agent Topics should be explained in terms of conversation design, intent handling, and how the chatbot guides the user toward either self-service completion or a clean handoff.",
-    "whatItDoes": "Adds direct coverage for the Virtual Agent Topics topic so it is no longer a taxonomy-only entry.",
-    "tablesInvolved": [
-      "incident"
-    ],
-    "keyComponents": [
-      "Anchor the answer in conversation flow.",
-      "Mention handoff or routing logic.",
-      "Explain why maintainability matters."
-    ],
-    "realTimeExamples": [
-      "Use Virtual Agent Topics deliberately in a governed implementation instead of treating it as a one-off configuration."
-    ],
-    "interviewPitfalls": [
-      "Explaining Virtual Agent Topics generically without platform-specific behavior."
-    ],
-    "trickyComparisonSupport": false,
-    "officialSources": [
-      "https://www.servicenow.com/docs/search?q=Virtual%20Agent%20Topics",
-      "https://developer.servicenow.com/dev.do#!/search/Virtual%20Agent%20Topics"
-    ]
   },
   {
     "topicId": "vulnerability-exceptions",
@@ -6226,7 +5958,6 @@
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Exceptions"
     ],
     "verificationLevel": "derived"
-    ]
   },
   {
     "topicId": "vulnerability-groups",
@@ -6257,7 +5988,6 @@
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Groups"
     ],
     "verificationLevel": "derived"
-    ]
   },
   {
     "topicId": "vulnerability-lifecycle",
@@ -6286,7 +6016,6 @@
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Lifecycle"
     ],
     "verificationLevel": "derived"
-    ]
   },
   {
     "topicId": "vulnerability-response-topic",
@@ -6316,7 +6045,6 @@
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Response"
     ],
     "verificationLevel": "derived"
-    ]
   },
   {
     "topicId": "workspace-record-pages",
@@ -6344,6 +6072,5 @@
       "https://developer.servicenow.com/dev.do#!/search/Workspace%20Record%20Pages"
     ],
     "verificationLevel": "derived"
-    ]
   }
 ]
