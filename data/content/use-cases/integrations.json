@@ -54,6 +54,19 @@
     ],
     "commonMistakes": [
       "Skipping response validation after a successful transport call."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Set%20up%20a%20SOAP%20integration%20from%20WSDL%20to%20test%20call",
+      "https://developer.servicenow.com/dev.do#!/search/Set%20up%20a%20SOAP%20integration%20from%20WSDL%20to%20test%20call"
+    ],
+    "keyPoints": [
+      "Answer How do you implement a SOAP integration in ServiceNow from WSDL import through testing? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement a SOAP integration in ServiceNow from WSDL import through testing? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -112,6 +125,19 @@
     ],
     "commonMistakes": [
       "Hardcoding SOAP logic directly in business rules or flows."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20SOAP%20fallback%20for%20a%20hybrid%20integration",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20SOAP%20fallback%20for%20a%20hybrid%20integration"
+    ],
+    "keyPoints": [
+      "Answer How would you design a ServiceNow integration when REST is preferred but a SOAP fallback is still required? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a ServiceNow integration when REST is preferred but a SOAP fallback is still required? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -166,6 +192,19 @@
     ],
     "commonMistakes": [
       "Scheduling a source before a controlled test import."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Validate%20a%20new%20data%20source%20before%20an%20import",
+      "https://developer.servicenow.com/dev.do#!/search/Validate%20a%20new%20data%20source%20before%20an%20import"
+    ],
+    "keyPoints": [
+      "Answer What is your implementation path for onboarding a new data source? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate What is your implementation path for onboarding a new data source? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

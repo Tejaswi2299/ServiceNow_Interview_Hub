@@ -53,6 +53,19 @@
     "commonMistakes": [
       "Updating the asset record directly with no governed process or audit trail.",
       "Ignoring receiving confirmation or handoff validation."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20a%20hardware%20asset%20stockroom%20transfer%20process",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20a%20hardware%20asset%20stockroom%20transfer%20process"
+    ],
+    "keyPoints": [
+      "Answer How do you design a process to transfer hardware assets between stockrooms? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you design a process to transfer hardware assets between stockrooms? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -108,6 +121,19 @@
     "commonMistakes": [
       "Assuming every normalization issue must be solved with a custom model immediately.",
       "Ignoring poor discovery source data that prevents reliable normalization."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Review%20software%20normalization%20issues%20in%20SAM",
+      "https://developer.servicenow.com/dev.do#!/search/Review%20software%20normalization%20issues%20in%20SAM"
+    ],
+    "keyPoints": [
+      "Answer How do you handle software installation data that is not normalizing correctly? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you handle software installation data that is not normalizing correctly? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

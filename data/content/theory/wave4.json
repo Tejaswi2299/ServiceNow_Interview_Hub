@@ -49,6 +49,10 @@
         "label": "Major incident",
         "value": "Governed operating model with added coordination and communication."
       }
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Major%20Incident%20%20Priority%201%20governance",
+      "https://developer.servicenow.com/dev.do#!/search/Major%20Incident%20%20Priority%201%20governance"
     ]
   },
   {
@@ -92,6 +96,10 @@
     "examples": [
       "Five incidents with the same CI and symptom can create a candidate.",
       "The manager reviews the candidate and then opens a governed problem record."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Problem%20Candidate%20%20Problem%20Record",
+      "https://developer.servicenow.com/dev.do#!/search/Problem%20Candidate%20%20Problem%20Record"
     ]
   },
   {
@@ -131,6 +139,10 @@
     ],
     "examples": [
       "A standard network patching pattern may use a model with predefined tasks and approvals."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Change%20Models%20%20Change%20Templates",
+      "https://developer.servicenow.com/dev.do#!/search/Change%20Models%20%20Change%20Templates"
     ]
   },
   {
@@ -169,6 +181,14 @@
       "Repair is for correction, not day-to-day attachment logic.",
       "Always validate the definition, start/stop conditions, and target population before execution.",
       "The strongest answer mentions testing in a limited set before broad repair."
+    ],
+    "examples": [
+      "Use When to use SLA Repair explicitly when explaining design choices in a real implementation scenario.",
+      "Validate When to use SLA Repair with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=When%20to%20use%20SLA%20Repair",
+      "https://developer.servicenow.com/dev.do#!/search/When%20to%20use%20SLA%20Repair"
     ]
   },
   {
@@ -245,6 +265,14 @@
       "IRE centralizes trusted identification.",
       "Reconciliation protects source precedence.",
       "Direct writes are risky when multiple sources populate the same CI classes."
+    ],
+    "examples": [
+      "Use IRE vs Manual Inserts into CMDB explicitly when explaining design choices in a real implementation scenario.",
+      "Validate IRE vs Manual Inserts into CMDB with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=IRE%20%20Manual%20Inserts%20into%20CMDB",
+      "https://developer.servicenow.com/dev.do#!/search/IRE%20%20Manual%20Inserts%20into%20CMDB"
     ]
   },
   {
@@ -283,6 +311,14 @@
       "Patterns improve maintainability and clarity.",
       "Probe/sensor knowledge still matters for troubleshooting and legacy understanding.",
       "The strongest answer shows when to use pattern troubleshooting first."
+    ],
+    "examples": [
+      "Use Discovery Pattern vs Probe/Sensor explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Discovery Pattern vs Probe/Sensor with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Discovery%20Pattern%20%20Probe/Sensor",
+      "https://developer.servicenow.com/dev.do#!/search/Discovery%20Pattern%20%20Probe/Sensor"
     ]
   },
   {
@@ -321,6 +357,14 @@
       "Use ECC Queue to see transport-level evidence.",
       "Correlate with MID Server and schedule logs.",
       "Look for backlog patterns, repeated failures, and topic-specific errors."
+    ],
+    "examples": [
+      "Use ECC Queue: What to Check First explicitly when explaining design choices in a real implementation scenario.",
+      "Validate ECC Queue: What to Check First with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=ECC%20Queue%3A%20What%20to%20Check%20First",
+      "https://developer.servicenow.com/dev.do#!/search/ECC%20Queue%3A%20What%20to%20Check%20First"
     ]
   },
   {
@@ -360,6 +404,14 @@
       "SIR is incident-centric; VR is weakness-remediation centric.",
       "SIR focuses on response workflow; VR focuses on exposure reduction and remediation governance.",
       "The best interview answer mentions they often connect but are not the same operational process."
+    ],
+    "examples": [
+      "Use SIR vs Vulnerability Response explicitly when explaining design choices in a real implementation scenario.",
+      "Validate SIR vs Vulnerability Response with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=SIR%20%20Vulnerability%20Response",
+      "https://developer.servicenow.com/dev.do#!/search/SIR%20%20Vulnerability%20Response"
     ]
   },
   {
@@ -398,6 +450,14 @@
       "Exceptions are controlled deviations.",
       "Issues are remediation-tracked findings.",
       "The strongest answer mentions expiry, review cadence, and ownership on exceptions."
+    ],
+    "examples": [
+      "Use Policy Exception vs Issue explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Policy Exception vs Issue with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Policy%20Exception%20%20Issue",
+      "https://developer.servicenow.com/dev.do#!/search/Policy%20Exception%20%20Issue"
     ]
   },
   {
@@ -550,6 +610,14 @@
       "Normalization improves software data quality.",
       "Entitlements represent owned or contracted rights.",
       "Effective license position depends on both being trustworthy."
+    ],
+    "examples": [
+      "Use Normalization vs Entitlement in SAM explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Normalization vs Entitlement in SAM with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Normalization%20%20Entitlement%20in%20SAM",
+      "https://developer.servicenow.com/dev.do#!/search/Normalization%20%20Entitlement%20in%20SAM"
     ]
   },
   {

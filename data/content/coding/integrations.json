@@ -48,6 +48,19 @@
     "explanation": [
       "RESTMessageV2 is the standard outbound REST API.",
       "Use named REST messages in mature implementations when you want reusable endpoint configuration."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=RESTMessageV2%20example%20to%20create%20an%20external%20incident",
+      "https://developer.servicenow.com/dev.do#!/search/RESTMessageV2%20example%20to%20create%20an%20external%20incident"
+    ],
+    "keyPoints": [
+      "Answer Write a script that posts incident data to an external API using RESTMessageV2. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script that posts incident data to an external API using RESTMessageV2. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -97,6 +110,19 @@
     "explanation": [
       "JSON.parse converts the string to a JavaScript object.",
       "Then the script iterates through the incidents array."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Parse%20a%20JSON%20payload%20and%20print%20selected%20values",
+      "https://developer.servicenow.com/dev.do#!/search/Parse%20a%20JSON%20payload%20and%20print%20selected%20values"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that parses a JSON string containing incidents and prints the number and short description. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that parses a JSON string containing incidents and prints the number and short description. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -140,6 +166,19 @@
     ],
     "explanation": [
       "Scripted REST APIs are best explained with validation, response shaping, and security context awareness."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Scripted%20REST%20API%20example%20to%20parse%20a%20JSON%20request%20body",
+      "https://developer.servicenow.com/dev.do#!/search/Scripted%20REST%20API%20example%20to%20parse%20a%20JSON%20request%20body"
+    ],
+    "keyPoints": [
+      "Answer Write a Scripted REST resource script that reads number and short_description from the request body and returns a simple response. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a Scripted REST resource script that reads number and short_description from the request body and returns a simple response. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

@@ -55,6 +55,10 @@
         "label": "Interview trap",
         "value": "Do not claim GlideRecord is always wrong; the right choice depends on the use case"
       }
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=GlideRecordSecure%20%20GlideRecord",
+      "https://developer.servicenow.com/dev.do#!/search/GlideRecordSecure%20%20GlideRecord"
     ]
   },
   {
@@ -95,6 +99,10 @@
     "examples": [
       "Most admin and developer interviews still ask you to code with GlideRecord.",
       "GlideQuery is useful when you want a fluent chain and a more functional style."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=GlideQuery%20%20GlideRecord%20for%20readable%20query%20chaining",
+      "https://developer.servicenow.com/dev.do#!/search/GlideQuery%20%20GlideRecord%20for%20readable%20query%20chaining"
     ]
   },
   {
@@ -181,6 +189,10 @@
     "examples": [
       "A serial number might identify a hardware CI.",
       "Discovery might own operational fields while another source owns financial attributes."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Identification%20rules%20%20reconciliation%20definitions",
+      "https://developer.servicenow.com/dev.do#!/search/Identification%20rules%20%20reconciliation%20definitions"
     ]
   },
   {

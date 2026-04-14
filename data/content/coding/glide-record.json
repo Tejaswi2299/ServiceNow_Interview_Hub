@@ -51,6 +51,19 @@
       "GlideRecord initializes the incident table query.",
       "addQuery narrows the result set.",
       "gs.print writes readable output in Scripts - Background."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20active%20incidents%20using%20GlideRecord",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20active%20incidents%20using%20GlideRecord"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to query active incidents and print the incident number and short description. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to query active incidents and print the incident number and short description. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -102,6 +115,19 @@
     "explanation": [
       "Encoded queries make relative-date conditions compact.",
       "orderByDesc shows the newest records first."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20P1%20incidents%20created%20in%20the%20last%2024%20hours",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20P1%20incidents%20created%20in%20the%20last%2024%20hours"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to print active P1 incidents created in the last 24 hours. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to print active P1 incidents created in the last 24 hours. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -155,6 +181,19 @@
     "explanation": [
       "GlideAggregate reduces unnecessary row iteration.",
       "groupBy creates one output row per assignment group."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20open%20incidents%20by%20assignment%20group%20with%20GlideAggregate",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20open%20incidents%20by%20assignment%20group%20with%20GlideAggregate"
+    ],
+    "keyPoints": [
+      "Answer Write a script to show the number of active incidents for each assignment group. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to show the number of active incidents for each assignment group. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -205,6 +244,19 @@
     "explanation": [
       "Scheduled jobs run server-side without form context.",
       "Use process-approved state values and field names for your instance."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Scheduled%20job%20to%20auto-close%20resolved%20incidents%20after%207%20days",
+      "https://developer.servicenow.com/dev.do#!/search/Scheduled%20job%20to%20auto-close%20resolved%20incidents%20after%207%20days"
+    ],
+    "keyPoints": [
+      "Answer Write a scheduled script execution that closes incidents in Resolved state when they have been resolved for more than 7 days. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a scheduled script execution that closes incidents in Resolved state when they have been resolved for more than 7 days. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -256,6 +308,19 @@
     "explanation": [
       "ACL scripts should be efficient because they run frequently.",
       "Dedicated roles are clearer than overusing admin logic."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=ACL%20script%20to%20restrict%20sensitive%20incidents",
+      "https://developer.servicenow.com/dev.do#!/search/ACL%20script%20to%20restrict%20sensitive%20incidents"
+    ],
+    "keyPoints": [
+      "Answer Write a read ACL script that only allows users with a specific role or members of the assignment group to read sensitive incidents. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a read ACL script that only allows users with a specific role or members of the assignment group to read sensitive incidents. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -304,6 +369,19 @@
     ],
     "explanation": [
       "Fix scripts should be controlled and auditable."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Fix%20script%20to%20deactivate%20inactive%20users%20based%20on%20a%20custom%20flag",
+      "https://developer.servicenow.com/dev.do#!/search/Fix%20script%20to%20deactivate%20inactive%20users%20based%20on%20a%20custom%20flag"
+    ],
+    "keyPoints": [
+      "Answer Write a fix script that deactivates sys_user records where u_disable_account is true and the user is still active. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a fix script that deactivates sys_user records where u_disable_account is true and the user is still active. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -352,6 +430,19 @@
     ],
     "explanation": [
       "cmdb_rel_ci is the relationship table used for dependency modeling."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20CMDB%20relationships%20for%20a%20CI",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20CMDB%20relationships%20for%20a%20CI"
+    ],
+    "keyPoints": [
+      "Answer Write a background script to print all parent and child relationships for a CI. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script to print all parent and child relationships for a CI. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -398,6 +489,19 @@
     ],
     "explanation": [
       "This pattern is for controlled maintenance, not everyday transaction logic."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Bulk%20update%20without%20triggering%20business%20rules%20using%20setWorkflow%28false%29",
+      "https://developer.servicenow.com/dev.do#!/search/Bulk%20update%20without%20triggering%20business%20rules%20using%20setWorkflow%28false%29"
+    ],
+    "keyPoints": [
+      "Answer Write a script that updates a flag on old incidents while suppressing business rules and engines. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script that updates a flag on old incidents while suppressing business rules and engines. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

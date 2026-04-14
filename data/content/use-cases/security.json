@@ -54,6 +54,19 @@
     "commonMistakes": [
       "Protecting only the table and forgetting field-level security.",
       "Testing only with admin instead of impersonated end-user personas."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Secure%20HR%20cases%20with%20targeted%20ACL%20design",
+      "https://developer.servicenow.com/dev.do#!/search/Secure%20HR%20cases%20with%20targeted%20ACL%20design"
+    ],
+    "keyPoints": [
+      "Answer How do you secure HR cases so only HR agents and appropriate fulfillers can access them? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you secure HR cases so only HR agents and appropriate fulfillers can access them? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

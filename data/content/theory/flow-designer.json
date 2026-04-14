@@ -74,6 +74,10 @@
     ],
     "examples": [
       "Map priority and business unit to approval level using a table of outcomes."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Decision%20Tables%20in%20automation%20design",
+      "https://developer.servicenow.com/dev.do#!/search/Decision%20Tables%20in%20automation%20design"
     ]
   },
   {
