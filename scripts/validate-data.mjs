@@ -198,6 +198,58 @@ const contentManifest = readJson('data/content/manifest.json');
 const theory = readJsonArray(contentManifest.theory || []);
 const coding = readJsonArray(contentManifest.coding || []);
 const useCases = readJsonArray(contentManifest.useCases || []);
+
+const theory = readJsonArray([
+  'data/content/theory/platform-core.json',
+  'data/content/theory/tables-and-schema.json',
+  'data/content/theory/security.json',
+  'data/content/theory/integrations.json',
+  'data/content/theory/cmdb.json',
+  'data/content/theory/discovery.json',
+  'data/content/theory/catalog.json',
+  'data/content/theory/flow-designer.json',
+  'data/content/theory/grc.json',
+  'data/content/theory/secops.json',
+  'data/content/theory/ham-sam.json',
+  'data/content/theory/wave2.json',
+  'data/content/theory/wave3.json',
+  'data/content/theory/wave4.json',
+  'data/content/theory/wave5.json',
+  'data/content/theory/wave6-data-fix.json'
+]);
+const coding = readJsonArray([
+  'data/content/coding/business-rules.json',
+  'data/content/coding/client-scripts.json',
+  'data/content/coding/glide-record.json',
+  'data/content/coding/glide-query.json',
+  'data/content/coding/script-includes.json',
+  'data/content/coding/integrations.json',
+  'data/content/coding/acls.json',
+  'data/content/coding/transform-maps.json',
+  'data/content/coding/background-scripts.json',
+  'data/content/coding/wave2.json',
+  'data/content/coding/wave3.json',
+  'data/content/coding/wave4.json',
+  'data/content/coding/wave5.json',
+  'data/content/coding/wave6-data-fix.json'
+]);
+const useCases = readJsonArray([
+  'data/content/use-cases/incident.json',
+  'data/content/use-cases/request.json',
+  'data/content/use-cases/catalog.json',
+  'data/content/use-cases/cmdb.json',
+  'data/content/use-cases/discovery.json',
+  'data/content/use-cases/integrations.json',
+  'data/content/use-cases/security.json',
+  'data/content/use-cases/grc.json',
+  'data/content/use-cases/secops.json',
+  'data/content/use-cases/ham-sam.json',
+  'data/content/use-cases/wave2.json',
+  'data/content/use-cases/wave3.json',
+  'data/content/use-cases/wave4.json',
+  'data/content/use-cases/wave5.json',
+  'data/content/use-cases/wave6-data-fix.json'
+]);
 const quizzes = readJson('data/content/quizzes/quiz-bank.json');
 
 assertUnique(roles, 'id', 'roles', errors);
