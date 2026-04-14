@@ -28,7 +28,7 @@ function assertUnique(items, key, label, errors) {
     }
     seen.add(value);
   }
-}}
+}
 
 function normalizeTopicId(topicId = '', aliases = {}) {
   return aliases?.[topicId] || topicId;
