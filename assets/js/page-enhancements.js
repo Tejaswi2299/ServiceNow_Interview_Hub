@@ -1,6 +1,7 @@
 import { makeHash } from './router.js';
 import { filterStudyItems } from './filters.js';
 import { appState } from './state.js';
+import { getTrickyStudyItems } from './tricky-study-items.js';
 
 function normalizeText(value) {
   return `${value || ''}`.toLowerCase();
