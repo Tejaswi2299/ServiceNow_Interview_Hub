@@ -27,6 +27,8 @@
       "https://developer.servicenow.com/dev.do#!/search/ACLs"
     ],
     "trickyComparisonSupport": true,
+    "verified": true,
+    "verificationLevel": "derived"
     "verified": true
   },
   {
@@ -56,7 +58,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Advanced%20Identification%20Rules",
       "https://developer.servicenow.com/dev.do#!/search/Advanced%20Identification%20Rules"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reconciliation-rules-advanced",
@@ -85,7 +88,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Advanced%20Reconciliation%20Rules",
       "https://developer.servicenow.com/dev.do#!/search/Advanced%20Reconciliation%20Rules"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "after-business-rules",
@@ -112,7 +116,8 @@
       "https://developer.servicenow.com/dev.do#!/search/After%20Business%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "alert-correlation",
@@ -138,7 +143,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Alert%20Correlation",
       "https://developer.servicenow.com/dev.do#!/search/Alert%20Correlation"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "alert-to-incident",
@@ -165,7 +171,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Alert%20to%20Incident",
       "https://developer.servicenow.com/dev.do#!/search/Alert%20to%20Incident"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "app-engine-studio",
@@ -190,7 +197,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=App%20Engine%20Studio",
       "https://developer.servicenow.com/dev.do#!/search/App%20Engine%20Studio"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "application-menu-modules",
@@ -220,7 +228,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Application%20Menus%20and%20Modules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "approvals",
@@ -247,7 +256,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Approvals"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "asset-ci-alignment",
@@ -275,7 +285,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Asset%20and%20CI%20Alignment",
       "https://developer.servicenow.com/dev.do#!/search/Asset%20and%20CI%20Alignment"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "asset-lifecycle",
@@ -303,7 +314,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Asset%20Lifecycle",
       "https://developer.servicenow.com/dev.do#!/search/Asset%20Lifecycle"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "asset-models",
@@ -330,7 +342,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Asset%20Models",
       "https://developer.servicenow.com/dev.do#!/search/Asset%20Models"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "asset-stockrooms",
@@ -358,7 +371,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Asset%20Stockrooms",
       "https://developer.servicenow.com/dev.do#!/search/Asset%20Stockrooms"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "asset-transfers",
@@ -384,7 +398,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Asset%20Transfers",
       "https://developer.servicenow.com/dev.do#!/search/Asset%20Transfers"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "assignment-rules",
@@ -411,7 +426,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Assignment%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "async-business-rules",
@@ -439,7 +455,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Async%20Business%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "atf-tests",
@@ -465,7 +482,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=ATF%20Tests",
       "https://developer.servicenow.com/dev.do#!/search/ATF%20Tests"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "audit-management",
@@ -490,7 +508,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Audit%20Management",
       "https://developer.servicenow.com/dev.do#!/search/Audit%20Management"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "audit-plans",
@@ -515,7 +534,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Audit%20Plans",
       "https://developer.servicenow.com/dev.do#!/search/Audit%20Plans"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "background-scripts",
@@ -542,7 +562,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Background%20Scripts",
       "https://developer.servicenow.com/dev.do#!/search/Background%20Scripts"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "before-business-rules",
@@ -569,7 +590,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Before%20Business%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "blackout-maintenance-schedules",
@@ -595,7 +617,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Blackout%20and%20Maintenance%20Schedules",
       "https://developer.servicenow.com/dev.do#!/search/Blackout%20and%20Maintenance%20Schedules"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "business-calendars",
@@ -622,7 +645,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Business%20Calendars",
       "https://developer.servicenow.com/dev.do#!/search/Business%20Calendars"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "business-rules",
@@ -651,7 +675,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Business%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "catalog-items",
@@ -681,7 +706,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Catalog%20Items"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "catalog-variables",
@@ -708,7 +734,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Catalog%20Variables",
       "https://developer.servicenow.com/dev.do#!/search/Catalog%20Variables"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "change-approvals",
@@ -734,7 +761,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Change%20Approvals",
       "https://developer.servicenow.com/dev.do#!/search/Change%20Approvals"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "change-conflict-detection",
@@ -760,7 +788,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Change%20Conflict%20Detection",
       "https://developer.servicenow.com/dev.do#!/search/Change%20Conflict%20Detection"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "change-models",
@@ -785,7 +814,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Change%20Models",
       "https://developer.servicenow.com/dev.do#!/search/Change%20Models"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "change-table",
@@ -814,7 +844,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Change%20Table",
       "https://developer.servicenow.com/dev.do#!/search/Change%20Table"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "choice-lists",
@@ -839,7 +870,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Choice%20Lists",
       "https://developer.servicenow.com/dev.do#!/search/Choice%20Lists"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "ci-deduplication",
@@ -865,7 +897,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=CI%20Deduplication",
       "https://developer.servicenow.com/dev.do#!/search/CI%20Deduplication"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "ci-relationships",
@@ -893,7 +926,8 @@
       "https://developer.servicenow.com/dev.do#!/search/CI%20Relationships"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cmdb-class-manager",
@@ -918,7 +952,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Class%20Manager",
       "https://developer.servicenow.com/dev.do#!/search/Class%20Manager"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "client-callable",
@@ -945,7 +980,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Client%20Callable%20Script%20Includes"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "client-scripts",
@@ -972,7 +1008,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Client%20Scripts"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cloning",
@@ -997,7 +1034,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Cloning",
       "https://developer.servicenow.com/dev.do#!/search/Cloning"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cloud-discovery-topic",
@@ -1022,7 +1060,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Cloud%20Discovery",
       "https://developer.servicenow.com/dev.do#!/search/Cloud%20Discovery"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cmdb-governance-topic",
@@ -1049,7 +1088,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=CMDB%20Governance",
       "https://developer.servicenow.com/dev.do#!/search/CMDB%20Governance"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cmdb-health",
@@ -1075,7 +1115,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=CMDB%20Health",
       "https://developer.servicenow.com/dev.do#!/search/CMDB%20Health"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cmdb-health-dashboard",
@@ -1100,7 +1141,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=CMDB%20Health%20Dashboard",
       "https://developer.servicenow.com/dev.do#!/search/CMDB%20Health%20Dashboard"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cmdb-relationships",
@@ -1129,7 +1171,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=CMDB%20Relationships",
       "https://developer.servicenow.com/dev.do#!/search/CMDB%20Relationships"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "cmdb-tables",
@@ -1158,7 +1201,8 @@
       "https://developer.servicenow.com/dev.do#!/search/CMDB%20Tables"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "coalesce",
@@ -1186,7 +1230,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Coalesce"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "control-attestations",
@@ -1213,7 +1258,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Control%20Attestations",
       "https://developer.servicenow.com/dev.do#!/search/Control%20Attestations"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "controls-and-control-objectives",
@@ -1239,7 +1285,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Controls%20and%20Control%20Objectives",
       "https://developer.servicenow.com/dev.do#!/search/Controls%20and%20Control%20Objectives"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "credential-affinity",
@@ -1265,7 +1312,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Credential%20Affinity",
       "https://developer.servicenow.com/dev.do#!/search/Credential%20Affinity"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "credentials",
@@ -1293,7 +1341,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Credentials",
       "https://developer.servicenow.com/dev.do#!/search/Credentials"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "csm-case-management",
@@ -1318,7 +1367,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=CSM%20Case%20Management",
       "https://developer.servicenow.com/dev.do#!/search/CSM%20Case%20Management"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "current-previous",
@@ -1345,7 +1395,8 @@
       "https://developer.servicenow.com/dev.do#!/search/current%20and%20previous%20objects"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "custom-app-tables",
@@ -1370,7 +1421,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Custom%20App%20Tables",
       "https://developer.servicenow.com/dev.do#!/search/Custom%20App%20Tables"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "dashboards",
@@ -1395,7 +1447,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Dashboards",
       "https://developer.servicenow.com/dev.do#!/search/Dashboards"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "data-lookup-rules",
@@ -1420,7 +1473,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Data%20Lookup%20Rules",
       "https://developer.servicenow.com/dev.do#!/search/Data%20Lookup%20Rules"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "data-pills",
@@ -1445,7 +1499,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Data%20Pills",
       "https://developer.servicenow.com/dev.do#!/search/Data%20Pills"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "data-policies",
@@ -1473,7 +1528,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Data%20Policies"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "data-sources",
@@ -1501,7 +1557,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Data%20Sources"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "data-stream-actions",
@@ -1527,7 +1584,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Data%20Stream%20Actions",
       "https://developer.servicenow.com/dev.do#!/search/Data%20Stream%20Actions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "debugging",
@@ -1554,7 +1612,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Debugging",
       "https://developer.servicenow.com/dev.do#!/search/Debugging"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "decision-tables",
@@ -1580,7 +1639,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Decision%20Tables",
       "https://developer.servicenow.com/dev.do#!/search/Decision%20Tables"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "devops-change-velocity",
@@ -1605,7 +1665,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=DevOps%20Change%20Velocity",
       "https://developer.servicenow.com/dev.do#!/search/DevOps%20Change%20Velocity"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "dictionary-overrides",
@@ -1631,7 +1692,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Dictionary%20Overrides",
       "https://developer.servicenow.com/dev.do#!/search/Dictionary%20Overrides"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "discovery-schedules",
@@ -1660,7 +1722,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Discovery%20Schedules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "discovery-troubleshooting",
@@ -1690,7 +1753,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Discovery%20Troubleshooting",
       "https://developer.servicenow.com/dev.do#!/search/Discovery%20Troubleshooting"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "display-business-rules",
@@ -1717,7 +1781,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Display%20Business%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "display-values",
@@ -1742,7 +1807,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Display%20Values",
       "https://developer.servicenow.com/dev.do#!/search/Display%20Values"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "domain-separation",
@@ -1767,7 +1833,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Domain%20Separation",
       "https://developer.servicenow.com/dev.do#!/search/Domain%20Separation"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "duplicate-cis",
@@ -1796,7 +1863,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Duplicate%20CIs",
       "https://developer.servicenow.com/dev.do#!/search/Duplicate%20CIs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "ecc-queue",
@@ -1823,7 +1891,8 @@
       "https://developer.servicenow.com/dev.do#!/search/ECC%20Queue"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "effective-license-position",
@@ -1853,7 +1922,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Effective%20License%20Position",
       "https://developer.servicenow.com/dev.do#!/search/Effective%20License%20Position"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "email-scripts",
@@ -1880,7 +1950,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Email%20Scripts",
       "https://developer.servicenow.com/dev.do#!/search/Email%20Scripts"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "encoded-queries",
@@ -1907,7 +1978,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Encoded%20Queries"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "entry-points",
@@ -1932,7 +2004,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Entry%20Points",
       "https://developer.servicenow.com/dev.do#!/search/Entry%20Points"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "event-rules",
@@ -1959,7 +2032,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Event%20Rules",
       "https://developer.servicenow.com/dev.do#!/search/Event%20Rules"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "events",
@@ -1986,7 +2060,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Events"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "field-maps",
@@ -2014,7 +2089,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Field%20Maps"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "fix-scripts",
@@ -2041,7 +2117,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Fix%20Scripts",
       "https://developer.servicenow.com/dev.do#!/search/Fix%20Scripts"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "flow-triggers",
@@ -2069,7 +2146,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Flow%20Triggers",
       "https://developer.servicenow.com/dev.do#!/search/Flow%20Triggers"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "gform",
@@ -2097,7 +2175,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=g_form%20API",
       "https://developer.servicenow.com/dev.do#!/search/g_form%20API"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "glideaggregate",
@@ -2125,7 +2204,8 @@
       "https://developer.servicenow.com/dev.do#!/search/GlideAggregate"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "glideajax",
@@ -2153,7 +2233,8 @@
       "https://developer.servicenow.com/dev.do#!/search/GlideAjax"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "glide-date-time",
@@ -2178,7 +2259,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=GlideDateTime",
       "https://developer.servicenow.com/dev.do#!/search/GlideDateTime"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "glidedatetime",
@@ -2203,7 +2285,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=GlideDateTime",
       "https://developer.servicenow.com/dev.do#!/search/GlideDateTime"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "glide-query",
@@ -2229,7 +2312,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=GlideQuery",
       "https://developer.servicenow.com/dev.do#!/search/GlideQuery"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "glidequery",
@@ -2255,7 +2339,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=GlideQuery",
       "https://developer.servicenow.com/dev.do#!/search/GlideQuery"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "gliderecord",
@@ -2284,7 +2369,8 @@
       "https://developer.servicenow.com/dev.do#!/search/GlideRecord"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "gliderecordsecure",
@@ -2314,7 +2400,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=GlideRecordSecure",
       "https://developer.servicenow.com/dev.do#!/search/GlideRecordSecure"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "graphql-or-rest",
@@ -2339,7 +2426,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=GraphQL%20vs%20REST%20Discussion",
       "https://developer.servicenow.com/dev.do#!/search/GraphQL%20vs%20REST%20Discussion"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "gs-api",
@@ -2366,7 +2454,8 @@
       "https://developer.servicenow.com/dev.do#!/search/gs%20API"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "gs-eventqueue",
@@ -2393,7 +2482,8 @@
       "https://developer.servicenow.com/dev.do#!/search/gs.eventQueue"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "hardware-assets",
@@ -2422,7 +2512,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Hardware%20Assets",
       "https://developer.servicenow.com/dev.do#!/search/Hardware%20Assets"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "horizontal-discovery",
@@ -2448,7 +2539,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Horizontal%20Discovery",
       "https://developer.servicenow.com/dev.do#!/search/Horizontal%20Discovery"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "hr-case-security",
@@ -2473,7 +2565,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=HR%20Case%20Security",
       "https://developer.servicenow.com/dev.do#!/search/HR%20Case%20Security"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "hr-services",
@@ -2498,7 +2591,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=HR%20Services",
       "https://developer.servicenow.com/dev.do#!/search/HR%20Services"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "ire",
@@ -2527,7 +2621,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Identification%20and%20Reconciliation%20Engine"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "identification-rules",
@@ -2555,7 +2650,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Identification%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "impersonation",
@@ -2580,7 +2676,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Impersonation",
       "https://developer.servicenow.com/dev.do#!/search/Impersonation"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "import-set-runs",
@@ -2606,7 +2703,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Import%20Set%20Runs",
       "https://developer.servicenow.com/dev.do#!/search/Import%20Set%20Runs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "import-sets",
@@ -2634,7 +2732,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Import%20Sets"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "incident-lifecycle",
@@ -2660,7 +2759,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Incident%20Lifecycle",
       "https://developer.servicenow.com/dev.do#!/search/Incident%20Lifecycle"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "incident-reopen-patterns",
@@ -2687,7 +2787,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Incident%20Reopen%20Patterns",
       "https://developer.servicenow.com/dev.do#!/search/Incident%20Reopen%20Patterns"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "incident-table",
@@ -2717,7 +2818,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Incident%20Table",
       "https://developer.servicenow.com/dev.do#!/search/Incident%20Table"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "ire-debugging",
@@ -2746,7 +2848,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=IRE%20Debugging",
       "https://developer.servicenow.com/dev.do#!/search/IRE%20Debugging"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "issue-management",
@@ -2774,7 +2877,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Issue%20Management",
       "https://developer.servicenow.com/dev.do#!/search/Issue%20Management"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "jelly",
@@ -2799,7 +2903,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Jelly",
       "https://developer.servicenow.com/dev.do#!/search/Jelly"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "known-errors",
@@ -2826,7 +2931,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Known%20Errors",
       "https://developer.servicenow.com/dev.do#!/search/Known%20Errors"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "license-metrics",
@@ -2851,7 +2957,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=License%20Metrics",
       "https://developer.servicenow.com/dev.do#!/search/License%20Metrics"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "license-optimization",
@@ -2877,7 +2984,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=License%20Optimization",
       "https://developer.servicenow.com/dev.do#!/search/License%20Optimization"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "logs",
@@ -2902,7 +3010,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Logs",
       "https://developer.servicenow.com/dev.do#!/search/Logs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "major-incident",
@@ -2932,7 +3041,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Major%20Incident",
       "https://developer.servicenow.com/dev.do#!/search/Major%20Incident"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "major-incident-workbench",
@@ -2959,7 +3069,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Major%20Incident%20Workbench",
       "https://developer.servicenow.com/dev.do#!/search/Major%20Incident%20Workbench"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "mid-server",
@@ -2988,7 +3099,8 @@
       "https://developer.servicenow.com/dev.do#!/search/MID%20Server"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "mid-server-capabilities",
@@ -3016,7 +3128,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=MID%20Server%20Capabilities",
       "https://developer.servicenow.com/dev.do#!/search/MID%20Server%20Capabilities"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "mobile-actions",
@@ -3042,7 +3155,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Mobile%20Actions",
       "https://developer.servicenow.com/dev.do#!/search/Mobile%20Actions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "mobile-experiences",
@@ -3067,7 +3181,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Mobile%20Experiences",
       "https://developer.servicenow.com/dev.do#!/search/Mobile%20Experiences"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "model-categories",
@@ -3092,7 +3207,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Model%20Categories",
       "https://developer.servicenow.com/dev.do#!/search/Model%20Categories"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "node-log",
@@ -3117,7 +3233,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Node%20Log",
       "https://developer.servicenow.com/dev.do#!/search/Node%20Log"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "normalization",
@@ -3143,7 +3260,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Normalization",
       "https://developer.servicenow.com/dev.do#!/search/Normalization"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "notifications",
@@ -3172,7 +3290,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Notifications"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "notifications-email",
@@ -3199,7 +3318,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Notifications%20%26%20Email",
       "https://developer.servicenow.com/dev.do#!/search/Notifications%20%26%20Email"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "onchange-clientscript",
@@ -3226,7 +3346,8 @@
       "https://developer.servicenow.com/dev.do#!/search/onChange%20Client%20Scripts"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "onload-clientscript",
@@ -3253,7 +3374,8 @@
       "https://developer.servicenow.com/dev.do#!/search/onLoad%20Client%20Scripts"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "onsubmit-clientscript",
@@ -3280,7 +3402,8 @@
       "https://developer.servicenow.com/dev.do#!/search/onSubmit%20Client%20Scripts"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "order-guides",
@@ -3309,7 +3432,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Order%20Guides"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "pa-breakdowns",
@@ -3334,7 +3458,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=PA%20Breakdowns",
       "https://developer.servicenow.com/dev.do#!/search/PA%20Breakdowns"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "pa-indicators",
@@ -3359,7 +3484,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=PA%20Indicators",
       "https://developer.servicenow.com/dev.do#!/search/PA%20Indicators"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "pattern-designer",
@@ -3387,7 +3513,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Pattern%20Designer",
       "https://developer.servicenow.com/dev.do#!/search/Pattern%20Designer"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "patterns",
@@ -3415,7 +3542,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Patterns",
       "https://developer.servicenow.com/dev.do#!/search/Patterns"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "performance-tuning",
@@ -3440,7 +3568,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Performance%20Tuning",
       "https://developer.servicenow.com/dev.do#!/search/Performance%20Tuning"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "policy-and-compliance-topic",
@@ -3465,7 +3594,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Policy%20%26%20Compliance",
       "https://developer.servicenow.com/dev.do#!/search/Policy%20%26%20Compliance"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "policy-exceptions",
@@ -3494,7 +3624,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Policy%20Exceptions",
       "https://developer.servicenow.com/dev.do#!/search/Policy%20Exceptions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "policy-lifecycle",
@@ -3520,7 +3651,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Policy%20Lifecycle",
       "https://developer.servicenow.com/dev.do#!/search/Policy%20Lifecycle"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "portal-client-controller",
@@ -3545,7 +3677,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Portal%20Client%20Controller",
       "https://developer.servicenow.com/dev.do#!/search/Portal%20Client%20Controller"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "portal-server-script",
@@ -3570,7 +3703,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Portal%20Server%20Script",
       "https://developer.servicenow.com/dev.do#!/search/Portal%20Server%20Script"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "priority",
@@ -3596,7 +3730,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Priority",
       "https://developer.servicenow.com/dev.do#!/search/Priority"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "probes-sensors",
@@ -3623,7 +3758,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Probes%20and%20Sensors",
       "https://developer.servicenow.com/dev.do#!/search/Probes%20and%20Sensors"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "problem-candidates",
@@ -3650,7 +3786,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Problem%20Candidates",
       "https://developer.servicenow.com/dev.do#!/search/Problem%20Candidates"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "problem-investigation",
@@ -3675,7 +3812,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Problem%20Investigation",
       "https://developer.servicenow.com/dev.do#!/search/Problem%20Investigation"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "problem-table",
@@ -3705,7 +3843,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Problem%20Table",
       "https://developer.servicenow.com/dev.do#!/search/Problem%20Table"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "publisher-packs",
@@ -3730,7 +3869,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Publisher%20Packs",
       "https://developer.servicenow.com/dev.do#!/search/Publisher%20Packs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "query-business-rules",
@@ -3757,7 +3897,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Query%20Business%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "query-conditions",
@@ -3782,7 +3923,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Query%20Conditions",
       "https://developer.servicenow.com/dev.do#!/search/Query%20Conditions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reclamation",
@@ -3808,7 +3950,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Reclamation",
       "https://developer.servicenow.com/dev.do#!/search/Reclamation"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reconciliation-definitions",
@@ -3835,7 +3978,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Reconciliation%20Definitions",
       "https://developer.servicenow.com/dev.do#!/search/Reconciliation%20Definitions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reconciliation-rules",
@@ -3863,7 +4007,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Reconciliation%20Rules"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "record-producers",
@@ -3892,7 +4037,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Record%20Producers"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reference-fields",
@@ -3920,7 +4066,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Reference%20Fields",
       "https://developer.servicenow.com/dev.do#!/search/Reference%20Fields"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reference-qualifiers",
@@ -3946,7 +4093,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Reference%20Qualifiers",
       "https://developer.servicenow.com/dev.do#!/search/Reference%20Qualifiers"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "release-readiness",
@@ -3971,7 +4119,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Release%20Readiness",
       "https://developer.servicenow.com/dev.do#!/search/Release%20Readiness"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reports",
@@ -3999,7 +4148,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Reports",
       "https://developer.servicenow.com/dev.do#!/search/Reports"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "reports-dashboards",
@@ -4024,7 +4174,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Reports%20%26%20Dashboards",
       "https://developer.servicenow.com/dev.do#!/search/Reports%20%26%20Dashboards"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "request-tables",
@@ -4053,7 +4204,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Request%20Tables",
       "https://developer.servicenow.com/dev.do#!/search/Request%20Tables"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "requested-item-flow",
@@ -4083,7 +4235,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Requested%20Item%20Flow"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "rest-api",
@@ -4108,7 +4261,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=REST%20API",
       "https://developer.servicenow.com/dev.do#!/search/REST%20API"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "rest-api-authentication",
@@ -4134,7 +4288,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=REST%20API%20Authentication",
       "https://developer.servicenow.com/dev.do#!/search/REST%20API%20Authentication"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "restmessagev2",
@@ -4160,7 +4315,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=RESTMessageV2",
       "https://developer.servicenow.com/dev.do#!/search/RESTMessageV2"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "risk-scoring",
@@ -4185,7 +4341,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Risk%20Scoring",
       "https://developer.servicenow.com/dev.do#!/search/Risk%20Scoring"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "risk-statements",
@@ -4210,7 +4367,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Risk%20Statements",
       "https://developer.servicenow.com/dev.do#!/search/Risk%20Statements"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "roles-groups",
@@ -4238,7 +4396,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Roles%20and%20Groups",
       "https://developer.servicenow.com/dev.do#!/search/Roles%20and%20Groups"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "root-cause-analysis",
@@ -4266,7 +4425,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Root%20Cause%20Analysis",
       "https://developer.servicenow.com/dev.do#!/search/Root%20Cause%20Analysis"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "scheduled-jobs",
@@ -4291,7 +4451,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Scheduled%20Jobs",
       "https://developer.servicenow.com/dev.do#!/search/Scheduled%20Jobs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "scoped-applications",
@@ -4317,7 +4478,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Scoped%20Applications",
       "https://developer.servicenow.com/dev.do#!/search/Scoped%20Applications"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "script-actions",
@@ -4342,7 +4504,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Script%20Actions",
       "https://developer.servicenow.com/dev.do#!/search/Script%20Actions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "script-includes",
@@ -4369,7 +4532,8 @@
       "https://developer.servicenow.com/dev.do#!/search/Script%20Includes"
     ],
     "trickyComparisonSupport": true,
-    "verified": true
+    "verified": true,
+    "verificationLevel": "derived"
   },
   {
     "topicId": "scripted-rest-api",
@@ -4394,7 +4558,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Scripted%20REST%20APIs",
       "https://developer.servicenow.com/dev.do#!/search/Scripted%20REST%20APIs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "security-incident-lifecycle",
@@ -4419,7 +4584,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Security%20Incident%20Lifecycle",
       "https://developer.servicenow.com/dev.do#!/search/Security%20Incident%20Lifecycle"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "security-incident-response-topic",
@@ -4446,7 +4612,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Security%20Incident%20Response",
       "https://developer.servicenow.com/dev.do#!/search/Security%20Incident%20Response"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "security-incident-tasks",
@@ -4473,7 +4640,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Security%20Incident%20Tasks",
       "https://developer.servicenow.com/dev.do#!/search/Security%20Incident%20Tasks"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "security-incident-triage",
@@ -4498,7 +4666,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Security%20Incident%20Triage",
       "https://developer.servicenow.com/dev.do#!/search/Security%20Incident%20Triage"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "security-rules",
@@ -4525,7 +4694,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Security%20Rules",
       "https://developer.servicenow.com/dev.do#!/search/Security%20Rules"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "service-mapping-entry-points",
@@ -4550,7 +4720,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Service%20Mapping%20Entry%20Points",
       "https://developer.servicenow.com/dev.do#!/search/Service%20Mapping%20Entry%20Points"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "service-maps",
@@ -4575,7 +4746,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Service%20Maps",
       "https://developer.servicenow.com/dev.do#!/search/Service%20Maps"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "service-operations-workspace-topic",
@@ -4600,7 +4772,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Service%20Operations%20Workspace",
       "https://developer.servicenow.com/dev.do#!/search/Service%20Operations%20Workspace"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "portal-widgets",
@@ -4626,7 +4799,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Service%20Portal%20Widgets",
       "https://developer.servicenow.com/dev.do#!/search/Service%20Portal%20Widgets"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "setabortaction",
@@ -4651,7 +4825,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=setAbortAction",
       "https://developer.servicenow.com/dev.do#!/search/setAbortAction"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "setworkflow",
@@ -4676,7 +4851,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=setWorkflow",
       "https://developer.servicenow.com/dev.do#!/search/setWorkflow"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "sla-repair",
@@ -4703,7 +4879,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=SLA%20Repair",
       "https://developer.servicenow.com/dev.do#!/search/SLA%20Repair"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "slas",
@@ -4734,7 +4911,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=SLAs",
       "https://developer.servicenow.com/dev.do#!/search/SLAs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "slow-transactions",
@@ -4759,7 +4937,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Slow%20Transactions",
       "https://developer.servicenow.com/dev.do#!/search/Slow%20Transactions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "soap-messages",
@@ -4785,7 +4964,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=SOAP%20Messages",
       "https://developer.servicenow.com/dev.do#!/search/SOAP%20Messages"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "software-entitlements",
@@ -4813,7 +4993,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Software%20Entitlements",
       "https://developer.servicenow.com/dev.do#!/search/Software%20Entitlements"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "software-installations",
@@ -4840,7 +5021,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Software%20Installations",
       "https://developer.servicenow.com/dev.do#!/search/Software%20Installations"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "software-models",
@@ -4868,7 +5050,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Software%20Models",
       "https://developer.servicenow.com/dev.do#!/search/Software%20Models"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "software-normalization",
@@ -4897,7 +5080,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Software%20Normalization",
       "https://developer.servicenow.com/dev.do#!/search/Software%20Normalization"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "software-reclamation",
@@ -4924,7 +5108,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Software%20Reclamation",
       "https://developer.servicenow.com/dev.do#!/search/Software%20Reclamation"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "source-control",
@@ -4949,7 +5134,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Source%20Control",
       "https://developer.servicenow.com/dev.do#!/search/Source%20Control"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "spokes",
@@ -4974,7 +5160,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Spokes",
       "https://developer.servicenow.com/dev.do#!/search/Spokes"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "stale-cis",
@@ -5001,7 +5188,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Stale%20CIs",
       "https://developer.servicenow.com/dev.do#!/search/Stale%20CIs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "standard-change",
@@ -5026,7 +5214,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Standard%20Change",
       "https://developer.servicenow.com/dev.do#!/search/Standard%20Change"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "stockrooms",
@@ -5054,7 +5243,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Stockrooms",
       "https://developer.servicenow.com/dev.do#!/search/Stockrooms"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "subflows-actions",
@@ -5081,7 +5271,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Subflows%20and%20Actions",
       "https://developer.servicenow.com/dev.do#!/search/Subflows%20and%20Actions"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "sys-user",
@@ -5107,7 +5298,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=sys_user",
       "https://developer.servicenow.com/dev.do#!/search/sys_user"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "sys-user-group",
@@ -5132,7 +5324,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=sys_user_group",
       "https://developer.servicenow.com/dev.do#!/search/sys_user_group"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "sys-user-has-role",
@@ -5157,7 +5350,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=sys_user_has_role",
       "https://developer.servicenow.com/dev.do#!/search/sys_user_has_role"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "system-definition",
@@ -5182,7 +5376,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=System%20Definition",
       "https://developer.servicenow.com/dev.do#!/search/System%20Definition"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "system-properties",
@@ -5207,7 +5402,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=System%20Properties",
       "https://developer.servicenow.com/dev.do#!/search/System%20Properties"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "tables-dictionary",
@@ -5233,7 +5429,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Tables%20and%20Dictionary",
       "https://developer.servicenow.com/dev.do#!/search/Tables%20and%20Dictionary"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "task-slas",
@@ -5260,7 +5457,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Task%20SLAs",
       "https://developer.servicenow.com/dev.do#!/search/Task%20SLAs"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "task-table-hierarchy",
@@ -5289,7 +5487,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Task%20Table%20Hierarchy",
       "https://developer.servicenow.com/dev.do#!/search/Task%20Table%20Hierarchy"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "task-sla",
@@ -5317,7 +5516,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=task_sla",
       "https://developer.servicenow.com/dev.do#!/search/task_sla"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "test-steps",
@@ -5343,7 +5543,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Test%20Steps",
       "https://developer.servicenow.com/dev.do#!/search/Test%20Steps"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "threat-intel-indicators",
@@ -5369,7 +5570,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Threat%20Indicators",
       "https://developer.servicenow.com/dev.do#!/search/Threat%20Indicators"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "threat-intelligence-enrichment",
@@ -5394,7 +5596,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Threat%20Intelligence%20Enrichment",
       "https://developer.servicenow.com/dev.do#!/search/Threat%20Intelligence%20Enrichment"
-    ]
+    ],
+    "verificationLevel": "derived"
   },
   {
     "topicId": "transfers-disposals",
@@ -5410,6 +5613,190 @@
       "Validate configuration with realistic test data."
     ],
     "realTimeExamples": [
+      "Use Transfers and Disposals in one production-style scenario and explain measurable outcome."
+    ],
+    "interviewPitfalls": [
+      "Explaining Transfers and Disposals generically without platform-specific behavior."
+    ],
+    "trickyComparisonSupport": false,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Transfers%20and%20Disposals",
+      "https://developer.servicenow.com/dev.do#!/search/Transfers%20and%20Disposals"
+    ],
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "transform-maps",
+    "definition": "A Transform Map defines how data from an import staging table maps into a target table.",
+    "whatItDoes": "It controls the field mappings, transform behavior, and options such as whether business rules or mandatory enforcement run during the transformation.",
+    "tablesInvolved": [
+      "sys_transform_map",
+      "sys_transform_entry",
+      "sys_transform_script"
+    ],
+    "keyComponents": [
+      "Source table and target table are the core transform map relationship.",
+      "Field Maps connect incoming columns to target fields.",
+      "Options like Run business rules, Enforce mandatory fields, and Copy empty values affect import behavior."
+    ],
+    "realTimeExamples": [
+      "Map staged employee IDs and names into the user table.",
+      "Control whether an import updates existing records or inserts new ones."
+    ],
+    "interviewPitfalls": [
+      "Assuming a successful transform means the data is correct.",
+      "Ignoring how transform-map options change downstream behavior and performance."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Transform%20Maps",
+      "https://developer.servicenow.com/dev.do#!/search/Transform%20Maps"
+    ],
+    "trickyComparisonSupport": true,
+    "verified": true,
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "transform-scripts",
+    "definition": "Transform Scripts are server-side scripts that run at specific points during a transformation to control or enrich import behavior.",
+    "whatItDoes": "They let you manipulate source and target data, handle exceptions, or add custom logic during import processing.",
+    "tablesInvolved": [
+      "sys_transform_script",
+      "sys_transform_map"
+    ],
+    "keyComponents": [
+      "Transform Scripts run in event stages such as onBefore or onAfter depending on the script type.",
+      "They use source and target objects provided by the transform runtime.",
+      "They should be used when field maps alone are not enough."
+    ],
+    "realTimeExamples": [
+      "Normalize an incoming source value before writing it to the target table.",
+      "Skip or reroute certain import rows when custom business conditions are met."
+    ],
+    "interviewPitfalls": [
+      "Using transform scripts for logic that should be solved with clean field mapping.",
+      "Adding opaque import logic without documenting which transform stage it belongs to."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Transform%20Scripts",
+      "https://developer.servicenow.com/dev.do#!/search/Transform%20Scripts"
+    ],
+    "trickyComparisonSupport": true,
+    "verified": true,
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "ui-actions",
+    "verified": true,
+    "definition": "Create a form UI Action on incident with a condition that shows it only for closed records, then set the state back to In Progress and update work notes before saving.",
+    "whatItDoes": "Practical UI Action scripting example.",
+    "tablesInvolved": [
+      "incident"
+    ],
+    "keyComponents": [
+      "Define UI Actions in exact platform terms.",
+      "Explain runtime behavior and scope boundaries.",
+      "Validate configuration with realistic test data."
+    ],
+    "realTimeExamples": [
+      "Use UI Actions in one production-style scenario and explain measurable outcome."
+    ],
+    "interviewPitfalls": [
+      "Explaining UI Actions generically without platform-specific behavior."
+    ],
+    "trickyComparisonSupport": false,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=UI%20Actions",
+      "https://developer.servicenow.com/dev.do#!/search/UI%20Actions"
+    ],
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "ui-builder-components",
+    "verified": true,
+    "definition": "Service Portal is the classic portal framework based on pages, widgets, AngularJS patterns, and portal-specific client/server scripting.",
+    "whatItDoes": "Provides a modern experience-layer comparison for interview discussions.",
+    "tablesInvolved": [
+      "Needs official table verification"
+    ],
+    "keyComponents": [
+      "Service Portal remains common in existing implementations.",
+      "UI Builder is central to modern workspace experiences.",
+      "Choose based on audience, maintainability, and existing platform standards."
+    ],
+    "realTimeExamples": [
+      "Build a legacy external portal enhancement in Service Portal.",
+      "Build a modern fulfillment workspace page in UI Builder."
+    ],
+    "interviewPitfalls": [
+      "Service Portal vs Workspace vs UI Builder"
+    ],
+    "trickyComparisonSupport": true,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=UI%20Builder%20Components",
+      "https://developer.servicenow.com/dev.do#!/search/UI%20Builder%20Components"
+    ],
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "ui-pages",
+    "verified": true,
+    "definition": "UI Pages are custom server-rendered pages often built with Jelly, scripts, and client logic for legacy experiences.",
+    "whatItDoes": "Adds direct coverage for the UI Pages topic so it is no longer a taxonomy-only entry.",
+    "tablesInvolved": [
+      "Needs official table verification"
+    ],
+    "keyComponents": [
+      "Explain the business or technical purpose.",
+      "Mention where it is configured or observed.",
+      "Give one practical implementation consideration."
+    ],
+    "realTimeExamples": [
+      "Use UI Pages deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ],
+    "interviewPitfalls": [
+      "Explaining UI Pages generically without platform-specific behavior."
+    ],
+    "trickyComparisonSupport": false,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=UI%20Pages",
+      "https://developer.servicenow.com/dev.do#!/search/UI%20Pages"
+    ],
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "ui-policies",
+    "definition": "UI Policies are client-side rules that control form and field behavior, often without requiring custom script.",
+    "whatItDoes": "They make fields mandatory, read-only, or visible based on conditions and can optionally run UI Policy Scripts for extra client logic.",
+    "tablesInvolved": [
+      "sys_ui_policy",
+      "sys_ui_policy_action"
+    ],
+    "keyComponents": [
+      "UI Policy conditions determine when the policy applies.",
+      "UI Policy Actions set field mandatory, visible, or read-only states.",
+      "UI Policy scripts extend the behavior when declarative actions are not enough."
+    ],
+    "realTimeExamples": [
+      "Make Closure code mandatory only when state changes to Closed.",
+      "Show additional justification fields when a sensitive category is selected."
+    ],
+    "interviewPitfalls": [
+      "Using a client script when a simpler UI Policy would do the job.",
+      "Forgetting that UI Policies affect forms, not direct server-side imports or integrations."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=UI%20Policies",
+      "https://developer.servicenow.com/dev.do#!/search/UI%20Policies"
+    ],
+    "trickyComparisonSupport": true,
+    "verified": true,
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "update-sets",
+    "verified": true,
+    "definition": "Plan the deployment by isolating the change into a clean update set or app version, documenting manual steps and dependent records, previewing collisions in the target, validating in test first, and preparing a rollback or mitigation plan.",
+    "whatItDoes": "Deployment use case focused on collisions, manual steps, and validation.",
       "Use Transfers and Disposals in one production-style scenario and explain measurable outcome."
     ],
     "interviewPitfalls": [
@@ -5512,6 +5899,28 @@
       "Needs official table verification"
     ],
     "keyComponents": [
+      "Define Update Sets in exact platform terms.",
+      "Explain runtime behavior and scope boundaries.",
+      "Validate configuration with realistic test data."
+    ],
+    "realTimeExamples": [
+      "Use Update Sets in one production-style scenario and explain measurable outcome."
+    ],
+    "interviewPitfalls": [
+      "Explaining Update Sets generically without platform-specific behavior."
+    ],
+    "trickyComparisonSupport": false,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Update%20Sets",
+      "https://developer.servicenow.com/dev.do#!/search/Update%20Sets"
+    ],
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "upgrades",
+    "verified": true,
+    "definition": "Upgrades should be explained as a governance and validation process, not only as a technical version jump.",
+    "whatItDoes": "Adds direct coverage for the Upgrades topic so it is no longer a taxonomy-only entry.",
       "Service Portal remains common in existing implementations.",
       "UI Builder is central to modern workspace experiences.",
       "Choose based on audience, maintainability, and existing platform standards."
@@ -5543,6 +5952,25 @@
       "Give one practical implementation consideration."
     ],
     "realTimeExamples": [
+      "Use Upgrades deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ],
+    "interviewPitfalls": [
+      "Explaining Upgrades generically without platform-specific behavior."
+    ],
+    "trickyComparisonSupport": false,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Upgrades",
+      "https://developer.servicenow.com/dev.do#!/search/Upgrades"
+    ],
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "variable-sets",
+    "definition": "A Variable Set is a reusable group of catalog variables that can be attached to multiple catalog items or order guides.",
+    "whatItDoes": "It reduces duplication by letting multiple catalog experiences share the same grouped question set.",
+    "tablesInvolved": [
+      "item_option_new_set",
+      "item_option_new"
       "Use UI Pages deliberately in a governed implementation instead of treating it as a one-off configuration."
     ],
     "interviewPitfalls": [
@@ -5572,6 +6000,68 @@
       "Show additional justification fields when a sensitive category is selected."
     ],
     "interviewPitfalls": [
+      "Duplicating the same variables across many items instead of using a set.",
+      "Using names or labels inconsistently when client logic should target internal names."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Variable%20Sets",
+      "https://developer.servicenow.com/dev.do#!/search/Variable%20Sets"
+    ],
+    "trickyComparisonSupport": true,
+    "verified": true,
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "vendor-risk",
+    "verified": true,
+    "definition": "Vendor risk intake is the controlled process of onboarding a third party into review workflows so the organization can evaluate security, compliance, continuity, and data-handling risk before or during engagement.",
+    "whatItDoes": "Describes how third-party reviews start and move into questionnaires and remediation.",
+    "tablesInvolved": [
+      "sn_vdr_risk_assessment"
+    ],
+    "keyComponents": [
+      "Intake creates a governed entry point for third-party review.",
+      "Questionnaires and evidence requests usually follow intake.",
+      "Results should feed remediation or exception workflows."
+    ],
+    "realTimeExamples": [
+      "Security questionnaire required before purchasing a SaaS platform."
+    ],
+    "interviewPitfalls": [
+      "Explaining Vendor Risk generically without platform-specific behavior."
+    ],
+    "trickyComparisonSupport": false,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Vendor%20Risk",
+      "https://developer.servicenow.com/dev.do#!/search/Vendor%20Risk"
+    ],
+    "verificationLevel": "derived"
+  },
+  {
+    "topicId": "virtual-agent-topics",
+    "verified": true,
+    "definition": "Virtual Agent Topics should be explained in terms of conversation design, intent handling, and how the chatbot guides the user toward either self-service completion or a clean handoff.",
+    "whatItDoes": "Adds direct coverage for the Virtual Agent Topics topic so it is no longer a taxonomy-only entry.",
+    "tablesInvolved": [
+      "incident"
+    ],
+    "keyComponents": [
+      "Anchor the answer in conversation flow.",
+      "Mention handoff or routing logic.",
+      "Explain why maintainability matters."
+    ],
+    "realTimeExamples": [
+      "Use Virtual Agent Topics deliberately in a governed implementation instead of treating it as a one-off configuration."
+    ],
+    "interviewPitfalls": [
+      "Explaining Virtual Agent Topics generically without platform-specific behavior."
+    ],
+    "trickyComparisonSupport": false,
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Virtual%20Agent%20Topics",
+      "https://developer.servicenow.com/dev.do#!/search/Virtual%20Agent%20Topics"
+    ],
+    "verificationLevel": "derived"
       "Using a client script when a simpler UI Policy would do the job.",
       "Forgetting that UI Policies affect forms, not direct server-side imports or integrations."
     ],
@@ -5734,6 +6224,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Vulnerability%20Exceptions",
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Exceptions"
+    ],
+    "verificationLevel": "derived"
     ]
   },
   {
@@ -5763,6 +6255,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Vulnerability%20Groups",
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Groups"
+    ],
+    "verificationLevel": "derived"
     ]
   },
   {
@@ -5790,6 +6284,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Vulnerability%20Lifecycle",
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Lifecycle"
+    ],
+    "verificationLevel": "derived"
     ]
   },
   {
@@ -5818,6 +6314,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Vulnerability%20Response",
       "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Response"
+    ],
+    "verificationLevel": "derived"
     ]
   },
   {
@@ -5844,6 +6342,8 @@
     "officialSources": [
       "https://www.servicenow.com/docs/search?q=Workspace%20Record%20Pages",
       "https://developer.servicenow.com/dev.do#!/search/Workspace%20Record%20Pages"
+    ],
+    "verificationLevel": "derived"
     ]
   }
 ]

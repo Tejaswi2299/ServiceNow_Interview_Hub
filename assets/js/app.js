@@ -9,6 +9,7 @@ import { trackEvent, trackPageView } from './analytics.js';
 import { escapeHtml } from './utils.js';
 import { buildTopicOverviews } from './topic-overview-defaults.js';
 import { buildPitfallStudyItems, getTrickyStudyItems } from './tricky-study-items.js';
+import { buildQuizSetupFormMarkup } from './quiz-setup.js';
 import {
   renderBookmarksPage,
   renderCodingDetail,
@@ -171,7 +172,8 @@ function routeQueryFilters(route) {
     topic: normalizeTopicId(route.query.topic || ''),
     difficulty: route.query.difficulty || '',
     q: route.query.q || '',
-    category: route.query.category || ''
+    category: route.query.category || '',
+    page: route.query.page || ''
   };
 }
 
@@ -183,58 +185,13 @@ function buildQuizSetupMarkup() {
         <p>Choose the scope first, then select the matching role, module, or topic, set difficulty, choose the number of questions, and start the round.</p>
       </div>
     </div>
-    <form id="quiz-setup-form" class="filters" data-quiz-form>
-      <label>
-        Scope
-        <select name="scope" data-quiz-scope>
-          <option value="mixed">Mixed</option>
-          <option value="role">Role</option>
-          <option value="module">Module</option>
-          <option value="topic">Topic</option>
-          <option value="coding">Coding</option>
-          <option value="use-case">Use Case</option>
-        </select>
-      </label>
-      <label data-quiz-field="role" hidden>
-        Role
-        <select name="roleValue" disabled>
-          <option value="">Select a role</option>
-          ${appState.data.roles.map((role) => `<option value="${escapeHtml(role.id)}">${escapeHtml(role.name)}</option>`).join('')}
-        </select>
-      </label>
-      <label data-quiz-field="module" hidden>
-        Module
-        <select name="moduleValue" disabled>
-          <option value="">Select a module</option>
-          ${appState.data.modules.map((module) => `<option value="${escapeHtml(module.id)}">${escapeHtml(module.name)}</option>`).join('')}
-        </select>
-      </label>
-      <label data-quiz-field="topic" hidden>
-        Topic
-        <select name="topicValue" disabled>
-          <option value="">Select a topic</option>
-          ${appState.data.topics.map((topic) => `<option value="${escapeHtml(topic.id)}">${escapeHtml(topic.name)}</option>`).join('')}
-        </select>
-      </label>
-      <label>
-        Difficulty
-        <select name="difficulty">
-          <option value="">All levels</option>
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Advanced">Advanced</option>
-        </select>
-      </label>
-      <label>
-        Question count
-        <select name="count">
-          ${QUIZ_COUNTS.map((count) => `<option value="${count}" ${count === 10 ? 'selected' : ''}>${count}</option>`).join('')}
-        </select>
-      </label>
-      <div class="hero-actions">
-        <button class="button-link" type="submit">Start quiz</button>
-      </div>
-    </form>
+    ${buildQuizSetupFormMarkup({
+      roles: appState.data.roles,
+      modules: appState.data.modules,
+      topics: appState.data.topics,
+      counts: QUIZ_COUNTS,
+      progressive: true
+    })}
   `;
 }
 

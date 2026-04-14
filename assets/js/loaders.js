@@ -36,7 +36,7 @@ function normalizeContentTopicIds(items = [], aliases = {}) {
 }
 
 export async function loadAllData() {
-  const [roles, modules, topics, contentTypes, difficultyLevels, roleModule, moduleTopic, roleTopic, moduleCoding, moduleUseCase, topicAliases, theory, topicOverviews, coding, useCases, quizzes, searchIndex, coverage] = await Promise.all([
+  const [roles, modules, topics, contentTypes, difficultyLevels, roleModule, moduleTopic, roleTopic, moduleCoding, moduleUseCase, topicAliases, contentManifest, quizzes, searchIndex, coverage] = await Promise.all([
     fetchJson(TAXONOMY_FILES.roles),
     fetchJson(TAXONOMY_FILES.modules),
     fetchJson(TAXONOMY_FILES.topics),
@@ -48,13 +48,16 @@ export async function loadAllData() {
     fetchJson(MAP_FILES.moduleCoding),
     fetchJson(MAP_FILES.moduleUseCase),
     fetchJson(MAP_FILES.topicAliases),
-    fetchMany(CONTENT_FILES.theory),
-    fetchMany(CONTENT_FILES.topicOverviews || []),
-    fetchMany(CONTENT_FILES.coding),
-    fetchMany(CONTENT_FILES.useCases),
+    fetchJson(CONTENT_FILES.manifest),
     fetchJson(CONTENT_FILES.quizzes),
     fetchJson(CONTENT_FILES.searchIndex),
     fetchJson(CONTENT_FILES.coverage)
+  ]);
+  const [theory, topicOverviews, coding, useCases] = await Promise.all([
+    fetchMany(contentManifest.theory || []),
+    fetchMany(contentManifest.topicOverviews || []),
+    fetchMany(contentManifest.coding || []),
+    fetchMany(contentManifest.useCases || [])
   ]);
 
   return {

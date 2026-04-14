@@ -6,6 +6,7 @@
   "required": [
     "topicId",
     "verified",
+    "verificationLevel",
     "definition",
     "whatItDoes",
     "tablesInvolved",
@@ -18,6 +19,7 @@
   "properties": {
     "topicId": { "type": "string", "minLength": 1 },
     "verified": { "type": "boolean" },
+    "verificationLevel": { "type": "string", "enum": ["official", "derived", "draft"] },
     "definition": { "type": "string", "minLength": 1 },
     "whatItDoes": { "type": "string", "minLength": 1 },
     "tablesInvolved": {

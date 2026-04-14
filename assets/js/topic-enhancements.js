@@ -392,7 +392,24 @@ function renderDerivedTrickyBlocks(topic, pitfalls = []) {
   `;
 }
 
+function trickyPageLink(filters = {}, page = 1) {
+  const params = new URLSearchParams();
+  const nextFilters = { ...filters, page: page > 1 ? String(page) : '' };
+  Object.entries(nextFilters).forEach(([key, value]) => {
+    if (`${value || ''}`.trim()) params.set(key, value);
+  });
+  const query = params.toString();
+  return `#/tricky${query ? `?${query}` : ''}`;
+}
+
 export function renderTrickyPage(state, items, filters = {}) {
+  const PAGE_SIZE = 12;
+  const currentPage = Math.max(1, Number(filters.page || 1));
+  const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+  const boundedPage = Math.min(currentPage, totalPages);
+  const pageStart = (boundedPage - 1) * PAGE_SIZE;
+  const pagedItems = items.slice(pageStart, pageStart + PAGE_SIZE);
+
   return `
     <section class="card clean-banner tricky-page-banner">
       <div class="clean-banner-head">
@@ -446,13 +463,17 @@ export function renderTrickyPage(state, items, filters = {}) {
     <section class="section-header">
       <div>
         <h2>Results</h2>
-        <p>${escapeHtml(formatCount(items.length))} tricky item(s) match the current filters.</p>
+        <p>${escapeHtml(formatCount(items.length))} tricky item(s) match the current filters. Showing page ${boundedPage} of ${totalPages}.</p>
+      </div>
+      <div class="filter-actions">
+        ${boundedPage > 1 ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage - 1)}">← Previous</a>` : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">← Previous</span>`}
+        ${boundedPage < totalPages ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage + 1)}">Next →</a>` : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">Next →</span>`}
       </div>
     </section>
 
     <section class="grid cards-2">
-      ${items.length
-        ? items.map((item) => renderTrickyCard(item, state.lookups)).join('')
+      ${pagedItems.length
+        ? pagedItems.map((item) => renderTrickyCard(item, state.lookups)).join('')
         : `<section class="card empty-state"><h2>No tricky questions match this filter.</h2><p>Try clearing the filters or broadening the search terms.</p></section>`
       }
     </section>

@@ -1019,13 +1019,15 @@ export function buildTopicOverviews(topics = [], curated = []) {
       return {
         ...curatedEntry,
         topicId: topic.id,
-        verified: true
+        verified: true,
+        verificationLevel: curatedEntry.verificationLevel || 'official'
       };
     }
 
     return {
       topicId: topic.id,
       verified: false,
+      verificationLevel: 'draft',
       definition: 'Not verified yet.',
       whatItDoes: 'This topic overview is pending official-document verification.',
       tablesInvolved: ['Not verified yet'],

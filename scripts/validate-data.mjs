@@ -96,6 +96,9 @@ function validateOverviews(entries = [], topicIdSet, errors) {
     if (typeof entry.verified !== 'boolean') {
       errors.push(`topic overview '${entry.topicId}' missing boolean 'verified'.`);
     }
+    if (!['official', 'derived', 'draft'].includes(entry.verificationLevel)) {
+      errors.push(`topic overview '${entry.topicId}' has invalid 'verificationLevel'.`);
+    }
     if (typeof entry.trickyComparisonSupport !== 'boolean') {
       errors.push(`topic overview '${entry.topicId}' missing boolean 'trickyComparisonSupport'.`);
     }
@@ -190,6 +193,11 @@ const moduleTopic = readJson('data/maps/module-topic-map.json');
 const roleTopic = readJson('data/maps/role-topic-map.json');
 const topicAliases = readJson('data/maps/topic-aliases.json');
 const topicOverviews = readJson('data/content/topic-overviews/verified-core.json');
+const contentManifest = readJson('data/content/manifest.json');
+
+const theory = readJsonArray(contentManifest.theory || []);
+const coding = readJsonArray(contentManifest.coding || []);
+const useCases = readJsonArray(contentManifest.useCases || []);
 
 const theory = readJsonArray([
   'data/content/theory/platform-core.json',
