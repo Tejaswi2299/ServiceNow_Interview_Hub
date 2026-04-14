@@ -623,7 +623,6 @@
     "security-incident-tasks",
     "security-incident-triage",
     "security-rules",
-    "sir-lifecycle",
     "slas",
     "threat-intel-indicators",
     "threat-intelligence-enrichment",
@@ -658,7 +657,6 @@
     "security-incident-response-topic",
     "security-incident-tasks",
     "security-incident-triage",
-    "sir-lifecycle",
     "threat-intelligence-enrichment",
     "vulnerability-lifecycle",
     "vulnerability-response-topic"
@@ -770,7 +768,6 @@
   "vendor-risk-management": [
     "gliderecord",
     "reports-dashboards",
-    "third-party-risk",
     "vendor-risk"
   ],
   "virtual-agent": [

@@ -60,6 +60,19 @@
       "Filling the first screen with too many low-value widgets.",
       "Hiding the most common analyst actions behind extra navigation.",
       "Not testing with real incident coordinators."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20Service%20Operations%20Workspace%20view%20for%20major%20incidents",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20Service%20Operations%20Workspace%20view%20for%20major%20incidents"
+    ],
+    "keyPoints": [
+      "Answer How would you design a Service Operations Workspace experience for major-incident analysts? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a Service Operations Workspace experience for major-incident analysts? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -126,6 +139,19 @@
       "Running large discovery before validating identification behavior.",
       "Ignoring field-authority conflicts with existing sources.",
       "Treating cloud onboarding as only a credential exercise."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Onboard%20cloud%20discovery%20with%20CI%20governance",
+      "https://developer.servicenow.com/dev.do#!/search/Onboard%20cloud%20discovery%20with%20CI%20governance"
+    ],
+    "keyPoints": [
+      "Answer How would you implement cloud discovery in a way that protects CMDB data quality? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement cloud discovery in a way that protects CMDB data quality? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -192,6 +218,19 @@
       "Deleting duplicates without fixing the source behavior.",
       "Changing reconciliation when the real issue is poor identifiers.",
       "Ignoring direct integrations that do not follow the intended CMDB ingestion path."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prevent%20duplicate%20CIs%20with%20IRE%20ruleset%20design",
+      "https://developer.servicenow.com/dev.do#!/search/Prevent%20duplicate%20CIs%20with%20IRE%20ruleset%20design"
+    ],
+    "keyPoints": [
+      "Answer How do you prevent duplicate CIs by tightening IRE, identification, and reconciliation design? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you prevent duplicate CIs by tightening IRE, identification, and reconciliation design? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -253,6 +292,19 @@
     "commonMistakes": [
       "Treating every gap as a normalization defect without checking source data.",
       "Running one-off cleanup without a recurring governance cadence."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Run%20a%20SAM%20normalization%20governance%20review",
+      "https://developer.servicenow.com/dev.do#!/search/Run%20a%20SAM%20normalization%20governance%20review"
+    ],
+    "keyPoints": [
+      "Answer How would you implement a governance review for software normalization issues in SAM? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement a governance review for software normalization issues in SAM? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -314,6 +366,19 @@
     "commonMistakes": [
       "Fixing data without fixing the receiving, transfer, or retirement process.",
       "Not assigning clear stockroom ownership."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20stockroom%20reconciliation%20process%20for%20hardware%20assets",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20stockroom%20reconciliation%20process%20for%20hardware%20assets"
+    ],
+    "keyPoints": [
+      "Answer How would you design a stockroom reconciliation process for HAM? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a stockroom reconciliation process for HAM? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

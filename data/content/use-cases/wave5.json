@@ -71,6 +71,19 @@
       "Treating every P1 as a major incident.",
       "Hardcoding leadership recipients instead of using maintainable groups or configs.",
       "Forgetting downgrade and resolution transitions."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20a%20major%20incident%20war-room%20process",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20a%20major%20incident%20war-room%20process"
+    ],
+    "keyPoints": [
+      "Answer How would you implement a major incident process that is separate from simple P1 prioritization? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement a major incident process that is separate from simple P1 prioritization? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -108,7 +121,7 @@
       "cmdb_identification_rule"
     ],
     "scenario": "The customer sees duplicate server CIs because multiple source systems populate the same infrastructure with inconsistent identifiers.",
-    "exactAnswer": "Stabilize the inbound identifier strategy, align sources to the correct CI classes, review and refine IRE identification rules, and set trusted-source reconciliation rules so secondary sources update rather than create when authoritative identifiers already exist.",
+    "exactAnswer": "Handle multi-source duplicate CI issues by normalizing source payload identifiers, correcting class mapping, running all writes through IRE, and tuning identification/reconciliation definitions to prevent repeat duplicates.",
     "navigationPath": [
       "All > CMDB > Identification / Reconciliation administration",
       "All > Discovery administration",
@@ -138,6 +151,19 @@
       "Changing reconciliation before fixing source identifiers.",
       "Allowing multiple sources to create in different CI classes for the same device.",
       "Testing only one source path and assuming the issue is resolved."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Remediate%20duplicate%20CI%20creation%20from%20multiple%20sources",
+      "https://developer.servicenow.com/dev.do#!/search/Remediate%20duplicate%20CI%20creation%20from%20multiple%20sources"
+    ],
+    "keyPoints": [
+      "Answer How do you handle a case where Discovery, cloud imports, and manual integrations all create similar CIs? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you handle a case where Discovery, cloud imports, and manual integrations all create similar CIs? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -205,6 +231,19 @@
       "Jumping to IRE before validating transport and credentials.",
       "Checking only schedule success and not ECC state transitions.",
       "Assuming a credential success means the pattern executed successfully."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Triage%20Discovery%20failures%20with%20pattern%20and%20ECC%20analysis",
+      "https://developer.servicenow.com/dev.do#!/search/Triage%20Discovery%20failures%20with%20pattern%20and%20ECC%20analysis"
+    ],
+    "keyPoints": [
+      "Answer A Discovery schedule launches but no useful CIs are updated. How do you troubleshoot it step by step? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate A Discovery schedule launches but no useful CIs are updated. How do you troubleshoot it step by step? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -265,6 +304,19 @@
       "Sending reminders without a dedupe strategy.",
       "Escalating to hardcoded users instead of maintainable ownership hierarchies.",
       "Ignoring reassignment or owner changes mid-cycle."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20a%20GRC%20control%20attestation%20reminder%20process",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20a%20GRC%20control%20attestation%20reminder%20process"
+    ],
+    "keyPoints": [
+      "Answer How do you implement recurring control attestation reminders and escalations in GRC? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement recurring control attestation reminders and escalations in GRC? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -324,6 +376,19 @@
       "Treating exceptions as permanent suppression rules.",
       "Omitting expiry or review dates.",
       "Losing the linkage between the exception and the actual vulnerability records."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20a%20vulnerability%20exception%20approval%20flow",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20a%20vulnerability%20exception%20approval%20flow"
+    ],
+    "keyPoints": [
+      "Answer How would you design a vulnerability exception process with approvals, expiry, and review? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a vulnerability exception process with approvals, expiry, and review? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -386,6 +451,19 @@
       "Directly editing the stockroom on the asset with no process history.",
       "Failing to reconcile counts after transfer completion.",
       "Ignoring technician or receiver accountability."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20HAM%20stockroom%20transfer%20process",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20HAM%20stockroom%20transfer%20process"
+    ],
+    "keyPoints": [
+      "Answer How do you implement controlled stockroom transfers for hardware assets? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement controlled stockroom transfers for hardware assets? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -419,7 +497,7 @@
       "cmdb_sam_sw_install"
     ],
     "scenario": "The client is over-licensed on a software publisher and wants to reclaim unused entitlements without disrupting needed users.",
-    "exactAnswer": "Define candidate criteria such as inactivity, inactive users, or low-utilization signals, route candidate lists for owner confirmation, schedule uninstall or reclaim actions in a controlled way, and then compare the updated install base against entitlements to improve the effective license position.",
+    "exactAnswer": "Design the reclamation campaign with objective inactivity criteria, owner-notification workflow, approved exception handling, and controlled uninstall/reassignment steps tied to entitlement and audit reporting.",
     "navigationPath": [
       "All > Software Asset Management",
       "All > Reports / Workspaces",
@@ -447,6 +525,19 @@
       "Treating every inactive installation as safe to remove.",
       "Skipping owner validation for high-value tools.",
       "Failing to measure compliance improvement after reclamation."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20a%20SAM%20reclamation%20campaign",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20a%20SAM%20reclamation%20campaign"
+    ],
+    "keyPoints": [
+      "Answer How would you design a software reclamation campaign for underused products? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a software reclamation campaign for underused products? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

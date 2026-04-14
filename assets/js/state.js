@@ -18,6 +18,7 @@ export const appState = {
     rolesById: {},
     modulesById: {},
     topicsById: {},
+    topicAliases: {},
     contentById: {}
   },
   quizSession: null

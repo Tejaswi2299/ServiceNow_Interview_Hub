@@ -58,6 +58,19 @@
     "commonMistakes": [
       "Treating every P1 as a major incident automatically.",
       "Sending updates from multiple unrelated rules."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20major%20incident%20war-room%20workflow",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20major%20incident%20war-room%20workflow"
+    ],
+    "keyPoints": [
+      "Answer How would you implement a major incident process with coordinated communications and child incident handling? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement a major incident process with coordinated communications and child incident handling? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -111,6 +124,19 @@
     "commonMistakes": [
       "Repairing SLAs before deciding the expected reopen behavior.",
       "Ignoring update-time transitions after insert."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prevent%20duplicate%20SLAs%20when%20incidents%20reopen",
+      "https://developer.servicenow.com/dev.do#!/search/Prevent%20duplicate%20SLAs%20when%20incidents%20reopen"
+    ],
+    "keyPoints": [
+      "Answer How do you prevent duplicate SLA behavior when an incident is reopened? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you prevent duplicate SLA behavior when an incident is reopened? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -160,6 +186,19 @@
     "commonMistakes": [
       "Calling a change standard without defined templates.",
       "Removing all validation just to make it faster."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20standard%20change%20automation%20path",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20standard%20change%20automation%20path"
+    ],
+    "keyPoints": [
+      "Answer How would you implement standard change fulfillment with minimal manual approval overhead? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement standard change fulfillment with minimal manual approval overhead? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -193,7 +232,7 @@
       "cmdb_ci"
     ],
     "scenario": "The organization has duplicate CIs because discovery and external imports both write overlapping infrastructure data.",
-    "exactAnswer": "Align every source on identification rules, assign trusted ownership through reconciliation, and route inbound updates through IRE where possible. Fix the source path before starting cleanup.",
+    "exactAnswer": "Stop duplicate CI creation by mapping import and Discovery payloads to the same CI class identifiers, using IRE for writes, and validating identification/reconciliation rules before promoting the integration.",
     "steps": [
       "Identify every source currently writing the class.",
       "Review the identifiers each source provides.",
@@ -213,6 +252,19 @@
     "commonMistakes": [
       "Cleaning duplicates before fixing source governance.",
       "Allowing direct GlideRecord integrations to bypass identification logic."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prevent%20duplicate%20CIs%20during%20import%20and%20discovery%20overlap",
+      "https://developer.servicenow.com/dev.do#!/search/Prevent%20duplicate%20CIs%20during%20import%20and%20discovery%20overlap"
+    ],
+    "keyPoints": [
+      "Answer How would you stop duplicate CI creation when imports and Discovery both update the same estate? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you stop duplicate CI creation when imports and Discovery both update the same estate? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -245,7 +297,7 @@
       "cmdb_rel_ci"
     ],
     "scenario": "The client wants to remove stale CIs, but support and audit teams still rely on historical relationships and incident records.",
-    "exactAnswer": "Use a staged retirement process: identify candidates, validate ownership, retire or decommission them, review relationships, then archive or clean later if policy allows.",
+    "exactAnswer": "Retire stale CIs safely using staged decommission criteria, ownership approval, relationship impact review, and archival/audit controls so service maps and historical traceability remain intact.",
     "steps": [
       "Define stale criteria using discovery age and ownership review.",
       "Publish candidate reports for owner validation.",
@@ -260,6 +312,19 @@
     "commonMistakes": [
       "Deleting first and asking questions later.",
       "Retiring CIs without checking connected services or assets."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Retire%20stale%20CIs%20safely",
+      "https://developer.servicenow.com/dev.do#!/search/Retire%20stale%20CIs%20safely"
+    ],
+    "keyPoints": [
+      "Answer How would you retire stale CIs without breaking service maps or audit history? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you retire stale CIs without breaking service maps or audit history? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -309,6 +374,19 @@
     "commonMistakes": [
       "Launching the full network range on day one.",
       "Ignoring CMDB identification behavior until after production data is created."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20Discovery%20onboarding%20path%20for%20a%20new%20server%20estate",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20Discovery%20onboarding%20path%20for%20a%20new%20server%20estate"
+    ],
+    "keyPoints": [
+      "Answer How would you onboard a new Windows and Linux estate into Discovery? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you onboard a new Windows and Linux estate into Discovery? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -340,7 +418,7 @@
       "discovery_schedule"
     ],
     "scenario": "Discovery previously worked, but now many targets fail at the credential stage.",
-    "exactAnswer": "Start with MID Server health, isolate whether the failure is global or limited to one credential set or subnet, then validate password rotations, lockouts, and environment changes before altering logic.",
+    "exactAnswer": "Troubleshoot credential discovery failures by confirming MID health, testing target connectivity, validating credential affinity and protocol settings, then reviewing ECC/log errors to isolate authentication versus network causes.",
     "steps": [
       "Check MID Server health and queue backlog first.",
       "Confirm whether the failure affects all schedules or one scope.",
@@ -355,6 +433,19 @@
     "commonMistakes": [
       "Rotating every credential at once.",
       "Assuming discovery logic changed when the real cause is account or network drift."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Troubleshoot%20discovery%20credential%20failures",
+      "https://developer.servicenow.com/dev.do#!/search/Troubleshoot%20discovery%20credential%20failures"
+    ],
+    "keyPoints": [
+      "Answer How would you troubleshoot a discovery schedule that suddenly started failing on credentials? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you troubleshoot a discovery schedule that suddenly started failing on credentials? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -401,6 +492,19 @@
     "commonMistakes": [
       "Allowing every team to score risks differently.",
       "Closing risks without evidence of treatment or acceptance."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20repeatable%20risk%20assessment%20workflow",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20repeatable%20risk%20assessment%20workflow"
+    ],
+    "keyPoints": [
+      "Answer How would you implement a repeatable risk assessment process in ServiceNow GRC? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement a repeatable risk assessment process in ServiceNow GRC? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -444,6 +548,19 @@
     "commonMistakes": [
       "Allowing exceptions with no end date.",
       "Treating a policy exception as a replacement for remediation planning."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20policy%20exception%20approval%20model",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20policy%20exception%20approval%20model"
+    ],
+    "keyPoints": [
+      "Answer How would you implement policy exceptions with review, expiry, and evidence? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement policy exceptions with review, expiry, and evidence? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -490,6 +607,19 @@
     "commonMistakes": [
       "Routing only by scanner source.",
       "Ignoring CI or service ownership when assigning remediation."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20vulnerability%20response%20assignment%20and%20SLA%20model",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20vulnerability%20response%20assignment%20and%20SLA%20model"
+    ],
+    "keyPoints": [
+      "Answer How would you route vulnerable items to the right remediation teams with meaningful SLAs? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you route vulnerable items to the right remediation teams with meaningful SLAs? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -536,6 +666,19 @@
     "commonMistakes": [
       "Jumping into full investigation on every noisy alert.",
       "Skipping business context during triage."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20security%20incident%20triage%20flow",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20security%20incident%20triage%20flow"
+    ],
+    "keyPoints": [
+      "Answer How would you implement triage steps for inbound security incidents before investigation? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement triage steps for inbound security incidents before investigation? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -584,6 +727,19 @@
     "commonMistakes": [
       "Using one generic status for every stage.",
       "Retiring hardware without recording disposition details."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20hardware%20lifecycle%20from%20stock%20to%20disposal",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20hardware%20lifecycle%20from%20stock%20to%20disposal"
+    ],
+    "keyPoints": [
+      "Answer How would you implement a controlled hardware lifecycle from receipt through disposal? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement a controlled hardware lifecycle from receipt through disposal? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -613,7 +769,7 @@
     ],
     "relatedTables": [],
     "scenario": "The organization wants to reduce waste from inactive software installations without frustrating business users.",
-    "exactAnswer": "Use usage data and thresholds to identify candidates, send controlled notices, allow opt-out where justified, then remove or reassign licenses and track realized savings.",
+    "exactAnswer": "Implement reclamation by identifying unused installations from software usage data, notifying owners with a response window, approving exceptions, and removing unused installs while tracking reclaimed license entitlement.",
     "steps": [
       "Define inactivity thresholds and exclusion rules.",
       "Generate candidate lists and business-owner reviews.",
@@ -629,6 +785,19 @@
     "commonMistakes": [
       "Auto-removing software without review for critical roles.",
       "Using weak normalization and misidentifying products."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20software%20reclamation%20campaign",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20software%20reclamation%20campaign"
+    ],
+    "keyPoints": [
+      "Answer How would you implement a reclamation campaign for unused software installs? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement a reclamation campaign for unused software installs? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -676,6 +845,19 @@
     "commonMistakes": [
       "Trying to synchronize every field in both directions.",
       "Ignoring retire and dispose events in the sync design."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20asset-to-CI%20sync%20and%20ownership%20alignment",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20asset-to-CI%20sync%20and%20ownership%20alignment"
+    ],
+    "keyPoints": [
+      "Answer How would you keep hardware assets and configuration items aligned over time? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you keep hardware assets and configuration items aligned over time? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

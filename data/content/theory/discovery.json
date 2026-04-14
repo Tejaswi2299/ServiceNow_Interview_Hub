@@ -149,6 +149,10 @@
     ],
     "examples": [
       "Command created but never picked up by the MID Server."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=ECC%20Queue%20in%20Discovery%20troubleshooting",
+      "https://developer.servicenow.com/dev.do#!/search/ECC%20Queue%20in%20Discovery%20troubleshooting"
     ]
   }
 ]

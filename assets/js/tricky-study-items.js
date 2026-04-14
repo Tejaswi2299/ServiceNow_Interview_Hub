@@ -28,6 +28,12 @@ function buildFallbackExamples(topicName) {
 }
 
 function buildExactAnswer(topicName, pitfall, overview = {}) {
+  const leadAnswer = `${overview.leadExactAnswer || ''}`.trim();
+  const leadLooksPlaceholder = /should be explained clearly in terms of what it does/i.test(leadAnswer);
+  if (leadAnswer && !leadLooksPlaceholder) {
+    return `${leadAnswer} To avoid this interview pitfall, explicitly clarify: ${pitfall}`;
+  }
+
   const parts = [
     overview.definition,
     overview.whatItDoes,
@@ -57,6 +63,15 @@ export function getTrickyStudyItems(theory = []) {
 
 export function buildPitfallStudyItems({ topics = [], theory = [], topicOverviews = [], lookups = {} }) {
   const topicById = Object.fromEntries((topics || []).map((topic) => [topic.id, topic]));
+  const leadExactAnswerByTopicId = Object.fromEntries(
+    (topics || []).map((topic) => {
+      const leadTheory = (theory || [])
+        .filter((item) => (item.topicIds || []).includes(topic.id))
+        .filter((item) => !TRICKY_STUDY_TYPES.includes(item.contentType))
+        .find((item) => `${item.exactAnswer || ''}`.trim());
+      return [topic.id, leadTheory?.exactAnswer || ''];
+    })
+  );
   const existingKeys = new Set(
     (theory || [])
       .filter((item) => TRICKY_STUDY_TYPES.includes(item.contentType))
@@ -69,6 +84,7 @@ export function buildPitfallStudyItems({ topics = [], theory = [], topicOverview
   );
 
   return (topicOverviews || []).flatMap((overview) => {
+    if (overview?.verified === false) return [];
     const topic = topicById[overview.topicId];
     if (!topic) return [];
 
@@ -77,6 +93,7 @@ export function buildPitfallStudyItems({ topics = [], theory = [], topicOverview
     const keyPoints = (overview.keyComponents || []).length ? overview.keyComponents : buildFallbackKeyPoints(topic.name);
     const examples = (overview.realTimeExamples || []).length ? overview.realTimeExamples : buildFallbackExamples(topic.name);
     const relatedTables = overview.tablesInvolved || [];
+    const leadExactAnswer = leadExactAnswerByTopicId[topic.id] || '';
 
     return (overview.interviewPitfalls || [])
       .filter(Boolean)
@@ -91,7 +108,7 @@ export function buildPitfallStudyItems({ topics = [], theory = [], topicOverview
           title: pitfall,
           question: pitfall,
           summary: `Interview pitfall for ${topic.name}`,
-          exactAnswer: buildExactAnswer(topic.name, pitfall, overview),
+          exactAnswer: buildExactAnswer(topic.name, pitfall, { ...overview, leadExactAnswer }),
           keyPoints,
           examples,
           roleIds,

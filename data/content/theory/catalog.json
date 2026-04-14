@@ -38,6 +38,10 @@
     "examples": [
       "Make assignment_group mandatory for P1 using a UI policy if no extra logic is needed.",
       "Use an onChange client script when you need to call a Script Include to derive values."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Client%20Script%20%20UI%20Policy",
+      "https://developer.servicenow.com/dev.do#!/search/Client%20Script%20%20UI%20Policy"
     ]
   },
   {
@@ -153,6 +157,10 @@
     "examples": [
       "Build a new catalog fulfillment process in Flow Designer.",
       "Support an older catalog workflow while planning migration."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Flow%20Designer%20%20Legacy%20Workflow",
+      "https://developer.servicenow.com/dev.do#!/search/Flow%20Designer%20%20Legacy%20Workflow"
     ]
   },
   {
@@ -196,6 +204,10 @@
     "examples": [
       "Use a record producer to create an incident from a simplified intake form.",
       "Use an order guide to request a laptop, monitor, and accessories together."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Catalog%20Item%20%20Record%20Producer%20%20Order%20Guide",
+      "https://developer.servicenow.com/dev.do#!/search/Catalog%20Item%20%20Record%20Producer%20%20Order%20Guide"
     ]
   },
   {
@@ -237,6 +249,10 @@
     "examples": [
       "Build a legacy external portal enhancement in Service Portal.",
       "Build a modern fulfillment workspace page in UI Builder."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Service%20Portal%20%20Workspace%20%20UI%20Builder",
+      "https://developer.servicenow.com/dev.do#!/search/Service%20Portal%20%20Workspace%20%20UI%20Builder"
     ]
   }
 ]

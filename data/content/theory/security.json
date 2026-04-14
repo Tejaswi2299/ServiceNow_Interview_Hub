@@ -37,6 +37,10 @@
     "examples": [
       "Use a UI policy to hide an optional field on the form.",
       "Use a data policy to require a field whether the record comes from the form or integration."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=UI%20Policy%20%20Data%20Policy",
+      "https://developer.servicenow.com/dev.do#!/search/UI%20Policy%20%20Data%20Policy"
     ]
   },
   {
@@ -78,6 +82,10 @@
     "examples": [
       "Use GlideRecord in a scheduled job running as a trusted backend process.",
       "Use GlideRecordSecure in a server-side script servicing a user-facing request where data visibility matters."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=GlideRecord%20%20GlideRecordSecure",
+      "https://developer.servicenow.com/dev.do#!/search/GlideRecord%20%20GlideRecordSecure"
     ]
   },
   {

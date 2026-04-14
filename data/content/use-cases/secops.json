@@ -54,6 +54,19 @@
     ],
     "commonMistakes": [
       "Loading every raw indicator without normalization or retention rules."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Onboard%20a%20threat%20intelligence%20feed",
+      "https://developer.servicenow.com/dev.do#!/search/Onboard%20a%20threat%20intelligence%20feed"
+    ],
+    "keyPoints": [
+      "Answer How do you onboard a new threat intelligence feed into ServiceNow? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you onboard a new threat intelligence feed into ServiceNow? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -73,7 +86,7 @@
       "security-incident-response"
     ],
     "topicIds": [
-      "sir-lifecycle"
+      "security-incident-lifecycle"
     ],
     "difficulty": "Intermediate",
     "contentType": "use-case",
@@ -109,6 +122,19 @@
     ],
     "commonMistakes": [
       "Creating incidents from every alert without triage logic."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Convert%20a%20high-confidence%20alert%20into%20a%20security%20incident",
+      "https://developer.servicenow.com/dev.do#!/search/Convert%20a%20high-confidence%20alert%20into%20a%20security%20incident"
+    ],
+    "keyPoints": [
+      "Answer How do you implement the handoff from a high-confidence security alert into a security incident workflow? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement the handoff from a high-confidence security alert into a security incident workflow? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -161,6 +187,19 @@
     ],
     "commonMistakes": [
       "Grouping findings in a way that crosses too many owners."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Use%20vulnerability%20groups%20for%20remediation%20ownership",
+      "https://developer.servicenow.com/dev.do#!/search/Use%20vulnerability%20groups%20for%20remediation%20ownership"
+    ],
+    "keyPoints": [
+      "Answer How do you implement vulnerability grouping so remediation teams receive actionable work? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement vulnerability grouping so remediation teams receive actionable work? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

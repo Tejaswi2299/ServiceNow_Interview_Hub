@@ -56,6 +56,19 @@
     "commonMistakes": [
       "Writing ATF only for the happy path and never checking downstream records.",
       "Using brittle selectors that break unnecessarily."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20an%20ATF%20test%20for%20a%20catalog%20item",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20an%20ATF%20test%20for%20a%20catalog%20item"
+    ],
+    "keyPoints": [
+      "Answer How do you automate regression testing for a critical catalog item? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you automate regression testing for a critical catalog item? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -116,6 +129,19 @@
     "commonMistakes": [
       "Recreating task-like behavior without deciding whether extending task is appropriate.",
       "Skipping security design until the end."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Build%20a%20custom%20App%20Engine%20intake%20application",
+      "https://developer.servicenow.com/dev.do#!/search/Build%20a%20custom%20App%20Engine%20intake%20application"
+    ],
+    "keyPoints": [
+      "Answer How do you design a simple custom intake app on ServiceNow? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you design a simple custom intake app on ServiceNow? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

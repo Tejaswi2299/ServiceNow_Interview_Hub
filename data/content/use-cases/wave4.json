@@ -65,6 +65,19 @@
       "Treating every P1 as a major incident automatically.",
       "Sending duplicate updates from multiple notifications and flows.",
       "Not defining who owns communication cadence."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20major-incident%20governance%20from%20detection%20to%20closure",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20major-incident%20governance%20from%20detection%20to%20closure"
+    ],
+    "keyPoints": [
+      "Answer How would you design major-incident governance in ServiceNow for a 24x7 operations team? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design major-incident governance in ServiceNow for a 24x7 operations team? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -127,6 +140,19 @@
     "commonMistakes": [
       "Creating problem records automatically for every threshold hit.",
       "Ignoring CI ownership and symptom normalization."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20a%20problem-candidate%20pipeline%20from%20repeat%20incidents",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20a%20problem-candidate%20pipeline%20from%20repeat%20incidents"
+    ],
+    "keyPoints": [
+      "Answer How would you implement a repeat-incident detection process that feeds problem management? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement a repeat-incident detection process that feeds problem management? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -188,6 +214,19 @@
     "commonMistakes": [
       "Running broad repair before validating future-state logic.",
       "Leaving old incorrect task_sla rows alongside new corrected rows."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Repair%20SLA%20behavior%20after%20retroactive%20priority%20changes",
+      "https://developer.servicenow.com/dev.do#!/search/Repair%20SLA%20behavior%20after%20retroactive%20priority%20changes"
+    ],
+    "keyPoints": [
+      "Answer How would you fix incorrect SLAs after incidents were updated from P3 to P1 after creation? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you fix incorrect SLAs after incidents were updated from P3 to P1 after creation? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -250,6 +289,19 @@
     "commonMistakes": [
       "Cleaning duplicates before fixing the intake pattern.",
       "Using source precedence without trustworthy identifiers."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Resolve%20duplicate%20CI%20creation%20with%20IRE%20and%20source%20governance",
+      "https://developer.servicenow.com/dev.do#!/search/Resolve%20duplicate%20CI%20creation%20with%20IRE%20and%20source%20governance"
+    ],
+    "keyPoints": [
+      "Answer How would you stop duplicate servers from being created in CMDB when multiple sources send overlapping data? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you stop duplicate servers from being created in CMDB when multiple sources send overlapping data? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -311,6 +363,19 @@
     "commonMistakes": [
       "Looking only at the MID Server record without checking ECC Queue.",
       "Forgetting capability or schedule selection mismatches."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Troubleshoot%20a%20MID%20Server%20that%20will%20not%20validate",
+      "https://developer.servicenow.com/dev.do#!/search/Troubleshoot%20a%20MID%20Server%20that%20will%20not%20validate"
+    ],
+    "keyPoints": [
+      "Answer How would you troubleshoot a MID Server that remains down or does not validate? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you troubleshoot a MID Server that remains down or does not validate? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -373,6 +438,19 @@
     "commonMistakes": [
       "Showing too many vanity metrics.",
       "Publishing dashboards with no follow-up operating rhythm."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20CMDB%20health%20dashboard%20and%20operating%20process",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20CMDB%20health%20dashboard%20and%20operating%20process"
+    ],
+    "keyPoints": [
+      "Answer How would you design a CMDB health dashboard that teams will actually use? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a CMDB health dashboard that teams will actually use? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -434,6 +512,19 @@
     "commonMistakes": [
       "Allowing exceptions without an expiry date.",
       "Treating exceptions as a substitute for issue remediation."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20a%20policy-exception%20lifecycle",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20a%20policy-exception%20lifecycle"
+    ],
+    "keyPoints": [
+      "Answer How would you design a policy-exception workflow that is controlled but usable? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a policy-exception workflow that is controlled but usable? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -496,6 +587,19 @@
     "commonMistakes": [
       "Assuming ownership data is clean enough before measuring it.",
       "Creating too many narrow groups without accountable teams."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Route%20vulnerabilities%20by%20CI%20or%20service%20ownership",
+      "https://developer.servicenow.com/dev.do#!/search/Route%20vulnerabilities%20by%20CI%20or%20service%20ownership"
+    ],
+    "keyPoints": [
+      "Answer How would you design vulnerability routing when infrastructure ownership is incomplete? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design vulnerability routing when infrastructure ownership is incomplete? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -530,7 +634,7 @@
       "sn_si_incident"
     ],
     "scenario": "The SOC wants alerts from an external detection tool to create or update security incidents in ServiceNow.",
-    "exactAnswer": "Design the integration around trusted alert identity, severity mapping, update-versus-create logic, analyst-friendly record structure, and enrichment data that helps triage. The strongest answer includes deduplication and ownership rules.",
+    "exactAnswer": "Design inbound security-alert ingestion by mapping source alert identity/severity to SIR records, deduplicating on stable external keys, enriching context for triage, and routing to the correct response workflow.",
     "navigationPath": [
       "All > Scripted REST APIs or Integration tooling",
       "All > Security Incident Response",
@@ -557,6 +661,19 @@
     "commonMistakes": [
       "Creating a new case for every repeated alert.",
       "Mapping severity without preserving original source context."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Ingest%20external%20security%20alerts%20into%20Security%20Incident%20Response",
+      "https://developer.servicenow.com/dev.do#!/search/Ingest%20external%20security%20alerts%20into%20Security%20Incident%20Response"
+    ],
+    "keyPoints": [
+      "Answer How would you design an inbound flow from an external security tool into Security Incident Response? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design an inbound flow from an external security tool into Security Incident Response? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -619,6 +736,19 @@
     "commonMistakes": [
       "Updating inventory immediately at request creation.",
       "Ignoring custody or location alignment."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20a%20controlled%20stockroom-transfer%20process",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20a%20controlled%20stockroom-transfer%20process"
+    ],
+    "keyPoints": [
+      "Answer How would you design a stockroom-transfer process for hardware assets? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you design a stockroom-transfer process for hardware assets? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -681,6 +811,19 @@
     "commonMistakes": [
       "Reclaiming without business-owner validation.",
       "Counting expected savings before install evidence is updated."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20software-reclamation%20flow",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20software-reclamation%20flow"
+    ],
+    "keyPoints": [
+      "Answer How would you implement software reclamation for underused applications? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you implement software reclamation for underused applications? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -742,6 +885,19 @@
     "commonMistakes": [
       "Leaving unauthorized software in permanent exception state.",
       "Creating an exception without a remediation path."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20an%20unauthorized-software%20exception%20process",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20an%20unauthorized-software%20exception%20process"
+    ],
+    "keyPoints": [
+      "Answer How would you handle unauthorized software that cannot be removed immediately? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you handle unauthorized software that cannot be removed immediately? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -803,6 +959,19 @@
     "commonMistakes": [
       "Using one generic blackout calendar for all services regardless of reality.",
       "Allowing silent overrides without governance."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20blackout%20and%20maintenance-window%20enforcement",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20blackout%20and%20maintenance-window%20enforcement"
+    ],
+    "keyPoints": [
+      "Answer How would you prevent risky changes from being scheduled in blackout periods? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you prevent risky changes from being scheduled in blackout periods? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -865,6 +1034,19 @@
     "commonMistakes": [
       "Assuming the pattern supports the target technology version without checking.",
       "Troubleshooting only the final CI output and not the step-level execution evidence."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Design%20a%20troubleshooting%20flow%20for%20failing%20discovery%20patterns",
+      "https://developer.servicenow.com/dev.do#!/search/Design%20a%20troubleshooting%20flow%20for%20failing%20discovery%20patterns"
+    ],
+    "keyPoints": [
+      "Answer How would you troubleshoot a pattern-based discovery that identifies the host but misses application details? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you troubleshoot a pattern-based discovery that identifies the host but misses application details? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

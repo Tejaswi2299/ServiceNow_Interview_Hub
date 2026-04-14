@@ -52,6 +52,19 @@
     "explanation": [
       "ACLs should stay fast and focused.",
       "Use explicit boolean logic and test with impersonation."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=ACL%20script%20with%20role%20and%20group%20guardrails",
+      "https://developer.servicenow.com/dev.do#!/search/ACL%20script%20with%20role%20and%20group%20guardrails"
+    ],
+    "keyPoints": [
+      "Answer Write an ACL script that allows update only for users with itil_admin or support_group_manager. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write an ACL script that allows update only for users with itil_admin or support_group_manager. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -103,6 +116,19 @@
     ],
     "explanation": [
       "ACL scripts should compare stable identifiers whenever possible."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=ACL%20script%20for%20requester-only%20access",
+      "https://developer.servicenow.com/dev.do#!/search/ACL%20script%20for%20requester-only%20access"
+    ],
+    "keyPoints": [
+      "Answer Write an ACL script that allows read access only when the current user opened the record. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write an ACL script that allows read access only when the current user opened the record. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -150,6 +176,19 @@
     ],
     "explanation": [
       "A custom source makes ad hoc debugging easier to filter and review."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Targeted%20gs.log%20tracing%20for%20script%20debugging",
+      "https://developer.servicenow.com/dev.do#!/search/Targeted%20gs.log%20tracing%20for%20script%20debugging"
+    ],
+    "keyPoints": [
+      "Answer Write a small server-side snippet that logs a transaction checkpoint with a custom source for debugging. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a small server-side snippet that logs a transaction checkpoint with a custom source for debugging. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]
