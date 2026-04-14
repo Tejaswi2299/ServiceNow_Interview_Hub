@@ -370,6 +370,19 @@ function enhanceBackButtonFallback({ route }) {
     return;
   }
 
+  if (route.segments[0] === 'study') {
+    backButton.dataset.fallback = makeHash(route.query.from || '/home', {
+      role: route.query.role || '',
+      module: route.query.module || '',
+      topic: route.query.topic || '',
+      difficulty: route.query.difficulty || '',
+      q: route.query.q || '',
+      page: route.query.page || ''
+    });
+    backButton.dataset.forceFallback = 'true';
+    return;
+  }
+
   if (route.segments[0] === 'modules') {
     backButton.dataset.fallback = makeHash(route.query.from || '/modules', { q: route.query.q || '' });
     backButton.dataset.forceFallback = 'true';
