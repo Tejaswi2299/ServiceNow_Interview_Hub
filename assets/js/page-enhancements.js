@@ -1,6 +1,7 @@
 import { makeHash } from './router.js';
 import { filterStudyItems } from './filters.js';
 import { appState } from './state.js';
+import { getTrickyStudyItems } from './tricky-study-items.js';
 
 function normalizeText(value) {
   return `${value || ''}`.toLowerCase();
@@ -364,6 +365,19 @@ function enhanceBackButtonFallback({ route }) {
       topic: route.query.topic || '',
       difficulty: route.query.difficulty || '',
       q: route.query.q || ''
+    });
+    backButton.dataset.forceFallback = 'true';
+    return;
+  }
+
+  if (route.segments[0] === 'study') {
+    backButton.dataset.fallback = makeHash(route.query.from || '/home', {
+      role: route.query.role || '',
+      module: route.query.module || '',
+      topic: route.query.topic || '',
+      difficulty: route.query.difficulty || '',
+      q: route.query.q || '',
+      page: route.query.page || ''
     });
     backButton.dataset.forceFallback = 'true';
     return;

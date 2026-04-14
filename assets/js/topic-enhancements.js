@@ -402,6 +402,22 @@ function trickyPageLink(filters = {}, page = 1) {
   return `#/tricky${query ? `?${query}` : ''}`;
 }
 
+function renderTrickyPaginationControls(filters = {}, boundedPage = 1, totalPages = 1) {
+  const previousControl = boundedPage > 1
+    ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage - 1)}" aria-label="Go to previous tricky questions page">← Previous</a>`
+    : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">← Previous</span>`;
+  const nextControl = boundedPage < totalPages
+    ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage + 1)}" aria-label="Go to next tricky questions page">Next →</a>`
+    : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">Next →</span>`;
+
+  return `
+    <div class="filter-actions" aria-label="Tricky questions pagination controls">
+      ${previousControl}
+      ${nextControl}
+    </div>
+  `;
+}
+
 export function renderTrickyPage(state, items, filters = {}) {
   const PAGE_SIZE = 12;
   const currentPage = Math.max(1, Number(filters.page || 1));
@@ -465,10 +481,7 @@ export function renderTrickyPage(state, items, filters = {}) {
         <h2>Results</h2>
         <p>${escapeHtml(formatCount(items.length))} tricky item(s) match the current filters. Showing page ${boundedPage} of ${totalPages}.</p>
       </div>
-      <div class="filter-actions">
-        ${boundedPage > 1 ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage - 1)}">← Previous</a>` : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">← Previous</span>`}
-        ${boundedPage < totalPages ? `<a class="button secondary" href="${trickyPageLink(filters, boundedPage + 1)}">Next →</a>` : `<span class="button secondary" aria-disabled="true" style="opacity:.5;pointer-events:none;">Next →</span>`}
-      </div>
+      ${renderTrickyPaginationControls(filters, boundedPage, totalPages)}
     </section>
 
     <section class="grid cards-2">
@@ -477,6 +490,8 @@ export function renderTrickyPage(state, items, filters = {}) {
         : `<section class="card empty-state"><h2>No tricky questions match this filter.</h2><p>Try clearing the filters or broadening the search terms.</p></section>`
       }
     </section>
+
+    ${renderTrickyPaginationControls(filters, boundedPage, totalPages)}
   `;
 }
 
