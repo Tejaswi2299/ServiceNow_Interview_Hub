@@ -53,6 +53,19 @@
       "GlideAggregate pushes the counting work to the database.",
       "groupBy('priority') creates one row per priority value.",
       "getAggregate('COUNT') returns the record count for that group."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Count%20active%20incidents%20with%20GlideAggregate",
+      "https://developer.servicenow.com/dev.do#!/search/Count%20active%20incidents%20with%20GlideAggregate"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that counts active incidents by priority using GlideAggregate. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that counts active incidents by priority using GlideAggregate. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -106,6 +119,19 @@
     "explanation": [
       "Encoded queries are useful when the condition is easier to express in one string.",
       "The relative date operator checks whether the record was updated before the last 7 days threshold."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Find%20stale%20incidents%20with%20an%20encoded%20query",
+      "https://developer.servicenow.com/dev.do#!/search/Find%20stale%20incidents%20with%20an%20encoded%20query"
+    ],
+    "keyPoints": [
+      "Answer Write a background script that finds active incidents not updated in the last 7 days using an encoded query. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a background script that finds active incidents not updated in the last 7 days using an encoded query. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -160,6 +186,19 @@
     "explanation": [
       "This script finds collision candidates, not the final remediation decision.",
       "Use it as part of CMDB governance and IRE debugging."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Find%20possible%20duplicate%20CIs%20by%20serial%20number",
+      "https://developer.servicenow.com/dev.do#!/search/Find%20possible%20duplicate%20CIs%20by%20serial%20number"
+    ],
+    "keyPoints": [
+      "Answer Write a script to identify possible duplicate computer CIs sharing the same serial number. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to identify possible duplicate computer CIs sharing the same serial number. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -211,6 +250,19 @@
     ],
     "explanation": [
       "This script narrows the view to outbound work that may not yet be processed by the MID Server."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Check%20pending%20ECC%20Queue%20output%20records",
+      "https://developer.servicenow.com/dev.do#!/search/Check%20pending%20ECC%20Queue%20output%20records"
+    ],
+    "keyPoints": [
+      "Answer Write a script to list recent ECC Queue output records still waiting to be processed. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to list recent ECC Queue output records still waiting to be processed. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -263,6 +315,19 @@
     ],
     "explanation": [
       "This demonstrates overlap logic rather than a production-ready reusable utility class."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Check%20for%20change%20blackout%20conflicts",
+      "https://developer.servicenow.com/dev.do#!/search/Check%20for%20change%20blackout%20conflicts"
+    ],
+    "keyPoints": [
+      "Answer Write a script that flags normal changes scheduled during blackout windows. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script that flags normal changes scheduled during blackout windows. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -314,6 +379,19 @@
     ],
     "explanation": [
       "The script helps build a candidate list; policy and approval logic should govern final reclamation."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Find%20SAM%20reclamation%20candidates",
+      "https://developer.servicenow.com/dev.do#!/search/Find%20SAM%20reclamation%20candidates"
+    ],
+    "keyPoints": [
+      "Answer Write a script to identify installed software candidates for reclamation based on inactive users. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to identify installed software candidates for reclamation based on inactive users. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -364,6 +442,19 @@
     ],
     "explanation": [
       "The goal is to expose stockroom control issues, not silently repair them in bulk."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Validate%20HAM%20stockroom%20transfers",
+      "https://developer.servicenow.com/dev.do#!/search/Validate%20HAM%20stockroom%20transfers"
+    ],
+    "keyPoints": [
+      "Answer Write a script to find in-stock hardware assets missing a stockroom assignment. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a script to find in-stock hardware assets missing a stockroom assignment. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

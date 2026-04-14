@@ -38,6 +38,10 @@
     "examples": [
       "Count active incidents with GlideAggregate.",
       "Group incidents by priority without iterating every record manually."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=GlideAggregate%20%20GlideRecord%20for%20counts",
+      "https://developer.servicenow.com/dev.do#!/search/GlideAggregate%20%20GlideRecord%20for%20counts"
     ]
   },
   {
@@ -80,6 +84,10 @@
     "examples": [
       "Use ACLs to prevent unauthorized read access.",
       "Use a query business rule to suppress certain records for a specific process view."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Query%20Business%20Rules%20%20ACLs",
+      "https://developer.servicenow.com/dev.do#!/search/Query%20Business%20Rules%20%20ACLs"
     ]
   },
   {
@@ -115,7 +123,7 @@
       "cmdb_ci",
       "cmdb_identification_rule"
     ],
-    "exactAnswer": "Start by validating the source payload and identifier fields being sent into IRE. Confirm that the expected identification rules exist for the CI class, that the source is sending stable identifiers such as serial number or cloud resource ID, and that reconciliation and trusted-source settings are not allowing parallel creation paths from multiple tools.",
+    "exactAnswer": "For duplicate CI creation in IRE, first verify the identifier values and source payload entering IRE, then confirm the class identification rule criteria and reconciliation definition for that class. If identifiers are incomplete, inconsistent, or mapped to the wrong class, IRE will create new CIs instead of matching existing records.",
     "keyPoints": [
       "Bad or inconsistent identifiers are the most common duplicate driver.",
       "Trusted-source and reconciliation settings can create the illusion that IRE is failing when the source model is actually wrong.",
@@ -124,6 +132,10 @@
     "examples": [
       "Two discovery sources send different serial number formats.",
       "A cloud connector creates records in a different class than the on-prem source."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=IRE%20debugging%20for%20duplicate%20CI%20sources",
+      "https://developer.servicenow.com/dev.do#!/search/IRE%20debugging%20for%20duplicate%20CI%20sources"
     ]
   },
   {
@@ -157,7 +169,7 @@
     "relatedTables": [
       "ecc_queue"
     ],
-    "exactAnswer": "Check whether the ECC Queue output and input records are being created, processed, and returned in sequence. If output records remain pending, validate MID connectivity and agent status. If input is delayed or missing, inspect MID logs, credentials, firewall reachability, sensor or pattern execution, and whether the relevant capability is enabled on the MID Server.",
+    "exactAnswer": "When Discovery appears stuck, use ECC Queue first to confirm end-to-end message flow: output records must leave the instance, MID Server must process them, and matching input results must return. If output stays pending or input never returns, troubleshoot MID status, agent heartbeat, credentials/connectivity, and payload errors before changing Discovery logic.",
     "keyPoints": [
       "ECC Queue gives a timeline for command dispatch and response.",
       "A pending output often points to MID communication or capability issues.",
@@ -166,6 +178,10 @@
     "examples": [
       "Output records remain ready with no agent pickup.",
       "Input records exist but pattern parsing does not populate the expected class."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=ECC%20Queue%20troubleshooting%20path",
+      "https://developer.servicenow.com/dev.do#!/search/ECC%20Queue%20troubleshooting%20path"
     ]
   },
   {
@@ -205,6 +221,10 @@
     "examples": [
       "Quarterly control owner attestation.",
       "Temporary exception to a password policy for a legacy system."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Control%20attestation%20%20policy%20exception",
+      "https://developer.servicenow.com/dev.do#!/search/Control%20attestation%20%20policy%20exception"
     ]
   },
   {

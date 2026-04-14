@@ -42,6 +42,19 @@
     ],
     "explanation": [
       "This is a concise read-oriented example. In interviews, still demonstrate strong GlideRecord fundamentals first."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=GlideQuery%20example%20for%20active%20problems",
+      "https://developer.servicenow.com/dev.do#!/search/GlideQuery%20example%20for%20active%20problems"
+    ],
+    "keyPoints": [
+      "Answer Write a GlideQuery example that selects active problem records and returns number and short_description. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write a GlideQuery example that selects active problem records and returns number and short_description. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

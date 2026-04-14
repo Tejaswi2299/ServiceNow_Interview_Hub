@@ -51,6 +51,10 @@
         "label": "Risk",
         "value": "After rules can cause unnecessary additional updates on current"
       }
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Before%20%20After%20Business%20Rules",
+      "https://developer.servicenow.com/dev.do#!/search/Before%20%20After%20Business%20Rules"
     ]
   },
   {
@@ -91,6 +95,10 @@
     "examples": [
       "Use async for sending an outbound integration event.",
       "Use display to expose a boolean flag to client scripts."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Async%20%20Display%20Business%20Rules",
+      "https://developer.servicenow.com/dev.do#!/search/Async%20%20Display%20Business%20Rules"
     ]
   },
   {
@@ -126,6 +134,10 @@
     "examples": [
       "Use GlideRecord when maintaining legacy business rules.",
       "Use GlideQuery for concise read-oriented queries in supported contexts."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=GlideQuery%20%20GlideRecord",
+      "https://developer.servicenow.com/dev.do#!/search/GlideQuery%20%20GlideRecord"
     ]
   },
   {
@@ -206,6 +218,10 @@
     "examples": [
       "Queue incident.p1.triggered from a business rule.",
       "Have a notification listen for that event and email the major incident bridge team."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Notifications%20%20Events",
+      "https://developer.servicenow.com/dev.do#!/search/Notifications%20%20Events"
     ]
   },
   {
@@ -248,6 +264,10 @@
     "examples": [
       "A priority or assignment value may not be set until after insert, preventing attach at creation time.",
       "A business calendar mismatch can affect breach calculations even after attachment."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=SLA%20Attachment%20Troubleshooting",
+      "https://developer.servicenow.com/dev.do#!/search/SLA%20Attachment%20Troubleshooting"
     ]
   },
   {
@@ -322,6 +342,10 @@
     "examples": [
       "Build a new custom employee onboarding app as a scoped application.",
       "Avoid placing every custom table and script in global without a governance reason."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Scoped%20%20Global%20Applications",
+      "https://developer.servicenow.com/dev.do#!/search/Scoped%20%20Global%20Applications"
     ]
   },
   {

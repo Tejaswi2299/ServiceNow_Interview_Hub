@@ -91,7 +91,7 @@ export function syncProgressiveQuizForm(form) {
         ? topicSelect?.value
         : '';
 
-  const canShowDifficulty = Boolean(scope) && (scope === 'mixed' || Boolean(selectedScopeValue));
+  const canShowDifficulty = Boolean(scope) && (scope === 'mixed' || scope === 'coding' || scope === 'use-case' || Boolean(selectedScopeValue));
   if (difficultyWrapper) difficultyWrapper.hidden = !canShowDifficulty;
   if (difficultySelect) {
     difficultySelect.disabled = !canShowDifficulty;
@@ -284,21 +284,22 @@ function buildDetailPager({ appState: appStateArg, route, getRoleRelatedItems, g
       items = getRoleTopicList(appStateArg, appStateArg.lookups.rolesById[route.query.scopeId], content, getRoleRelatedItems);
     } else if (route.query.scopeType === 'module') {
       items = getModuleTopicList(appStateArg, appStateArg.lookups.modulesById[route.query.scopeId], content, getModuleRelatedItems);
- 
-    } 
-    else if (route.segments[0] === 'study' && route.query.from === '/tricky') {
-  const trickyItems = filterStudyItems(
-    getTrickyStudyItems(appStateArg.data.theory),
-    routeQueryFilters(route),
-    appStateArg
-  ).sort((a, b) => a.title.localeCompare(b.title));
-
-  items = trickyItems;
-  pathPrefix = '/study';
-}else {
+    } else {
       items = filterTopicsForNavigation(appStateArg, route.query);
     }
     pathPrefix = '/topics';
+  } else if (route.segments[0] === 'study' && route.segments[1]) {
+    if (route.query.from === '/tricky') {
+      items = filterStudyItems(
+        getTrickyStudyItems(appStateArg.data.theory),
+        routeQueryFilters(route),
+        appStateArg
+      ).sort((a, b) => a.title.localeCompare(b.title));
+    } else {
+      items = filterStudyItems(appStateArg.data.theory, routeQueryFilters(route), appStateArg)
+        .sort((a, b) => a.title.localeCompare(b.title));
+    }
+    pathPrefix = '/study';
   } else {
     return '';
   }

@@ -35,6 +35,10 @@
     ],
     "examples": [
       "A broad email outage may be promoted to major incident; a single-user VIP issue may stay P1 only."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Major%20Incident%20%20Priority%201",
+      "https://developer.servicenow.com/dev.do#!/search/Major%20Incident%20%20Priority%201"
     ]
   },
   {
@@ -75,6 +79,10 @@
     ],
     "examples": [
       "One onboarding request can contain multiple RITMs and each RITM can generate several tasks."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Request%20%20RITM%20%20Catalog%20Task",
+      "https://developer.servicenow.com/dev.do#!/search/Request%20%20RITM%20%20Catalog%20Task"
     ]
   },
   {
@@ -112,6 +120,14 @@
       "IRE governs match-versus-create decisions.",
       "Reconciliation defines who can update trusted fields.",
       "Direct inserts are risky in multi-source CMDB designs."
+    ],
+    "examples": [
+      "Use IRE vs Direct GlideRecord Upsert explicitly when explaining design choices in a real implementation scenario.",
+      "Validate IRE vs Direct GlideRecord Upsert with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=IRE%20%20Direct%20GlideRecord%20Upsert",
+      "https://developer.servicenow.com/dev.do#!/search/IRE%20%20Direct%20GlideRecord%20Upsert"
     ]
   },
   {
@@ -147,6 +163,14 @@
       "Reference fields are simple lookups.",
       "Relationships model dependency meaning.",
       "Impact analysis depends on typed relationships, not just references."
+    ],
+    "examples": [
+      "Use CI Relationship vs Reference Field explicitly when explaining design choices in a real implementation scenario.",
+      "Validate CI Relationship vs Reference Field with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=CI%20Relationship%20%20Reference%20Field",
+      "https://developer.servicenow.com/dev.do#!/search/CI%20Relationship%20%20Reference%20Field"
     ]
   },
   {
@@ -182,6 +206,14 @@
       "Patterns reduce custom script maintenance.",
       "Probes collect data; sensors process it.",
       "Interviewers want to know when you extend a pattern versus customize a sensor."
+    ],
+    "examples": [
+      "Use Patterns vs Probes and Sensors explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Patterns vs Probes and Sensors with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Patterns%20%20Probes%20and%20Sensors",
+      "https://developer.servicenow.com/dev.do#!/search/Patterns%20%20Probes%20and%20Sensors"
     ]
   },
   {
@@ -250,6 +282,14 @@
       "Policies state intent.",
       "Controls operationalize the intent.",
       "Control objectives explain the assurance target."
+    ],
+    "examples": [
+      "Use Policy vs Control vs Control Objective explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Policy vs Control vs Control Objective with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Policy%20%20Control%20%20Control%20Objective",
+      "https://developer.servicenow.com/dev.do#!/search/Policy%20%20Control%20%20Control%20Objective"
     ]
   },
   {
@@ -283,6 +323,14 @@
       "Risk is potential; issue is present.",
       "Confusing the two creates poor governance reporting.",
       "Issues usually need immediate remediation or formal acceptance."
+    ],
+    "examples": [
+      "Use Risk Statement vs Issue explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Risk Statement vs Issue with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Risk%20Statement%20%20Issue",
+      "https://developer.servicenow.com/dev.do#!/search/Risk%20Statement%20%20Issue"
     ]
   },
   {
@@ -315,6 +363,14 @@
       "Vulnerability response is preventative.",
       "Security incident response is reactive.",
       "The workflows, SLAs, and stakeholders are usually different."
+    ],
+    "examples": [
+      "Use Vulnerable Item vs Security Incident explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Vulnerable Item vs Security Incident with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Vulnerable%20Item%20%20Security%20Incident",
+      "https://developer.servicenow.com/dev.do#!/search/Vulnerable%20Item%20%20Security%20Incident"
     ]
   },
   {
@@ -348,6 +404,14 @@
       "False positives remove bad data.",
       "Exceptions document accepted risk for real findings.",
       "Treating real findings as false positives destroys auditability."
+    ],
+    "examples": [
+      "Use Vulnerability Exception vs False Positive explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Vulnerability Exception vs False Positive with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Vulnerability%20Exception%20%20False%20Positive",
+      "https://developer.servicenow.com/dev.do#!/search/Vulnerability%20Exception%20%20False%20Positive"
     ]
   },
   {
@@ -389,6 +453,14 @@
       "Assets answer who owns and funds something.",
       "CIs answer what it is connected to.",
       "Misalignment creates bad lifecycle reporting and poor support decisions."
+    ],
+    "examples": [
+      "Use Asset vs CI Alignment explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Asset vs CI Alignment with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Asset%20%20CI%20Alignment",
+      "https://developer.servicenow.com/dev.do#!/search/Asset%20%20CI%20Alignment"
     ]
   },
   {
@@ -424,6 +496,14 @@
       "Stockroom is for inventory custody.",
       "Location is where the asset belongs or resides.",
       "Assigned to is the person responsible for using it."
+    ],
+    "examples": [
+      "Use Stockroom vs Location vs Assigned To explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Stockroom vs Location vs Assigned To with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Stockroom%20%20Location%20%20Assigned%20To",
+      "https://developer.servicenow.com/dev.do#!/search/Stockroom%20%20Location%20%20Assigned%20To"
     ]
   },
   {
@@ -456,6 +536,14 @@
       "Installations are observed facts.",
       "Entitlements are contractual rights.",
       "SAM optimization compares installations to entitlements."
+    ],
+    "examples": [
+      "Use Entitlement vs Installation explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Entitlement vs Installation with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Entitlement%20%20Installation",
+      "https://developer.servicenow.com/dev.do#!/search/Entitlement%20%20Installation"
     ]
   },
   {
@@ -489,6 +577,14 @@
       "Normalization improves data quality.",
       "Reclamation turns that quality into savings action.",
       "Weak normalization hides reclaim opportunities."
+    ],
+    "examples": [
+      "Use Normalization vs Reclamation explicitly when explaining design choices in a real implementation scenario.",
+      "Validate Normalization vs Reclamation with one production-style record flow so the interview answer is evidence-based."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Normalization%20%20Reclamation",
+      "https://developer.servicenow.com/dev.do#!/search/Normalization%20%20Reclamation"
     ]
   }
 ]

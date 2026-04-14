@@ -77,6 +77,19 @@
     "commonMistakes": [
       "Triggering duplicate notifications from both a business rule and a notification condition.",
       "Handling only insert and forgetting the priority-change update case."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Implement%20P1%20incident%20escalation",
+      "https://developer.servicenow.com/dev.do#!/search/Implement%20P1%20incident%20escalation"
+    ],
+    "keyPoints": [
+      "Answer How do you implement escalation and notification flow for P1 incidents? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement escalation and notification flow for P1 incidents? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -133,6 +146,19 @@
     "commonMistakes": [
       "Using sys_updated_on instead of resolved_at for the aging calculation.",
       "Ignoring state values used by the client's instance."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Auto-close%20resolved%20incidents%20after%207%20days",
+      "https://developer.servicenow.com/dev.do#!/search/Auto-close%20resolved%20incidents%20after%207%20days"
+    ],
+    "keyPoints": [
+      "Answer How do you implement auto-closure for resolved incidents after 7 days? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you implement auto-closure for resolved incidents after 7 days? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -194,6 +220,19 @@
     "commonMistakes": [
       "Choosing a weak coalesce field such as first name.",
       "Skipping tests for manager or department reference resolution."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Import%20users%20through%20an%20import%20set%20and%20transform%20map",
+      "https://developer.servicenow.com/dev.do#!/search/Import%20users%20through%20an%20import%20set%20and%20transform%20map"
+    ],
+    "keyPoints": [
+      "Answer How do you load a user file and create/update sys_user records safely? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you load a user file and create/update sys_user records safely? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -250,6 +289,19 @@
     "commonMistakes": [
       "Creating overlapping rules with no clear priority.",
       "Hardcoding all logic in script when rules or decision tables would be easier to maintain."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Auto-assign%20incidents%20by%20category",
+      "https://developer.servicenow.com/dev.do#!/search/Auto-assign%20incidents%20by%20category"
+    ],
+    "keyPoints": [
+      "Answer How do you route incidents to different support groups by category and subcategory? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you route incidents to different support groups by category and subcategory? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -284,7 +336,7 @@
       "incident"
     ],
     "scenario": "When a major incident is created or updated, the organization wants to create or update a corresponding ticket in an external platform.",
-    "exactAnswer": "Implement the solution by deciding the trigger point, mapping outbound payload fields, storing endpoint and auth configuration securely, sending the request through RESTMessageV2 or an IntegrationHub action, and logging response details for retry and supportability.",
+    "exactAnswer": "Integrate incident create/update to an external tool by defining trigger conditions, mapping incident fields to outbound payload, securing REST authentication, handling response/error retries, and maintaining correlation IDs for bi-directional updates.",
     "navigationPath": [
       "All > System Web Services > Outbound > REST Message",
       "All > System Definition > Business Rules or Flow Designer",
@@ -310,6 +362,19 @@
     "commonMistakes": [
       "Calling the endpoint synchronously on every trivial update without trigger control.",
       "Hardcoding credentials in script."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Send%20incident%20data%20to%20an%20external%20system%20through%20REST",
+      "https://developer.servicenow.com/dev.do#!/search/Send%20incident%20data%20to%20an%20external%20system%20through%20REST"
+    ],
+    "keyPoints": [
+      "Answer How do you integrate incident creation or updates with an external ticketing tool? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you integrate incident creation or updates with an external ticketing tool? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -367,6 +432,19 @@
     "commonMistakes": [
       "Sending on any approver update instead of final approval.",
       "Targeting the wrong approval table or state."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Notify%20stakeholders%20when%20a%20change%20is%20approved",
+      "https://developer.servicenow.com/dev.do#!/search/Notify%20stakeholders%20when%20a%20change%20is%20approved"
+    ],
+    "keyPoints": [
+      "Answer How do you send notifications when a normal change receives final approval? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you send notifications when a normal change receives final approval? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -427,6 +505,19 @@
     "commonMistakes": [
       "Testing only the current form values and ignoring what values existed at insert time.",
       "Forgetting that later business rules may change values after the initial insert."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Troubleshoot%20an%20SLA%20that%20is%20not%20attaching",
+      "https://developer.servicenow.com/dev.do#!/search/Troubleshoot%20an%20SLA%20that%20is%20not%20attaching"
+    ],
+    "keyPoints": [
+      "Answer Walk through how you would fix an SLA that does not attach to incidents. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Walk through how you would fix an SLA that does not attach to incidents. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -484,6 +575,19 @@
     "commonMistakes": [
       "Debugging only the client when the server script is the real issue.",
       "Assuming portal widgets behave exactly like form client scripts."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Debug%20a%20Service%20Portal%20widget%20that%20is%20not%20showing%20updated%20data",
+      "https://developer.servicenow.com/dev.do#!/search/Debug%20a%20Service%20Portal%20widget%20that%20is%20not%20showing%20updated%20data"
+    ],
+    "keyPoints": [
+      "Answer How would you troubleshoot a portal widget that shows stale or incorrect data? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How would you troubleshoot a portal widget that shows stale or incorrect data? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -545,6 +649,19 @@
     "commonMistakes": [
       "Enabling incident creation before tuning event normalization.",
       "Routing every alert directly to incident creation with no correlation strategy."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Create%20incidents%20from%20critical%20alerts%20in%20Event%20Management",
+      "https://developer.servicenow.com/dev.do#!/search/Create%20incidents%20from%20critical%20alerts%20in%20Event%20Management"
+    ],
+    "keyPoints": [
+      "Answer How do you design incident creation for critical alerts without flooding the service desk? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you design incident creation for critical alerts without flooding the service desk? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -598,6 +715,19 @@
     "commonMistakes": [
       "Treating clone as a technical action only with no communication plan.",
       "Forgetting to disable notifications or integration endpoints after clone."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Prepare%20an%20instance%20for%20cloning",
+      "https://developer.servicenow.com/dev.do#!/search/Prepare%20an%20instance%20for%20cloning"
+    ],
+    "keyPoints": [
+      "Answer How do you plan and validate a clone safely? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you plan and validate a clone safely? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -652,6 +782,19 @@
     "commonMistakes": [
       "Mixing unrelated work in the same update set.",
       "Assuming update sets capture every required data/configuration artifact."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Plan%20a%20safe%20update%20set%20deployment",
+      "https://developer.servicenow.com/dev.do#!/search/Plan%20a%20safe%20update%20set%20deployment"
+    ],
+    "keyPoints": [
+      "Answer How do you move a scoped feature change from dev to test to prod safely? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you move a scoped feature change from dev to test to prod safely? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   },
   {
@@ -707,6 +850,19 @@
     "commonMistakes": [
       "Designing only for layout and ignoring data bindings or role access.",
       "Adding too many expensive components without checking performance."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Create%20a%20workspace%20page%20in%20UI%20Builder",
+      "https://developer.servicenow.com/dev.do#!/search/Create%20a%20workspace%20page%20in%20UI%20Builder"
+    ],
+    "keyPoints": [
+      "Answer How do you build a custom workspace page for agents? with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate How do you build a custom workspace page for agents? in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

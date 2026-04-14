@@ -46,6 +46,19 @@
     ],
     "explanation": [
       "onBefore transform scripts let you normalize data before target write."
+    ],
+    "officialSources": [
+      "https://www.servicenow.com/docs/search?q=Transform%20map%20onBefore%20script%20to%20normalize%20state%20values",
+      "https://developer.servicenow.com/dev.do#!/search/Transform%20map%20onBefore%20script%20to%20normalize%20state%20values"
+    ],
+    "keyPoints": [
+      "Answer Write an onBefore transform script that maps source values Open and Closed to incident state integers. with exact platform object/step names.",
+      "Include execution context, data flow, and control points.",
+      "Validate with logs/results and mention failure handling."
+    ],
+    "examples": [
+      "Demonstrate Write an onBefore transform script that maps source values Open and Closed to incident state integers. in a sandbox instance with test data.",
+      "Show expected output and one troubleshooting path."
     ]
   }
 ]

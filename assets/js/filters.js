@@ -3,6 +3,10 @@ function uniqueIds(values = []) {
   return [...new Set((values || []).filter(Boolean))];
 }
 
+function normalizeTopicId(topicId = '', context = {}) {
+  return context.lookups?.topicAliases?.[topicId] || topicId;
+}
+
 function invertMap(map = {}) {
   const inverted = {};
   Object.entries(map || {}).forEach(([parentId, childIds]) => {
@@ -85,12 +89,13 @@ export function filterStudyItems(items = [], filters = {}, context = {}) {
   const derivedContext = buildFilterContext(context);
 
   return items.filter((item) => {
-    const topicIds = resolveTopicIds(item);
+    const topicIds = resolveTopicIds(item).map((topicId) => normalizeTopicId(topicId, derivedContext));
     const moduleIds = resolveModuleIds(item, derivedContext);
     const roleIds = resolveRoleIds(item, derivedContext);
+    const filterTopic = normalizeTopicId(filters.topic || '', derivedContext);
 
     if (filters.module && !moduleIds.includes(filters.module)) return false;
-    if (filters.topic && !topicIds.includes(filters.topic)) return false;
+    if (filterTopic && !topicIds.includes(filterTopic)) return false;
     if (filters.role && !roleIds.includes(filters.role)) return false;
 
     const activeType = filters.type || filters.category || '';
